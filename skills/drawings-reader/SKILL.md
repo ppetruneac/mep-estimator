@@ -1,17 +1,17 @@
 ---
 name: drawings-reader
-description: Read MEP design-intent drawings (PDF or CAD plots), extract title-block context, classify each annotation against the sheet premise, count equipment from symbols not labels, estimate pipe tray and refrigerant lengths, and write one inventory tab per drawing plus a master item register and a cross-tab summary by item ID. Use when the user shares a heating and cooling layout, VRV VRF HBC FCU drawing, or asks for a take-off, annotation count, scaled length, or inventory spreadsheet from a drawing.
+description: Read MEP design-intent drawings (PDF or CAD plots), extract title-block context, classify each annotation against the sheet premise, count equipment from symbols not labels, estimate pipe tray and refrigerant lengths, and write one inventory tab per drawing plus a master item register and a cross-tab summary by item ID grouped by category. Use when the user shares a heating and cooling layout, VRV VRF HBC FCU drawing, or asks for a take-off, annotation count, scaled length, or inventory spreadsheet from a drawing.
 metadata:
   type: workflow
-  version: "1.3"
+  version: "1.4"
   domain: mep-hvac
 ---
 
 # Drawings reader
 
-Turn each MEP layout into one spreadsheet tab, then roll unique items into a master register. If more than one drawing is in the book, add a Summary tab keyed by inventory item ID. Do not invent a second workbook if the user already named one.
+Turn each MEP layout into one spreadsheet tab, then roll unique items into a master register. If more than one drawing is in the book, add a Summary tab keyed by inventory item ID. Group rows by category on every drawing tab and on Summary. Do not invent a second workbook if the user already named one.
 
-Heating, cooling, VRV, HBC, FCU, refrigerant, condensate and tray rules live in `references/ac-specifics.md`. Item IDs, master tab, cross-tab Summary, per-drawing vs building totals, and CSV/Excel write rules live in `references/inventory-model.md`.
+Heating, cooling, VRV, HBC, FCU, refrigerant, condensate and tray rules live in `references/ac-specifics.md`. Item IDs, categories, master tab, cross-tab Summary, and CSV/Excel write rules live in `references/inventory-model.md`.
 
 Do not keep project-specific quantities, Drive file IDs, or job numbers in this skill. Those belong on the project workbook.
 
@@ -32,11 +32,35 @@ Do not keep project-specific quantities, Drive file IDs, or job numbers in this 
 6. List every annotation string. For each leader, name the symbol and room it hits.
 7. Count from tags and symbols, not from how many times the label is printed.
 8. Measure only routes that are drawn, or that the specification of *this* discipline requires. Separate drawn length from inferred length.
-9. Write one tab that matches the book template. Amber-flag inferred sizes and lengths. Assign a stable item ID.
+9. Write one tab that matches the book template. Assign a stable item ID and a **category**. Group rows by category (section band, then items). Amber-flag inferred sizes and lengths.
 10. Update the **Master** tab (union of IDs across drawings). Mark which metres are unique to that sheet and which would double-count a riser if summed.
-11. When two or more drawing tabs exist, rebuild the **Summary** tab. One row per item ID. Include a **Where found** column listing every drawing tab that carries that ID.
+11. When two or more drawing tabs exist, rebuild the **Summary** tab. One row per item ID. Group those rows by the same categories. Include a **Where found** column listing every drawing tab that carries that ID.
 
 Repeat 1-11 for every remaining drawing. Similar plates may share a template; still re-count tags on that sheet. Rebuild Summary after the last drawing, not only after the first.
+
+## Group by category (floor tabs and Summary)
+
+Use the same category list on every sheet so Excel sort / filter / outline match.
+
+Default H&C categories (add others only when the premise needs them):
+
+| Category | Typical IDs |
+|---|---|
+| Indoor terminals | HC-FCU-WALL, HC-FCU-CASS |
+| Controllers | HC-HBC |
+| Outdoor / plant | HC-ODU |
+| Refrigerant / F+R pipe | HC-CU-IN, HC-CU-RISER, HC-CU-ROOF |
+| Tray / containment | HC-TRAY-300, HC-TRAY-400 |
+| Condensate | HC-COND |
+| Lagging | HC-LAG-S, HC-LAG-L |
+| Controls / stats | HC-STAT |
+| Electric heat | HC-ELEC-PNL, HC-ELEC-CUR |
+| Consumables | kits, OFN, rods |
+| Exclusions / interfaces | VT-AHU, PH-ASHP-DHW, off-premise plant |
+
+On a drawing tab: one section-band row per category, items under it, headlines after all categories. On Summary and Master: a `category` column, rows sorted category then item_id. Turn on Excel AutoFilter. Optional outline groups per category so the sheet can collapse.
+
+Do not invent a second category list for Summary. If an ID moves category on a floor tab, move it on Summary too.
 
 ## Cross-tab Summary (required once there is more than one drawing)
 
@@ -44,7 +68,8 @@ Do not leave the reader to add floor tabs by eye. Summary is the building view.
 
 - Key = inventory item ID (`HC-FCU-WALL`, `HC-CU-IN`, …), not the local line code `A01`.
 - One row per ID.
-- Columns at minimum: item_id, description, unit, qty_building, **where_found**, scope.
+- Group rows by **category** (same list as the floor tabs).
+- Columns at minimum: category, item_id, description, unit, qty_building, **where_found**, scope.
 - `where_found` is a readable list of tab names and drawing numbers where that ID appears with qty > 0. Example: `Basement (M-560X); Second Floor (M-5602); Third Floor (M-5603)`.
 - Optional extra columns: qty per tab. Those do not replace `where_found`.
 - Do not paste each floor headline block into Summary. That double-counts passing risers and plant laterals.
