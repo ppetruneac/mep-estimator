@@ -1,17 +1,17 @@
 ---
 name: drawings-reader
-description: Read MEP design-intent drawings (PDF or CAD plots), extract title-block context, classify each annotation against the sheet premise, count equipment from symbols not labels, estimate pipe tray and refrigerant lengths, and write one inventory tab per drawing plus a master item register. Use when the user shares a heating and cooling layout, VRV VRF HBC FCU drawing, or asks for a take-off, annotation count, scaled length, or inventory spreadsheet from a drawing.
+description: Read MEP design-intent drawings (PDF or CAD plots), extract title-block context, classify each annotation against the sheet premise, count equipment from symbols not labels, estimate pipe tray and refrigerant lengths, and write one inventory tab per drawing plus a master item register and a cross-tab summary by item ID. Use when the user shares a heating and cooling layout, VRV VRF HBC FCU drawing, or asks for a take-off, annotation count, scaled length, or inventory spreadsheet from a drawing.
 metadata:
   type: workflow
-  version: "1.2"
+  version: "1.3"
   domain: mep-hvac
 ---
 
 # Drawings reader
 
-Turn each MEP layout into one spreadsheet tab, then roll unique items into a master register. Do not invent a second workbook if the user already named one.
+Turn each MEP layout into one spreadsheet tab, then roll unique items into a master register. If more than one drawing is in the book, add a Summary tab keyed by inventory item ID. Do not invent a second workbook if the user already named one.
 
-Heating, cooling, VRV, HBC, FCU, refrigerant, condensate and tray rules live in `references/ac-specifics.md`. Item IDs, master tab, per-drawing vs building totals, and CSV/Excel write rules live in `references/inventory-model.md`.
+Heating, cooling, VRV, HBC, FCU, refrigerant, condensate and tray rules live in `references/ac-specifics.md`. Item IDs, master tab, cross-tab Summary, per-drawing vs building totals, and CSV/Excel write rules live in `references/inventory-model.md`.
 
 Do not keep project-specific quantities, Drive file IDs, or job numbers in this skill. Those belong on the project workbook.
 
@@ -34,8 +34,23 @@ Do not keep project-specific quantities, Drive file IDs, or job numbers in this 
 8. Measure only routes that are drawn, or that the specification of *this* discipline requires. Separate drawn length from inferred length.
 9. Write one tab that matches the book template. Amber-flag inferred sizes and lengths. Assign a stable item ID.
 10. Update the **Master** tab (union of IDs across drawings). Mark which metres are unique to that sheet and which would double-count a riser if summed.
+11. When two or more drawing tabs exist, rebuild the **Summary** tab. One row per item ID. Include a **Where found** column listing every drawing tab that carries that ID.
 
-Repeat 1-10 for every remaining drawing. Similar plates may share a template; still re-count tags on that sheet.
+Repeat 1-11 for every remaining drawing. Similar plates may share a template; still re-count tags on that sheet. Rebuild Summary after the last drawing, not only after the first.
+
+## Cross-tab Summary (required once there is more than one drawing)
+
+Do not leave the reader to add floor tabs by eye. Summary is the building view.
+
+- Key = inventory item ID (`HC-FCU-WALL`, `HC-CU-IN`, …), not the local line code `A01`.
+- One row per ID.
+- Columns at minimum: item_id, description, unit, qty_building, **where_found**, scope.
+- `where_found` is a readable list of tab names and drawing numbers where that ID appears with qty > 0. Example: `Basement (M-560X); Second Floor (M-5602); Third Floor (M-5603)`.
+- Optional extra columns: qty per tab. Those do not replace `where_found`.
+- Do not paste each floor headline block into Summary. That double-counts passing risers and plant laterals.
+- After any floor qty change, refresh `where_found` and qty_building from the same IDs.
+
+Full column list is in `references/inventory-model.md`.
 
 ## Title block (always capture)
 
@@ -127,4 +142,4 @@ An HBC tag can mean Hybrid (refrigerant to HBC, water HBC to rooms). Printed `RE
 
 ## Destination placeholder
 
-If no inventory file has been named yet, ask where to write (one spreadsheet, one Master tab, one sheet per drawing).
+If no inventory file has been named yet, ask where to write (one spreadsheet, one Master tab, one Summary tab, one sheet per drawing).
