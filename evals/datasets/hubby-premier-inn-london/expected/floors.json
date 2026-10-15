@@ -1,0 +1,1263 @@
+{
+  "floors": {
+    "Basement": {
+      "floor_tab_name": "Basement",
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "scale": "1:50 @ A1",
+      "header": "HUB BY PREMIER INN PUTNEY  \u2014  BASEMENT HEATING & COOLING INVENTORY Client: Mosser Ltd    |    Architect: Curio Architects    |    MEP: Seneca Group Ltd Source drawing: 25280-SEN-0X-DR-M-560X  \u2014  Basement Heating and Cooling Layout  \u2014  Rev P1  \u2014  Stage 4  \u2014  20.01.26  \u2014  1:50 @ A1 Sheet: Basement    |    Take-off basis: scaled 1:50 from P1 intent drawing (1 cm on sheet = 0.5 m on site) + 15% coordi",
+      "tags": [
+        "FCU.B.01",
+        "FCU.B.02",
+        "FCU.B.03",
+        "FCU.B.04",
+        "FCU.B.05",
+        "FCU.B.06",
+        "FCU.B.07",
+        "FCU.B.08",
+        "FCU.B.09",
+        "FCU.B.10",
+        "HB:0B:01"
+      ],
+      "fcu_count": 10,
+      "hbc_count": 1,
+      "plan_lengths": [
+        {
+          "line": "A10",
+          "annotation": "FCU.B.10 \u2014 wall mounted FCU",
+          "plan_m": 21.0,
+          "tender_m": 1.0,
+          "notes": "Only wall unit. Longest F+R run on this floor (~21 m plan). Year-round comms cooling."
+        },
+        {
+          "line": "B01",
+          "annotation": "F+R  \u2014  FCU.B.01 to HBC",
+          "plan_m": 18.0,
+          "tender_m": 44.4,
+          "notes": "18.0 m plan \u00d7 2 pipes + 15% + 1.5 m/pipe tails. Upsize to 28 mm OD if kitchen unit > 5.6 kW."
+        },
+        {
+          "line": "B02",
+          "annotation": "F+R  \u2014  FCU.B.02 to HBC",
+          "plan_m": 18.0,
+          "tender_m": 44.4,
+          "notes": "18.0 m plan \u00d7 2 + allowances."
+        },
+        {
+          "line": "B03",
+          "annotation": "F+R  \u2014  FCU.B.03 to HBC",
+          "plan_m": 14.0,
+          "tender_m": 35.2,
+          "notes": "14.0 m plan \u00d7 2 + allowances. Same kitchen upsize check as B01."
+        },
+        {
+          "line": "B04",
+          "annotation": "F+R  \u2014  FCU.B.04 to HBC",
+          "plan_m": 11.0,
+          "tender_m": 28.3,
+          "notes": "11.0 m plan \u00d7 2 + allowances."
+        },
+        {
+          "line": "B05",
+          "annotation": "F+R  \u2014  FCU.B.05 to HBC",
+          "plan_m": 7.5,
+          "tender_m": 20.3,
+          "notes": "7.5 m plan \u00d7 2 + allowances."
+        },
+        {
+          "line": "B06",
+          "annotation": "F+R  \u2014  FCU.B.06 to HBC",
+          "plan_m": 4.5,
+          "tender_m": 13.4,
+          "notes": "4.5 m plan \u00d7 2 + allowances."
+        },
+        {
+          "line": "B07",
+          "annotation": "F+R  \u2014  FCU.B.07 to HBC",
+          "plan_m": 3.0,
+          "tender_m": 9.9,
+          "notes": "3.0 m plan \u00d7 2 + allowances."
+        },
+        {
+          "line": "B08",
+          "annotation": "F+R  \u2014  FCU.B.08 to HBC",
+          "plan_m": 5.5,
+          "tender_m": 15.7,
+          "notes": "5.5 m plan \u00d7 2 + allowances."
+        },
+        {
+          "line": "B09",
+          "annotation": "F+R  \u2014  FCU.B.09 to HBC",
+          "plan_m": 7.0,
+          "tender_m": 19.1,
+          "notes": "7.0 m plan \u00d7 2 + allowances."
+        },
+        {
+          "line": "B10",
+          "annotation": "F+R  \u2014  FCU.B.10 to HBC",
+          "plan_m": 21.0,
+          "tender_m": 51.3,
+          "notes": "21.0 m plan \u00d7 2 + allowances. Within Mitsubishi 60 m HBC-to-indoor limit."
+        }
+      ],
+      "headlines": {
+        "H1": {
+          "annotation": "Hotel indoor units",
+          "count": 10.0,
+          "tender": 10.0
+        },
+        "H2": {
+          "annotation": "HBC controller",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H3": {
+          "annotation": "Flow + return pipework",
+          "count": 282.0,
+          "tender": 282.0
+        },
+        "H4": {
+          "annotation": "Basement refrigerant pair",
+          "count": 14.0,
+          "tender": 14.0
+        },
+        "H5": {
+          "annotation": "300 mm retail tray",
+          "count": 34.0,
+          "tender": 34.0
+        },
+        "H6": {
+          "annotation": "Electric panel heaters",
+          "count": 7.0,
+          "tender": 7.0
+        },
+        "H7": {
+          "annotation": "Condensate (not drawn)",
+          "count": 60.0,
+          "tender": 60.0
+        },
+        "H8": {
+          "annotation": "Retail VRV indoor units",
+          "count": 0.0,
+          "tender": 0.0
+        },
+        "H9": {
+          "annotation": "Pipe lagging (copper only)",
+          "count": 326.0,
+          "tender": 326.0
+        },
+        "H10": {
+          "annotation": "Tray + pipe containment / clips",
+          "count": 390.0,
+          "tender": 390.0
+        },
+        "H11": {
+          "annotation": "Consumables / expendable materials",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H12": {
+          "annotation": "Room thermostat / controller",
+          "count": 10.0,
+          "tender": 10.0
+        }
+      }
+    },
+    "Ground Floor": {
+      "floor_tab_name": "Ground Floor",
+      "drawing_number": "25280-SEN-00-DR-M-5600",
+      "scale": "1:50 @ A1",
+      "header": "HUB BY PREMIER INN PUTNEY  \u2014  GROUND FLOOR HEATING & COOLING INVENTORY Client: Mosser Ltd    |    Architect: Curio Architects    |    MEP: Seneca Group Ltd Source drawing: 25280-SEN-00-DR-M-5600  \u2014  Ground Floor Heating & Cooling Layout  \u2014  Rev P1  \u2014  Stage 4  \u2014  21.10.26  \u2014  1:50 @ A1 Sheet: Ground Floor    |    Scale 1:50 (1 cm on A1 = 0.5 m on site). Design-intent only. DO NOT fabricate from th",
+      "tags": [],
+      "fcu_count": 0,
+      "hbc_count": 0,
+      "plan_lengths": [],
+      "headlines": {
+        "H1": {
+          "annotation": "Electric over-door air curtain",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H2": {
+          "annotation": "Electric panel heater",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H3": {
+          "annotation": "Retail/office refrigerant risers",
+          "count": 2.0,
+          "tender": 2.0
+        },
+        "H4": {
+          "annotation": "GF refrigerant pipe (both risers)",
+          "count": 28.0,
+          "tender": 28.0
+        },
+        "H5": {
+          "annotation": "Hotel FCUs / HBC / F+R on GF",
+          "count": 0.0,
+          "tender": 0.0
+        },
+        "H6": {
+          "annotation": "300 mm tray on GF",
+          "count": 0.0,
+          "tender": 0.0
+        },
+        "H7": {
+          "annotation": "Retail / office indoor units",
+          "count": 0.0,
+          "tender": 0.0
+        },
+        "H8": {
+          "annotation": "Pipe lagging (copper only)",
+          "count": 30.0,
+          "tender": 30.0
+        },
+        "H9": {
+          "annotation": "Pipe containment / riser clamps",
+          "count": 47.0,
+          "tender": 47.0
+        },
+        "H10": {
+          "annotation": "Consumables / expendable materials",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H11": {
+          "annotation": "Room thermostat / controller",
+          "count": 0.0,
+          "tender": 0.0
+        }
+      }
+    },
+    "Second Floor": {
+      "floor_tab_name": "Second Floor",
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "scale": "1:50 @ A1",
+      "header": "HUB BY PREMIER INN PUTNEY  \u2014  SECOND FLOOR HEATING & COOLING INVENTORY Client: Mosser Ltd    |    Architect: Curio Architects    |    MEP: Seneca Group Ltd Source drawing: 25280-SEN-02-DR-M-5602  \u2014  SECOND FLOOR Heating and Cooling Layout  \u2014  Rev P1  \u2014  Stage 4  \u2014  10.12.25  \u2014  1:50 @ A1 Sheet: Second Floor    |    Scale 1:50 (1 cm on A1 = 0.5 m on site). Plan lengths inferred from two-core plate ",
+      "tags": [
+        "FCU.02.01",
+        "FCU.02.02",
+        "FCU.02.03",
+        "FCU.02.04",
+        "FCU.02.05",
+        "FCU.02.06",
+        "FCU.02.07",
+        "FCU.02.08",
+        "FCU.02.09",
+        "FCU.02.10",
+        "FCU.02.11",
+        "FCU.02.12",
+        "FCU.02.13",
+        "FCU.02.14",
+        "FCU.02.15",
+        "FCU.02.16",
+        "FCU.02.17",
+        "FCU.02.18",
+        "FCU.02.19",
+        "FCU.02.20",
+        "FCU.02.21",
+        "FCU.02.22",
+        "FCU.02.23",
+        "FCU.02.24",
+        "FCU.02.25",
+        "FCU.02.26",
+        "FCU.02.27",
+        "FCU.02.28",
+        "FCU.02.29",
+        "FCU.02.30",
+        "FCU.02.31",
+        "HB:02:01",
+        "HB:02:02"
+      ],
+      "fcu_count": 31,
+      "hbc_count": 2,
+      "plan_lengths": [
+        {
+          "line": "B01",
+          "annotation": "REFRIGERANT FROM HBC TO ROOMS",
+          "plan_m": 11.0,
+          "tender_m": 875.0,
+          "notes": "Avg plan 11.0 m to nearest HBC. tender = 11.0 \u00d7 2 \u00d7 1.15 + 3.0 tails, \u00d7 31 units."
+        },
+        {
+          "line": "C01",
+          "annotation": "REFRIGERANT PIPEWORK ON 400MM WIDE TRAY IN CEILING",
+          "plan_m": 24.78,
+          "tender_m": 60.0,
+          "notes": "Corridor spine inferred from two-core layout + setback where noted. Plan then +15% coordination. Leaders are not extra metres."
+        },
+        {
+          "line": "H3",
+          "annotation": "HBC to rooms pipe (pair)",
+          "plan_m": 379.13,
+          "tender_m": 875.0,
+          "notes": "Includes 15% and tails."
+        }
+      ],
+      "headlines": {
+        "H1": {
+          "annotation": "Wall mounted VRF / FCU",
+          "count": 31.0,
+          "tender": 31.0
+        },
+        "H2": {
+          "annotation": "HBC controllers",
+          "count": 2.0,
+          "tender": 2.0
+        },
+        "H3": {
+          "annotation": "HBC to rooms pipe (pair)",
+          "count": 875.0,
+          "tender": 875.0
+        },
+        "H4": {
+          "annotation": "400 mm ceiling tray",
+          "count": 60.0,
+          "tender": 60.0
+        },
+        "H5": {
+          "annotation": "This-floor ODU to HBC",
+          "count": 24.0,
+          "tender": 24.0
+        },
+        "H6": {
+          "annotation": "Passing systems this storey",
+          "count": 56.0,
+          "tender": 56.0
+        },
+        "H7": {
+          "annotation": "Condensate (not drawn)",
+          "count": 155.0,
+          "tender": 155.0
+        },
+        "H8": {
+          "annotation": "Pipe lagging (copper only)",
+          "count": 1050.0,
+          "tender": 1050.0
+        },
+        "H9": {
+          "annotation": "Tray + pipe containment / clips",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H10": {
+          "annotation": "Consumables / expendable materials",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H11": {
+          "annotation": "Room thermostat / controller",
+          "count": 31.0,
+          "tender": 31.0
+        }
+      }
+    },
+    "Third Floor": {
+      "floor_tab_name": "Third Floor",
+      "drawing_number": "25280-SEN-03-DR-M-5603",
+      "scale": "1:50 @ A1",
+      "header": "HUB BY PREMIER INN PUTNEY  \u2014  THIRD FLOOR HEATING & COOLING INVENTORY Client: Mosser Ltd    |    Architect: Curio Architects    |    MEP: Seneca Group Ltd Source drawing: 25280-SEN-03-DR-M-5603  \u2014  THIRD FLOOR Heating and Cooling Layout  \u2014  Rev P1  \u2014  Stage 4  \u2014  11.12.25  \u2014  1:50 @ A1 Sheet: Third Floor    |    Scale 1:50 (1 cm on A1 = 0.5 m on site). Plan lengths inferred from two-core plate + p",
+      "tags": [
+        "FCU.03.01",
+        "FCU.03.02",
+        "FCU.03.03",
+        "FCU.03.04",
+        "FCU.03.05",
+        "FCU.03.06",
+        "FCU.03.07",
+        "FCU.03.08",
+        "FCU.03.09",
+        "FCU.03.10",
+        "FCU.03.11",
+        "FCU.03.12",
+        "FCU.03.13",
+        "FCU.03.14",
+        "FCU.03.15",
+        "FCU.03.16",
+        "FCU.03.17",
+        "FCU.03.18",
+        "FCU.03.19",
+        "FCU.03.20",
+        "FCU.03.21",
+        "FCU.03.22",
+        "FCU.03.23",
+        "FCU.03.24",
+        "FCU.03.25",
+        "FCU.03.26",
+        "FCU.03.27",
+        "FCU.03.28",
+        "FCU.03.29",
+        "FCU.03.30",
+        "FCU.03.31",
+        "HB:03:01",
+        "HB:03:02"
+      ],
+      "fcu_count": 31,
+      "hbc_count": 2,
+      "plan_lengths": [
+        {
+          "line": "B01",
+          "annotation": "REFRIGERANT FROM HBC TO ROOMS",
+          "plan_m": 11.0,
+          "tender_m": 875.0,
+          "notes": "Avg plan 11.0 m to nearest HBC. tender = 11.0 \u00d7 2 \u00d7 1.15 + 3.0 tails, \u00d7 31 units."
+        },
+        {
+          "line": "C01",
+          "annotation": "REFRIGERANT PIPEWORK ON 400MM WIDE TRAY IN CEILING",
+          "plan_m": 24.78,
+          "tender_m": 60.0,
+          "notes": "Corridor spine inferred from two-core layout + setback where noted. Plan then +15% coordination. Leaders are not extra metres."
+        },
+        {
+          "line": "H3",
+          "annotation": "HBC to rooms pipe (pair)",
+          "plan_m": 379.13,
+          "tender_m": 875.0,
+          "notes": "Includes 15% and tails."
+        }
+      ],
+      "headlines": {
+        "H1": {
+          "annotation": "Wall mounted VRF / FCU",
+          "count": 31.0,
+          "tender": 31.0
+        },
+        "H2": {
+          "annotation": "HBC controllers",
+          "count": 2.0,
+          "tender": 2.0
+        },
+        "H3": {
+          "annotation": "HBC to rooms pipe (pair)",
+          "count": 875.0,
+          "tender": 875.0
+        },
+        "H4": {
+          "annotation": "400 mm ceiling tray",
+          "count": 60.0,
+          "tender": 60.0
+        },
+        "H5": {
+          "annotation": "This-floor ODU to HBC",
+          "count": 24.0,
+          "tender": 24.0
+        },
+        "H6": {
+          "annotation": "Passing systems this storey",
+          "count": 56.0,
+          "tender": 56.0
+        },
+        "H7": {
+          "annotation": "Condensate (not drawn)",
+          "count": 155.0,
+          "tender": 155.0
+        },
+        "H8": {
+          "annotation": "Pipe lagging (copper only)",
+          "count": 1050.0,
+          "tender": 1050.0
+        },
+        "H9": {
+          "annotation": "Tray + pipe containment / clips",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H10": {
+          "annotation": "Consumables / expendable materials",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H11": {
+          "annotation": "Room thermostat / controller",
+          "count": 31.0,
+          "tender": 31.0
+        }
+      }
+    },
+    "Fourth Floor": {
+      "floor_tab_name": "Fourth Floor",
+      "drawing_number": "25280-SEN-04-DR-M-5604",
+      "scale": "1:50 @ A1",
+      "header": "HUB BY PREMIER INN PUTNEY  \u2014  FOURTH FLOOR HEATING & COOLING INVENTORY Client: Mosser Ltd    |    Architect: Curio Architects    |    MEP: Seneca Group Ltd Source drawing: 25280-SEN-04-DR-M-5604  \u2014  FOURTH FLOOR Heating and Cooling Layout  \u2014  Rev P1  \u2014  Stage 4  \u2014  11.12.25  \u2014  1:50 @ A1 Sheet: Fourth Floor    |    Scale 1:50 (1 cm on A1 = 0.5 m on site). Plan lengths inferred from two-core plate ",
+      "tags": [
+        "FCU.04.01",
+        "FCU.04.02",
+        "FCU.04.03",
+        "FCU.04.04",
+        "FCU.04.05",
+        "FCU.04.06",
+        "FCU.04.07",
+        "FCU.04.08",
+        "FCU.04.09",
+        "FCU.04.10",
+        "FCU.04.11",
+        "FCU.04.12",
+        "FCU.04.13",
+        "FCU.04.14",
+        "FCU.04.15",
+        "FCU.04.16",
+        "FCU.04.17",
+        "FCU.04.18",
+        "FCU.04.19",
+        "FCU.04.20",
+        "FCU.04.21",
+        "FCU.04.22",
+        "FCU.04.23",
+        "FCU.04.24",
+        "FCU.04.25",
+        "FCU.04.26",
+        "FCU.04.27",
+        "FCU.04.28",
+        "FCU.04.29",
+        "FCU.04.30",
+        "FCU.04.31",
+        "HB:04:01",
+        "HB:04:02"
+      ],
+      "fcu_count": 31,
+      "hbc_count": 2,
+      "plan_lengths": [
+        {
+          "line": "B01",
+          "annotation": "REFRIGERANT FROM HBC TO ROOMS",
+          "plan_m": 11.0,
+          "tender_m": 875.0,
+          "notes": "Avg plan 11.0 m to nearest HBC. tender = 11.0 \u00d7 2 \u00d7 1.15 + 3.0 tails, \u00d7 31 units."
+        },
+        {
+          "line": "C01",
+          "annotation": "REFRIGERANT PIPEWORK ON 400MM WIDE TRAY IN CEILING",
+          "plan_m": 24.78,
+          "tender_m": 60.0,
+          "notes": "Corridor spine inferred from two-core layout + setback where noted. Plan then +15% coordination. Leaders are not extra metres."
+        },
+        {
+          "line": "H3",
+          "annotation": "HBC to rooms pipe (pair)",
+          "plan_m": 379.13,
+          "tender_m": 875.0,
+          "notes": "Includes 15% and tails."
+        }
+      ],
+      "headlines": {
+        "H1": {
+          "annotation": "Wall mounted VRF / FCU",
+          "count": 31.0,
+          "tender": 31.0
+        },
+        "H2": {
+          "annotation": "HBC controllers",
+          "count": 2.0,
+          "tender": 2.0
+        },
+        "H3": {
+          "annotation": "HBC to rooms pipe (pair)",
+          "count": 875.0,
+          "tender": 875.0
+        },
+        "H4": {
+          "annotation": "400 mm ceiling tray",
+          "count": 60.0,
+          "tender": 60.0
+        },
+        "H5": {
+          "annotation": "This-floor ODU to HBC",
+          "count": 24.0,
+          "tender": 24.0
+        },
+        "H6": {
+          "annotation": "Passing systems this storey",
+          "count": 56.0,
+          "tender": 56.0
+        },
+        "H7": {
+          "annotation": "Condensate (not drawn)",
+          "count": 155.0,
+          "tender": 155.0
+        },
+        "H8": {
+          "annotation": "Pipe lagging (copper only)",
+          "count": 1050.0,
+          "tender": 1050.0
+        },
+        "H9": {
+          "annotation": "Tray + pipe containment / clips",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H10": {
+          "annotation": "Consumables / expendable materials",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H11": {
+          "annotation": "Room thermostat / controller",
+          "count": 31.0,
+          "tender": 31.0
+        }
+      }
+    },
+    "Fifth Floor": {
+      "floor_tab_name": "Fifth Floor",
+      "drawing_number": "25280-SEN-05-DR-M-5605",
+      "scale": "1:50 @ A1",
+      "header": "HUB BY PREMIER INN PUTNEY  \u2014  FIFTH FLOOR HEATING & COOLING INVENTORY Client: Mosser Ltd    |    Architect: Curio Architects    |    MEP: Seneca Group Ltd Source drawing: 25280-SEN-05-DR-M-5605  \u2014  FIFTH FLOOR Heating and Cooling Layout  \u2014  Rev P1  \u2014  Stage 4  \u2014  11.12.25  \u2014  1:50 @ A1 Sheet: Fifth Floor    |    Scale 1:50 (1 cm on A1 = 0.5 m on site). Plan lengths inferred from two-core plate + p",
+      "tags": [
+        "FCU.05.01",
+        "FCU.05.02",
+        "FCU.05.03",
+        "FCU.05.04",
+        "FCU.05.05",
+        "FCU.05.06",
+        "FCU.05.07",
+        "FCU.05.08",
+        "FCU.05.09",
+        "FCU.05.10",
+        "FCU.05.11",
+        "FCU.05.12",
+        "FCU.05.13",
+        "FCU.05.14",
+        "FCU.05.15",
+        "FCU.05.16",
+        "FCU.05.17",
+        "FCU.05.18",
+        "FCU.05.19",
+        "FCU.05.20",
+        "FCU.05.21",
+        "FCU.05.22",
+        "FCU.05.23",
+        "FCU.05.24",
+        "FCU.05.25",
+        "FCU.05.26",
+        "FCU.05.27",
+        "FCU.05.28",
+        "FCU.05.29",
+        "FCU.05.30",
+        "FCU.05.31",
+        "HB:05:01",
+        "HB:05:02"
+      ],
+      "fcu_count": 31,
+      "hbc_count": 2,
+      "plan_lengths": [
+        {
+          "line": "B01",
+          "annotation": "REFRIGERANT FROM HBC TO ROOMS",
+          "plan_m": 11.0,
+          "tender_m": 875.0,
+          "notes": "Avg plan 11.0 m to nearest HBC. tender = 11.0 \u00d7 2 \u00d7 1.15 + 3.0 tails, \u00d7 31 units."
+        },
+        {
+          "line": "C01",
+          "annotation": "REFRIGERANT PIPEWORK ON 400MM WIDE TRAY IN CEILING",
+          "plan_m": 24.78,
+          "tender_m": 60.0,
+          "notes": "Corridor spine inferred from two-core layout + setback where noted. Plan then +15% coordination. Leaders are not extra metres."
+        },
+        {
+          "line": "H3",
+          "annotation": "HBC to rooms pipe (pair)",
+          "plan_m": 379.13,
+          "tender_m": 875.0,
+          "notes": "Includes 15% and tails."
+        }
+      ],
+      "headlines": {
+        "H1": {
+          "annotation": "Wall mounted VRF / FCU",
+          "count": 31.0,
+          "tender": 31.0
+        },
+        "H2": {
+          "annotation": "HBC controllers",
+          "count": 2.0,
+          "tender": 2.0
+        },
+        "H3": {
+          "annotation": "HBC to rooms pipe (pair)",
+          "count": 875.0,
+          "tender": 875.0
+        },
+        "H4": {
+          "annotation": "400 mm ceiling tray",
+          "count": 60.0,
+          "tender": 60.0
+        },
+        "H5": {
+          "annotation": "This-floor ODU to HBC",
+          "count": 24.0,
+          "tender": 24.0
+        },
+        "H6": {
+          "annotation": "Passing systems this storey",
+          "count": 56.0,
+          "tender": 56.0
+        },
+        "H7": {
+          "annotation": "Condensate (not drawn)",
+          "count": 155.0,
+          "tender": 155.0
+        },
+        "H8": {
+          "annotation": "Pipe lagging (copper only)",
+          "count": 1050.0,
+          "tender": 1050.0
+        },
+        "H9": {
+          "annotation": "Tray + pipe containment / clips",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H10": {
+          "annotation": "Consumables / expendable materials",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H11": {
+          "annotation": "Room thermostat / controller",
+          "count": 31.0,
+          "tender": 31.0
+        }
+      }
+    },
+    "Sixth Floor": {
+      "floor_tab_name": "Sixth Floor",
+      "drawing_number": "25280-SEN-06-DR-M-5606",
+      "scale": "1:50 @ A1",
+      "header": "HUB BY PREMIER INN PUTNEY  \u2014  SIXTH FLOOR HEATING & COOLING INVENTORY Client: Mosser Ltd    |    Architect: Curio Architects    |    MEP: Seneca Group Ltd Source drawing: 25280-SEN-06-DR-M-5606  \u2014  SIXTH FLOOR Heating and Cooling Layout  \u2014  Rev P1  \u2014  Stage 4  \u2014  25.11.25  \u2014  1:50 @ A1 Sheet: Sixth Floor    |    Scale 1:50 (1 cm on A1 = 0.5 m on site). Plan lengths inferred from two-core plate + p",
+      "tags": [
+        "FCU.06.01",
+        "FCU.06.02",
+        "FCU.06.03",
+        "FCU.06.04",
+        "FCU.06.05",
+        "FCU.06.06",
+        "FCU.06.07",
+        "FCU.06.08",
+        "FCU.06.09",
+        "FCU.06.10",
+        "FCU.06.11",
+        "FCU.06.12",
+        "FCU.06.13",
+        "FCU.06.14",
+        "FCU.06.15",
+        "FCU.06.16",
+        "FCU.06.17",
+        "FCU.06.18",
+        "FCU.06.19",
+        "FCU.06.20",
+        "FCU.06.21",
+        "FCU.06.22",
+        "FCU.06.23",
+        "FCU.06.24",
+        "FCU.06.25",
+        "FCU.06.26",
+        "FCU.06.27",
+        "HB:06:01",
+        "HB:06:02"
+      ],
+      "fcu_count": 27,
+      "hbc_count": 2,
+      "plan_lengths": [
+        {
+          "line": "B01",
+          "annotation": "REFRIGERANT FROM HBC TO ROOMS",
+          "plan_m": 10.0,
+          "tender_m": 676.0,
+          "notes": "Avg plan 10.0 m to nearest HBC. tender = 10.0 \u00d7 2 \u00d7 1.15 + 3.0 tails, \u00d7 26 units."
+        },
+        {
+          "line": "C01",
+          "annotation": "REFRIGERANT PIPEWORK ON 400MM WIDE TRAY IN CEILING",
+          "plan_m": 18.7,
+          "tender_m": 46.0,
+          "notes": "Corridor spine inferred from two-core layout + setback where noted. Plan then +15% coordination. Leaders are not extra metres."
+        },
+        {
+          "line": "H3",
+          "annotation": "HBC to rooms pipe (pair)",
+          "plan_m": 292.61,
+          "tender_m": 676.0,
+          "notes": "Includes 15% and tails."
+        }
+      ],
+      "headlines": {
+        "H1": {
+          "annotation": "Wall mounted VRF / FCU",
+          "count": 26.0,
+          "tender": 26.0
+        },
+        "H2": {
+          "annotation": "HBC controllers",
+          "count": 2.0,
+          "tender": 2.0
+        },
+        "H3": {
+          "annotation": "HBC to rooms pipe (pair)",
+          "count": 676.0,
+          "tender": 676.0
+        },
+        "H4": {
+          "annotation": "400 mm ceiling tray",
+          "count": 46.0,
+          "tender": 46.0
+        },
+        "H5": {
+          "annotation": "This-floor ODU to HBC",
+          "count": 24.0,
+          "tender": 24.0
+        },
+        "H6": {
+          "annotation": "Passing systems this storey",
+          "count": 56.0,
+          "tender": 56.0
+        },
+        "H7": {
+          "annotation": "Condensate (not drawn)",
+          "count": 130.0,
+          "tender": 130.0
+        },
+        "H8": {
+          "annotation": "Pipe lagging (copper only)",
+          "count": 832.0,
+          "tender": 832.0
+        },
+        "H9": {
+          "annotation": "Tray + pipe containment / clips",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H10": {
+          "annotation": "Consumables / expendable materials",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H11": {
+          "annotation": "Room thermostat / controller",
+          "count": 26.0,
+          "tender": 26.0
+        }
+      }
+    },
+    "Seventh Floor": {
+      "floor_tab_name": "Seventh Floor",
+      "drawing_number": "25280-SEN-07-DR-M-5607",
+      "scale": "1:50 @ A1",
+      "header": "HUB BY PREMIER INN PUTNEY  \u2014  SEVENTH FLOOR HEATING & COOLING INVENTORY Client: Mosser Ltd    |    Architect: Curio Architects    |    MEP: Seneca Group Ltd Source drawing: 25280-SEN-07-DR-M-5607  \u2014  SEVENTH FLOOR Heating and Cooling Layout  \u2014  Rev P1  \u2014  Stage 4  \u2014  11.12.25  \u2014  1:50 @ A1 Sheet: Seventh Floor    |    Scale 1:50 (1 cm on A1 = 0.5 m on site). Plan lengths inferred from two-core pla",
+      "tags": [
+        "FCU.07.01",
+        "FCU.07.02",
+        "FCU.07.03",
+        "FCU.07.04",
+        "FCU.07.05",
+        "FCU.07.06",
+        "FCU.07.07",
+        "FCU.07.08",
+        "FCU.07.09",
+        "FCU.07.10",
+        "FCU.07.11",
+        "FCU.07.12",
+        "FCU.07.13",
+        "FCU.07.14",
+        "FCU.07.15",
+        "FCU.07.16",
+        "FCU.07.17",
+        "FCU.07.18",
+        "FCU.07.19",
+        "FCU.07.20",
+        "FCU.07.21",
+        "FCU.07.22",
+        "FCU.07.23",
+        "FCU.07.24",
+        "FCU.07.25",
+        "HB:07:01",
+        "HB:07:02"
+      ],
+      "fcu_count": 25,
+      "hbc_count": 2,
+      "plan_lengths": [
+        {
+          "line": "B01",
+          "annotation": "REFRIGERANT FROM HBC TO ROOMS",
+          "plan_m": 9.5,
+          "tender_m": 596.0,
+          "notes": "Avg plan 9.5 m to nearest HBC. tender = 9.5 \u00d7 2 \u00d7 1.15 + 3.0 tails, \u00d7 24 units."
+        },
+        {
+          "line": "C01",
+          "annotation": "REFRIGERANT PIPEWORK ON 400MM WIDE TRAY IN CEILING",
+          "plan_m": 16.52,
+          "tender_m": 41.0,
+          "notes": "Corridor spine inferred from two-core layout + setback where noted. Plan then +15% coordination. Leaders are not extra metres."
+        },
+        {
+          "line": "H3",
+          "annotation": "HBC to rooms pipe (pair)",
+          "plan_m": 257.83,
+          "tender_m": 596.0,
+          "notes": "Includes 15% and tails."
+        }
+      ],
+      "headlines": {
+        "H1": {
+          "annotation": "Wall mounted VRF / FCU",
+          "count": 24.0,
+          "tender": 24.0
+        },
+        "H2": {
+          "annotation": "HBC controllers",
+          "count": 2.0,
+          "tender": 2.0
+        },
+        "H3": {
+          "annotation": "HBC to rooms pipe (pair)",
+          "count": 596.0,
+          "tender": 596.0
+        },
+        "H4": {
+          "annotation": "400 mm ceiling tray",
+          "count": 41.0,
+          "tender": 41.0
+        },
+        "H5": {
+          "annotation": "This-floor ODU to HBC",
+          "count": 24.0,
+          "tender": 24.0
+        },
+        "H6": {
+          "annotation": "Passing systems this storey",
+          "count": 56.0,
+          "tender": 56.0
+        },
+        "H7": {
+          "annotation": "Condensate (not drawn)",
+          "count": 120.0,
+          "tender": 120.0
+        },
+        "H8": {
+          "annotation": "Pipe lagging (copper only)",
+          "count": 744.0,
+          "tender": 744.0
+        },
+        "H9": {
+          "annotation": "Tray + pipe containment / clips",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H10": {
+          "annotation": "Consumables / expendable materials",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H11": {
+          "annotation": "Room thermostat / controller",
+          "count": 24.0,
+          "tender": 24.0
+        }
+      }
+    },
+    "Eighth Floor": {
+      "floor_tab_name": "Eighth Floor",
+      "drawing_number": "25280-SEN-08-DR-M-5608",
+      "scale": "1:50 @ A1",
+      "header": "HUB BY PREMIER INN PUTNEY  \u2014  EIGHTH FLOOR HEATING & COOLING INVENTORY Client: Mosser Ltd    |    Architect: Curio Architects    |    MEP: Seneca Group Ltd Source drawing: 25280-SEN-08-DR-M-5608  \u2014  EIGHTH FLOOR Heating and Cooling Layout  \u2014  Rev P1  \u2014  Stage 4  \u2014  11.12.25  \u2014  1:50 @ A1 Sheet: Eighth Floor    |    Scale 1:50 (1 cm on A1 = 0.5 m on site). Plan lengths inferred from two-core plate ",
+      "tags": [
+        "FCU.08.01",
+        "FCU.08.02",
+        "FCU.08.03",
+        "FCU.08.04",
+        "FCU.08.05",
+        "FCU.08.06",
+        "FCU.08.07",
+        "FCU.08.08",
+        "FCU.08.09",
+        "FCU.08.10",
+        "FCU.08.11",
+        "FCU.08.12",
+        "FCU.08.13",
+        "FCU.08.14",
+        "FCU.08.15",
+        "HB:08:01"
+      ],
+      "fcu_count": 15,
+      "hbc_count": 1,
+      "plan_lengths": [
+        {
+          "line": "B01",
+          "annotation": "REFRIGERANT FROM HBC TO ROOMS",
+          "plan_m": 8.6,
+          "tender_m": 342.0,
+          "notes": "Avg plan 8.6 m to HB:08:01 (one core). tender = 8.6 \u00d7 2 \u00d7 1.15 + 3.0 tails, \u00d7 15 units = 342 m."
+        },
+        {
+          "line": "C01",
+          "annotation": "REFRIGERANT PIPEWORK ON 400MM WIDE TRAY IN CEILING",
+          "plan_m": 12.61,
+          "tender_m": 32.0,
+          "notes": "Corridor spine inferred from two-core layout + setback where noted. Plan then +15% coordination. Leaders are not extra metres."
+        },
+        {
+          "line": "H3",
+          "annotation": "HBC to rooms pipe (pair)",
+          "plan_m": 147.39,
+          "tender_m": 342.0,
+          "notes": "Includes 15% and tails."
+        }
+      ],
+      "headlines": {
+        "H1": {
+          "annotation": "Wall mounted VRF / FCU",
+          "count": 15.0,
+          "tender": 15.0
+        },
+        "H2": {
+          "annotation": "HBC controllers",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H3": {
+          "annotation": "HBC to rooms pipe (pair)",
+          "count": 459.0,
+          "tender": 342.0
+        },
+        "H4": {
+          "annotation": "400 mm ceiling tray",
+          "count": 32.0,
+          "tender": 32.0
+        },
+        "H5": {
+          "annotation": "This-floor ODU to HBC",
+          "count": 12.0,
+          "tender": 12.0
+        },
+        "H6": {
+          "annotation": "Passing systems this storey",
+          "count": 56.0,
+          "tender": 56.0
+        },
+        "H7": {
+          "annotation": "Condensate (not drawn)",
+          "count": 75.0,
+          "tender": 75.0
+        },
+        "H8": {
+          "annotation": "Pipe lagging (copper only)",
+          "count": 450.0,
+          "tender": 450.0
+        },
+        "H9": {
+          "annotation": "Tray + pipe containment / clips",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H10": {
+          "annotation": "Consumables / expendable materials",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H11": {
+          "annotation": "Room thermostat / controller",
+          "count": 15.0,
+          "tender": 15.0
+        }
+      }
+    },
+    "Ninth Floor": {
+      "floor_tab_name": "Ninth Floor",
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "scale": "1:50 @ A1",
+      "header": "HUB BY PREMIER INN PUTNEY  \u2014  NINTH FLOOR HEATING & COOLING INVENTORY Client: Mosser Ltd    |    Architect: Curio Architects    |    MEP: Seneca Group Ltd Source drawing: 25280-SEN-09-DR-M-5609  \u2014  NINTH FLOOR Heating and Cooling Layout  \u2014  Rev P1  \u2014  Stage 4  \u2014  11.12.25  \u2014  1:50 @ A1 Sheet: Ninth Floor    |    Scale 1:50 (1 cm on A1 = 0.5 m on site). Plan lengths inferred from two-core plate + p",
+      "tags": [
+        "FCU.09.01",
+        "FCU.09.02",
+        "FCU.09.03",
+        "FCU.09.04",
+        "FCU.09.05",
+        "FCU.09.06",
+        "FCU.09.07",
+        "FCU.09.08",
+        "FCU.09.09",
+        "HB:09:01"
+      ],
+      "fcu_count": 9,
+      "hbc_count": 1,
+      "plan_lengths": [
+        {
+          "line": "B01",
+          "annotation": "REFRIGERANT FROM HBC TO ROOMS",
+          "plan_m": 8.0,
+          "tender_m": 196.0,
+          "notes": "Avg plan 8.0 m to nearest HBC. tender = 8.0 \u00d7 2 \u00d7 1.15 + 3.0 tails, \u00d7 9 units."
+        },
+        {
+          "line": "C01",
+          "annotation": "REFRIGERANT PIPEWORK ON 400MM WIDE TRAY IN CEILING",
+          "plan_m": 6.52,
+          "tender_m": 18.0,
+          "notes": "Smallest plate. Plan 16 m + 15% = 18 m. One tray."
+        },
+        {
+          "line": "H3",
+          "annotation": "HBC to rooms pipe (pair)",
+          "plan_m": 83.91,
+          "tender_m": 196.0,
+          "notes": "Includes 15% and tails."
+        }
+      ],
+      "headlines": {
+        "H1": {
+          "annotation": "Wall mounted VRF / FCU",
+          "count": 9.0,
+          "tender": 9.0
+        },
+        "H2": {
+          "annotation": "HBC controllers",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H3": {
+          "annotation": "HBC to rooms pipe (pair)",
+          "count": 193.0,
+          "tender": 196.0
+        },
+        "H4": {
+          "annotation": "400 mm ceiling tray",
+          "count": 23.0,
+          "tender": 18.0
+        },
+        "H5": {
+          "annotation": "This-floor ODU to HBC",
+          "count": 12.0,
+          "tender": 12.0
+        },
+        "H6": {
+          "annotation": "System 7 vertical this storey",
+          "count": 56.0,
+          "tender": 14.0
+        },
+        "H7": {
+          "annotation": "Condensate (not drawn)",
+          "count": 45.0,
+          "tender": 45.0
+        },
+        "H8": {
+          "annotation": "Pipe lagging (copper only)",
+          "count": 244.0,
+          "tender": 244.0
+        },
+        "H9": {
+          "annotation": "Tray + pipe containment / clips",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H10": {
+          "annotation": "Consumables / expendable materials",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H11": {
+          "annotation": "Room thermostat / controller",
+          "count": 9.0,
+          "tender": 9.0
+        }
+      }
+    },
+    "Roof Plant": {
+      "floor_tab_name": "Roof Plant",
+      "drawing_number": "25287-SEN-00-DR-M-5150",
+      "scale": "1:50 @ A1",
+      "header": "HUB BY PREMIER INN PUTNEY  \u2014  ROOF PLANT MECHANICAL SERVICES INVENTORY Client: Mosser Ltd    |    Architect: Curio Architects    |    MEP: Seneca Group Ltd Source drawing: 25287-SEN-00-DR-M-5150  \u2014  Roof Plant Room Mechanical Services  \u2014  Rev P1  \u2014  Stage 4A  \u2014  29.01.26  \u2014  1:50 @ A1 Sheet: Roof Plant    |    Filename in Drive is 'Copy of 25287-SEN-00-DR-M-5150'. Title-block project number is 252",
+      "tags": [],
+      "fcu_count": 0,
+      "hbc_count": 0,
+      "plan_lengths": [
+        {
+          "line": "B01",
+          "annotation": "HOTEL ROOMS EXTRACT 700 \u00d7 650 mm",
+          "plan_m": 7.0,
+          "tender_m": 8.0,
+          "notes": "Roof deck lateral only, 7 m plan +15%. Not the full building extract riser."
+        },
+        {
+          "line": "C02",
+          "annotation": "BOH & F&B REFRIGERANT PIPEWORK TO BELOW",
+          "plan_m": 12.0,
+          "tender_m": 28.0,
+          "notes": "12 m plan \u00d7 2 pipes \u00d7 1.15."
+        },
+        {
+          "line": "C03",
+          "annotation": "RISER RETAIL/OFFICES REFRIGERANT PIPEWORK TO BELOW",
+          "plan_m": 10.0,
+          "tender_m": 23.0,
+          "notes": "10 m plan \u00d7 2 pipes \u00d7 1.15. Two leaders, one riser."
+        },
+        {
+          "line": "C05",
+          "annotation": "HWS F&R T/B BASEMENT & PLANTROOM",
+          "plan_m": 15.0,
+          "tender_m": 40.0,
+          "notes": "15 m plan \u00d7 2 pipes \u00d7 1.15 plus tails. Not the full HWS riser."
+        }
+      ],
+      "headlines": {
+        "H1": {
+          "annotation": "Hotel-room outdoor systems",
+          "count": 7.0,
+          "tender": 7.0
+        },
+        "H2": {
+          "annotation": "BOH/F&B outdoor + office/retail plant space",
+          "count": 2.0,
+          "tender": 2.0
+        },
+        "H3": {
+          "annotation": "AHUs",
+          "count": 3.0,
+          "tender": 3.0
+        },
+        "H4": {
+          "annotation": "DHW ASHP + calorifiers",
+          "count": 3.0,
+          "tender": 3.0
+        },
+        "H5": {
+          "annotation": "Hotel-room refrigerant on the roof deck",
+          "count": 161.0,
+          "tender": 161.0
+        },
+        "H6": {
+          "annotation": "Other refrigerant on the roof deck",
+          "count": 51.0,
+          "tender": 51.0
+        },
+        "H7": {
+          "annotation": "Printed duct laterals (sum of B01\u2013B08)",
+          "count": 54.0,
+          "tender": 54.0
+        },
+        "H8": {
+          "annotation": "Pipe lagging (copper only)",
+          "count": 234.0,
+          "tender": 234.0
+        },
+        "H9": {
+          "annotation": "Pipe containment / clips on roof deck",
+          "count": 240.0,
+          "tender": 240.0
+        },
+        "H10": {
+          "annotation": "Consumables / expendable materials",
+          "count": 1.0,
+          "tender": 1.0
+        },
+        "H11": {
+          "annotation": "Room thermostat / controller",
+          "count": 0.0,
+          "tender": 0.0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "riser-extract"
+version = "0.1.0"
+description = "Deterministic geometry and text extraction from MEP PDF drawings (Riser Phase 1)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+authors = [{ name = "GetRiser" }]
+dependencies = [
+  "pymupdf>=1.24.0",
+  "pdfplumber>=0.11.0",
+  "pydantic>=2.0",
+  "pandas>=2.0",
+  "openpyxl>=3.1",
+  "planlens>=0.13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+riser-extract = "riser_extract.cli:main"
+riser-eval = "riser_extract.eval_cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/riser_extract"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/riser_extract" = "riser_extract"
+
+[tool.hatch.build.targets.sdist]
+include = ["src/riser_extract", "evals", "tests", "README.md", "AGENTS.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.uv]
+package = true
