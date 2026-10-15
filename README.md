@@ -39,7 +39,18 @@ Each occurrence carries:
 - `legacy_item_id` matching the skill inventory model (`HC-FCU-WALL`, …)
 - Coordinates (pixel bbox + metres), scale, layer, colour, measurement type
 
-JSON only in Phase 1. Full Excel Master/Summary is GR-3.
+JSON only in Phase 1–2. Full Excel Master/Summary is GR-3.
+
+### Phase 2 — symbol identification
+
+Rules-first boxes + confidence on annotated PNGs. Optional YOLO residual:
+
+```bash
+uv run riser-symbols extract path/to/pdfs -o evals/evidence/gr2
+uv run riser-eval --primary-only   # includes symbol count gates
+```
+
+Decision log: [`evals/reports/gr2-decision-log.md`](evals/reports/gr2-decision-log.md).
 
 ### Evals
 

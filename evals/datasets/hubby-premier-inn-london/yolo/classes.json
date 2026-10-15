@@ -1,0 +1,27 @@
+{
+  "classes": [
+    "fcu_wall",
+    "fcu_cass",
+    "hbc",
+    "panel_heater",
+    "door_curtain",
+    "ahu",
+    "ashp",
+    "tray_note"
+  ],
+  "data_yaml": {
+    "path": "/Users/pico/workspace/mep-estimator/evals/datasets/hubby-premier-inn-london/yolo",
+    "train": "images",
+    "val": "images",
+    "names": {
+      "0": "fcu_wall",
+      "1": "fcu_cass",
+      "2": "hbc",
+      "3": "panel_heater",
+      "4": "door_curtain",
+      "5": "ahu",
+      "6": "ashp",
+      "7": "tray_note"
+    }
+  }
+}

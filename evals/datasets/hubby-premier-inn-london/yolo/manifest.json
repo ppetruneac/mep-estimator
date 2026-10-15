@@ -1,0 +1,251 @@
+[
+  {
+    "pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-02-DR-M-5602 - Second Floor - Heating and Cooling Layout.pdf",
+    "image": "images/25280-SEN-02-DR-M-5602_Second_Floor.png",
+    "label": "labels/25280-SEN-02-DR-M-5602_Second_Floor.txt",
+    "floor": "Second Floor",
+    "drawing_number": "25280-SEN-02-DR-M-5602",
+    "n_symbols": 34,
+    "n_labels": 34,
+    "symbol_summary": {
+      "fcu_wall": {
+        "count": 31,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 2,
+        "avg_confidence": 0.675
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    }
+  },
+  {
+    "pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-03-DR-M-5603 - Third Floor - Heating and Cooling Layout.pdf",
+    "image": "images/25280-SEN-03-DR-M-5603_Third_Floor.png",
+    "label": "labels/25280-SEN-03-DR-M-5603_Third_Floor.txt",
+    "floor": "Third Floor",
+    "drawing_number": "25280-SEN-03-DR-M-5603",
+    "n_symbols": 34,
+    "n_labels": 34,
+    "symbol_summary": {
+      "fcu_wall": {
+        "count": 31,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 2,
+        "avg_confidence": 0.675
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    }
+  },
+  {
+    "pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-04-DR-M-5604 - Fourth Floor - Heating and Cooling Layout.pdf",
+    "image": "images/25280-SEN-04-DR-M-5604_Fourth_Floor.png",
+    "label": "labels/25280-SEN-04-DR-M-5604_Fourth_Floor.txt",
+    "floor": "Fourth Floor",
+    "drawing_number": "25280-SEN-04-DR-M-5604",
+    "n_symbols": 34,
+    "n_labels": 34,
+    "symbol_summary": {
+      "fcu_wall": {
+        "count": 31,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 2,
+        "avg_confidence": 0.675
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    }
+  },
+  {
+    "pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-05-DR-M-5605 - Fifth Floor - Heating and Cooling Layout.pdf",
+    "image": "images/25280-SEN-05-DR-M-5605_Fifth_Floor.png",
+    "label": "labels/25280-SEN-05-DR-M-5605_Fifth_Floor.txt",
+    "floor": "Fifth Floor",
+    "drawing_number": "25280-SEN-05-DR-M-5605",
+    "n_symbols": 34,
+    "n_labels": 34,
+    "symbol_summary": {
+      "fcu_wall": {
+        "count": 31,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 2,
+        "avg_confidence": 0.675
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    }
+  },
+  {
+    "pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-06-DR-M-5606 - Sixth Floor - Heating and Cooling Layout.pdf",
+    "image": "images/25280-SEN-06-DR-M-5606_Sixth_Floor.png",
+    "label": "labels/25280-SEN-06-DR-M-5606_Sixth_Floor.txt",
+    "floor": "Sixth Floor",
+    "drawing_number": "25280-SEN-06-DR-M-5606",
+    "n_symbols": 30,
+    "n_labels": 30,
+    "symbol_summary": {
+      "fcu_wall": {
+        "count": 27,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 2,
+        "avg_confidence": 0.675
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.75
+      }
+    }
+  },
+  {
+    "pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-07-DR-M-5607 - Seventh Floor - Heating and Cooling Layout.pdf",
+    "image": "images/25280-SEN-07-DR-M-5607_Seventh_Floor.png",
+    "label": "labels/25280-SEN-07-DR-M-5607_Seventh_Floor.txt",
+    "floor": "Seventh Floor",
+    "drawing_number": "25280-SEN-07-DR-M-5607",
+    "n_symbols": 28,
+    "n_labels": 28,
+    "symbol_summary": {
+      "fcu_wall": {
+        "count": 25,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 2,
+        "avg_confidence": 0.825
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    }
+  },
+  {
+    "pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-08-DR-M-5608 - Eighth  Floor - Heating and Cooling Layout.pdf",
+    "image": "images/25280-SEN-08-DR-M-5608_Eighth_Floor.png",
+    "label": "labels/25280-SEN-08-DR-M-5608_Eighth_Floor.txt",
+    "floor": "Eighth Floor",
+    "drawing_number": "25280-SEN-08-DR-M-5608",
+    "n_symbols": 18,
+    "n_labels": 18,
+    "symbol_summary": {
+      "fcu_wall": {
+        "count": 16,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 1,
+        "avg_confidence": 0.6
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    }
+  },
+  {
+    "pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-09-DR-M-5609 - Ninth Floor - Heating and Cooling Layout.pdf",
+    "image": "images/25280-SEN-09-DR-M-5609_Ninth_Floor.png",
+    "label": "labels/25280-SEN-09-DR-M-5609_Ninth_Floor.txt",
+    "floor": "Ninth Floor",
+    "drawing_number": "25280-SEN-09-DR-M-5609",
+    "n_symbols": 11,
+    "n_labels": 11,
+    "symbol_summary": {
+      "fcu_wall": {
+        "count": 9,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 1,
+        "avg_confidence": 0.6
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.75
+      }
+    }
+  },
+  {
+    "pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-0X-DR-M-5600 -Heating and Cooling - Ground Floor-P1.pdf",
+    "image": "images/25280-SEN-00-DR-M-5600_Ground_Floor.png",
+    "label": "labels/25280-SEN-00-DR-M-5600_Ground_Floor.txt",
+    "floor": "Ground Floor",
+    "drawing_number": "25280-SEN-00-DR-M-5600",
+    "n_symbols": 2,
+    "n_labels": 2,
+    "symbol_summary": {
+      "door_curtain": {
+        "count": 1,
+        "avg_confidence": 0.75
+      },
+      "panel_heater": {
+        "count": 1,
+        "avg_confidence": 0.82
+      }
+    }
+  },
+  {
+    "pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-0X-DR-M-560X -Heating and Cooling - Basement Floor-P1.pdf",
+    "image": "images/25280-SEN-0X-DR-M-560X_Basement.png",
+    "label": "labels/25280-SEN-0X-DR-M-560X_Basement.txt",
+    "floor": "Basement",
+    "drawing_number": "25280-SEN-0X-DR-M-560X",
+    "n_symbols": 19,
+    "n_labels": 19,
+    "symbol_summary": {
+      "fcu_cass": {
+        "count": 10,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 1,
+        "avg_confidence": 0.6
+      },
+      "panel_heater": {
+        "count": 7,
+        "avg_confidence": 0.627
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    }
+  },
+  {
+    "pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25287-SEN-00-DR-M-5150 - Roof Plant - Mechanical Services.pdf",
+    "image": "images/25287-SEN-00-DR-M-5150_Roof_Plant.png",
+    "label": "labels/25287-SEN-00-DR-M-5150_Roof_Plant.txt",
+    "floor": "Roof Plant",
+    "drawing_number": "25287-SEN-00-DR-M-5150",
+    "n_symbols": 5,
+    "n_labels": 5,
+    "symbol_summary": {
+      "ahu": {
+        "count": 3,
+        "avg_confidence": 0.9
+      },
+      "ashp": {
+        "count": 2,
+        "avg_confidence": 0.675
+      }
+    }
+  }
+]

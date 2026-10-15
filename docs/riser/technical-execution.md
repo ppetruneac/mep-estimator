@@ -92,6 +92,10 @@ Do not ship colour flood-fill as the length engine. It under-counts thin hatch. 
 
 Package `riser_extract` (`src/riser_extract/`) emits one JSON per drawing under `inventory_json/`: title-block metadata plus occurrence rows with coordinates, provisional trade `item_id` (`MEC` / `ELEC` / `PLUM` / `VENT`) and `legacy_item_id` (`HC-*` / `VT-*` / `PH-*`) for join with the skill inventory model. Eval harness: `evals/` against the Hubby gold workbook. CSV is deferred; Excel Master/Summary is GR-3.
 
+### Phase 2 symbols (implemented)
+
+Rules-first symbol identification enriches JSON with `symbols[]` (`symbol_class`, `confidence`, `source=rule|yolo`, bbox, centroid, amber flag) and burns boxes onto annotated PNG/PDF under `annotated/`. Starter classes on the Hubby Seneca set are solved by tag proximity + layer + colour + compact geometry. YOLO is optional residual (`riser-symbols dataset|train`, extra `yolo`). Decision log: `evals/reports/gr2-decision-log.md`. Evidence: `evals/evidence/gr2/`.
+
 ## 6. Pricing engine
 
 Port the mep-estimator rules.

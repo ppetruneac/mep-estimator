@@ -1,0 +1,377 @@
+{
+  "title_block": {
+    "project": "Hub by Premier Inn Putney",
+    "client": null,
+    "drawing_number": "25287-SEN-00-DR-M-5150",
+    "title": null,
+    "floor": "Roof Plant",
+    "floor_tab_name": "Roof Plant",
+    "revision": "P1",
+    "stage": null,
+    "date": "29-01-26",
+    "scale": "1:50 @ A1",
+    "scale_ratio": 50,
+    "paper": "A1",
+    "disclaimer": "DO NOT SCALE",
+    "page_width_pt": 2384.0,
+    "page_height_pt": 1684.0,
+    "rotation": 270,
+    "measure_m_per_cm": 0.49948,
+    "m_per_pt": 0.017620544444444445,
+    "source_pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25287-SEN-00-DR-M-5150 - Roof Plant - Mechanical Services.pdf",
+    "layers": [
+      "0",
+      "E600 CIRCUIT WIRING",
+      "H576_M_Detail",
+      "H576_M_Extract",
+      "H576_M_Supply",
+      "H576_T_Supply",
+      "H577_M_Atten",
+      "H579_M_Damper",
+      "H579_M_R_Damper",
+      "M500_M_MECH GENERAL",
+      "M551_M_HTG HL",
+      "Title Block",
+      "xref"
+    ],
+    "notes": "scale_source=measure+title; creator=AutoCAD 2026 (25.1)       "
+  },
+  "occurrences": [
+    {
+      "drawing_number": "25287-SEN-00-DR-M-5150",
+      "page": 1,
+      "floor_tab_name": "Roof Plant",
+      "scale": "1:50 @ A1",
+      "category": "Exclusions / interfaces",
+      "item_id": "VENT-AHU",
+      "legacy_item_id": "VT-AHU",
+      "annotation": "AHU:01",
+      "linked_to": "cyan spine/pipe, layer:H579_M_Damper, red electric bar",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "out",
+      "length_m": null,
+      "pixel_bbox": [
+        850.38,
+        1548.92,
+        876.24,
+        1568.9
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": null,
+      "raw_text_nearby": "MAIN AHU (DOUBLE STACKED) AHU:01",
+      "symbol_class": "ahu",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        863.31,
+        1558.91
+      ]
+    },
+    {
+      "drawing_number": "25287-SEN-00-DR-M-5150",
+      "page": 1,
+      "floor_tab_name": "Roof Plant",
+      "scale": "1:50 @ A1",
+      "category": "Exclusions / interfaces",
+      "item_id": "VENT-AHU",
+      "legacy_item_id": "VT-AHU",
+      "annotation": "AHU:02",
+      "linked_to": "layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "out",
+      "length_m": null,
+      "pixel_bbox": [
+        907.74,
+        1379.36,
+        930.18,
+        1398.2
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#000000",
+      "notes": null,
+      "raw_text_nearby": "BOH/F&B AHU:02",
+      "symbol_class": "ahu",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        918.96,
+        1388.78
+      ]
+    },
+    {
+      "drawing_number": "25287-SEN-00-DR-M-5150",
+      "page": 1,
+      "floor_tab_name": "Roof Plant",
+      "scale": "1:50 @ A1",
+      "category": "Exclusions / interfaces",
+      "item_id": "VENT-AHU",
+      "legacy_item_id": "VT-AHU",
+      "annotation": "AHU:03",
+      "linked_to": "green riser/tray box, layer:H579_M_Damper, red electric bar",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "out",
+      "length_m": null,
+      "pixel_bbox": [
+        1029.48,
+        950.0,
+        1046.82,
+        971.24
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": null,
+      "raw_text_nearby": "BASEMENT/PLANTROOM AHU:03",
+      "symbol_class": "ahu",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1038.15,
+        960.62
+      ]
+    },
+    {
+      "drawing_number": "25287-SEN-00-DR-M-5150",
+      "page": 1,
+      "floor_tab_name": "Roof Plant",
+      "scale": "1:50 @ A1",
+      "category": "Exclusions / interfaces",
+      "item_id": "PLUM-ASHP-DHW",
+      "legacy_item_id": "PH-ASHP-DHW",
+      "annotation": "LIFE ASHP",
+      "linked_to": "cyan spine/pipe, red electric bar, green riser/tray box",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "out",
+      "length_m": null,
+      "pixel_bbox": [
+        969.77,
+        352.36,
+        1009.77,
+        392.36
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#000000",
+      "notes": null,
+      "raw_text_nearby": "HOTEL DHW ASHP EXTERNAL PLANT SECONDARY LIFE SAFETY PACKAGED SKID MOUNTED GENERATOR ROOMS EXTRACT & TLL",
+      "symbol_class": "ashp",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        989.77,
+        372.36
+      ]
+    },
+    {
+      "drawing_number": "25287-SEN-00-DR-M-5150",
+      "page": 1,
+      "floor_tab_name": "Roof Plant",
+      "scale": "1:50 @ A1",
+      "category": "Exclusions / interfaces",
+      "item_id": "PLUM-ASHP-DHW",
+      "legacy_item_id": "PH-ASHP-DHW",
+      "annotation": "BCWS TO ASHP SYSTEM",
+      "linked_to": "cyan spine/pipe, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "out",
+      "length_m": null,
+      "pixel_bbox": [
+        969.77,
+        352.36,
+        1009.77,
+        392.36
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "BCWS TO ASHP SYSTEM HWS F&R TB BASEMENT & PLANTROOM SUPPLY 400X400MM FB & TLL BASEMENT & PLANTROOM EXTRACT 400X400MM FB",
+      "symbol_class": "ashp",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        989.77,
+        372.36
+      ]
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_class": "ahu",
+      "item_id": "VENT-AHU",
+      "legacy_item_id": "VT-AHU",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        850.38,
+        1548.92,
+        876.24,
+        1568.9
+      ],
+      "centroid_px": [
+        863.31,
+        1558.91
+      ],
+      "real_world_coords": {
+        "x_m": 15.212,
+        "y_m": 2.204
+      },
+      "linked_tag": "AHU:01",
+      "linked_path_layer": "H576_M_Extract",
+      "colour": "#00ff00",
+      "notes": "tag-anchored compact geom d=79.3pt"
+    },
+    {
+      "symbol_class": "ahu",
+      "item_id": "VENT-AHU",
+      "legacy_item_id": "VT-AHU",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        907.74,
+        1379.36,
+        930.18,
+        1398.2
+      ],
+      "centroid_px": [
+        918.96,
+        1388.78
+      ],
+      "real_world_coords": {
+        "x_m": 16.193,
+        "y_m": 5.202
+      },
+      "linked_tag": "AHU:02",
+      "linked_path_layer": "0",
+      "colour": "#ff0000",
+      "notes": "tag-anchored compact geom d=63.5pt"
+    },
+    {
+      "symbol_class": "ahu",
+      "item_id": "VENT-AHU",
+      "legacy_item_id": "VT-AHU",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1029.48,
+        950.0,
+        1046.82,
+        971.24
+      ],
+      "centroid_px": [
+        1038.15,
+        960.62
+      ],
+      "real_world_coords": {
+        "x_m": 18.293,
+        "y_m": 12.746
+      },
+      "linked_tag": "AHU:03",
+      "linked_path_layer": "H576_M_Extract",
+      "colour": "#00ff00",
+      "notes": "tag-anchored compact geom d=65.1pt"
+    },
+    {
+      "symbol_class": "ashp",
+      "item_id": "PLUM-ASHP-DHW",
+      "legacy_item_id": "PH-ASHP-DHW",
+      "confidence": 0.75,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        877.68,
+        828.08,
+        897.78,
+        848.18
+      ],
+      "centroid_px": [
+        887.73,
+        838.13
+      ],
+      "real_world_coords": {
+        "x_m": 15.642,
+        "y_m": 14.905
+      },
+      "linked_tag": "ASHP",
+      "linked_path_layer": "M551_M_HTG HL",
+      "colour": "#ff0000",
+      "notes": "tag-anchored compact geom d=100.8pt"
+    },
+    {
+      "symbol_class": "ashp",
+      "item_id": "PLUM-ASHP-DHW",
+      "legacy_item_id": "PH-ASHP-DHW",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        969.77,
+        352.36,
+        1009.77,
+        392.36
+      ],
+      "centroid_px": [
+        989.77,
+        372.36
+      ],
+      "real_world_coords": {
+        "x_m": 17.44,
+        "y_m": 23.112
+      },
+      "linked_tag": "ASHP",
+      "linked_path_layer": null,
+      "colour": null,
+      "notes": "fallback box \u2014 no compact geom near tag"
+    }
+  ],
+  "summary": {
+    "drawing_number": "25287-SEN-00-DR-M-5150",
+    "floor_tab_name": "Roof Plant",
+    "scale": "1:50 @ A1",
+    "n_occurrences": 5,
+    "n_symbols": 5,
+    "backend": "pymupdf (planlens installed)",
+    "totals": {
+      "VENT-AHU": 3.0,
+      "PLUM-ASHP-DHW": 2.0
+    },
+    "symbols": {
+      "ahu": {
+        "count": 3,
+        "avg_confidence": 0.9
+      },
+      "ashp": {
+        "count": 2,
+        "avg_confidence": 0.675
+      }
+    }
+  },
+  "extractor_version": "0.2.0",
+  "backend": "pymupdf (planlens installed)"
+}

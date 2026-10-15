@@ -1,0 +1,1331 @@
+{
+  "title_block": {
+    "project": "Hub by Premier Inn Putney",
+    "client": null,
+    "drawing_number": "25280-SEN-09-DR-M-5609",
+    "title": null,
+    "floor": "Ninth Floor",
+    "floor_tab_name": "Ninth Floor",
+    "revision": "P1",
+    "stage": "Stage 4",
+    "date": "11-12-25",
+    "scale": "1:50 @ A1",
+    "scale_ratio": 50,
+    "paper": "A1",
+    "disclaimer": "DO NOT SCALE",
+    "page_width_pt": 2384.0,
+    "page_height_pt": 1684.0,
+    "rotation": 270,
+    "measure_m_per_cm": 0.49949,
+    "m_per_pt": 0.017620897222222223,
+    "source_pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-09-DR-M-5609 - Ninth Floor - Heating and Cooling Layout.pdf",
+    "layers": [
+      "0",
+      "E600 CIRCUIT WIRING",
+      "E_containment-hatch",
+      "MP-REFRIG",
+      "Title Block",
+      "tray",
+      "xref"
+    ],
+    "notes": "scale_source=measure+title; creator=AutoCAD LT 2026 - English 2026 (25.1s (LMS Tech))"
+  },
+  "occurrences": [
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.09.01",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        973.48,
+        986.99,
+        1001.73,
+        1032.08
+      ],
+      "real_world_coords": null,
+      "layer": "xref",
+      "colour": "#808080",
+      "notes": null,
+      "raw_text_nearby": "FCU.09.01",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        987.61,
+        1009.53
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.09.02",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        973.48,
+        1040.39,
+        1001.73,
+        1085.48
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.09.02",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        987.61,
+        1062.93
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.09.03",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        972.15,
+        1188.18,
+        993.79,
+        1204.64
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.09.03",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        982.97,
+        1196.41
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.09.04",
+      "linked_to": "cyan spine/pipe, layer:0, green riser/tray box",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1154.73,
+        1604.3,
+        1170.23,
+        1619.84
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "12.5 Room FCU.09.04",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1162.48,
+        1612.07
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.09.05",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1037.04,
+        1604.33,
+        1052.52,
+        1619.87
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "11.3 m\u00b2 Room FCU.09.05",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1044.78,
+        1612.1
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.09.06",
+      "linked_to": "cyan spine/pipe, layer:0, green riser/tray box",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        887.07,
+        1584.71,
+        932.16,
+        1612.96
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "14.6 m\u00b2 Room FCU.09.06",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        909.61,
+        1598.83
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.09.07",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        687.39,
+        1630.26,
+        709.03,
+        1646.72
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "14.4 m\u00b2 Room Twin FCU.09.07",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        698.21,
+        1638.49
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.09.08",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        610.56,
+        1595.6,
+        632.76,
+        1645.52
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#000000",
+      "notes": null,
+      "raw_text_nearby": "11.4 m\u00b2 Room Standard FCU.09.08",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        621.66,
+        1620.56
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.09.09",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        651.17,
+        1397.96,
+        672.81,
+        1414.42
+      ],
+      "real_world_coords": null,
+      "layer": "xref",
+      "colour": "#808080",
+      "notes": null,
+      "raw_text_nearby": "21.0 m\u00b2 Room Accessible FCU.09.09",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        661.99,
+        1406.19
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Controllers",
+      "item_id": "MEC-HBC",
+      "legacy_item_id": "HC-HBC",
+      "annotation": "HB:09:01",
+      "linked_to": "cyan spine/pipe, layer:0, HBC controller",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1028.05,
+        1684.0,
+        1076.05,
+        1684.0
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "HBC CONTROLLER HB:09:01",
+      "symbol_class": "hbc",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1052.05,
+        1684.0
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": null,
+      "item_id": null,
+      "legacy_item_id": null,
+      "annotation": "HBC CONTROLLER",
+      "linked_to": null,
+      "count": 0.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        911.39453125,
+        1880.9599609375,
+        918.38671875,
+        2000.225341796875
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Typical-detail / call-out label \u2014 not an extra unit",
+      "raw_text_nearby": "ROOM CONDITIONING REFRIGERANT PIPEWORK FROM ABOVE TO BELOW. WITH BRANCH AT HIGH LEVEL TO SYSTEM NO 7TH-9TH FLOOR UNITS. CONNECTS TO HBC CONTROLLER.",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": null,
+      "item_id": null,
+      "legacy_item_id": null,
+      "annotation": "HBC CONTROLLER",
+      "linked_to": null,
+      "count": 0.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1074.95458984375,
+        1882.760009765625,
+        1081.94677734375,
+        1947.248779296875
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Typical-detail / call-out label \u2014 not an extra unit",
+      "raw_text_nearby": "HBC CONTROLLER HB:09:01",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": null,
+      "item_id": null,
+      "legacy_item_id": null,
+      "annotation": "HBC CONTROLLER",
+      "linked_to": null,
+      "count": 0.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1334.154541015625,
+        912.320068359375,
+        1341.146728515625,
+        1035.0809326171875
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Typical-detail / call-out label \u2014 not an extra unit",
+      "raw_text_nearby": "REFRIGERANT PIPEWORK FROM HBC CONTROLLER TO ROOM UNITS",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": null,
+      "item_id": null,
+      "legacy_item_id": null,
+      "annotation": "WALL MOUNTED FCU",
+      "linked_to": null,
+      "count": 0.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        796.3145751953125,
+        892.6400146484375,
+        803.3067626953125,
+        948.9688720703125
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Typical-detail / call-out label \u2014 not an extra unit",
+      "raw_text_nearby": "WALL MOUNTED INTERNAL UNIT.",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": null,
+      "item_id": null,
+      "legacy_item_id": null,
+      "annotation": "WALL MOUNTED INTERNAL VRF",
+      "linked_to": null,
+      "count": 0.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        787.91455078125,
+        892.1600341796875,
+        803.3067626953125,
+        1001.4171142578125
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Typical-detail / call-out label \u2014 not an extra unit",
+      "raw_text_nearby": "WALL MOUNTED INTERNAL VRF UNIT.",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.09.01 to HB:09:01",
+      "linked_to": "HB:09:01",
+      "count": 16.008465853486186,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 16.01,
+      "pixel_bbox": [
+        973.48,
+        986.99,
+        1001.73,
+        1032.08
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 17.314,
+          "y_m": 12.175
+        },
+        "to": {
+          "x_m": 18.855,
+          "y_m": -3.759
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        987.61,
+        1009.53
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.09.02 to HB:09:01",
+      "linked_to": "HB:09:01",
+      "count": 14.63891755403772,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 14.64,
+      "pixel_bbox": [
+        973.48,
+        1040.39,
+        1001.73,
+        1085.48
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 17.314,
+          "y_m": 10.798
+        },
+        "to": {
+          "x_m": 18.855,
+          "y_m": -3.759
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        987.61,
+        1062.93
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.09.03 to HB:09:01",
+      "linked_to": "HB:09:01",
+      "count": 12.750114710642817,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 12.75,
+      "pixel_bbox": [
+        972.15,
+        1188.18,
+        993.79,
+        1204.64
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 17.314,
+          "y_m": 8.897
+        },
+        "to": {
+          "x_m": 18.855,
+          "y_m": -3.759
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        982.97,
+        1196.41
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.09.04 to HB:09:01",
+      "linked_to": "HB:09:01",
+      "count": 5.286896081600751,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 5.29,
+      "pixel_bbox": [
+        1154.73,
+        1604.3,
+        1170.23,
+        1619.84
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 20.228,
+          "y_m": 1.347
+        },
+        "to": {
+          "x_m": 18.855,
+          "y_m": -3.759
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1162.48,
+        1612.07
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.09.05 to HB:09:01",
+      "linked_to": "HB:09:01",
+      "count": 5.029849392175982,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 5.03,
+      "pixel_bbox": [
+        1037.04,
+        1604.33,
+        1052.52,
+        1619.87
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 18.141,
+          "y_m": 1.22
+        },
+        "to": {
+          "x_m": 18.855,
+          "y_m": -3.759
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1044.78,
+        1612.1
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.09.06 to HB:09:01",
+      "linked_to": "HB:09:01",
+      "count": 5.660125930979271,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 5.66,
+      "pixel_bbox": [
+        887.07,
+        1584.71,
+        932.16,
+        1612.96
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 16.113,
+          "y_m": 1.192
+        },
+        "to": {
+          "x_m": 18.855,
+          "y_m": -3.759
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        909.61,
+        1598.83
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.09.07 to HB:09:01",
+      "linked_to": "HB:09:01",
+      "count": 8.16751753647432,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 8.17,
+      "pixel_bbox": [
+        687.39,
+        1630.26,
+        709.03,
+        1646.72
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 12.296,
+          "y_m": 1.108
+        },
+        "to": {
+          "x_m": 18.855,
+          "y_m": -3.759
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        698.21,
+        1638.49
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.09.08 to HB:09:01",
+      "linked_to": "HB:09:01",
+      "count": 9.13139117323856,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 9.13,
+      "pixel_bbox": [
+        610.56,
+        1595.6,
+        632.76,
+        1645.52
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 10.934,
+          "y_m": 0.784
+        },
+        "to": {
+          "x_m": 18.855,
+          "y_m": -3.759
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        621.66,
+        1620.56
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.09.09 to HB:09:01",
+      "linked_to": "HB:09:01",
+      "count": 11.801986851583242,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 11.8,
+      "pixel_bbox": [
+        651.17,
+        1397.96,
+        672.81,
+        1414.42
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 11.569,
+          "y_m": 5.525
+        },
+        "to": {
+          "x_m": 18.855,
+          "y_m": -3.759
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        661.99,
+        1406.19
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-09-DR-M-5609",
+      "page": 1,
+      "floor_tab_name": "Ninth Floor",
+      "scale": "1:50 @ A1",
+      "category": "Tray / containment",
+      "item_id": "MEC-TRAY-400",
+      "legacy_item_id": "HC-TRAY-400",
+      "annotation": "400 mm TRAY",
+      "linked_to": "tray hatch/spine",
+      "count": 37.53,
+      "unit": "m",
+      "size": "400 mm",
+      "measurement_type": "scaled",
+      "scope": "in",
+      "length_m": 37.53,
+      "pixel_bbox": [
+        1242.48,
+        1404.92,
+        1257.48,
+        1474.88
+      ],
+      "real_world_coords": null,
+      "layer": "TRAY",
+      "colour": null,
+      "notes": "Scaled via TRAY layer cluster. No flood-fill.",
+      "raw_text_nearby": null,
+      "symbol_class": "tray_note",
+      "confidence": 0.75,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1249.98,
+        1439.9
+      ]
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        973.48,
+        986.99,
+        1001.73,
+        1032.08
+      ],
+      "centroid_px": [
+        987.61,
+        1009.53
+      ],
+      "real_world_coords": {
+        "x_m": 17.403,
+        "y_m": 11.885
+      },
+      "linked_tag": "FCU.09.01",
+      "linked_path_layer": "xref",
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=17.3pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        973.48,
+        1040.39,
+        1001.73,
+        1085.48
+      ],
+      "centroid_px": [
+        987.61,
+        1062.93
+      ],
+      "real_world_coords": {
+        "x_m": 17.403,
+        "y_m": 10.944
+      },
+      "linked_tag": "FCU.09.02",
+      "linked_path_layer": "xref",
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=8.0pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        972.15,
+        1188.18,
+        993.79,
+        1204.64
+      ],
+      "centroid_px": [
+        982.97,
+        1196.41
+      ],
+      "real_world_coords": {
+        "x_m": 17.321,
+        "y_m": 8.592
+      },
+      "linked_tag": "FCU.09.03",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1154.73,
+        1604.3,
+        1170.23,
+        1619.84
+      ],
+      "centroid_px": [
+        1162.48,
+        1612.07
+      ],
+      "real_world_coords": {
+        "x_m": 20.484,
+        "y_m": 1.267
+      },
+      "linked_tag": "FCU.09.04",
+      "linked_path_layer": "xref",
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=15.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1037.04,
+        1604.33,
+        1052.52,
+        1619.87
+      ],
+      "centroid_px": [
+        1044.78,
+        1612.1
+      ],
+      "real_world_coords": {
+        "x_m": 18.41,
+        "y_m": 1.267
+      },
+      "linked_tag": "FCU.09.05",
+      "linked_path_layer": "xref",
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=15.5pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        887.07,
+        1584.71,
+        932.16,
+        1612.96
+      ],
+      "centroid_px": [
+        909.61,
+        1598.83
+      ],
+      "real_world_coords": {
+        "x_m": 16.028,
+        "y_m": 1.501
+      },
+      "linked_tag": "FCU.09.06",
+      "linked_path_layer": "xref",
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=15.7pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        687.39,
+        1630.26,
+        709.03,
+        1646.72
+      ],
+      "centroid_px": [
+        698.21,
+        1638.49
+      ],
+      "real_world_coords": {
+        "x_m": 12.303,
+        "y_m": 0.802
+      },
+      "linked_tag": "FCU.09.07",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        610.56,
+        1595.6,
+        632.76,
+        1645.52
+      ],
+      "centroid_px": [
+        621.66,
+        1620.56
+      ],
+      "real_world_coords": {
+        "x_m": 10.954,
+        "y_m": 1.118
+      },
+      "linked_tag": "FCU.09.08",
+      "linked_path_layer": "0",
+      "colour": "#ffffff",
+      "notes": "tag-anchored compact geom d=21.7pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        651.17,
+        1397.96,
+        672.81,
+        1414.42
+      ],
+      "centroid_px": [
+        661.99,
+        1406.19
+      ],
+      "real_world_coords": {
+        "x_m": 11.665,
+        "y_m": 4.895
+      },
+      "linked_tag": "FCU.09.09",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=35.4pt"
+    },
+    {
+      "symbol_class": "hbc",
+      "item_id": "MEC-HBC",
+      "legacy_item_id": "HC-HBC",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1028.05,
+        1684.0,
+        1076.05,
+        1684.0
+      ],
+      "centroid_px": [
+        1052.05,
+        1684.0
+      ],
+      "real_world_coords": {
+        "x_m": 18.538,
+        "y_m": 0.0
+      },
+      "linked_tag": "HB:09:01",
+      "linked_path_layer": null,
+      "colour": null,
+      "notes": "fallback box \u2014 no compact geom near tag"
+    },
+    {
+      "symbol_class": "tray_note",
+      "item_id": "MEC-TRAY-400",
+      "legacy_item_id": "HC-TRAY-400",
+      "confidence": 0.75,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1242.48,
+        1404.92,
+        1257.48,
+        1474.88
+      ],
+      "centroid_px": [
+        1249.98,
+        1439.9
+      ],
+      "real_world_coords": {
+        "x_m": 22.026,
+        "y_m": 4.301
+      },
+      "linked_tag": "400 mm TRAY",
+      "linked_path_layer": "xref",
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=112.9pt"
+    }
+  ],
+  "summary": {
+    "drawing_number": "25280-SEN-09-DR-M-5609",
+    "floor_tab_name": "Ninth Floor",
+    "scale": "1:50 @ A1",
+    "n_occurrences": 25,
+    "n_symbols": 11,
+    "backend": "pymupdf (planlens installed)",
+    "totals": {
+      "MEC-FCU-WALL": 9.0,
+      "MEC-HBC": 1.0,
+      "HBC CONTROLLER": 0.0,
+      "WALL MOUNTED FCU": 0.0,
+      "WALL MOUNTED INTERNAL VRF": 0.0,
+      "MEC-CU-IN": 88.48,
+      "MEC-TRAY-400": 37.53
+    },
+    "symbols": {
+      "fcu_wall": {
+        "count": 9,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 1,
+        "avg_confidence": 0.6
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.75
+      }
+    }
+  },
+  "extractor_version": "0.2.0",
+  "backend": "pymupdf (planlens installed)"
+}

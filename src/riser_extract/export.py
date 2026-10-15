@@ -21,6 +21,7 @@ def write_json(result: ExtractionResult, out_dir: str | Path, slug: str) -> Path
     payload = {
         "title_block": result.title_block.model_dump(),
         "occurrences": [o.model_dump() for o in result.occurrences],
+        "symbols": [s.model_dump() for s in result.symbols],
         "summary": result.summary(),
         "extractor_version": result.extractor_version,
         "backend": result.backend,

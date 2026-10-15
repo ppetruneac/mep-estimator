@@ -25,6 +25,7 @@ from riser_extract.scale import (
     resolve_scale,
 )
 from riser_extract.schema import ExtractionResult, MeasurementType, Occurrence, Scope, TitleBlock
+from riser_extract.symbols import enrich_occurrences_with_symbols, identify_symbols_rules
 from riser_extract.tags import TagHit, find_tags, fcu_tags, hbc_tags
 from riser_extract.text import extract_words, full_text, words_near
 
@@ -285,9 +286,20 @@ def extract_drawing(pdf_path: str | Path) -> ExtractionResult:
                     )
                 )
 
+        symbols = identify_symbols_rules(
+            tags,
+            paths,
+            floor_tab_name=floor,
+            m_per_pt=scale.m_per_pt,
+            page_width=info.display_width,
+            page_height=info.display_height,
+        )
+        enrich_occurrences_with_symbols(occurrences, symbols)
+
         result = ExtractionResult(
             title_block=title,
             occurrences=occurrences,
+            symbols=symbols,
             backend=backend,
         )
         # stash for overlay callers
@@ -303,6 +315,7 @@ def extract_and_write(
     out_dir: str | Path,
     *,
     overlay: bool = True,
+    annotated_png: bool = True,
 ) -> tuple[ExtractionResult, Path]:
     path = Path(pdf_path)
     result = extract_drawing(path)
@@ -314,4 +327,9 @@ def extract_and_write(
         paths = getattr(result, "_paths", [])
         overlay_path = Path(out_dir) / "overlays" / f"{slug}.pdf"
         write_overlay(path, overlay_path, tags=tags, paths=paths, result=result)
+    if annotated_png:
+        from riser_extract.annotate import write_annotated_png
+
+        png_path = Path(out_dir) / "annotated" / f"{slug}.png"
+        write_annotated_png(path, png_path, result=result)
     return result, json_path
