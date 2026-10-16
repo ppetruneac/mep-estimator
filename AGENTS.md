@@ -6,7 +6,7 @@
 |---|---|
 | `skills/drawings-reader/` | Method docs (keep). Inventory model still uses legacy `HC-*` IDs |
 | `skills/mep-estimator/` | Pricing method docs (keep) |
-| `src/riser_extract/` | Phase 1 deterministic PDF extractor |
+| `src/riser_extract/` | Phase 1 deterministic PDF extractor. See its [README](src/riser_extract/README.md) |
 | `evals/` | Gold parse + performance reports vs Hubby inventory |
 | `docs/riser/` | Product / technical docs |
 
@@ -15,6 +15,13 @@
 ```bash
 uv venv .venv
 uv pip install -e ".[dev]"
+```
+
+Recommended for reproducibility (once lockfile is committed):
+
+```bash
+uv lock          # generate/update uv.lock
+uv sync --dev
 ```
 
 Training PDFs + gold xlsx (not in git):
