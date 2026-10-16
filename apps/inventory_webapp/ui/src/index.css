@@ -170,9 +170,15 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .tremor-Table-table th.qty-col,
 .tremor-Table-table td.qty-col,
 .qty-col {
-  min-width: 5.5rem;
+  min-width: 6rem;
   white-space: nowrap;
   text-align: right;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+.tremor-Table-table th.qty-col .obs-th-btn {
+  display: inline-block;
+  min-width: 3rem;
 }
 .tremor-Table-table th.unit-col,
 .tremor-Table-table td.unit-col,
@@ -181,21 +187,12 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
   white-space: nowrap;
 }
 
-/* Type + Status + Actions sticky; wider status so pending/approved fit */
+/* Type stays in normal flow so it does not cover Qty */
 .tremor-Table-table th.type-col,
 .tremor-Table-table td.type-col,
 .type-col {
-  position: sticky;
-  right: 21rem; /* status 8.5 + actions 12.5 */
-  z-index: 2;
   min-width: 9rem;
   white-space: nowrap;
-  background: #ffffff;
-  box-shadow: -4px 0 6px -4px rgb(15 23 42 / 10%);
-}
-.tremor-Table-table thead th.type-col {
-  background: #f8fafc;
-  z-index: 3;
 }
 
 .tremor-Table-table th.status-col,
@@ -228,7 +225,6 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
   background: #f8fafc;
   z-index: 3;
 }
-.tremor-Table-table tbody tr.click-row:hover td.type-col,
 .tremor-Table-table tbody tr.click-row:hover td.status-col,
 .tremor-Table-table tbody tr.click-row:hover td.actions-col {
   background: #e0f2fe;
@@ -312,9 +308,6 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .dark .tremor-Table-table tbody tr.click-row:hover {
   background: rgba(99, 102, 241, 0.12);
 }
-.dark .tremor-Table-table th.type-col,
-.dark .tremor-Table-table td.type-col,
-.dark .type-col,
 .dark .tremor-Table-table th.status-col,
 .dark .tremor-Table-table td.status-col,
 .dark .status-col,
@@ -323,7 +316,6 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .dark .actions-col {
   background: #111827;
 }
-.dark .tremor-Table-table thead th.type-col,
 .dark .tremor-Table-table thead th.status-col,
 .dark .tremor-Table-table thead th.actions-col {
   background: #0b1220;
@@ -333,7 +325,6 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .dark .actions-col {
   box-shadow: -6px 0 8px -6px rgb(0 0 0 / 45%);
 }
-.dark .tremor-Table-table tbody tr.click-row:hover td.type-col,
 .dark .tremor-Table-table tbody tr.click-row:hover td.status-col,
 .dark .tremor-Table-table tbody tr.click-row:hover td.actions-col {
   background: rgba(99, 102, 241, 0.12);

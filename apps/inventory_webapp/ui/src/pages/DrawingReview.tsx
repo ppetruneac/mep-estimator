@@ -293,14 +293,14 @@ export function DrawingReview() {
                 <TableHeaderCell>
                   <SortBtn label="Annotation" col="annotation" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                 </TableHeaderCell>
+                <TableHeaderCell className="type-col">
+                  <SortBtn label="Type" col="measurement_type" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
+                </TableHeaderCell>
                 <TableHeaderCell className="qty-col">
                   <SortBtn label="Qty" col="effective_qty" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                 </TableHeaderCell>
                 <TableHeaderCell className="unit-col">
                   <SortBtn label="Unit" col="unit" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
-                </TableHeaderCell>
-                <TableHeaderCell className="type-col">
-                  <SortBtn label="Type" col="measurement_type" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                 </TableHeaderCell>
                 <TableHeaderCell className="status-col">
                   <SortBtn label="Status" col="status" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
@@ -328,6 +328,9 @@ export function DrawingReview() {
                       <div className="text-xs text-slate-500">{it.linked_to}</div>
                     )}
                   </TableCell>
+                  <TableCell className="type-col">
+                    <span className="whitespace-nowrap">{it.measurement_type || "—"}</span>
+                  </TableCell>
                   <TableCell className="qty-col">
                     <span className="whitespace-nowrap tabular-nums">
                       {it.effective_qty}
@@ -335,9 +338,6 @@ export function DrawingReview() {
                   </TableCell>
                   <TableCell className="unit-col whitespace-nowrap">
                     {it.unit}
-                  </TableCell>
-                  <TableCell className="type-col">
-                    <span className="whitespace-nowrap">{it.measurement_type || "—"}</span>
                   </TableCell>
                   <TableCell className="status-col">
                     <span
