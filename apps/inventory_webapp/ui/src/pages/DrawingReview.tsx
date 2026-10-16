@@ -6,7 +6,6 @@ import {
   InformationCircleIcon,
 } from "@heroicons/react/24/outline";
 import {
-  Badge,
   Button,
   Card,
   Table,
@@ -318,21 +317,22 @@ export function DrawingReview() {
                   </TableCell>
                   <TableCell>{it.effective_qty}</TableCell>
                   <TableCell>{it.unit}</TableCell>
-                  <TableCell className="type-col whitespace-nowrap">
-                    {it.measurement_type || "—"}
+                  <TableCell className="type-col">
+                    <span className="whitespace-nowrap">{it.measurement_type || "—"}</span>
                   </TableCell>
-                  <TableCell className="status-col whitespace-nowrap">
-                    <Badge
-                      color={
+                  <TableCell className="status-col">
+                    <span
+                      className={[
+                        "whitespace-nowrap text-sm font-medium capitalize",
                         it.status === "approved" || it.status === "amended"
-                          ? "emerald"
+                          ? "text-emerald-700 dark:text-emerald-400"
                           : it.status === "excluded"
-                            ? "red"
-                            : "amber"
-                      }
+                            ? "text-red-700 dark:text-red-400"
+                            : "text-amber-700 dark:text-amber-400",
+                      ].join(" ")}
                     >
                       {it.status}
-                    </Badge>
+                    </span>
                   </TableCell>
                   <TableCell className="actions-col">
                     <div className="flex flex-nowrap items-center gap-1">
