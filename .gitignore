@@ -9,6 +9,10 @@ build/
 *.egg-info/
 out/
 .DS_Store
+.env
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
 *.pdf
 !tests/fixtures/*.pdf
 evals/reports/*-hubby.json
