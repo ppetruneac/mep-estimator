@@ -1,23 +1,25 @@
-"""Phase 4: length calculations, tender conversion, aggregation.
+"""Phase 4: length calculations and tender conversion.
 
-Consumes Phase 1 ExtractionResult / Occurrence records (length_m is the one-way
-plan route). Applies the exact formulas from skills/drawings-reader/SKILL.md.
-Stores results in SQLite (no CSV/JSON reports).
+Consumes Phase 1/2 Occurrence records (length_m is the one-way plan route).
+Applies the exact formulas from skills/drawings-reader/SKILL.md.
 
-Deferred to later phases:
-- Catalog-driven engineering formulas (Hazen-Williams etc.) — need Phase 3 catalog.
-- Full Master/Summary Excel book assembly.
-- Drive ground-truth validation harness (data not in repo).
+Does **not** create new SQLite tables. Tender results are written into the
+notes field of the existing Phase 3 ``occurrences`` table (and can refresh
+inventory_lines). No CSV/JSON reports.
+
+Deferred:
+- Catalog-driven engineering formulas (Hazen-Williams etc.).
+- Explicit tender_length_m column (can be added later if needed).
+- Full building-level unique/interface roll-up beyond what Phase 3 already does.
 """
 
 from __future__ import annotations
 
 import sqlite3
 from collections import defaultdict
-from pathlib import Path
 from typing import Iterable
 
-from riser_extract.schema import ExtractionResult, MeasurementType, Occurrence, Scope
+from riser_extract.schema import ExtractionResult, MeasurementType, Occurrence
 
 # Defaults from SKILL.md
 COORDINATION_FACTOR = 1.15
@@ -50,12 +52,11 @@ def tray_length_with_waste(
 
 
 def apply_tender(occ: Occurrence) -> Occurrence:
-    """Return a copy with tender_length_m computed and notes updated.
+    """Return a copy with tender conversion appended to notes.
 
-    length_m remains the drawn/plan route. tender is attached as a note field
-    for now (schema extension deferred).
+    length_m remains the drawn/plan route. tender_length_m is stashed on the
+    object for callers; it is not a schema field.
     """
-    # Shallow copy via model_copy if pydantic v2
     updated = occ.model_copy(deep=True)
     plan = occ.length_m or 0.0
     notes = list(filter(None, [occ.notes]))
@@ -65,7 +66,6 @@ def apply_tender(occ: Occurrence) -> Occurrence:
             tender = tray_length_with_waste(plan)
             notes.append(f"tray waste {TRAY_WASTE_FACTOR:.0%} applied → tender {tender:.2f} m")
         elif occ.measurement_type in {MeasurementType.SCALED, MeasurementType.GEOMETRY}:
-            # Two-pipe indoor run default
             tender = tender_length_two_pipe(plan)
             notes.append(
                 f"tender conversion (2×{COORDINATION_FACTOR} + {TAIL_M_PER_PIPE*2:.1f} m tails) → {tender:.2f} m"
@@ -73,9 +73,7 @@ def apply_tender(occ: Occurrence) -> Occurrence:
         else:
             tender = plan
             notes.append("no tender conversion (printed/vertical/excluded)")
-        # Store tender in notes for now; a future schema field can hold it explicitly
         updated.notes = "; ".join(notes)
-        # Also stash on the object for downstream (not in schema yet)
         updated.__dict__["tender_length_m"] = round(tender, 2)
     return updated
 
@@ -83,19 +81,7 @@ def apply_tender(occ: Occurrence) -> Occurrence:
 def aggregate_by_item(
     occurrences: Iterable[Occurrence],
 ) -> dict[tuple[str, str], dict]:
-    """Group by (item_id or legacy, floor_tab_name).
-
-    Returns dict of key → {
-        "plan_m": sum of length_m,
-        "tender_m": sum of tender,
-        "count": sum of counts,
-        "measurement_types": set,
-        "scopes": set,
-        "notes": list,
-    }
-    Unique vs interface is recorded but full building aggregation is left to the caller
-    (or Phase 3 Master tab).
-    """
+    """Group by (item_id or legacy, floor_tab_name)."""
     groups: dict[tuple[str, str], dict] = defaultdict(
         lambda: {
             "plan_m": 0.0,
@@ -125,121 +111,66 @@ def aggregate_by_item(
     return dict(groups)
 
 
-class LengthStore:
-    """SQLite store for Phase 4 length results."""
+def update_existing_inventory(
+    conn: sqlite3.Connection,
+    *,
+    project_id: int | None = None,
+    document_id: int | None = None,
+) -> int:
+    """Apply tender conversion notes to existing Phase 3 occurrences.
 
-    def __init__(self, db_path: str | Path = "lengths.sqlite"):
-        self.db_path = Path(db_path)
-        self.conn = sqlite3.connect(self.db_path)
-        self._init_schema()
+    Updates the ``notes`` column of rows that have length_m > 0 and unit = 'm'.
+    Does not create tables or columns. Returns the number of rows updated.
 
-    def _init_schema(self) -> None:
-        self.conn.executescript(
-            """
-            CREATE TABLE IF NOT EXISTS segments (
-                id INTEGER PRIMARY KEY,
-                drawing_number TEXT,
-                floor_tab_name TEXT,
-                item_id TEXT,
-                legacy_item_id TEXT,
-                annotation TEXT,
-                layer TEXT,
-                colour TEXT,
-                plan_length_m REAL,
-                tender_length_m REAL,
-                measurement_type TEXT,
-                scope TEXT,
-                notes TEXT,
-                created_at TEXT DEFAULT CURRENT_TIMESTAMP
-            );
-            CREATE TABLE IF NOT EXISTS aggregates (
-                id INTEGER PRIMARY KEY,
-                item_id TEXT,
-                floor_tab_name TEXT,
-                plan_m REAL,
-                tender_m REAL,
-                count REAL,
-                measurement_types TEXT,
-                scopes TEXT,
-                where_found TEXT,
-                notes TEXT,
-                created_at TEXT DEFAULT CURRENT_TIMESTAMP
-            );
-            """
+    Caller must already have the Phase 3 schema (occurrences table).
+    """
+    where = ["unit = 'm'", "length_m IS NOT NULL", "length_m > 0"]
+    params: list = []
+    if project_id is not None:
+        where.append("project_id = ?")
+        params.append(project_id)
+    if document_id is not None:
+        where.append("document_id = ?")
+        params.append(document_id)
+
+    sql = f"""
+        SELECT id, item_id, legacy_item_id, measurement_type, length_m, notes
+        FROM occurrences
+        WHERE {' AND '.join(where)}
+    """
+    rows = conn.execute(sql, params).fetchall()
+    updated = 0
+    for row in rows:
+        # Minimal Occurrence-like for apply_tender
+        from riser_extract.schema import Scope
+        occ = Occurrence(
+            drawing_number="",  # not needed for the formula
+            floor_tab_name="",
+            scale="",
+            annotation="",
+            item_id=row["item_id"],
+            legacy_item_id=row["legacy_item_id"],
+            unit="m",
+            length_m=row["length_m"],
+            measurement_type=row["measurement_type"] or "scaled",
+            scope=Scope.IN,
+            notes=row["notes"],
         )
-        self.conn.commit()
-
-    def insert_occurrences(self, occurrences: Iterable[Occurrence]) -> None:
-        rows = []
-        for occ in occurrences:
-            tender = getattr(occ, "tender_length_m", occ.length_m or 0.0)
-            rows.append(
-                (
-                    occ.drawing_number,
-                    occ.floor_tab_name,
-                    occ.item_id,
-                    occ.legacy_item_id,
-                    occ.annotation,
-                    occ.layer,
-                    occ.colour,
-                    occ.length_m,
-                    tender,
-                    occ.measurement_type.value,
-                    occ.scope.value,
-                    occ.notes,
-                )
+        processed = apply_tender(occ)
+        if processed.notes != row["notes"]:
+            conn.execute(
+                "UPDATE occurrences SET notes = ? WHERE id = ?",
+                (processed.notes, row["id"]),
             )
-        self.conn.executemany(
-            """
-            INSERT INTO segments (
-                drawing_number, floor_tab_name, item_id, legacy_item_id,
-                annotation, layer, colour, plan_length_m, tender_length_m,
-                measurement_type, scope, notes
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """,
-            rows,
-        )
-        self.conn.commit()
-
-    def insert_aggregates(self, groups: dict) -> None:
-        rows = []
-        for (item_id, floor), g in groups.items():
-            rows.append(
-                (
-                    item_id,
-                    floor,
-                    g["plan_m"],
-                    g["tender_m"],
-                    g["count"],
-                    ",".join(sorted(g["measurement_types"])),
-                    ",".join(sorted(g["scopes"])),
-                    "; ".join(sorted(g["where_found"])),
-                    " | ".join(g["notes"][:3]),
-                )
-            )
-        self.conn.executemany(
-            """
-            INSERT INTO aggregates (
-                item_id, floor_tab_name, plan_m, tender_m, count,
-                measurement_types, scopes, where_found, notes
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-            """,
-            rows,
-        )
-        self.conn.commit()
-
-    def close(self) -> None:
-        self.conn.close()
+            updated += 1
+    conn.commit()
+    return updated
 
 
 def process_extraction(
     result: ExtractionResult,
-    store: LengthStore | None = None,
 ) -> tuple[list[Occurrence], dict]:
-    """Apply tender conversion to all occurrences and optionally persist."""
+    """Apply tender conversion to all occurrences in an ExtractionResult."""
     processed = [apply_tender(o) for o in result.occurrences]
     groups = aggregate_by_item(processed)
-    if store:
-        store.insert_occurrences(processed)
-        store.insert_aggregates(groups)
     return processed, groups
