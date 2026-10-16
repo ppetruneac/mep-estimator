@@ -4,6 +4,7 @@ from fastapi import APIRouter, HTTPException
 
 from app.db import connect, get_project_by_uuid
 from app.models import DrawingOut
+from app.services import resolve_drawing
 
 router = APIRouter(prefix="/api", tags=["drawings"])
 
@@ -12,11 +13,13 @@ def _drawing_out(row, project_uuid: str | None = None) -> DrawingOut:
     puuid = project_uuid
     if puuid is None and "project_uuid" in row.keys():
         puuid = row["project_uuid"]
+    number = row["drawing_number"]
     return DrawingOut(
         id=row["id"],
         project_id=row["project_id"],
         project_uuid=puuid,
-        drawing_number=row["drawing_number"],
+        drawing_number=number,
+        key=number,
         floor_tab_name=row["floor_tab_name"],
         scale=row["scale"],
         revision=row["revision"],
@@ -52,6 +55,22 @@ def list_drawings(project_uuid: str):
             (proj["id"],),
         ).fetchall()
         return [_drawing_out(r, project_uuid) for r in rows]
+    finally:
+        conn.close()
+
+
+@router.get("/projects/{project_uuid}/drawings/{drawing_key}", response_model=DrawingOut)
+def get_drawing_by_key(project_uuid: str, drawing_key: str):
+    conn = connect(readonly=True)
+    try:
+        doc = resolve_drawing(conn, project_uuid, drawing_key)
+        if not doc:
+            raise HTTPException(404, "drawing not found")
+        r = conn.execute(
+            _DRAWING_SELECT + " WHERE d.id = ?",
+            (doc["id"],),
+        ).fetchone()
+        return _drawing_out(r, project_uuid)
     finally:
         conn.close()
 

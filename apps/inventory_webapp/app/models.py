@@ -47,6 +47,7 @@ class DrawingOut(BaseModel):
     project_id: int
     project_uuid: str | None = None
     drawing_number: str
+    key: str  # URL key: drawing_number (unique in project)
     floor_tab_name: str | None = None
     scale: str | None = None
     revision: str | None = None
@@ -62,6 +63,7 @@ class ItemOut(BaseModel):
     document_id: int
     project_id: int
     item_id: str | None = None
+    item_label: str | None = None
     legacy_item_id: str | None = None
     annotation: str | None = None
     linked_to: str | None = None
@@ -70,6 +72,7 @@ class ItemOut(BaseModel):
     length_m: float | None = None
     size: str | None = None
     measurement_type: str | None = None
+    measurement_type_help: str | None = None
     scope: str | None = None
     symbol_class: str | None = None
     confidence: float | None = None
@@ -81,6 +84,17 @@ class ItemOut(BaseModel):
     reviewed_at: str | None = None
     effective_qty: float = 0
     category: str | None = None
+
+
+class CategoryFacet(BaseModel):
+    category: str
+    count: int
+
+
+class DrawingFacets(BaseModel):
+    categories: list[CategoryFacet]
+    statuses: list[dict]
+    measurement_types: list[dict]
 
 
 class ItemPatch(BaseModel):

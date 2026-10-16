@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import {
@@ -14,40 +14,57 @@ import {
   Text,
   Title,
 } from "@tremor/react";
-import { api, Drawing, Item } from "../api";
+import { api, Drawing, DrawingFacets, Item } from "../api";
 
 export function DrawingReview() {
-  const { projectId, drawingId } = useParams();
-  const did = Number(drawingId);
+  const { projectId, drawingKey } = useParams();
   const projectUuid = String(projectId);
+  const key = decodeURIComponent(String(drawingKey));
   const [drawing, setDrawing] = useState<Drawing | null>(null);
   const [items, setItems] = useState<Item[]>([]);
-  const [statusFilter, setStatusFilter] = useState("");
+  const [facets, setFacets] = useState<DrawingFacets | null>(null);
+  const [category, setCategory] = useState("");
+  const [status, setStatus] = useState("");
+  const [measurementType, setMeasurementType] = useState("");
+  const [q, setQ] = useState("");
+  const [qDraft, setQDraft] = useState("");
   const [err, setErr] = useState<string | null>(null);
   const [amend, setAmend] = useState<Item | null>(null);
 
   async function load() {
-    const [d, its] = await Promise.all([
-      api.drawings(projectUuid).then((ds) => ds.find((x) => x.id === did) || null),
-      api.items(did, statusFilter ? `?status=${statusFilter}` : ""),
+    const [d, its, f] = await Promise.all([
+      api.drawing(projectUuid, key),
+      api.items(projectUuid, key, {
+        status: status || undefined,
+        measurement_type: measurementType || undefined,
+        category: category || undefined,
+        q: q || undefined,
+      }),
+      api.facets(projectUuid, key),
     ]);
     setDrawing(d);
     setItems(its);
+    setFacets(f);
   }
 
   useEffect(() => {
     load().catch((e) => setErr(String(e)));
-  }, [did, projectUuid, statusFilter]);
+  }, [projectUuid, key, status, measurementType, category, q]);
 
-  async function setStatus(id: number, status: string) {
-    await api.patchItem(id, { status });
+  async function setItemStatus(id: number, next: string) {
+    await api.patchItem(id, { status: next });
     await load();
   }
 
   async function bulk(action: "approve" | "exclude") {
-    await api.bulk(did, action);
+    await api.bulk(projectUuid, key, action);
     await load();
   }
+
+  const typeHelp = useMemo(() => {
+    if (!measurementType || !facets) return null;
+    return facets.measurement_types.find((t) => t.key === measurementType)?.help;
+  }, [measurementType, facets]);
 
   return (
     <div className="space-y-6">
@@ -61,12 +78,12 @@ export function DrawingReview() {
           </Link>
           <Title className="mt-1">{drawing?.floor_tab_name}</Title>
           <Text className="mt-1">
-            {drawing?.drawing_number} · {drawing?.scale} · {items.length} rows
+            {drawing?.drawing_number} · {drawing?.scale} · {items.length} shown
           </Text>
         </div>
         <div className="flex flex-wrap gap-2">
           <a
-            href={api.pdfUrl(did)}
+            href={api.pdfUrl(projectUuid, key)}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-800"
@@ -75,7 +92,7 @@ export function DrawingReview() {
             Open drawing in new tab
           </a>
           <a
-            href={api.overlayUrl(did)}
+            href={api.overlayUrl(projectUuid, key)}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
@@ -92,18 +109,135 @@ export function DrawingReview() {
         </Card>
       )}
 
+      {/* Category chips with counts */}
+      {facets && (
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            className={[
+              "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
+              !category
+                ? "bg-slate-900 text-white"
+                : "bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50",
+            ].join(" ")}
+            onClick={() => setCategory("")}
+          >
+            All
+            <span
+              className={[
+                "rounded-full px-1.5 py-0.5 text-xs tabular-nums",
+                !category ? "bg-white/20" : "bg-slate-100 text-slate-600",
+              ].join(" ")}
+            >
+              {facets.categories.reduce((n, c) => n + c.count, 0)}
+            </span>
+          </button>
+          {facets.categories.map((c) => {
+            const selected = category === c.category;
+            return (
+              <button
+                key={c.category}
+                type="button"
+                className={[
+                  "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
+                  selected
+                    ? "bg-slate-900 text-white"
+                    : "bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50",
+                ].join(" ")}
+                onClick={() =>
+                  setCategory(selected ? "" : c.category)
+                }
+              >
+                {c.category}
+                <span
+                  className={[
+                    "rounded-full px-1.5 py-0.5 text-xs tabular-nums",
+                    selected ? "bg-white/20" : "bg-slate-100 text-slate-600",
+                  ].join(" ")}
+                >
+                  {c.count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      <Card>
+        <div className="flex flex-wrap items-end gap-3">
+          <label className="flex min-w-[14rem] flex-1 flex-col gap-1 text-sm">
+            <span className="font-medium text-slate-700">Search</span>
+            <input
+              className="obs-select"
+              style={{ backgroundImage: "none", paddingRight: "0.75rem" }}
+              value={qDraft}
+              placeholder="Annotation, item ID, category, notes…"
+              onChange={(e) => setQDraft(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") setQ(qDraft.trim());
+              }}
+              onBlur={() => setQ(qDraft.trim())}
+            />
+          </label>
+          <label className="flex min-w-[10rem] flex-col gap-1 text-sm">
+            <span className="font-medium text-slate-700">Status</span>
+            <select
+              className="obs-select"
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+            >
+              <option value="">All</option>
+              {(facets?.statuses || []).map((s) => (
+                <option key={s.key} value={s.key}>
+                  {s.key} ({s.count})
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="flex min-w-[12rem] flex-col gap-1 text-sm">
+            <span className="font-medium text-slate-700">Type</span>
+            <select
+              className="obs-select"
+              value={measurementType}
+              onChange={(e) => setMeasurementType(e.target.value)}
+            >
+              <option value="">All</option>
+              {(facets?.measurement_types || []).map((t) => (
+                <option key={t.key} value={t.key}>
+                  {t.key} ({t.count})
+                </option>
+              ))}
+            </select>
+          </label>
+          <Button
+            variant="secondary"
+            onClick={() => {
+              setCategory("");
+              setStatus("");
+              setMeasurementType("");
+              setQ("");
+              setQDraft("");
+            }}
+          >
+            Clear filters
+          </Button>
+        </div>
+        {typeHelp && (
+          <div className="obs-info mt-3 mb-0">
+            <span className="obs-info-label">Type</span>
+            <div>
+              <strong>{measurementType}</strong> — {typeHelp}
+            </div>
+          </div>
+        )}
+        <Text className="mt-3 text-slate-500">
+          Item ID is the stable catalog key (e.g. <code>MEC-CU-IN</code> = indoor
+          refrigerant pair / FCU→HBC home-run). Annotation is the printed tag
+          from the sheet (e.g. FCU.B.01), matching the Hubby inventory book.
+        </Text>
+      </Card>
+
       <div className="flex flex-wrap items-center gap-2">
-        <select
-          className="obs-select"
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-        >
-          <option value="">All statuses</option>
-          <option value="pending">Pending</option>
-          <option value="approved">Approved</option>
-          <option value="excluded">Excluded</option>
-          <option value="amended">Amended</option>
-        </select>
         <Button onClick={() => bulk("approve")}>Approve all pending</Button>
         <Button variant="secondary" color="red" onClick={() => bulk("exclude")}>
           Exclude all pending
@@ -115,7 +249,8 @@ export function DrawingReview() {
           <Table>
             <TableHead>
               <TableRow>
-                <TableHeaderCell>Item</TableHeaderCell>
+                <TableHeaderCell>Category</TableHeaderCell>
+                <TableHeaderCell>Item ID</TableHeaderCell>
                 <TableHeaderCell>Annotation</TableHeaderCell>
                 <TableHeaderCell>Qty</TableHeaderCell>
                 <TableHeaderCell>Unit</TableHeaderCell>
@@ -136,15 +271,32 @@ export function DrawingReview() {
                   }
                 >
                   <TableCell>
+                    <Badge color="slate">{it.category || "Unclassified"}</Badge>
+                  </TableCell>
+                  <TableCell>
                     <div className="font-medium text-slate-900">
                       {it.item_id || "—"}
                     </div>
-                    <div className="text-xs text-slate-500">{it.category}</div>
+                    {it.item_label && (
+                      <div className="text-xs text-slate-500">{it.item_label}</div>
+                    )}
                   </TableCell>
-                  <TableCell>{it.annotation}</TableCell>
+                  <TableCell>
+                    <div>{it.annotation}</div>
+                    {it.linked_to && (
+                      <div className="text-xs text-slate-500">{it.linked_to}</div>
+                    )}
+                  </TableCell>
                   <TableCell>{it.effective_qty}</TableCell>
                   <TableCell>{it.unit}</TableCell>
-                  <TableCell>{it.measurement_type}</TableCell>
+                  <TableCell>
+                    <div>{it.measurement_type}</div>
+                    {it.measurement_type_help && (
+                      <div className="max-w-[14rem] text-xs text-slate-500">
+                        {it.measurement_type_help}
+                      </div>
+                    )}
+                  </TableCell>
                   <TableCell>
                     <Badge
                       color={
@@ -163,7 +315,7 @@ export function DrawingReview() {
                       <Button
                         size="xs"
                         variant="secondary"
-                        onClick={() => setStatus(it.id, "approved")}
+                        onClick={() => setItemStatus(it.id, "approved")}
                       >
                         Approve
                       </Button>
@@ -171,7 +323,7 @@ export function DrawingReview() {
                         size="xs"
                         variant="secondary"
                         color="red"
-                        onClick={() => setStatus(it.id, "excluded")}
+                        onClick={() => setItemStatus(it.id, "excluded")}
                       >
                         Exclude
                       </Button>

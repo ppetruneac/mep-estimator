@@ -57,6 +57,35 @@ body {
   border-color: #0f172a;
 }
 
+.obs-info {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #93c5fd;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+.obs-info-label {
+  flex: 0 0 auto;
+  padding: 0.1rem 0.45rem;
+  border-radius: 0.25rem;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.obs-info strong {
+  font-weight: 650;
+  color: #1e40af;
+}
+
 /* Tremor tables — observability frame + vertically centered cells */
 .tremor-Table-root {
   border: 1px solid #cbd5e1;

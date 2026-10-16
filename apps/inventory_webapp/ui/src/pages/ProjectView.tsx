@@ -137,7 +137,9 @@ export function ProjectView() {
                   <TableRow
                     key={d.id}
                     className="click-row"
-                    onClick={() => nav(`/projects/${uuid}/drawings/${d.id}`)}
+                    onClick={() =>
+                      nav(`/projects/${uuid}/drawings/${encodeURIComponent(d.key || d.drawing_number)}`)
+                    }
                   >
                     <TableCell>{d.floor_tab_name}</TableCell>
                     <TableCell>{d.drawing_number}</TableCell>

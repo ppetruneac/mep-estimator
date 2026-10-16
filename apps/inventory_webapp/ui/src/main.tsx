@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<ProjectPicker />} />
           <Route path="/projects/:projectId" element={<ProjectView />} />
           <Route
-            path="/projects/:projectId/drawings/:drawingId"
+            path="/projects/:projectId/drawings/:drawingKey"
             element={<DrawingReview />}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
