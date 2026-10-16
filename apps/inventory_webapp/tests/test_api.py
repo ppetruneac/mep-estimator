@@ -60,7 +60,7 @@ def test_drawing_keyed_by_number_not_int(client):
     ).json()
     assert len(items) > 0
     sample = next(i for i in items if i.get("item_id") == "MEC-CU-IN")
-    assert sample["category"] == "FLOW AND RETURN PIPEWORK"
+    assert sample["category"] == "Flow and return pipework"
     assert sample["item_label"] and "refrigerant" in sample["item_label"].lower()
 
 
@@ -73,21 +73,18 @@ def test_facets_and_filters(client):
 
     facets = client.get(f"/api/projects/{puuid}/drawings/{key}/facets").json()
     assert any(
-        c["category"] == "INDOOR UNITS AND CONTROLLERS" for c in facets["categories"]
+        c["category"] == "Indoor units and controllers" for c in facets["categories"]
     )
     assert sum(c["count"] for c in facets["categories"]) == basement["item_count"]
 
-    indoor = "INDOOR UNITS AND CONTROLLERS"
+    indoor = "Indoor units and controllers"
     filtered = client.get(
         f"/api/projects/{puuid}/drawings/{key}/items",
         params={"category": indoor},
     ).json()
     assert filtered
     assert all(i["category"] == indoor for i in filtered)
-    assert any(
-        c["category"] == "ASSOCIATED PIPEWORK NOT ANNOTATED ON THE SHEET"
-        for c in facets["categories"]
-    )
+    assert any(c["category"] == "Pipework" for c in facets["categories"])
 
     searched = client.get(
         f"/api/projects/{puuid}/drawings/{key}/items",

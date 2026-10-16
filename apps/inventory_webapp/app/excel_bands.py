@@ -5,20 +5,20 @@ Catalogue = category (these Excel bands) + item_id / SKU.
 
 from __future__ import annotations
 
-# Canonical categories (Excel language, no letter prefixes)
-INDOOR_UNITS = "INDOOR UNITS AND CONTROLLERS"
-FLOW_RETURN = "FLOW AND RETURN PIPEWORK"
-REFRIGERANT = "REFRIGERANT"
-TRAY_RISERS = "TRAY AND RISERS"
-ELECTRIC_HEATING = "ELECTRIC HEATING"
-ASSOCIATED_NOT_ANNOTATED = "ASSOCIATED PIPEWORK NOT ANNOTATED ON THE SHEET"
-EXCLUSIONS = "EXCLUSIONS / INTERFACES"
-PIPE_LAGGING = "PIPE LAGGING"
-CONTAINMENT = "CONTAINMENT (TRAY / PIPE / SUPPORTS / CLIPS)"
-CONSUMABLES = "CONSUMABLES"
-ROOM_STATS = "ROOM THERMOSTATS / CONTROLLERS"
-NAMED_PLANT = "NAMED PLANT"
-DUCT_SIZES = "PRINTED DUCT SIZES"
+# Canonical categories (title case; short labels)
+INDOOR_UNITS = "Indoor units and controllers"
+FLOW_RETURN = "Flow and return pipework"
+REFRIGERANT = "Refrigerant"
+TRAY_RISERS = "Tray and risers"
+ELECTRIC_HEATING = "Electric heating"
+ASSOCIATED_NOT_ANNOTATED = "Pipework"
+EXCLUSIONS = "Exclusions / interfaces"
+PIPE_LAGGING = "Pipe lagging"
+CONTAINMENT = "Containment (tray / pipe / supports / clips)"
+CONSUMABLES = "Consumables"
+ROOM_STATS = "Room thermostats / controllers"
+NAMED_PLANT = "Named plant"
+DUCT_SIZES = "Printed duct sizes"
 
 
 def excel_category(

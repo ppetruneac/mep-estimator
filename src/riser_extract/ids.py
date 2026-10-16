@@ -11,18 +11,18 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 # Excel-band category names (same as apps/inventory_webapp/app/excel_bands.py)
-CAT_INDOOR = "INDOOR UNITS AND CONTROLLERS"
-CAT_FLOW_RETURN = "FLOW AND RETURN PIPEWORK"
-CAT_REFRIGERANT = "REFRIGERANT"
-CAT_TRAY_RISERS = "TRAY AND RISERS"
-CAT_ELECTRIC = "ELECTRIC HEATING"
-CAT_ASSOCIATED = "ASSOCIATED PIPEWORK NOT ANNOTATED ON THE SHEET"
-CAT_EXCLUSIONS = "EXCLUSIONS / INTERFACES"
-CAT_LAGGING = "PIPE LAGGING"
-CAT_CONTAINMENT = "CONTAINMENT (TRAY / PIPE / SUPPORTS / CLIPS)"
-CAT_CONSUMABLES = "CONSUMABLES"
-CAT_STATS = "ROOM THERMOSTATS / CONTROLLERS"
-CAT_NAMED_PLANT = "NAMED PLANT"
+CAT_INDOOR = "Indoor units and controllers"
+CAT_FLOW_RETURN = "Flow and return pipework"
+CAT_REFRIGERANT = "Refrigerant"
+CAT_TRAY_RISERS = "Tray and risers"
+CAT_ELECTRIC = "Electric heating"
+CAT_ASSOCIATED = "Pipework"
+CAT_EXCLUSIONS = "Exclusions / interfaces"
+CAT_LAGGING = "Pipe lagging"
+CAT_CONTAINMENT = "Containment (tray / pipe / supports / clips)"
+CAT_CONSUMABLES = "Consumables"
+CAT_STATS = "Room thermostats / controllers"
+CAT_NAMED_PLANT = "Named plant"
 
 
 @dataclass(frozen=True)
