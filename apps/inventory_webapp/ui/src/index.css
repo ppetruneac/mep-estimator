@@ -181,9 +181,9 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 }
 
 /*
- * Sticky right cluster (widths must sum correctly):
- * Actions 12.5 | Status 8.5 | Unit 3.5 | Qty 6.5 | Type 9
- * right offsets: Actions 0, Status 12.5, Unit 21, Qty 24.5, Type 31
+ * Sticky right cluster (icon actions):
+ * Actions 6.5 | Status 8.5 | Unit 3.5 | Qty 6.5 | Type 9
+ * right: Actions 0, Status 6.5, Unit 15, Qty 18.5, Type 25
  */
 .tremor-Table-table th.actions-col,
 .tremor-Table-table td.actions-col,
@@ -219,7 +219,7 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .tremor-Table-table td.status-col,
 .status-col {
   position: sticky;
-  right: 12.5rem;
+  right: 6.5rem;
   z-index: 4;
   min-width: 8.5rem;
   width: 8.5rem;
@@ -236,7 +236,7 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .tremor-Table-table td.unit-col,
 .unit-col {
   position: sticky;
-  right: 21rem;
+  right: 15rem;
   z-index: 3;
   min-width: 3.5rem;
   width: 3.5rem;
@@ -252,7 +252,7 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .tremor-Table-table td.qty-col,
 .qty-col {
   position: sticky;
-  right: 24.5rem;
+  right: 18.5rem;
   z-index: 3;
   min-width: 6.5rem;
   width: 6.5rem;
@@ -275,7 +275,7 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .tremor-Table-table td.type-col,
 .type-col {
   position: sticky;
-  right: 31rem;
+  right: 25rem;
   z-index: 2;
   min-width: 9rem;
   width: 9rem;
