@@ -10,6 +10,7 @@ The method in this repo is also the seed for **Riser** ([getriser.co.uk](https:/
 |---|---|
 | [docs/riser/business-plan.md](docs/riser/business-plan.md) | Offer, buyer, pricing shape, go-to-market |
 | [docs/riser/technical-execution.md](docs/riser/technical-execution.md) | Domain model, pipeline, Excel round-trip, build slices |
+| [docs/riser/shipping.md](docs/riser/shipping.md) | **What GR-1 + GR-2 ship** (CLIs, JSON, symbols, evals) |
 | [AGENTS.md](AGENTS.md) | Extractor setup, eval gate, ID conventions |
 
 ## Skills (method docs — kept)

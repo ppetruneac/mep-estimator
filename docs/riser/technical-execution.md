@@ -96,6 +96,8 @@ Package `riser_extract` (`src/riser_extract/`) emits one JSON per drawing under 
 
 Rules-first symbol identification enriches JSON with `symbols[]` (`symbol_class`, `confidence`, `source=rule|yolo`, bbox, centroid, amber flag) and burns boxes onto annotated PNG/PDF under `annotated/`. Starter classes on the Hubby Seneca set are solved by tag proximity + layer + colour + compact geometry. YOLO is optional residual (`riser-symbols dataset|train`, extra `yolo`). Decision log: `evals/reports/gr2-decision-log.md`. Evidence: `evals/evidence/gr2/`.
 
+Full shipping checklist for this stack: [shipping.md](shipping.md).
+
 ## 6. Pricing engine
 
 Port the mep-estimator rules.
