@@ -1,0 +1,9 @@
+{
+  "weights": "evals/models/symbol_yolo/best.pt",
+  "device": "mps",
+  "epochs": 15,
+  "model": "yolo11n.pt",
+  "imgsz": 960,
+  "dataset": "evals/datasets/hubby-premier-inn-london/yolo",
+  "note": "Short fine-tune on rule-proposed weak labels (11 Hubby pages) on Apple M4 Max MPS. Rules remain the production path for starter classes; YOLO is residual."
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "floor": "Basement",
+    "drawing_number": "25280-SEN-0X-DR-M-560X",
+    "n_symbols": 19,
+    "symbols": {
+      "fcu_cass": {
+        "count": 10,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 1,
+        "avg_confidence": 0.6
+      },
+      "panel_heater": {
+        "count": 7,
+        "avg_confidence": 0.627
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    },
+    "amber": 0,
+    "by_source": {
+      "rule": 19
+    },
+    "json": "evals/evidence/gr2/inventory_json/25280-SEN-0X-DR-M-560X.json"
+  },
+  {
+    "floor": "Ground Floor",
+    "drawing_number": "25280-SEN-00-DR-M-5600",
+    "n_symbols": 2,
+    "symbols": {
+      "door_curtain": {
+        "count": 1,
+        "avg_confidence": 0.75
+      },
+      "panel_heater": {
+        "count": 1,
+        "avg_confidence": 0.82
+      }
+    },
+    "amber": 0,
+    "by_source": {
+      "rule": 2
+    },
+    "json": "evals/evidence/gr2/inventory_json/25280-SEN-00-DR-M-5600.json"
+  },
+  {
+    "floor": "Second Floor",
+    "drawing_number": "25280-SEN-02-DR-M-5602",
+    "n_symbols": 34,
+    "symbols": {
+      "fcu_wall": {
+        "count": 31,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 2,
+        "avg_confidence": 0.675
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    },
+    "amber": 0,
+    "by_source": {
+      "rule": 34
+    },
+    "json": "evals/evidence/gr2/inventory_json/25280-SEN-02-DR-M-5602.json"
+  },
+  {
+    "floor": "Fifth Floor",
+    "drawing_number": "25280-SEN-05-DR-M-5605",
+    "n_symbols": 34,
+    "symbols": {
+      "fcu_wall": {
+        "count": 31,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 2,
+        "avg_confidence": 0.675
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    },
+    "amber": 0,
+    "by_source": {
+      "rule": 34
+    },
+    "json": "evals/evidence/gr2/inventory_json/25280-SEN-05-DR-M-5605.json"
+  },
+  {
+    "floor": "Ninth Floor",
+    "drawing_number": "25280-SEN-09-DR-M-5609",
+    "n_symbols": 11,
+    "symbols": {
+      "fcu_wall": {
+        "count": 9,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 1,
+        "avg_confidence": 0.6
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.75
+      }
+    },
+    "amber": 0,
+    "by_source": {
+      "rule": 11
+    },
+    "json": "evals/evidence/gr2/inventory_json/25280-SEN-09-DR-M-5609.json"
+  },
+  {
+    "floor": "Roof Plant",
+    "drawing_number": "25287-SEN-00-DR-M-5150",
+    "n_symbols": 5,
+    "symbols": {
+      "ahu": {
+        "count": 3,
+        "avg_confidence": 0.9
+      },
+      "ashp": {
+        "count": 2,
+        "avg_confidence": 0.675
+      }
+    },
+    "amber": 0,
+    "by_source": {
+      "rule": 5
+    },
+    "json": "evals/evidence/gr2/inventory_json/25287-SEN-00-DR-M-5150.json"
+  }
+]

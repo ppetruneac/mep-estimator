@@ -11,7 +11,9 @@ Excel is the handshake. The schema is the company. Do not spend on riser.app yet
 |---|---|
 | [business-plan.md](business-plan.md) | Offer, buyer, V1–V3, pricing, go-to-market |
 | [technical-execution.md](technical-execution.md) | Domain model, pipeline, Excel round-trip, build slices |
-| [src/riser_extract/README.md](../../src/riser_extract/README.md) | Phase 1 deterministic extractor (current code) |
+| [shipping.md](shipping.md) | What GR-1–GR-3 ship (CLIs, JSON, symbols, SQLite) |
+| [src/riser_extract/README.md](../../src/riser_extract/README.md) | Extractor package docs |
+| [../inventory-webapp-plan.md](../inventory-webapp-plan.md) | GR-6 inventory review webapp plan |
 
 The method the app hosts:
 

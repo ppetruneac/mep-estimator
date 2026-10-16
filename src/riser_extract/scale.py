@@ -112,14 +112,23 @@ def parse_drawing_number(full_text: str, filename: str) -> str | None:
 
 
 def parse_floor_tab(full_text: str, filename: str) -> str | None:
-    # Prefer title-block phrasing over filename
-    upper = full_text.upper()
-    # Title often says "SECOND FLOOR Heating and Cooling Layout"
-    for rx, name in FLOOR_PATTERNS:
-        if rx.search(upper):
-            return name
+    """Resolve floor tab name.
+
+    Filename wins when it clearly names a floor — sheet notes often mention
+    other levels (e.g. a roof plant drawing that references the basement).
+    """
     for rx, name in FILENAME_FLOOR:
         if rx.search(filename):
+            return name
+    upper = full_text.upper()
+    # Prefer the most specific title hit; check Roof before bare patterns that
+    # may appear in cross-references.
+    hits = [(name, rx.search(upper) is not None) for rx, name in FLOOR_PATTERNS]
+    for name, ok in hits:
+        if ok and name == "Roof Plant":
+            return name
+    for name, ok in hits:
+        if ok:
             return name
     return None
 
