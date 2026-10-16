@@ -113,9 +113,22 @@ export function DrawingReview() {
           </table>
         </div>
         <div>
-          <iframe className="pdf-frame" title="drawing-pdf" src={pdfSrc} />
+          <object
+            className="pdf-frame"
+            data={`${pdfSrc}#toolbar=1&navpanes=0`}
+            type="application/pdf"
+            aria-label="drawing-pdf"
+          >
+            <p className="muted">
+              PDF preview unavailable in this browser.{" "}
+              <a href={pdfSrc} target="_blank" rel="noreferrer">
+                Open in a new tab
+              </a>
+            </p>
+          </object>
           <div className="muted" style={{ marginTop: "0.35rem" }}>
-            PDF from API. Overlay toggle 404s if no overlay file is present.
+            Inline preview — drawings stay on this page (no download). Overlay
+            toggle 404s if no overlay file is present.
           </div>
         </div>
       </div>

@@ -40,10 +40,13 @@ def get_pdf(drawing_id: int):
         path = resolve_pdf_path(d["source_pdf"])
         if not path or not path.exists():
             raise HTTPException(404, f"PDF not found: {d['source_pdf']}")
+        # inline — display in the page viewer; do not force a download
         return FileResponse(
             path,
             media_type="application/pdf",
             filename=f"{d['drawing_number']}.pdf",
+            content_disposition_type="inline",
+            headers={"Cache-Control": "private, max-age=60"},
         )
     finally:
         conn.close()
@@ -65,6 +68,8 @@ def get_overlay(drawing_id: int):
                     cand,
                     media_type="application/pdf",
                     filename=f"{d['drawing_number']}-overlay.pdf",
+                    content_disposition_type="inline",
+                    headers={"Cache-Control": "private, max-age=60"},
                 )
         raise HTTPException(404, "overlay not found")
     finally:
