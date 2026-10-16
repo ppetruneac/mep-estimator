@@ -73,11 +73,11 @@ def test_facets_and_filters(client):
 
     facets = client.get(f"/api/projects/{puuid}/drawings/{key}/facets").json()
     assert any(
-        c["category"] == "A — INDOOR UNITS AND CONTROLLERS" for c in facets["categories"]
+        c["category"] == "INDOOR UNITS AND CONTROLLERS" for c in facets["categories"]
     )
     assert sum(c["count"] for c in facets["categories"]) == basement["item_count"]
 
-    indoor = "A — INDOOR UNITS AND CONTROLLERS"
+    indoor = "INDOOR UNITS AND CONTROLLERS"
     filtered = client.get(
         f"/api/projects/{puuid}/drawings/{key}/items",
         params={"category": indoor},
@@ -85,7 +85,7 @@ def test_facets_and_filters(client):
     assert filtered
     assert all(i["category"] == indoor for i in filtered)
     assert any(
-        c["category"] == "F — ASSOCIATED PIPEWORK NOT ANNOTATED ON THE SHEET"
+        c["category"] == "ASSOCIATED PIPEWORK NOT ANNOTATED ON THE SHEET"
         for c in facets["categories"]
     )
 
