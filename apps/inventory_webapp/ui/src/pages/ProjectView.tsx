@@ -51,7 +51,6 @@ export function ProjectView() {
     <div className="wrap">
       <div className="header">
         <div>
-          <Link to="/">← Projects</Link>
           <h1>{tb?.display_name || project?.name || "…"}</h1>
           <div className="muted">
             {tb?.location ? `${tb.location} · ` : ""}
@@ -61,15 +60,30 @@ export function ProjectView() {
         </div>
       </div>
 
+      <div className="party-banner">
+        <div>
+          <div className="party-label">Client</div>
+          <div className="party-value">{project?.client || tb?.client || "—"}</div>
+        </div>
+        <div>
+          <div className="party-label">Architect</div>
+          <div className="party-value">{project?.architect || tb?.architect || "—"}</div>
+        </div>
+        <div>
+          <div className="party-label">Owner</div>
+          <div className="party-value">{project?.owner || tb?.mep || "Seneca Group Ltd"}</div>
+        </div>
+      </div>
+
       {tb && (
         <div className="titleblock-card">
           <div className="titleblock-kicker">Title block (from drawings)</div>
           <div className="titleblock-grid">
             <Meta label="Project" value={tb.display_name} />
             <Meta label="Location" value={tb.location} />
-            <Meta label="Client" value={tb.client} />
-            <Meta label="Architect" value={tb.architect} />
-            <Meta label="MEP engineer" value={tb.mep} />
+            <Meta label="Client" value={tb.client || project?.client} />
+            <Meta label="Architect" value={tb.architect || project?.architect} />
+            <Meta label="Owner / MEP" value={project?.owner || tb.mep} />
             <Meta label="MEP address" value={tb.mep_address} />
             <Meta label="MEP web" value={tb.mep_web} />
             <Meta label="Job series" value={tb.job_series?.join(", ")} />

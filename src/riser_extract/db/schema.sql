@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS projects (
     uuid TEXT NOT NULL UNIQUE,
     name TEXT NOT NULL UNIQUE,
     premise TEXT NOT NULL DEFAULT 'mep',
+    owner TEXT NOT NULL DEFAULT 'Seneca Group Ltd',
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
     updated_at TEXT NOT NULL DEFAULT (datetime('now'))
 );

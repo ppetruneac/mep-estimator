@@ -15,8 +15,8 @@ export function ProjectPicker() {
     <div className="wrap">
       <div className="header">
         <div>
-          <h1>Riser — Inventory review</h1>
-          <div className="muted">Select a project from getriser.sqlite</div>
+          <h1>Projects</h1>
+          <div className="muted">Select a project to review inventory</div>
         </div>
       </div>
       {err && <div className="err">{err}</div>}
@@ -33,17 +33,11 @@ export function ProjectPicker() {
               {tb?.location && (
                 <div className="muted">Location: {tb.location}</div>
               )}
-              {(tb?.architect || tb?.client || tb?.mep) && (
-                <div className="muted" style={{ marginTop: "0.2rem" }}>
-                  {[
-                    tb?.architect && `Architect: ${tb.architect}`,
-                    tb?.client && `Client: ${tb.client}`,
-                    tb?.mep && `MEP: ${tb.mep}`,
-                  ]
-                    .filter(Boolean)
-                    .join(" · ")}
-                </div>
-              )}
+              <div className="party-lines">
+                <div><span className="party-label">Client</span> {p.client || tb?.client || "—"}</div>
+                <div><span className="party-label">Architect</span> {p.architect || tb?.architect || "—"}</div>
+                <div><span className="party-label">Owner</span> {p.owner || tb?.mep || "Seneca Group Ltd"}</div>
+              </div>
               <div className="muted">Code: {p.name}</div>
               {(tb?.job_series?.length || tb?.scale || tb?.stage) && (
                 <div className="muted" style={{ marginTop: "0.25rem" }}>

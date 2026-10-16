@@ -42,7 +42,9 @@ export function DrawingReview() {
     <div className="wrap">
       <div className="header">
         <div>
-          <Link to={`/projects/${projectUuid}`}>← {drawing?.floor_tab_name || "Project"}</Link>
+          <Link to={`/projects/${projectUuid}`} className="muted">
+            ← Back to project
+          </Link>
           <h1>{drawing?.floor_tab_name}</h1>
           <div className="muted">
             {drawing?.drawing_number} · {drawing?.scale} · {items.length} rows

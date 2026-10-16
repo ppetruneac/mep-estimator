@@ -33,6 +33,9 @@ class ProjectOut(BaseModel):
     uuid: str
     name: str
     premise: str | None = None
+    owner: str | None = "Seneca Group Ltd"
+    client: str | None = None
+    architect: str | None = None
     drawing_count: int = 0
     occurrence_count: int = 0
     pending_count: int = 0

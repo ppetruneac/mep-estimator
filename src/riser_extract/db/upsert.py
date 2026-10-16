@@ -64,9 +64,13 @@ def ensure_project(conn: sqlite3.Connection, name: str, *, premise: str = "mep")
             )
         conn.commit()
         return pid
+    # Ensure owner column exists for older DBs
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(projects)").fetchall()}
+    if "owner" not in cols:
+        conn.execute("ALTER TABLE projects ADD COLUMN owner TEXT")
     cur = conn.execute(
-        "INSERT INTO projects (uuid, name, premise, created_at, updated_at) VALUES (?, ?, ?, ?, ?)",
-        (str(uuid.uuid4()), name, premise, _now(), _now()),
+        "INSERT INTO projects (uuid, name, premise, owner, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)",
+        (str(uuid.uuid4()), name, premise, "Seneca Group Ltd", _now(), _now()),
     )
     conn.commit()
     return int(cur.lastrowid)

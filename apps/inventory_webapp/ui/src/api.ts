@@ -35,6 +35,9 @@ export type Project = {
   uuid: string;
   name: string;
   premise?: string;
+  owner?: string | null;
+  client?: string | null;
+  architect?: string | null;
   drawing_count: number;
   occurrence_count: number;
   pending_count: number;

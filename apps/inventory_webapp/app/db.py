@@ -71,6 +71,17 @@ def migrate(conn: sqlite3.Connection | None = None) -> None:
         )
     c.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_projects_uuid ON projects(uuid)")
 
+    # Workspace owner (MEP firm) — Hubby take-offs are owned by Seneca Group
+    if "owner" not in pcols:
+        c.execute("ALTER TABLE projects ADD COLUMN owner TEXT")
+    c.execute(
+        """
+        UPDATE projects
+        SET owner = 'Seneca Group Ltd'
+        WHERE owner IS NULL OR owner = ''
+        """
+    )
+
     c.commit()
     if own:
         c.close()

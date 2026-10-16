@@ -41,6 +41,9 @@ def test_projects_use_uuid_and_title_block(client):
     tb = hubby["title_block"]
     assert tb["display_name"] == "Hub by Premier Inn Putney"
     assert tb["location"] == "Putney"
+    assert hubby["architect"] == "Curio Architects"
+    assert hubby["client"] and "Mosser" in hubby["client"]
+    assert hubby["owner"] and "Seneca" in hubby["owner"]
     assert tb["architect"] == "Curio Architects"
     assert tb["client"] and "Mosser" in tb["client"]
     assert tb["mep"] and "Seneca" in tb["mep"]
