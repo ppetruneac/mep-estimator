@@ -38,15 +38,16 @@ def item_dict(
         if r:
             catalog_cat = r["category"]
             catalog_desc = r["description"]
-    # Category = Excel take-off band (A–G…). Catalogue = item_id + SKU mapping.
+    # Catalogue = category (Excel band) + item_id/SKU.
+    # Prefer live Excel-band mapping; fall back to seeded catalogue category.
     d["excel_category"] = excel_category(
         floor_tab_name=floor_tab_name,
         item_id=d.get("item_id"),
         annotation=d.get("annotation"),
         symbol_class=d.get("symbol_class"),
     )
-    d["category"] = d["excel_category"]
-    d["catalog_category"] = catalog_cat  # catalogue taxonomy family (internal / SKU join)
+    d["category"] = d["excel_category"] or catalog_cat or "Unclassified"
+    d["catalog_category"] = d["category"]  # same band — catalogue category
     d["item_label"] = item_label(d.get("item_id")) or catalog_desc
     mt = d.get("measurement_type")
     d["measurement_type_help"] = MEASUREMENT_TYPE_HELP.get(mt or "", None)

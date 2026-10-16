@@ -1,6 +1,6 @@
-"""Map extractor rows → Hubby gold Excel take-off categories.
+"""Map extractor rows → catalogue category (Excel take-off bands).
 
-Names match the source inventory workbook section bands.
+Catalogue = category (these Excel bands) + item_id / SKU.
 """
 
 from __future__ import annotations
