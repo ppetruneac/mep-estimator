@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
   Badge,
   Card,
-  Grid,
   Table,
   TableBody,
   TableCell,
@@ -70,27 +69,6 @@ export function ProjectView() {
           drawings
         </Text>
       </div>
-
-      <Grid numItemsSm={1} numItemsMd={3} className="gap-4">
-        <Card>
-          <Text>Client</Text>
-          <Title className="mt-1 text-base">
-            {project?.client || tb?.client || "—"}
-          </Title>
-        </Card>
-        <Card>
-          <Text>Architect</Text>
-          <Title className="mt-1 text-base">
-            {project?.architect || tb?.architect || "—"}
-          </Title>
-        </Card>
-        <Card>
-          <Text>Owner</Text>
-          <Title className="mt-1 text-base">
-            {project?.owner || tb?.mep || "Seneca Group Ltd"}
-          </Title>
-        </Card>
-      </Grid>
 
       {tb && (
         <Card>
