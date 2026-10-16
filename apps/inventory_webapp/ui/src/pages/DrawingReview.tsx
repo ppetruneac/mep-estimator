@@ -298,15 +298,7 @@ export function DrawingReview() {
             </TableHead>
             <TableBody>
               {sortedItems.map((it) => (
-                <TableRow
-                  key={it.id}
-                  className={
-                    it.amber_flag ||
-                    (it.measurement_type && it.measurement_type !== "printed")
-                      ? "amber"
-                      : undefined
-                  }
-                >
+                <TableRow key={it.id}>
                   <TableCell className="text-slate-700 dark:text-gray-300">
                     {it.category || "Unclassified"}
                   </TableCell>
