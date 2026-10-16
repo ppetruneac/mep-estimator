@@ -133,12 +133,29 @@ export const api = {
     ),
   patchItem: (id: number, body: Record<string, unknown>) =>
     req<Item>(`/api/items/${id}`, { method: "PATCH", body: JSON.stringify(body) }),
-  bulk: (projectUuid: string, drawingKey: string, action: "approve" | "exclude") =>
+  bulk: (
+    projectUuid: string,
+    drawingKey: string,
+    action: "approve" | "exclude",
+    filters: {
+      status?: string;
+      category?: string;
+      measurement_type?: string;
+      q?: string;
+    } = {}
+  ) =>
     req<{ updated: number }>(
       `/api/projects/${projectUuid}/drawings/${encodeURIComponent(drawingKey)}/items/bulk`,
       {
         method: "POST",
-        body: JSON.stringify({ action, only_pending: true }),
+        body: JSON.stringify({
+          action,
+          only_pending: false,
+          status: filters.status || null,
+          category: filters.category || null,
+          measurement_type: filters.measurement_type || null,
+          q: filters.q || null,
+        }),
       }
     ),
   summaryByFloor: (projectUuid: string) =>

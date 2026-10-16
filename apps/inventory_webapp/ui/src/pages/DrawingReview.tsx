@@ -61,7 +61,16 @@ export function DrawingReview() {
   }
 
   async function bulk(action: "approve" | "exclude") {
-    await api.bulk(projectUuid, key, action);
+    await api.bulk(projectUuid, key, action, {
+      status: status || undefined,
+      category: category || undefined,
+      measurement_type: measurementType || undefined,
+      q: q || undefined,
+    });
+    // After bulk approve/exclude, clear status chip so the updated rows stay visible
+    if (status && status !== (action === "approve" ? "approved" : "excluded")) {
+      setStatus("");
+    }
     await load();
   }
 
@@ -229,9 +238,15 @@ export function DrawingReview() {
       </Card>
 
       <div className="flex flex-wrap items-center gap-2">
-        <Button onClick={() => bulk("approve")}>Approve all pending</Button>
+        <Button onClick={() => bulk("approve")}>
+          {category || measurementType || q
+            ? "Approve all shown"
+            : "Approve all"}
+        </Button>
         <Button variant="secondary" color="red" onClick={() => bulk("exclude")}>
-          Exclude all pending
+          {category || measurementType || q
+            ? "Exclude all shown"
+            : "Exclude all"}
         </Button>
       </div>
 

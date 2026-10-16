@@ -228,10 +228,72 @@ def bulk_items_by_key(project_uuid: str, drawing_key: str, body: BulkAction):
         if not doc:
             raise HTTPException(404, "drawing not found")
         new_status = "approved" if body.action == "approve" else "excluded"
-        sql = "UPDATE occurrences SET status = ?, reviewed_at = ? WHERE document_id = ?"
-        params: list = [new_status, now_iso(), doc["id"]]
+        # Join catalog when category / search filters need it
+        needs_join = bool(body.category or body.q)
+        if needs_join:
+            sql = """
+                UPDATE occurrences
+                SET status = ?, reviewed_at = ?
+                WHERE id IN (
+                  SELECT o.id
+                  FROM occurrences o
+                  LEFT JOIN catalog_items c ON c.item_id = o.item_id
+                  WHERE o.document_id = ?
+            """
+            params: list = [new_status, now_iso(), doc["id"]]
+        else:
+            sql = "UPDATE occurrences SET status = ?, reviewed_at = ? WHERE document_id = ?"
+            params = [new_status, now_iso(), doc["id"]]
+
         if body.only_pending:
-            sql += " AND COALESCE(status,'pending') = 'pending'"
+            clause = (
+                " AND COALESCE(o.status,'pending') = 'pending'"
+                if needs_join
+                else " AND COALESCE(status,'pending') = 'pending'"
+            )
+            sql += clause
+        elif body.status:
+            # Honour the status chip: only rewrite rows currently in that status
+            if needs_join:
+                sql += " AND COALESCE(o.status,'pending') = ?"
+            else:
+                sql += " AND COALESCE(status,'pending') = ?"
+            params.append(body.status)
+        else:
+            # Flip any non-target status (pending ↔ excluded ↔ approved)
+            if needs_join:
+                sql += " AND COALESCE(o.status,'pending') != ?"
+            else:
+                sql += " AND COALESCE(status,'pending') != ?"
+            params.append(new_status)
+
+        if body.measurement_type:
+            if needs_join:
+                sql += " AND o.measurement_type = ?"
+            else:
+                sql += " AND measurement_type = ?"
+            params.append(body.measurement_type)
+
+        if body.category:
+            if body.category == "Unclassified":
+                sql += " AND (c.category IS NULL OR c.category = '')"
+            else:
+                sql += " AND c.category = ?"
+                params.append(body.category)
+
+        if body.q:
+            like = f"%{body.q}%"
+            sql += (
+                " AND ("
+                "o.annotation LIKE ? OR o.item_id LIKE ? OR o.notes LIKE ? OR "
+                "o.linked_to LIKE ? OR c.category LIKE ? OR o.measurement_type LIKE ?"
+                ")"
+            )
+            params.extend([like, like, like, like, like, like])
+
+        if needs_join:
+            sql += ")"
+
         cur = conn.execute(sql, params)
         conn.commit()
         return {"updated": cur.rowcount, "status": new_status}

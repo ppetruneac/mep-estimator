@@ -105,7 +105,14 @@ class ItemPatch(BaseModel):
 
 class BulkAction(BaseModel):
     action: Literal["approve", "exclude"]
-    only_pending: bool = True
+    # When true, only rows currently pending. When false, flip any non-target
+    # status (so approve works after exclude-all and the reverse).
+    only_pending: bool = False
+    # Optional view filters — bulk applies to the same set as the table.
+    status: str | None = None
+    category: str | None = None
+    measurement_type: str | None = None
+    q: str | None = None
 
 
 class SummaryRow(BaseModel):
