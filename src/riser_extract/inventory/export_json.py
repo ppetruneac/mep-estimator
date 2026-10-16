@@ -6,6 +6,8 @@ import json
 import sqlite3
 from pathlib import Path
 
+from riser_extract.inventory.project_meta import backfill_project_parties
+
 
 def export_json(conn: sqlite3.Connection, project_name: str, out_path: Path) -> Path:
     proj = conn.execute(
@@ -14,6 +16,7 @@ def export_json(conn: sqlite3.Connection, project_name: str, out_path: Path) -> 
     if not proj:
         raise ValueError(f"unknown project: {project_name}")
     pid = proj["id"]
+    meta = backfill_project_parties(conn, pid)
 
     documents = []
     for d in conn.execute(
@@ -48,7 +51,11 @@ def export_json(conn: sqlite3.Connection, project_name: str, out_path: Path) -> 
                     "notes": o["notes"],
                 }
             )
-        tb = json.loads(d["title_block_json"]) if d["title_block_json"] else {}
+        # re-read after backfill
+        tb_row = conn.execute(
+            "SELECT title_block_json FROM documents WHERE id = ?", (d["id"],)
+        ).fetchone()
+        tb = json.loads(tb_row["title_block_json"]) if tb_row and tb_row["title_block_json"] else {}
         documents.append(
             {
                 "drawing_number": d["drawing_number"],
@@ -73,7 +80,7 @@ def export_json(conn: sqlite3.Connection, project_name: str, out_path: Path) -> 
         items.append(dict(line))
 
     payload = {
-        "project": {"name": proj["name"], "premise": proj["premise"], "id": pid},
+        "project": meta,
         "items": items,
         "documents": documents,
     }

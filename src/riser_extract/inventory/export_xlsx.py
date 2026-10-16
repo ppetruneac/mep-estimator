@@ -16,21 +16,24 @@ BAND_FILL = PatternFill("solid", fgColor="FFF2CC")
 
 
 def export_xlsx(conn: sqlite3.Connection, project_name: str, out_path: Path) -> Path:
+    from riser_extract.inventory.project_meta import backfill_project_parties
+
     proj = conn.execute(
         "SELECT * FROM projects WHERE name = ?", (project_name,)
     ).fetchone()
     if not proj:
         raise ValueError(f"unknown project: {project_name}")
     pid = proj["id"]
+    meta = backfill_project_parties(conn, pid)
 
     wb = Workbook()
     # Summary first
     ws_sum = wb.active
     ws_sum.title = "Summary"
-    _write_summary(conn, pid, ws_sum, project_name)
+    _write_summary(conn, pid, ws_sum, project_name, meta)
 
     ws_master = wb.create_sheet("Master")
-    _write_master(conn, pid, ws_master, project_name)
+    _write_master(conn, pid, ws_master, project_name, meta)
 
     docs = conn.execute(
         "SELECT * FROM documents WHERE project_id = ? ORDER BY floor_tab_name",
@@ -49,10 +52,23 @@ def export_xlsx(conn: sqlite3.Connection, project_name: str, out_path: Path) -> 
     return out_path
 
 
-def _write_summary(conn, pid, ws, project_name: str) -> None:
-    ws["A1"] = f"{project_name} — HEATING & COOLING TAKE-OFF SUMMARY"
+def _write_summary(conn, pid, ws, project_name: str, meta: dict | None = None) -> None:
+    meta = meta or {}
+    display = meta.get("display_name") or project_name
+    ws["A1"] = f"{display} — HEATING & COOLING TAKE-OFF SUMMARY"
     ws["A1"].font = Font(bold=True, size=14)
-    ws["A2"] = "Generated from getriser.sqlite inventory_lines (plan metres / counts)."
+    ws["A2"] = (
+        f"Client: {meta.get('client') or '—'}    |    "
+        f"Architect: {meta.get('architect') or '—'}    |    "
+        f"Owner / MEP: {meta.get('owner') or meta.get('mep') or '—'}"
+    )
+    ws["A3"] = (
+        f"Location: {meta.get('location') or '—'}    |    "
+        f"Stage: {meta.get('stage') or '—'}    |    "
+        f"Scale: {meta.get('scale') or '—'}    |    "
+        f"Code: {project_name}"
+    )
+    ws["A4"] = "Generated from getriser.sqlite inventory_lines (plan metres / counts)."
     headers = [
         "category",
         "item_id",
@@ -87,9 +103,16 @@ def _write_summary(conn, pid, ws, project_name: str) -> None:
     ws.auto_filter.ref = f"A7:I{max(7, row - 1)}"
 
 
-def _write_master(conn, pid, ws, project_name: str) -> None:
-    ws["A1"] = f"{project_name} — MASTER ITEM REGISTER"
+def _write_master(conn, pid, ws, project_name: str, meta: dict | None = None) -> None:
+    meta = meta or {}
+    display = meta.get("display_name") or project_name
+    ws["A1"] = f"{display} — MASTER ITEM REGISTER"
     ws["A1"].font = Font(bold=True, size=14)
+    ws["A2"] = (
+        f"Client: {meta.get('client') or '—'}    |    "
+        f"Architect: {meta.get('architect') or '—'}    |    "
+        f"Owner / MEP: {meta.get('owner') or meta.get('mep') or '—'}"
+    )
     headers = [
         "category",
         "item_id",
@@ -130,12 +153,21 @@ def _write_master(conn, pid, ws, project_name: str) -> None:
 
 
 def _write_floor(conn, doc, ws, project_name: str) -> None:
-    tb = json.loads(doc["title_block_json"]) if doc["title_block_json"] else {}
+    # Prefer backfilled title block from DB
+    fresh = conn.execute(
+        "SELECT title_block_json FROM documents WHERE id = ?", (doc["id"],)
+    ).fetchone()
+    raw = fresh["title_block_json"] if fresh else doc["title_block_json"]
+    tb = json.loads(raw) if raw else {}
     ws["A1"] = f"{project_name} — {doc['floor_tab_name']} INVENTORY"
     ws["A1"].font = Font(bold=True, size=12)
-    ws["A2"] = f"Source drawing: {doc['drawing_number']}  |  Scale: {doc['scale'] or tb.get('scale')}"
-    ws["A3"] = f"Revision: {doc['revision'] or tb.get('revision')}  |  PDF: {doc['source_pdf']}"
-    ws["A4"] = "Quantities are plan counts / plan metres from Phase 1–2 extract (not tender-converted)."
+    ws["A2"] = (
+        f"Client: {tb.get('client') or '—'}  |  Architect: {tb.get('architect') or '—'}  |  "
+        f"MEP: {tb.get('mep') or '—'}"
+    )
+    ws["A3"] = f"Source drawing: {doc['drawing_number']}  |  Scale: {doc['scale'] or tb.get('scale')}"
+    ws["A4"] = f"Revision: {doc['revision'] or tb.get('revision')}  |  PDF: {doc['source_pdf']}"
+    ws["A5"] = "Quantities are plan counts / plan metres from Phase 1–2 extract (not tender-converted)."
 
     headers = [
         "line",
