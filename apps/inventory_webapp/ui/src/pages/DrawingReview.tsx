@@ -266,8 +266,8 @@ export function DrawingReview() {
                       : undefined
                   }
                 >
-                  <TableCell>
-                    <Badge color="slate">{it.category || "Unclassified"}</Badge>
+                  <TableCell className="text-slate-700">
+                    {it.category || "Unclassified"}
                   </TableCell>
                   <TableCell>
                     <div className="font-medium text-slate-900">
