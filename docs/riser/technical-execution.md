@@ -78,7 +78,7 @@ Grid UIs are fine for review. They are a poor source of truth for joins. The liv
 | Step | Implementation note |
 |---|---|
 | Ingest | Drive file id. Store original. pdfinfo for page size and rotation. |
-| Text | pdfplumber words with coordinates. pdftotext -layout for notes. |
+| Text | pdfplumber / PyMuPDF words with coordinates. pdftotext -layout for notes. |
 | Raster | 72 dpi on true plotted size so 1 cm maps to scale. |
 | Title block | Project, number, rev, scale, paper, disclaimer. Filename loses. |
 | Leaders | Propose target symbol from crop + colour heuristic. Human confirms. |
@@ -87,6 +87,10 @@ Grid UIs are fine for review. They are a poor source of truth for joins. The liv
 | Premise filter | Off-title plant written as exclusions. |
 
 Do not ship colour flood-fill as the length engine. It under-counts thin hatch. That was already learned.
+
+### Phase 1 IR (implemented)
+
+Package `riser_extract` (`src/riser_extract/`) emits one JSON per drawing under `inventory_json/`: title-block metadata plus occurrence rows with coordinates, provisional trade `item_id` (`MEC` / `ELEC` / `PLUM` / `VENT`) and `legacy_item_id` (`HC-*` / `VT-*` / `PH-*`) for join with the skill inventory model. Eval harness: `evals/` against the Hubby gold workbook. CSV is deferred; Excel Master/Summary is GR-3.
 
 ## 6. Pricing engine
 
