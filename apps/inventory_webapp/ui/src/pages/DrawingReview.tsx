@@ -70,6 +70,14 @@ export function DrawingReview() {
         <button className="btn" onClick={() => setShowOverlay((v) => !v)}>
           {showOverlay ? "Show source PDF" : "Show overlay (if any)"}
         </button>
+        <a
+          className="btn primary"
+          href={api.pdfUrl(did)}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open drawing in new tab
+        </a>
       </div>
 
       <div className="split">
@@ -115,6 +123,26 @@ export function DrawingReview() {
           </table>
         </div>
         <div>
+          <div className="pdf-toolbar">
+            <a
+              className="btn primary"
+              href={api.pdfUrl(did)}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open drawing in new tab
+            </a>
+            {showOverlay && (
+              <a
+                className="btn"
+                href={api.overlayUrl(did)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open overlay in new tab
+              </a>
+            )}
+          </div>
           <object
             className="pdf-frame"
             data={`${pdfSrc}#toolbar=1&navpanes=0`}
@@ -124,13 +152,13 @@ export function DrawingReview() {
             <p className="muted">
               PDF preview unavailable in this browser.{" "}
               <a href={pdfSrc} target="_blank" rel="noreferrer">
-                Open in a new tab
+                Open drawing in new tab
               </a>
             </p>
           </object>
           <div className="muted" style={{ marginTop: "0.35rem" }}>
-            Inline preview — drawings stay on this page (no download). Overlay
-            toggle 404s if no overlay file is present.
+            Inline preview on this page, or open the full drawing in a new tab.
+            Overlay toggle 404s if no overlay file is present.
           </div>
         </div>
       </div>
