@@ -38,7 +38,7 @@ def item_dict(
         if r:
             catalog_cat = r["category"]
             catalog_desc = r["description"]
-    # Single catalogue field = gold Excel section bands (A–G…)
+    # Category = Excel take-off band (A–G…). Catalogue = item_id + SKU mapping.
     d["excel_category"] = excel_category(
         floor_tab_name=floor_tab_name,
         item_id=d.get("item_id"),
@@ -46,7 +46,7 @@ def item_dict(
         symbol_class=d.get("symbol_class"),
     )
     d["category"] = d["excel_category"]
-    d["catalog_category"] = None  # do not surface a second category in the UI
+    d["catalog_category"] = catalog_cat  # catalogue taxonomy family (internal / SKU join)
     d["item_label"] = item_label(d.get("item_id")) or catalog_desc
     mt = d.get("measurement_type")
     d["measurement_type_help"] = MEASUREMENT_TYPE_HELP.get(mt or "", None)
