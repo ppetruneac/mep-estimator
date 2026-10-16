@@ -193,13 +193,51 @@ export function DrawingReview() {
               ))}
             </div>
           </div>
+          <div>
+            <div className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">
+              Type
+              <TypeInfoTip types={facets.measurement_types || []} />
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Chip
+                label="All"
+                count={facets.measurement_types.reduce((n, t) => n + t.count, 0)}
+                selected={!measurementType}
+                onClick={() => setMeasurementType("")}
+              />
+              {facets.measurement_types.map((t) => (
+                <Chip
+                  key={t.key}
+                  label={t.key}
+                  count={t.count}
+                  selected={measurementType === t.key}
+                  title={t.help || undefined}
+                  onClick={() =>
+                    setMeasurementType(
+                      measurementType === t.key ? "" : t.key
+                    )
+                  }
+                />
+              ))}
+            </div>
+            {typeHelp && (
+              <div className="obs-info mt-3 mb-0">
+                <span className="obs-info-label">Type</span>
+                <div>
+                  <strong>{measurementType}</strong> — {typeHelp}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
 
       <Card>
         <div className="flex flex-wrap items-end gap-3">
           <label className="flex min-w-[14rem] flex-1 flex-col gap-1 text-sm">
-            <span className="font-medium text-slate-700">Search</span>
+            <span className="font-medium text-slate-700 dark:text-gray-300">
+              Search
+            </span>
             <input
               className="obs-select"
               style={{ backgroundImage: "none", paddingRight: "0.75rem" }}
@@ -211,21 +249,6 @@ export function DrawingReview() {
               }}
               onBlur={() => setQ(qDraft.trim())}
             />
-          </label>
-          <label className="flex min-w-[12rem] flex-col gap-1 text-sm">
-            <span className="font-medium text-slate-700">Type</span>
-            <select
-              className="obs-select"
-              value={measurementType}
-              onChange={(e) => setMeasurementType(e.target.value)}
-            >
-              <option value="">All</option>
-              {(facets?.measurement_types || []).map((t) => (
-                <option key={t.key} value={t.key}>
-                  {t.key} ({t.count})
-                </option>
-              ))}
-            </select>
           </label>
           <Button
             variant="secondary"
@@ -240,14 +263,6 @@ export function DrawingReview() {
             Clear filters
           </Button>
         </div>
-        {typeHelp && (
-          <div className="obs-info mt-3 mb-0">
-            <span className="obs-info-label">Type</span>
-            <div>
-              <strong>{measurementType}</strong> — {typeHelp}
-            </div>
-          </div>
-        )}
       </Card>
 
       <div className="flex flex-wrap items-center gap-2">
@@ -265,7 +280,7 @@ export function DrawingReview() {
 
       <Card className="overflow-hidden p-0">
         <div className="obs-table-scroll">
-          <Table className="min-w-[80rem]">
+          <Table className="min-w-[96rem]">
             <TableHead>
               <TableRow>
                 <TableHeaderCell>
@@ -284,10 +299,7 @@ export function DrawingReview() {
                   <SortBtn label="Unit" col="unit" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                 </TableHeaderCell>
                 <TableHeaderCell className="type-col">
-                  <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
-                    <SortBtn label="Type" col="measurement_type" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
-                    <TypeInfoTip types={facets?.measurement_types || []} />
-                  </span>
+                  <SortBtn label="Type" col="measurement_type" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                 </TableHeaderCell>
                 <TableHeaderCell className="status-col">
                   <SortBtn label="Status" col="status" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
@@ -412,12 +424,14 @@ function Chip({
   selected,
   onClick,
   tone = "default",
+  title,
 }: {
   label: string;
   count: number;
   selected: boolean;
   onClick: () => void;
   tone?: "default" | "ok" | "warn" | "bad";
+  title?: string;
 }) {
   const toneRing =
     !selected && tone === "ok"
@@ -430,6 +444,7 @@ function Chip({
   return (
     <button
       type="button"
+      title={title}
       className={[
         "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
         selected

@@ -150,14 +150,14 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
   -webkit-overflow-scrolling: touch;
 }
 
-/* Type fully visible; Status + Actions sticky on the right */
+/* Type + Status + Actions sticky; wider status so pending/approved fit */
 .tremor-Table-table th.type-col,
 .tremor-Table-table td.type-col,
 .type-col {
   position: sticky;
-  right: 16.5rem; /* status (~4rem) + actions (~12.5rem) */
+  right: 21rem; /* status 8.5 + actions 12.5 */
   z-index: 2;
-  min-width: 8rem;
+  min-width: 9rem;
   white-space: nowrap;
   background: #ffffff;
   box-shadow: -4px 0 6px -4px rgb(15 23 42 / 10%);
@@ -173,8 +173,9 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
   position: sticky;
   right: 12.5rem;
   z-index: 2;
-  min-width: 4rem;
+  min-width: 8.5rem;
   white-space: nowrap;
+  padding-right: 1rem !important;
   background: #ffffff;
 }
 .tremor-Table-table thead th.status-col {
