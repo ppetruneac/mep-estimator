@@ -281,7 +281,7 @@ export function DrawingReview() {
       <div className="drawing-table-wide">
       <Card className="overflow-hidden p-0">
         <div className="obs-table-scroll">
-          <Table className="min-w-[90rem] w-full">
+          <Table className="min-w-[78rem] w-full">
             <TableHead>
               <TableRow>
                 <TableHeaderCell>
