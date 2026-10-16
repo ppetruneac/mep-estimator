@@ -9,12 +9,24 @@ build/
 *.egg-info/
 out/
 .DS_Store
+.env
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
 *.pdf
-!tests/fixtures/*.pdf
 evals/reports/*-hubby.json
 !evals/reports/latest.md
-
-# Ultralytics / YOLO local artifacts (weights, train runs, rasterized pages)
+evals/datasets/**/yolo/images/
+evals/models/**
+!evals/models/symbol_yolo/
+!evals/models/symbol_yolo/best.pt
+!evals/models/symbol_yolo/train_meta.json
+*.pt
+!evals/models/symbol_yolo/best.pt
+runs/
+out/
+evals/evidence/**/overlays/
+evals/datasets/**/yolo/labels.cache
 *.pt
 runs/
 evals/datasets/**/yolo/

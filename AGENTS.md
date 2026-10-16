@@ -6,7 +6,8 @@
 |---|---|
 | `skills/drawings-reader/` | Method docs (keep). Inventory model still uses legacy `HC-*` IDs |
 | `skills/mep-estimator/` | Pricing method docs (keep) |
-| `src/riser_extract/` | Phase 1 deterministic PDF extractor. See its [README](src/riser_extract/README.md) |
+| `src/riser_extract/` | Phase 1–4 extract, symbols, SQLite inventory, lengths. See [README](src/riser_extract/README.md) |
+| `apps/inventory_webapp/` | GR-6 inventory review webapp (FastAPI + React) |
 | `evals/` | Gold parse + performance reports vs Hubby inventory |
 | `docs/riser/` | Product / technical docs |
 
@@ -15,20 +16,25 @@
 ```bash
 uv venv .venv
 uv pip install -e ".[dev]"
+export DATA_DIR=/Users/pico/workspace/data/getriser
 ```
 
 Recommended for reproducibility (once lockfile is committed):
 
 ```bash
-uv lock          # generate/update uv.lock
+uv lock
 uv sync --dev
 ```
 
-Training PDFs + gold xlsx (not in git):
+| Env | Default |
+|---|---|
+| `DATA_DIR` | `/Users/pico/workspace/data/getriser` |
+| `RISER_DB_PATH` | `$DATA_DIR/getriser.sqlite` |
+| `RISER_TRAINING_DIR` | `$DATA_DIR/training-docs/HeatingandCooling/HubbyPremierInnLondon` |
+| `RISER_UI_PORT` | `8870` |
+| `RISER_API_PORT` | `8871` |
 
-`/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon`
-
-Override with `RISER_TRAINING_DIR`.
+SQLite uses **WAL + busy_timeout (30s)** so multiple ingest/API processes can open the same DB; writers serialize safely.
 
 ## Commands
 
@@ -37,15 +43,31 @@ Override with `RISER_TRAINING_DIR`.
 uv run riser-extract path/to.pdf -o out/
 uv run riser-extract "$RISER_TRAINING_DIR" -o out/
 
+# Phase 2 symbols
+uv run riser-symbols extract "$RISER_TRAINING_DIR" -o evals/evidence/gr2
+
+# Phase 3 inventory (SQLite upsert by project name)
+uv run riser-inventory seed-catalog
+uv run riser-inventory ingest --project HubbyPremierInnLondon
+uv run riser-inventory export --project HubbyPremierInnLondon -o out/hubby/
+uv run riser-inventory compare --project HubbyPremierInnLondon
+
+# GR-6 webapp (Make)
+make help
+make seed-hubby
+make up          # Docker UI :8870 API :8871
+make dev-api     # host API
+make dev-ui      # host Vite
+
 # Unit tests
 uv run pytest
+make test-webapp
 
-# Gold eval (primary floors gated)
+# Gold eval
 uv run riser-eval --primary-only
-uv run riser-eval
 ```
 
-Pre-commit / pre-PR gate for extractor work: `uv run pytest` and `uv run riser-eval --primary-only`.
+Pre-commit / pre-PR gate: `uv run pytest`, and for inventory/webapp work also `make test-webapp` + Hubby compare after ingest.
 
 ## Item IDs
 
@@ -57,5 +79,5 @@ Each occurrence also has `legacy_item_id` (`HC-*` / `VT-*` / `PH-*`) matching `s
 
 - Remove or hollow out `skills/`
 - Emit CSV in Phase 1 (JSON only)
-- Apply tender conversion (×2 × 1.15 + tails) into `length_m` — that is Phase 4
+- Apply tender conversion into `length_m` without Phase 4 helpers
 - Invent First Floor tags (no PDF; gold is interpolated)

@@ -50,6 +50,10 @@ class PointM(BaseModel):
 class TitleBlock(BaseModel):
     project: str | None = None
     client: str | None = None
+    architect: str | None = None
+    mep: str | None = None
+    mep_address: str | None = None
+    mep_web: str | None = None
     drawing_number: str | None = None
     title: str | None = None
     floor: str | None = None
@@ -93,12 +97,37 @@ class Occurrence(BaseModel):
     colour: str | None = None
     notes: str | None = None
     raw_text_nearby: str | None = None
+    # Phase 2 — symbol identification
+    symbol_class: str | None = None
+    confidence: float | None = None
+    source: str | None = None  # "rule" | "yolo"
+    amber_flag: bool = False
+    centroid_px: list[float] | None = None  # [cx, cy] displayed frame
+
+
+class SymbolDetection(BaseModel):
+    """One detected symbol instance (Phase 2)."""
+
+    symbol_class: str
+    item_id: str | None = None
+    legacy_item_id: str | None = None
+    confidence: float
+    source: str  # rule | yolo
+    amber_flag: bool = False
+    pixel_bbox: list[float]
+    centroid_px: list[float]
+    real_world_coords: dict[str, Any] | None = None
+    linked_tag: str | None = None
+    linked_path_layer: str | None = None
+    colour: str | None = None
+    notes: str | None = None
 
 
 class ExtractionResult(BaseModel):
     title_block: TitleBlock
     occurrences: list[Occurrence] = Field(default_factory=list)
-    extractor_version: str = "0.1.0"
+    symbols: list[SymbolDetection] = Field(default_factory=list)
+    extractor_version: str = "0.2.0"
     backend: str = "pymupdf"
 
     def summary(self) -> dict[str, Any]:
@@ -109,11 +138,25 @@ class ExtractionResult(BaseModel):
                 by_id[key] = by_id.get(key, 0.0) + float(occ.length_m)
             else:
                 by_id[key] = by_id.get(key, 0.0) + float(occ.count)
+        by_class: dict[str, int] = {}
+        conf_sum: dict[str, float] = {}
+        for s in self.symbols:
+            by_class[s.symbol_class] = by_class.get(s.symbol_class, 0) + 1
+            conf_sum[s.symbol_class] = conf_sum.get(s.symbol_class, 0.0) + s.confidence
+        symbol_summary = {
+            cls: {
+                "count": n,
+                "avg_confidence": round(conf_sum[cls] / n, 3) if n else 0.0,
+            }
+            for cls, n in sorted(by_class.items())
+        }
         return {
             "drawing_number": self.title_block.drawing_number,
             "floor_tab_name": self.title_block.floor_tab_name,
             "scale": self.title_block.scale,
             "n_occurrences": len(self.occurrences),
+            "n_symbols": len(self.symbols),
             "backend": self.backend,
             "totals": by_id,
+            "symbols": symbol_summary,
         }

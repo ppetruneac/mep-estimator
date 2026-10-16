@@ -1,0 +1,441 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+.obs-th-btn {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.obs-th-btn:hover {
+  color: #0f172a;
+}
+
+/* Section labels like CATEGORY / STATUS / TYPE */
+.obs-label-upper {
+  font-size: 0.625rem; /* 10px */
+  line-height: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+.dark .obs-label-upper {
+  color: #6b7280;
+}
+
+.obs-select {
+  appearance: none;
+  background-color: #ffffff;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23475569'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1rem;
+  min-height: 2.25rem;
+}
+.obs-select:focus {
+  outline: 2px solid #2389da;
+  outline-offset: 1px;
+  border-color: #2389da;
+}
+
+.obs-tab {
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.875rem;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+}
+.obs-tab:hover {
+  background: #e2e8f0;
+}
+.obs-tab-active,
+.obs-tab-active:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.obs-info {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #93c5fd;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+.obs-info-label {
+  flex: 0 0 auto;
+  padding: 0.1rem 0.45rem;
+  border-radius: 0.25rem;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.obs-info strong {
+  font-weight: 650;
+  color: #1e40af;
+}
+
+/* Tremor tables — observability frame + vertically centered cells */
+.tremor-Table-root {
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #ffffff;
+}
+.tremor-Table-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.tremor-Table-table thead th,
+.tremor-Table-table th {
+  border-bottom: 1px solid #cbd5e1;
+  background: #f8fafc;
+  vertical-align: middle;
+}
+.tremor-Table-table tbody td,
+.tremor-Table-table td {
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: middle;
+}
+.tremor-Table-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.tremor-Table-table tbody tr.click-row {
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+}
+.tremor-Table-table tbody tr.click-row:hover {
+  background: #e0f2fe;
+}
+.tremor-Table-table tbody tr.amber td {
+  background: #fffbeb;
+}
+html.dark .tremor-Table-table tbody tr.amber td,
+.dark .tremor-Table-table tbody tr.amber td {
+  background: #1c1917 !important; /* stone-900 — readable in night mode */
+  color: #f5f5f4;
+}
+html.dark .tremor-Table-table tbody tr.amber:hover td,
+.dark .tremor-Table-table tbody tr.amber:hover td {
+  background: #292524 !important;
+}
+
+.obs-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Drawing inventory table: a bit wider than page chrome + denser type */
+.drawing-table-wide {
+  width: calc(100% + 6rem);
+  max-width: 92rem;
+  margin-left: -3rem;
+  margin-right: -3rem;
+  box-sizing: border-box;
+}
+.drawing-table-wide .tremor-Table-table {
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.35;
+}
+.drawing-table-wide .tremor-Table-table thead th,
+.drawing-table-wide .tremor-Table-table th {
+  font-size: 0.75rem; /* 12px */
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+.drawing-table-wide .tremor-Table-table tbody td,
+.drawing-table-wide .tremor-Table-table td {
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+.drawing-table-wide .tremor-Table-table .text-xs {
+  font-size: 0.6875rem; /* 11px secondary labels */
+}
+.drawing-table-wide .tremor-Table-table .text-sm {
+  font-size: 0.8125rem;
+}
+@media (max-width: 1280px) {
+  .drawing-table-wide {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/*
+ * Sticky right cluster (icon actions, tight Status↔Actions):
+ * Actions 5.5 | Status 6.5 | Unit 3.5 | Qty 6.5 | Type 9
+ * right: Actions 0, Status 5.5, Unit 12, Qty 15.5, Type 22
+ */
+.tremor-Table-table th.actions-col,
+.tremor-Table-table td.actions-col,
+.actions-col {
+  position: sticky;
+  right: 0;
+  z-index: 5;
+  min-width: 5.5rem;
+  width: 5.5rem;
+  background: #ffffff;
+  box-shadow: -6px 0 8px -6px rgb(15 23 42 / 18%);
+}
+.action-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: transparent;
+  cursor: pointer;
+}
+.action-icon-btn:hover {
+  outline: none;
+}
+.tremor-Table-table thead th.actions-col {
+  background: #f8fafc;
+  z-index: 6;
+}
+
+.tremor-Table-table th.status-col,
+.tremor-Table-table td.status-col,
+.status-col {
+  position: sticky;
+  right: 5.5rem;
+  z-index: 4;
+  min-width: 6.5rem;
+  width: 6.5rem;
+  white-space: nowrap;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  background: #ffffff;
+}
+.tremor-Table-table thead th.status-col {
+  background: #f8fafc;
+  z-index: 6;
+}
+
+.tremor-Table-table th.unit-col,
+.tremor-Table-table td.unit-col,
+.unit-col {
+  position: sticky;
+  right: 12rem;
+  z-index: 3;
+  min-width: 3.5rem;
+  width: 3.5rem;
+  white-space: nowrap;
+  background: #ffffff;
+}
+.tremor-Table-table thead th.unit-col {
+  background: #f8fafc;
+  z-index: 6;
+}
+
+.tremor-Table-table th.qty-col,
+.tremor-Table-table td.qty-col,
+.qty-col {
+  position: sticky;
+  right: 15.5rem;
+  z-index: 3;
+  min-width: 6.5rem;
+  width: 6.5rem;
+  white-space: nowrap;
+  text-align: right;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  background: #ffffff;
+}
+.tremor-Table-table thead th.qty-col {
+  background: #f8fafc;
+  z-index: 6;
+}
+.tremor-Table-table th.qty-col .obs-th-btn {
+  display: inline-block;
+  min-width: 3rem;
+}
+
+.tremor-Table-table th.type-col,
+.tremor-Table-table td.type-col,
+.type-col {
+  position: sticky;
+  right: 22rem;
+  z-index: 2;
+  min-width: 9rem;
+  width: 9rem;
+  white-space: nowrap;
+  background: #ffffff;
+  box-shadow: -4px 0 6px -4px rgb(15 23 42 / 10%);
+}
+.tremor-Table-table thead th.type-col {
+  background: #f8fafc;
+  z-index: 6;
+}
+
+.tremor-Table-table tbody tr.click-row:hover td.type-col,
+.tremor-Table-table tbody tr.click-row:hover td.qty-col,
+.tremor-Table-table tbody tr.click-row:hover td.unit-col,
+.tremor-Table-table tbody tr.click-row:hover td.status-col,
+.tremor-Table-table tbody tr.click-row:hover td.actions-col {
+  background: #e0f2fe;
+}
+
+/* Night mode — same approach as dental-jobs observability */
+.dark body {
+  color: #f9fafb;
+  background: #030712;
+}
+
+.dark .obs-select {
+  background-color: #111827;
+  color: #f9fafb;
+  border-color: #1f2937;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%9ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+}
+.dark .obs-select:focus {
+  outline-color: #6366f1;
+  border-color: #6366f1;
+}
+.dark .obs-select option {
+  background: #111827;
+  color: #f9fafb;
+}
+
+.dark .obs-tab {
+  color: #d1d5db;
+  background: rgba(156, 163, 175, 0.05);
+  border-color: #1f2937;
+}
+.dark .obs-tab:hover {
+  background: rgba(156, 163, 175, 0.12);
+}
+.dark .obs-tab-active,
+.dark .obs-tab-active:hover {
+  background: #6366f1;
+  color: #ffffff;
+  border-color: #6366f1;
+}
+
+.dark .obs-th-btn {
+  color: #e5e7eb;
+}
+.dark .obs-th-btn:hover {
+  color: #ffffff;
+}
+
+.dark .obs-info {
+  border-color: rgba(99, 102, 241, 0.35);
+  background: rgba(99, 102, 241, 0.12);
+  color: #c7d2fe;
+}
+.dark .obs-info-label {
+  background: #6366f1;
+}
+
+/* Tremor Card — ensure dark surfaces even if utility purge misses */
+.dark .tremor-Card-root,
+.dark [class*="tremor-Card"] {
+  background-color: #111827 !important;
+  --tw-ring-color: #1f2937 !important;
+  color: #f9fafb;
+}
+
+.dark .tremor-Table-root {
+  border-color: #1f2937;
+  background: #111827;
+}
+.dark .tremor-Table-table thead th,
+.dark .tremor-Table-table th {
+  border-bottom-color: #1f2937;
+  background: #0b1220;
+  color: #e5e7eb;
+}
+.dark .tremor-Table-table tbody td,
+.dark .tremor-Table-table td {
+  border-bottom-color: #1f2937;
+  color: #e5e7eb;
+}
+.dark .tremor-Table-table tbody tr.click-row:hover {
+  background: rgba(99, 102, 241, 0.12);
+}
+.dark .tremor-Table-table th.type-col,
+.dark .tremor-Table-table td.type-col,
+.dark .type-col,
+.dark .tremor-Table-table th.qty-col,
+.dark .tremor-Table-table td.qty-col,
+.dark .qty-col,
+.dark .tremor-Table-table th.unit-col,
+.dark .tremor-Table-table td.unit-col,
+.dark .unit-col,
+.dark .tremor-Table-table th.status-col,
+.dark .tremor-Table-table td.status-col,
+.dark .status-col,
+.dark .tremor-Table-table th.actions-col,
+.dark .tremor-Table-table td.actions-col,
+.dark .actions-col {
+  background: #111827;
+}
+.dark .tremor-Table-table thead th.type-col,
+.dark .tremor-Table-table thead th.qty-col,
+.dark .tremor-Table-table thead th.unit-col,
+.dark .tremor-Table-table thead th.status-col,
+.dark .tremor-Table-table thead th.actions-col {
+  background: #0b1220;
+}
+.dark .tremor-Table-table th.actions-col,
+.dark .tremor-Table-table td.actions-col,
+.dark .actions-col {
+  box-shadow: -6px 0 8px -6px rgb(0 0 0 / 45%);
+}
+.dark .tremor-Table-table tbody tr.click-row:hover td.type-col,
+.dark .tremor-Table-table tbody tr.click-row:hover td.qty-col,
+.dark .tremor-Table-table tbody tr.click-row:hover td.unit-col,
+.dark .tremor-Table-table tbody tr.click-row:hover td.status-col,
+.dark .tremor-Table-table tbody tr.click-row:hover td.actions-col {
+  background: rgba(99, 102, 241, 0.12);
+}
+
+/* Keep status badges readable on amber rows in dark mode */
+html.dark .tremor-Table-table tbody tr.amber .tremor-Badge-root,
+.dark .tremor-Table-table tbody tr.amber .tremor-Badge-root {
+  opacity: 1;
+  filter: none;
+}

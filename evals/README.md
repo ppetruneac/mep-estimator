@@ -52,3 +52,14 @@ Not scored: lagging, clips, OFN, thermostats, condensate allowances, First Floor
 ## Item IDs
 
 Live IDs use trade prefixes (`MEC` / `ELEC` / `PLUM` / `VENT`). Each occurrence also carries `legacy_item_id` matching `skills/drawings-reader` (`HC-*` / `VT-*` / `PH-*`).
+
+## Phase 2 symbols
+
+```bash
+uv run riser-symbols extract "$RISER_TRAINING_DIR" -o evals/evidence/gr2
+uv run riser-symbols dataset -o evals/datasets/hubby-premier-inn-london/yolo --skip-amber
+uv run riser-symbols train evals/datasets/hubby-premier-inn-london/yolo -o evals/models/symbol_yolo --epochs 30
+uv run riser-symbols decision-log -o evals/reports/gr2-decision-log.md
+```
+
+Primary eval also gates Basement / Second Floor **tagged symbol counts** (FCU, HBC, panel) against the inventory. See `evals/reports/gr2-decision-log.md` for rules-vs-YOLO.

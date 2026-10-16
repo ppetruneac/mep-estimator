@@ -10,6 +10,8 @@ The method in this repo is also the seed for **Riser** ([getriser.co.uk](https:/
 |---|---|
 | [docs/riser/business-plan.md](docs/riser/business-plan.md) | Offer, buyer, pricing shape, go-to-market |
 | [docs/riser/technical-execution.md](docs/riser/technical-execution.md) | Domain model, pipeline, Excel round-trip, build slices |
+| [docs/riser/shipping.md](docs/riser/shipping.md) | What GR-1–GR-3 ship (CLIs, JSON, symbols, SQLite inventory) |
+| [docs/inventory-webapp-plan.md](docs/inventory-webapp-plan.md) | Inventory review webapp plan (GR-6) |
 | [AGENTS.md](AGENTS.md) | Extractor setup, eval gate, ID conventions |
 | [src/riser_extract/README.md](src/riser_extract/README.md) | Phase 1 extractor package docs |
 
@@ -42,7 +44,27 @@ Each occurrence carries:
 - `legacy_item_id` matching the skill inventory model (`HC-FCU-WALL`, …)
 - Coordinates (pixel bbox + metres), scale, layer, colour, measurement type
 
-JSON only in Phase 1. Full Excel Master/Summary is GR-3.
+### Phase 2 — symbol identification
+
+Rules-first boxes + confidence on annotated PNGs. Optional YOLO residual:
+
+```bash
+uv run riser-symbols extract path/to/pdfs -o evals/evidence/gr2
+uv run riser-eval --primary-only   # includes symbol count gates
+```
+
+Decision log: [`evals/reports/gr2-decision-log.md`](evals/reports/gr2-decision-log.md).
+
+### Phase 3 — inventory (SQLite)
+
+```bash
+export DATA_DIR=/Users/pico/workspace/data/getriser   # → $DATA_DIR/getriser.sqlite
+uv run riser-inventory ingest --project HubbyPremierInnLondon
+uv run riser-inventory export --project HubbyPremierInnLondon -o out/hubby/
+uv run riser-inventory compare --project HubbyPremierInnLondon
+```
+
+Project premise defaults to `mep`. Re-ingest upserts (WAL + busy timeout for concurrent connections).
 
 ### Evals
 

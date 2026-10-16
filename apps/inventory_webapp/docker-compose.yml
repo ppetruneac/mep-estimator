@@ -1,0 +1,46 @@
+# Inventory review stack (API + UI). From repo root:
+#   make up
+# Or:
+#   DATA_DIR=/Users/pico/workspace/data/getriser \
+#   RISER_UI_PORT=8870 RISER_API_PORT=8871 \
+#   docker compose -p riser-inventory -f apps/inventory_webapp/docker-compose.yml up -d --build
+
+name: ${RISER_COMPOSE_PROJECT:-riser-inventory}
+
+services:
+  api:
+    build:
+      context: ../..
+      dockerfile: apps/inventory_webapp/Dockerfile
+    image: ${RISER_API_IMAGE:-riser-inventory-api:local}
+    ports:
+      - "${RISER_API_PORT:-8871}:8000"
+    volumes:
+      - ${DATA_DIR:-/Users/pico/workspace/data/getriser}:/data
+    environment:
+      DATA_DIR: /data
+      RISER_DB_PATH: /data/getriser.sqlite
+      HOST: 0.0.0.0
+      PORT: "8000"
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://127.0.0.1:8870,http://localhost:8870}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 25s
+
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL:-}
+    image: ${RISER_UI_IMAGE:-riser-inventory-ui:local}
+    ports:
+      - "${RISER_UI_PORT:-8870}:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped

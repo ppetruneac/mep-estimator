@@ -1,0 +1,216 @@
+{
+  "title_block": {
+    "project": "Hub by Premier Inn Putney",
+    "client": null,
+    "drawing_number": "25280-SEN-00-DR-M-5600",
+    "title": null,
+    "floor": "Ground Floor",
+    "floor_tab_name": "Ground Floor",
+    "revision": "P1",
+    "stage": "Stage 4",
+    "date": "21-10-26",
+    "scale": "1:50 @ A1",
+    "scale_ratio": 50,
+    "paper": "A1",
+    "disclaimer": "DO NOT SCALE",
+    "page_width_pt": 2384.0,
+    "page_height_pt": 1684.0,
+    "rotation": 270,
+    "measure_m_per_cm": 0.49949,
+    "m_per_pt": 0.017620897222222223,
+    "source_pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-0X-DR-M-5600 -Heating and Cooling - Ground Floor-P1.pdf",
+    "layers": [
+      "0",
+      "E600 CIRCUIT WIRING",
+      "Title Block",
+      "xref"
+    ],
+    "notes": "scale_source=measure+title; creator=AutoCAD LT 2026 - English 2026 (25.1s (LMS Tech))"
+  },
+  "occurrences": [
+    {
+      "drawing_number": "25280-SEN-00-DR-M-5600",
+      "page": 1,
+      "floor_tab_name": "Ground Floor",
+      "scale": "1:50 @ A1",
+      "category": "Electric heat",
+      "item_id": "ELEC-CUR",
+      "legacy_item_id": "HC-ELEC-CUR",
+      "annotation": "DOOR CURTAIN",
+      "linked_to": "cyan spine/pipe, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        532.92,
+        1279.04,
+        548.16,
+        1294.28
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "ELECTRIC OVER DOOR DOOR CURTAIN",
+      "symbol_class": "door_curtain",
+      "confidence": 0.75,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        540.54,
+        1286.66
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-00-DR-M-5600",
+      "page": 1,
+      "floor_tab_name": "Ground Floor",
+      "scale": "1:50 @ A1",
+      "category": "Electric heat",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "annotation": "ELECTRIC PANEL HEATER",
+      "linked_to": "layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        608.56,
+        1345.08,
+        628.76,
+        1399.0
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "ELECTRIC PANEL HEATER",
+      "symbol_class": "panel_heater",
+      "confidence": 0.82,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        618.66,
+        1372.04
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-00-DR-M-5600",
+      "page": 1,
+      "floor_tab_name": "Ground Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-RISER",
+      "legacy_item_id": "HC-CU-RISER",
+      "annotation": "RISER R/A & T/B",
+      "linked_to": "riser box",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "interface",
+      "length_m": null,
+      "pixel_bbox": [
+        911.39453125,
+        263.719970703125,
+        918.38671875,
+        294.80780029296875
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Riser / passing-systems note. Vertical metres need storey height (Phase 4).",
+      "raw_text_nearby": "RISER RETAIL/OFFICE REFRIGERANT PIPEWORK R/A & T/B",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_class": "door_curtain",
+      "item_id": "ELEC-CUR",
+      "legacy_item_id": "HC-ELEC-CUR",
+      "confidence": 0.75,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        532.92,
+        1279.04,
+        548.16,
+        1294.28
+      ],
+      "centroid_px": [
+        540.54,
+        1286.66
+      ],
+      "real_world_coords": {
+        "x_m": 9.525,
+        "y_m": 7.001
+      },
+      "linked_tag": "ELECTRIC DOOR CURTAIN",
+      "linked_path_layer": "xref",
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=112.5pt"
+    },
+    {
+      "symbol_class": "panel_heater",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "confidence": 0.82,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        608.56,
+        1345.08,
+        628.76,
+        1399.0
+      ],
+      "centroid_px": [
+        618.66,
+        1372.04
+      ],
+      "real_world_coords": {
+        "x_m": 10.901,
+        "y_m": 5.497
+      },
+      "linked_tag": "ELECTRIC PANEL HEATER",
+      "linked_path_layer": "0",
+      "colour": "#ff0000",
+      "notes": "red bar near electric tag d=196.6pt"
+    }
+  ],
+  "summary": {
+    "drawing_number": "25280-SEN-00-DR-M-5600",
+    "floor_tab_name": "Ground Floor",
+    "scale": "1:50 @ A1",
+    "n_occurrences": 3,
+    "n_symbols": 2,
+    "backend": "pymupdf (planlens installed)",
+    "totals": {
+      "ELEC-CUR": 1.0,
+      "ELEC-PNL": 1.0,
+      "MEC-CU-RISER": 1.0
+    },
+    "symbols": {
+      "door_curtain": {
+        "count": 1,
+        "avg_confidence": 0.75
+      },
+      "panel_heater": {
+        "count": 1,
+        "avg_confidence": 0.82
+      }
+    }
+  },
+  "extractor_version": "0.2.0",
+  "backend": "pymupdf (planlens installed)"
+}

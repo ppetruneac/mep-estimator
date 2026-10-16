@@ -56,7 +56,8 @@ in | interface | out. Title-block premise decides the default. Out still stored 
 ### 4.1 Shape
 
 - Web app (estimator UI) + worker (PDF extract, scale, formula rebuild) + API.
-- Postgres for the graph. Object store for rasters and original PDFs.
+- **v1 store:** SQLite at `$DATA_DIR/getriser.sqlite` (WAL + busy_timeout for concurrent connections). Postgres remains the longer-term graph target.
+- Object store for rasters and original PDFs (later).
 - Google Drive and Gmail via OAuth, project-folder scope only.
 - xlsx built server-side with the same rules as the estimator skill (named ranges, VLOOKUP/XLOOKUP by item_id, SUM that excludes the total row).
 - Q&A: retrieval over title-block text, spec clauses, item notes, where_found — not a free model over raw pixels.
@@ -91,6 +92,16 @@ Do not ship colour flood-fill as the length engine. It under-counts thin hatch. 
 ### Phase 1 IR (implemented)
 
 Package `riser_extract` (`src/riser_extract/`) emits one JSON per drawing under `inventory_json/`: title-block metadata plus occurrence rows with coordinates, provisional trade `item_id` (`MEC` / `ELEC` / `PLUM` / `VENT`) and `legacy_item_id` (`HC-*` / `VT-*` / `PH-*`) for join with the skill inventory model. Eval harness: `evals/` against the Hubby gold workbook. CSV is deferred; Excel Master/Summary is GR-3.
+
+### Phase 2 symbols (implemented)
+
+Rules-first symbol identification enriches JSON with `symbols[]` (`symbol_class`, `confidence`, `source=rule|yolo`, bbox, centroid, amber flag) and burns boxes onto annotated PNG/PDF under `annotated/`. Starter classes on the Hubby Seneca set are solved by tag proximity + layer + colour + compact geometry. YOLO is optional residual (`riser-symbols dataset|train`, extra `yolo`). Decision log: `evals/reports/gr2-decision-log.md`. Evidence: `evals/evidence/gr2/`.
+
+### Phase 3 inventory (implemented)
+
+`riser-inventory` upserts extracts into `$DATA_DIR/getriser.sqlite` keyed by **project name** (e.g. `HubbyPremierInnLondon`, premise default `mep`). Re-ingest of the same PDF upserts the document and replaces that drawing’s occurrences (content_hash skip when unchanged). Shared `catalog_items` lookup attaches SKU / matched status. Exports: `inventory.json` + gold-shaped `inventory.xlsx` (floor tabs + Master + Summary).
+
+Full shipping checklist for this stack: [shipping.md](shipping.md).
 
 ## 6. Pricing engine
 

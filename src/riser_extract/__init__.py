@@ -1,4 +1,4 @@
-"""Riser Phase 1 + Phase 4 length calculations."""
+"""Riser extract: geometry, symbols, inventory SQLite, Phase 4 lengths."""
 
 from riser_extract.lengths import (
     aggregate_by_item,
@@ -22,4 +22,4 @@ __all__ = [
     "update_existing_inventory",
     "__version__",
 ]
-__version__ = "0.1.0"
+__version__ = "0.4.0"

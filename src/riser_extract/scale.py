@@ -112,16 +112,107 @@ def parse_drawing_number(full_text: str, filename: str) -> str | None:
 
 
 def parse_floor_tab(full_text: str, filename: str) -> str | None:
-    # Prefer title-block phrasing over filename
-    upper = full_text.upper()
-    # Title often says "SECOND FLOOR Heating and Cooling Layout"
-    for rx, name in FLOOR_PATTERNS:
-        if rx.search(upper):
-            return name
+    """Resolve floor tab name.
+
+    Filename wins when it clearly names a floor — sheet notes often mention
+    other levels (e.g. a roof plant drawing that references the basement).
+    """
     for rx, name in FILENAME_FLOOR:
         if rx.search(filename):
             return name
+    upper = full_text.upper()
+    # Prefer the most specific title hit; check Roof before bare patterns that
+    # may appear in cross-references.
+    hits = [(name, rx.search(upper) is not None) for rx, name in FLOOR_PATTERNS]
+    for name, ok in hits:
+        if ok and name == "Roof Plant":
+            return name
+    for name, ok in hits:
+        if ok:
+            return name
     return None
+
+
+def parse_parties(full_text: str) -> dict[str, str | None]:
+    """Architect / client / MEP from title-block labels and nearby lines."""
+    lines = [ln.strip() for ln in full_text.splitlines() if ln.strip()]
+    upper_lines = [ln.upper() for ln in lines]
+
+    def after_label(label: str) -> str | None:
+        for i, u in enumerate(upper_lines):
+            if u == label or u.startswith(label + " ") or u.startswith(label + ":"):
+                # same line after colon
+                if ":" in lines[i]:
+                    rest = lines[i].split(":", 1)[1].strip(" :-")
+                    if rest and len(rest) > 1:
+                        return rest
+                # next non-empty content line(s)
+                for j in range(i + 1, min(i + 4, len(lines))):
+                    cand = lines[j].strip(" :-")
+                    if not cand:
+                        continue
+                    if cand.upper() in {"ARCHITECT", "CLIENT", "ENGINEER", "MEP", "DRAWN", "CHECKED", "REV", "SCALE", "DATE", "TITLE", "PROJECT", "DISCLAIMER"}:
+                        continue
+                    if cand.upper().startswith(("ARCHITECT", "CLIENT", "SCALE", "DATE", "DRAWING", "REV")):
+                        continue
+                    return cand
+        return None
+
+    client = after_label("CLIENT")
+    # Title block order is often ARCHITECT: / CLIENT: / Mosser / curio email…
+    # so the first content after ARCHITECT may be the client name — prefer Curio contacts.
+    architect = None
+    if re.search(r"([\w.-]+@curioarchitects\.co\.uk|www\.curioarchitects\.co\.uk)", full_text, re.I):
+        architect = "Curio Architects"
+    if not architect:
+        architect = after_label("ARCHITECT")
+        if architect and "@" in architect:
+            domain = architect.split("@", 1)[1].split("/", 1)[0]
+            host = domain.split(".")[0]
+            if "curio" in host.lower():
+                architect = "Curio Architects"
+            else:
+                architect = host.replace("-", " ").title()
+    # If ARCHITECT resolved to the same string as CLIENT, drop it
+    if architect and client and architect.upper().rstrip(".") == client.upper().rstrip("."):
+        architect = None
+        if re.search(r"curioarchitects", full_text, re.I):
+            architect = "Curio Architects"
+
+    mep = None
+    mep_address = None
+    mep_web = None
+    m = re.search(r"\bSeneca\s+Group\s+Ltd\b", full_text, re.I)
+    if m:
+        mep = "Seneca Group Ltd"
+    if not mep:
+        m = re.search(r"\b(Seneca\s+(?:Engineering\s+)?(?:Group\s+)?Ltd)\b", full_text, re.I)
+        if m:
+            mep = re.sub(r"\s+", " ", m.group(1)).strip()
+    addr = re.search(
+        r"(4th\s+Floor,\s+Silverstream\s+House,[^\n]+Fitzrovia[^\n]*)",
+        full_text,
+        re.I,
+    )
+    if addr:
+        mep_address = re.sub(r"\s+", " ", addr.group(1)).strip(" ,")
+    web = re.search(r"(www\.senecagrp\.com)", full_text, re.I)
+    if web:
+        mep_web = web.group(1).lower()
+
+    # Normalise client casing
+    if client:
+        client = re.sub(r"\s+", " ", client).strip()
+        if client.isupper() and len(client) < 40:
+            client = client.title().replace("Ltd", "Ltd")
+
+    return {
+        "client": client,
+        "architect": architect,
+        "mep": mep,
+        "mep_address": mep_address,
+        "mep_web": mep_web,
+    }
 
 
 def parse_title_fields(full_text: str) -> dict[str, str | None]:
@@ -134,13 +225,15 @@ def parse_title_fields(full_text: str) -> dict[str, str | None]:
     project = None
     if re.search(r"PREMIER\s+INN|HUB\s+BY", full_text, re.I):
         project = "Hub by Premier Inn Putney"
-    return {
+    out: dict[str, str | None] = {
         "revision": rev.group(1) if rev else None,
         "stage": f"Stage {stage.group(1)}" if stage else None,
         "date": date.group(1) if date else None,
         "disclaimer": disclaimer,
         "project": project,
     }
+    out.update(parse_parties(full_text))
+    return out
 
 
 def normalise_drawing_number(raw: str | None) -> str | None:
