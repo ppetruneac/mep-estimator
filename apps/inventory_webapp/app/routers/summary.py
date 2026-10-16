@@ -73,6 +73,7 @@ def summary_by_category(project_uuid: str):
             """,
             (project_id,),
         ).fetchall()
+        # Include pending + approved + amended (everything except excluded)
         buckets: dict[str, dict] = {}
         for r in rows:
             cat = r["cat"] or "Unclassified"
@@ -83,10 +84,9 @@ def summary_by_category(project_uuid: str):
             if st == "excluded":
                 b["excluded_count"] += 1
                 continue
-            if st in ("approved", "amended"):
-                b["qty"] += effective_qty(r)
-                b["item_count"] += 1
-                b["unit"] = b["unit"] or r["unit"]
+            b["qty"] += effective_qty(r)
+            b["item_count"] += 1
+            b["unit"] = b["unit"] or r["unit"]
         return [
             SummaryRow(
                 key=k,

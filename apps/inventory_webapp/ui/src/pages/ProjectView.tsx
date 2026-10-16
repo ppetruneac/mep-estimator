@@ -163,12 +163,16 @@ export function ProjectView() {
       {tab === "floor" && (
         <SummaryCard
           rows={byFloor}
+          note="Approved / amended qty only"
+          linesLabel="Approved lines"
           onExport={() => exportCsv(byFloor, "summary-by-floor.csv")}
         />
       )}
       {tab === "category" && (
         <SummaryCard
           rows={byCat}
+          note="All lines including pending (excluded listed separately)"
+          linesLabel="Lines"
           onExport={() => exportCsv(byCat, "summary-by-category.csv")}
         />
       )}
@@ -191,9 +195,13 @@ function Meta({ label, value }: { label: string; value?: string | null }) {
 function SummaryCard({
   rows,
   onExport,
+  note,
+  linesLabel = "Lines",
 }: {
   rows: SummaryRow[];
   onExport: () => void;
+  note: string;
+  linesLabel?: string;
 }) {
   return (
     <Card>
@@ -201,7 +209,7 @@ function SummaryCard({
         <button type="button" className="obs-tab" onClick={onExport}>
           Export CSV
         </button>
-        <Text>Approved / amended qty only</Text>
+        <Text>{note}</Text>
       </div>
       <div className="obs-table-scroll">
         <Table>
@@ -210,7 +218,7 @@ function SummaryCard({
               <TableHeaderCell>Label</TableHeaderCell>
               <TableHeaderCell>Qty</TableHeaderCell>
               <TableHeaderCell>Unit</TableHeaderCell>
-              <TableHeaderCell>Approved lines</TableHeaderCell>
+              <TableHeaderCell>{linesLabel}</TableHeaderCell>
               <TableHeaderCell>Excluded</TableHeaderCell>
             </TableRow>
           </TableHead>
