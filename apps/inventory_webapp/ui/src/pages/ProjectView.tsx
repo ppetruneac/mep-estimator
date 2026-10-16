@@ -96,11 +96,6 @@ export function ProjectView() {
             <Meta label="Project code" value={project?.name} />
             <Meta label="Premise" value={project?.premise} />
           </div>
-          {tb.floors && tb.floors.length > 0 && (
-            <div className="muted" style={{ marginTop: "0.75rem" }}>
-              Floors: {tb.floors.join(" · ")}
-            </div>
-          )}
         </div>
       )}
 
@@ -144,7 +139,7 @@ export function ProjectView() {
               {drawings.map((d) => (
                 <tr
                   key={d.id}
-                  style={{ cursor: "pointer" }}
+                  className="click-row"
                   onClick={() => nav(`/projects/${uuid}/drawings/${d.id}`)}
                 >
                   <td>{d.floor_tab_name}</td>

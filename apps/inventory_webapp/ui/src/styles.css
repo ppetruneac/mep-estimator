@@ -130,6 +130,9 @@ table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
 th, td { padding: 0.45rem 0.55rem; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top; }
 th { background: #f8fafc; position: sticky; top: 0; }
 tr.amber { background: #fffbeb; }
+tr.click-row { cursor: pointer; transition: background-color 0.12s ease, box-shadow 0.12s ease; }
+tr.click-row:hover { background: #e0f2fe; }
+tr.click-row:hover td { color: #0c4a6e; }
 .btn {
   border: 1px solid #cbd5e1; background: white; border-radius: 8px;
   padding: 0.35rem 0.65rem; cursor: pointer; font-size: 0.8rem;
