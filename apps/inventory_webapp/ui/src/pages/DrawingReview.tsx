@@ -444,7 +444,7 @@ function Chip({
       ].join(" ")}
       onClick={onClick}
     >
-      <span className="capitalize">{label}</span>
+      <span>{label}</span>
       <span
         className={[
           "rounded-full px-1.5 py-0.5 text-xs tabular-nums",
