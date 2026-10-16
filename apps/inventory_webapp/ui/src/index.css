@@ -167,6 +167,20 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
   }
 }
 
+.tremor-Table-table th.qty-col,
+.tremor-Table-table td.qty-col,
+.qty-col {
+  min-width: 5.5rem;
+  white-space: nowrap;
+  text-align: right;
+}
+.tremor-Table-table th.unit-col,
+.tremor-Table-table td.unit-col,
+.unit-col {
+  min-width: 3.5rem;
+  white-space: nowrap;
+}
+
 /* Type + Status + Actions sticky; wider status so pending/approved fit */
 .tremor-Table-table th.type-col,
 .tremor-Table-table td.type-col,

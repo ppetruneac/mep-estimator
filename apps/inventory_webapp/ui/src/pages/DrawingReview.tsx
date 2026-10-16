@@ -293,10 +293,10 @@ export function DrawingReview() {
                 <TableHeaderCell>
                   <SortBtn label="Annotation" col="annotation" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                 </TableHeaderCell>
-                <TableHeaderCell>
+                <TableHeaderCell className="qty-col">
                   <SortBtn label="Qty" col="effective_qty" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                 </TableHeaderCell>
-                <TableHeaderCell>
+                <TableHeaderCell className="unit-col">
                   <SortBtn label="Unit" col="unit" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                 </TableHeaderCell>
                 <TableHeaderCell className="type-col">
@@ -328,8 +328,14 @@ export function DrawingReview() {
                       <div className="text-xs text-slate-500">{it.linked_to}</div>
                     )}
                   </TableCell>
-                  <TableCell>{it.effective_qty}</TableCell>
-                  <TableCell>{it.unit}</TableCell>
+                  <TableCell className="qty-col">
+                    <span className="whitespace-nowrap tabular-nums">
+                      {it.effective_qty}
+                    </span>
+                  </TableCell>
+                  <TableCell className="unit-col whitespace-nowrap">
+                    {it.unit}
+                  </TableCell>
                   <TableCell className="type-col">
                     <span className="whitespace-nowrap">{it.measurement_type || "—"}</span>
                   </TableCell>
