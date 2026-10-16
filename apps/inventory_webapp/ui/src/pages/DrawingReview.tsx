@@ -166,62 +166,66 @@ export function DrawingReview() {
             </div>
           </div>
           <div>
-            <div className="mb-1.5 obs-label-upper">
-              Status
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <Chip
-                label="All"
-                count={facets.statuses.reduce((n, s) => n + s.count, 0)}
-                selected={!status}
-                onClick={() => setStatus("")}
-              />
-              {facets.statuses.map((s) => (
+            <div className="mb-1.5 obs-label-upper">Status || Type</div>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <Chip
-                  key={s.key}
-                  label={s.key}
-                  count={s.count}
-                  selected={status === s.key}
-                  tone={
-                    s.key === "approved" || s.key === "amended"
-                      ? "ok"
-                      : s.key === "excluded"
-                        ? "bad"
-                        : s.key === "pending"
-                          ? "warn"
-                          : "default"
-                  }
-                  onClick={() => setStatus(status === s.key ? "" : s.key)}
+                  label="All"
+                  count={facets.statuses.reduce((n, s) => n + s.count, 0)}
+                  selected={!status}
+                  onClick={() => setStatus("")}
                 />
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="mb-1.5 flex items-center gap-1.5 obs-label-upper">
-              Type
-              <TypeInfoTip types={facets.measurement_types || []} />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <Chip
-                label="All"
-                count={facets.measurement_types.reduce((n, t) => n + t.count, 0)}
-                selected={!measurementType}
-                onClick={() => setMeasurementType("")}
-              />
-              {facets.measurement_types.map((t) => (
+                {facets.statuses.map((s) => (
+                  <Chip
+                    key={s.key}
+                    label={s.key}
+                    count={s.count}
+                    selected={status === s.key}
+                    tone={
+                      s.key === "approved" || s.key === "amended"
+                        ? "ok"
+                        : s.key === "excluded"
+                          ? "bad"
+                          : s.key === "pending"
+                            ? "warn"
+                            : "default"
+                    }
+                    onClick={() => setStatus(status === s.key ? "" : s.key)}
+                  />
+                ))}
+              </div>
+              <span
+                className="px-1 text-slate-300 dark:text-gray-600 select-none"
+                aria-hidden
+              >
+                ||
+              </span>
+              <div className="flex flex-wrap items-center gap-2">
                 <Chip
-                  key={t.key}
-                  label={t.key}
-                  count={t.count}
-                  selected={measurementType === t.key}
-                  title={t.help || undefined}
-                  onClick={() =>
-                    setMeasurementType(
-                      measurementType === t.key ? "" : t.key
-                    )
-                  }
+                  label="All"
+                  count={facets.measurement_types.reduce(
+                    (n, t) => n + t.count,
+                    0
+                  )}
+                  selected={!measurementType}
+                  onClick={() => setMeasurementType("")}
                 />
-              ))}
+                <TypeInfoTip types={facets.measurement_types || []} />
+                {facets.measurement_types.map((t) => (
+                  <Chip
+                    key={t.key}
+                    label={t.key}
+                    count={t.count}
+                    selected={measurementType === t.key}
+                    title={t.help || undefined}
+                    onClick={() =>
+                      setMeasurementType(
+                        measurementType === t.key ? "" : t.key
+                      )
+                    }
+                  />
+                ))}
+              </div>
             </div>
             {typeHelp && (
               <div className="obs-info mt-3 mb-0">
