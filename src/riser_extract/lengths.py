@@ -1,16 +1,11 @@
 """Phase 4: length calculations and tender conversion.
 
 Consumes Phase 1/2 Occurrence records (length_m is the one-way plan route).
-Applies the exact formulas from skills/drawings-reader/SKILL.md.
+Applies the formulas from skills/drawings-reader/SKILL.md, with user-overridable
+waste factors (defaults match the skill).
 
 Does **not** create new SQLite tables. Tender results are written into the
-notes field of the existing Phase 3 ``occurrences`` table (and can refresh
-inventory_lines). No CSV/JSON reports.
-
-Deferred:
-- Catalog-driven engineering formulas (Hazen-Williams etc.).
-- Explicit tender_length_m column (can be added later if needed).
-- Full building-level unique/interface roll-up beyond what Phase 3 already does.
+notes field of the existing Phase 3 ``occurrences`` table. No CSV/JSON reports.
 """
 
 from __future__ import annotations
@@ -21,41 +16,57 @@ from typing import Iterable
 
 from riser_extract.schema import ExtractionResult, MeasurementType, Occurrence
 
-# Defaults from SKILL.md
-COORDINATION_FACTOR = 1.15
-TAIL_M_PER_PIPE = 1.5
-TRAY_WASTE_FACTOR = 0.15
+# Defaults from SKILL.md — override via function arguments or config
+DEFAULT_COORDINATION_FACTOR = 1.15
+DEFAULT_TAIL_M_PER_PIPE = 1.5
+DEFAULT_TRAY_WASTE_FACTOR = 0.15
 
 
 def tender_length_two_pipe(
     plan_route_m: float,
-    coordination_factor: float = COORDINATION_FACTOR,
-    tail_m_per_pipe: float = TAIL_M_PER_PIPE,
+    coordination_factor: float = DEFAULT_COORDINATION_FACTOR,
+    tail_m_per_pipe: float = DEFAULT_TAIL_M_PER_PIPE,
 ) -> float:
     """Default tender conversion for a two-pipe indoor run (water F+R or refrigerant pair).
 
-    tender_m = (plan_route_m × 2 pipes × coordination) + (tail × 2)
+    tender_m = (plan_route_m × 2 pipes × coordination_factor) + (tail_m_per_pipe × 2)
+
+    Factors are user-overridable; defaults match SKILL.md.
     """
     if plan_route_m < 0:
         raise ValueError("plan_route_m must be >= 0")
+    if coordination_factor < 0 or tail_m_per_pipe < 0:
+        raise ValueError("factors must be >= 0")
     return (plan_route_m * 2 * coordination_factor) + (tail_m_per_pipe * 2)
 
 
 def tray_length_with_waste(
     plan_length_m: float,
-    waste_factor: float = TRAY_WASTE_FACTOR,
+    waste_factor: float = DEFAULT_TRAY_WASTE_FACTOR,
 ) -> float:
-    """One tray per printed size + waste."""
+    """One tray per printed size + waste.
+
+    waste_factor is user-overridable (e.g. 0.10 = 10 %); default is 15 %.
+    """
     if plan_length_m < 0:
         raise ValueError("plan_length_m must be >= 0")
+    if waste_factor < 0:
+        raise ValueError("waste_factor must be >= 0")
     return plan_length_m * (1 + waste_factor)
 
 
-def apply_tender(occ: Occurrence) -> Occurrence:
+def apply_tender(
+    occ: Occurrence,
+    *,
+    coordination_factor: float = DEFAULT_COORDINATION_FACTOR,
+    tail_m_per_pipe: float = DEFAULT_TAIL_M_PER_PIPE,
+    tray_waste_factor: float = DEFAULT_TRAY_WASTE_FACTOR,
+) -> Occurrence:
     """Return a copy with tender conversion appended to notes.
 
     length_m remains the drawn/plan route. tender_length_m is stashed on the
     object for callers; it is not a schema field.
+    Factors are user-overridable.
     """
     updated = occ.model_copy(deep=True)
     plan = occ.length_m or 0.0
@@ -63,12 +74,16 @@ def apply_tender(occ: Occurrence) -> Occurrence:
 
     if occ.unit == "m" and plan > 0:
         if "tray" in (occ.item_id or "").lower() or "tray" in (occ.legacy_item_id or "").lower():
-            tender = tray_length_with_waste(plan)
-            notes.append(f"tray waste {TRAY_WASTE_FACTOR:.0%} applied → tender {tender:.2f} m")
+            tender = tray_length_with_waste(plan, waste_factor=tray_waste_factor)
+            notes.append(f"tray waste {tray_waste_factor:.0%} applied → tender {tender:.2f} m")
         elif occ.measurement_type in {MeasurementType.SCALED, MeasurementType.GEOMETRY}:
-            tender = tender_length_two_pipe(plan)
+            tender = tender_length_two_pipe(
+                plan,
+                coordination_factor=coordination_factor,
+                tail_m_per_pipe=tail_m_per_pipe,
+            )
             notes.append(
-                f"tender conversion (2×{COORDINATION_FACTOR} + {TAIL_M_PER_PIPE*2:.1f} m tails) → {tender:.2f} m"
+                f"tender conversion (2×{coordination_factor} + {tail_m_per_pipe*2:.1f} m tails) → {tender:.2f} m"
             )
         else:
             tender = plan
@@ -116,12 +131,16 @@ def update_existing_inventory(
     *,
     project_id: int | None = None,
     document_id: int | None = None,
+    coordination_factor: float = DEFAULT_COORDINATION_FACTOR,
+    tail_m_per_pipe: float = DEFAULT_TAIL_M_PER_PIPE,
+    tray_waste_factor: float = DEFAULT_TRAY_WASTE_FACTOR,
 ) -> int:
     """Apply tender conversion notes to existing Phase 3 occurrences.
 
     Updates the ``notes`` column of rows that have length_m > 0 and unit = 'm'.
     Does not create tables or columns. Returns the number of rows updated.
 
+    Waste factors are user-overridable; defaults match SKILL.md.
     Caller must already have the Phase 3 schema (occurrences table).
     """
     where = ["unit = 'm'", "length_m IS NOT NULL", "length_m > 0"]
@@ -141,10 +160,9 @@ def update_existing_inventory(
     rows = conn.execute(sql, params).fetchall()
     updated = 0
     for row in rows:
-        # Minimal Occurrence-like for apply_tender
         from riser_extract.schema import Scope
         occ = Occurrence(
-            drawing_number="",  # not needed for the formula
+            drawing_number="",
             floor_tab_name="",
             scale="",
             annotation="",
@@ -156,7 +174,12 @@ def update_existing_inventory(
             scope=Scope.IN,
             notes=row["notes"],
         )
-        processed = apply_tender(occ)
+        processed = apply_tender(
+            occ,
+            coordination_factor=coordination_factor,
+            tail_m_per_pipe=tail_m_per_pipe,
+            tray_waste_factor=tray_waste_factor,
+        )
         if processed.notes != row["notes"]:
             conn.execute(
                 "UPDATE occurrences SET notes = ? WHERE id = ?",
@@ -169,8 +192,23 @@ def update_existing_inventory(
 
 def process_extraction(
     result: ExtractionResult,
+    *,
+    coordination_factor: float = DEFAULT_COORDINATION_FACTOR,
+    tail_m_per_pipe: float = DEFAULT_TAIL_M_PER_PIPE,
+    tray_waste_factor: float = DEFAULT_TRAY_WASTE_FACTOR,
 ) -> tuple[list[Occurrence], dict]:
-    """Apply tender conversion to all occurrences in an ExtractionResult."""
-    processed = [apply_tender(o) for o in result.occurrences]
+    """Apply tender conversion to all occurrences in an ExtractionResult.
+
+    Waste factors are user-overridable.
+    """
+    processed = [
+        apply_tender(
+            o,
+            coordination_factor=coordination_factor,
+            tail_m_per_pipe=tail_m_per_pipe,
+            tray_waste_factor=tray_waste_factor,
+        )
+        for o in result.occurrences
+    ]
     groups = aggregate_by_item(processed)
     return processed, groups
