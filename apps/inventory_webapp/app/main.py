@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import cors_origins, db_path
 from app.db import migrate
-from app.routers import drawings, files, health, items, projects, summary
+from app.routers import catalogue, drawings, files, health, items, projects, summary
 
 
 @asynccontextmanager
@@ -37,6 +37,7 @@ app.include_router(projects.router)
 app.include_router(drawings.router)
 app.include_router(items.router)
 app.include_router(summary.router)
+app.include_router(catalogue.router)
 app.include_router(files.router)
 
 

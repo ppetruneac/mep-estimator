@@ -109,3 +109,28 @@ def test_approve_and_summary(client):
     assert r.status_code == 200
     summary = client.get(f"/api/projects/{puuid}/summary/by-floor").json()
     assert any(s["label"] == "Basement" for s in summary)
+
+
+def test_catalogue_lists_categories_and_filters(client):
+    r = client.get("/api/catalogue")
+    assert r.status_code == 200
+    data = r.json()
+    assert len(data["items"]) >= 10
+    cats = {c["category"]: c["count"] for c in data["categories"]}
+    assert "Indoor units and controllers" in cats
+    assert "Pipework" in cats
+    assert sum(cats.values()) == len(data["items"])
+    assert any(i["item_id"] == "MEC-CU-IN" for i in data["items"])
+    assert any(i.get("catalog_sku") for i in data["items"])
+    assert any(i.get("item_label") for i in data["items"])
+
+    filtered = client.get(
+        "/api/catalogue", params={"category": "Indoor units and controllers"}
+    ).json()
+    assert filtered["items"]
+    assert all(i["category"] == "Indoor units and controllers" for i in filtered["items"])
+    # Facet counts stay full even when filtered
+    assert sum(c["count"] for c in filtered["categories"]) >= len(filtered["items"])
+
+    searched = client.get("/api/catalogue", params={"q": "refrigerant"}).json()
+    assert any(i["item_id"].startswith("MEC-CU") for i in searched["items"])

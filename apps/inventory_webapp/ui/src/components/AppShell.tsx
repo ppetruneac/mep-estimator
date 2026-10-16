@@ -116,6 +116,23 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 </div>
               )}
             </div>
+            <NavLink
+              to="/catalogue"
+              className={({ isActive }) =>
+                [
+                  "rounded-lg px-3 py-1.5 font-medium no-underline",
+                  isActive
+                    ? "bg-slate-900 text-white dark:bg-indigo-500"
+                    : "text-slate-700 hover:bg-slate-100 dark:text-gray-300 dark:hover:bg-white/5",
+                ].join(" ")
+              }
+              onClick={() => {
+                setProjectsOpen(false);
+                setUserOpen(false);
+              }}
+            >
+              Catalogue
+            </NavLink>
           </nav>
 
           <div className="ml-auto flex items-center gap-2">

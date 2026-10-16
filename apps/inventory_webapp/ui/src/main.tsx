@@ -5,6 +5,7 @@ import { AppShell } from "./components/AppShell";
 import { ProjectPicker } from "./pages/ProjectPicker";
 import { ProjectView } from "./pages/ProjectView";
 import { DrawingReview } from "./pages/DrawingReview";
+import { CataloguePage } from "./pages/CataloguePage";
 import { applyTheme, readStoredTheme } from "./lib/theme";
 import "./index.css";
 
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             path="/projects/:projectId/drawings/:drawingKey"
             element={<DrawingReview />}
           />
+          <Route path="/catalogue" element={<CataloguePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AppShell>

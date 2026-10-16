@@ -92,6 +92,23 @@ export type SummaryRow = {
   excluded_count: number;
 };
 
+export type CatalogueItem = {
+  item_id: string;
+  legacy_item_id?: string | null;
+  category: string;
+  description?: string | null;
+  item_label?: string | null;
+  unit?: string | null;
+  scope_default?: string | null;
+  catalog_sku?: string | null;
+  source?: string | null;
+};
+
+export type CatalogueResponse = {
+  items: CatalogueItem[];
+  categories: { category: string; count: number }[];
+};
+
 export type DrawingFacets = {
   categories: { category: string; count: number }[];
   statuses: { key: string; count: number; help?: string | null }[];
@@ -164,6 +181,8 @@ export const api = {
     req<SummaryRow[]>(`/api/projects/${projectUuid}/summary/by-floor`),
   summaryByCategory: (projectUuid: string) =>
     req<SummaryRow[]>(`/api/projects/${projectUuid}/summary/by-category`),
+  catalogue: (filters: { category?: string; q?: string } = {}) =>
+    req<CatalogueResponse>(`/api/catalogue${qs(filters)}`),
   pdfUrl: (projectUuid: string, drawingKey: string) =>
     `${API_BASE}/api/projects/${projectUuid}/drawings/${encodeURIComponent(drawingKey)}/pdf`,
   overlayUrl: (projectUuid: string, drawingKey: string) =>

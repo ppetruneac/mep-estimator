@@ -32,3 +32,14 @@ make dev-ui          # :5173 (proxies /api)
 ## Ports
 
 Defaults **8870** (UI) / **8871** (API). Override with `RISER_UI_PORT` / `RISER_API_PORT` if busy (do not commit remaps).
+
+## UI routes
+
+| Path | Page |
+|---|---|
+| `/` | Project picker |
+| `/projects/:uuid` | Project landing (title block + drawings) |
+| `/projects/:uuid/drawings/:drawingKey` | Drawing review (category chips, filters, approve) |
+| `/catalogue` | Full catalogue — categories + items/SKUs with chip filters |
+
+Menu: **Projects** dropdown and **Catalogue**.
