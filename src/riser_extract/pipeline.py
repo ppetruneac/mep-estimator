@@ -58,6 +58,11 @@ def extract_drawing(pdf_path: str | Path) -> ExtractionResult:
 
         title = TitleBlock(
             project=fields.get("project"),
+            client=fields.get("client"),
+            architect=fields.get("architect"),
+            mep=fields.get("mep"),
+            mep_address=fields.get("mep_address"),
+            mep_web=fields.get("mep_web"),
             drawing_number=drawing_number,
             title=None,
             floor=floor,

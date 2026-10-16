@@ -68,6 +68,10 @@ export function ProjectView() {
             <Meta label="Project" value={tb.display_name} />
             <Meta label="Location" value={tb.location} />
             <Meta label="Client" value={tb.client} />
+            <Meta label="Architect" value={tb.architect} />
+            <Meta label="MEP engineer" value={tb.mep} />
+            <Meta label="MEP address" value={tb.mep_address} />
+            <Meta label="MEP web" value={tb.mep_web} />
             <Meta label="Job series" value={tb.job_series?.join(", ")} />
             <Meta label="Stage" value={tb.stage} />
             <Meta label="Scale" value={tb.scale} />

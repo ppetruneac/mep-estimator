@@ -33,6 +33,17 @@ export function ProjectPicker() {
               {tb?.location && (
                 <div className="muted">Location: {tb.location}</div>
               )}
+              {(tb?.architect || tb?.client || tb?.mep) && (
+                <div className="muted" style={{ marginTop: "0.2rem" }}>
+                  {[
+                    tb?.architect && `Architect: ${tb.architect}`,
+                    tb?.client && `Client: ${tb.client}`,
+                    tb?.mep && `MEP: ${tb.mep}`,
+                  ]
+                    .filter(Boolean)
+                    .join(" · ")}
+                </div>
+              )}
               <div className="muted">Code: {p.name}</div>
               {(tb?.job_series?.length || tb?.scale || tb?.stage) && (
                 <div className="muted" style={{ marginTop: "0.25rem" }}>

@@ -16,6 +16,10 @@ export type ProjectTitleBlock = {
   display_name?: string | null;
   location?: string | null;
   client?: string | null;
+  architect?: string | null;
+  mep?: string | null;
+  mep_address?: string | null;
+  mep_web?: string | null;
   stage?: string | null;
   scale?: string | null;
   paper?: string | null;

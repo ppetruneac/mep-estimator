@@ -118,5 +118,6 @@ test:
 test-webapp:
 	cd "$(WEBAPP_DIR)" && \
 	  DATA_DIR="$(DATA_DIR)" \
-	  uv run --with fastapi --with 'uvicorn[standard]' --with pydantic --with httpx --with pytest \
+	  PYTHONPATH="$(ROOT)/src:$${PYTHONPATH}" \
+	  uv run --with fastapi --with 'uvicorn[standard]' --with pydantic --with httpx --with pytest --with pymupdf \
 	  pytest -q

@@ -9,11 +9,15 @@ Status = Literal["pending", "approved", "excluded", "amended"]
 
 
 class ProjectTitleBlock(BaseModel):
-    """Consensus fields from drawing title blocks (sheet bottom-left)."""
+    """Consensus fields from drawing title blocks (sheet title block)."""
 
     display_name: str | None = None
     location: str | None = None
     client: str | None = None
+    architect: str | None = None
+    mep: str | None = None
+    mep_address: str | None = None
+    mep_web: str | None = None
     stage: str | None = None
     scale: str | None = None
     paper: str | None = None

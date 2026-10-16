@@ -50,6 +50,10 @@ class PointM(BaseModel):
 class TitleBlock(BaseModel):
     project: str | None = None
     client: str | None = None
+    architect: str | None = None
+    mep: str | None = None
+    mep_address: str | None = None
+    mep_web: str | None = None
     drawing_number: str | None = None
     title: str | None = None
     floor: str | None = None
