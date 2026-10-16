@@ -34,9 +34,18 @@ export function ProjectPicker() {
                 <div className="muted">Location: {tb.location}</div>
               )}
               <div className="party-lines">
-                <div><span className="party-label">Client</span> {p.client || tb?.client || "—"}</div>
-                <div><span className="party-label">Architect</span> {p.architect || tb?.architect || "—"}</div>
-                <div><span className="party-label">Owner</span> {p.owner || tb?.mep || "Seneca Group Ltd"}</div>
+                <div>
+                  <span className="party-label">Client</span>{" "}
+                  {p.client || tb?.client || "—"}
+                </div>
+                <div>
+                  <span className="party-label">Architect</span>{" "}
+                  {p.architect || tb?.architect || "—"}
+                </div>
+                <div>
+                  <span className="party-label">Owner</span>{" "}
+                  {p.owner || tb?.mep || "Seneca Group Ltd"}
+                </div>
               </div>
               <div className="muted">Code: {p.name}</div>
               {(tb?.job_series?.length || tb?.scale || tb?.stage) && (

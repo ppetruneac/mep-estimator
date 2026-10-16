@@ -21,7 +21,10 @@ def _project_out(conn, row) -> ProjectOut:
         """,
         (pid, pid, pid),
     ).fetchone()
+    # Always derive parties from stored title blocks / PDF so cards stay populated
     tb = project_titleblock_summary(conn, pid)
+    client = tb.get("client")
+    architect = tb.get("architect")
     owner = row["owner"] if "owner" in row.keys() else None
     owner = owner or tb.get("mep") or "Seneca Group Ltd"
     return ProjectOut(
@@ -30,12 +33,12 @@ def _project_out(conn, row) -> ProjectOut:
         name=row["name"],
         premise=row["premise"],
         owner=owner,
-        client=tb.get("client"),
-        architect=tb.get("architect"),
+        client=client,
+        architect=architect,
         drawing_count=counts["drawing_count"],
         occurrence_count=counts["occurrence_count"],
         pending_count=counts["pending_count"],
-        title_block=ProjectTitleBlock(**tb),
+        title_block=ProjectTitleBlock(**{k: v for k, v in tb.items() if k in ProjectTitleBlock.model_fields}),
     )
 
 
