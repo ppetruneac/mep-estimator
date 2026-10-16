@@ -2,6 +2,8 @@
 
 **Linear:** [GR-6](https://linear.app/dentaway/issue/GR-6/webapp-for-inventory-review-and-summary-from-sqlite-excel-take-off)
 
+**Status:** Implemented in `apps/inventory_webapp/` (see root `Makefile`: `make up`).
+
 **Goal:** A webapp that lets an estimator select a project, review per-drawing inventory (approve / exclude / amend), view source PDFs (with overlays when available), and see summaries by floor or by category. No rates, labour or costs in this slice.
 
 This is likely to become the app users log into.

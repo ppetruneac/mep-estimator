@@ -1,4 +1,4 @@
-# What’s shipping — Riser extract (GR-1 + GR-2 + GR-3)
+# What’s shipping — Riser extract (GR-1 … GR-6)
 
 Hosted method package: `riser_extract` in this repo. Skills under `skills/` stay as the human method docs.
 
@@ -8,7 +8,8 @@ Hosted method package: `riser_extract` in this repo. Skills under `skills/` stay
 |---|---|---|
 | [GR-1](https://linear.app/dentaway/issue/GR-1/phase-1-deterministic-geometry-and-text-extraction-core) | [#1](https://github.com/ppetruneac/mep-estimator/pull/1) | Deterministic PDF geometry + text extraction → JSON |
 | [GR-2](https://linear.app/dentaway/issue/GR-2/phase-2-symbol-identification-rules-first-yolo-optional) | [#2](https://github.com/ppetruneac/mep-estimator/pull/2) (stacked on #1) | Rules-first symbol ID, annotated sheets, eval gates, optional YOLO residual |
-| [GR-3](https://linear.app/dentaway/issue/GR-3/phase-3-stable-inventory-model-shared-catalog-lookup) | stacked | SQLite inventory + catalog lookup + Excel/JSON export |
+| [GR-3](https://linear.app/dentaway/issue/GR-3/phase-3-stable-inventory-model-shared-catalog-lookup) | merged | SQLite inventory + catalog lookup + Excel/JSON export |
+| [GR-6](https://linear.app/dentaway/issue/GR-6/webapp-for-inventory-review-and-summary-from-sqlite-excel-take-off) | this PR | Inventory review webapp (FastAPI + React + Docker/Make) |
 
 ## Data directory
 
@@ -90,6 +91,20 @@ uv run riser-inventory compare --project HubbyPremierInnLondon
 - Upsert: same project + same drawing refreshes that sheet’s occurrences (content_hash skip when unchanged)
 - Catalog: shared `catalog_items` seeded from trade IDs (`MEC-*` / `ELEC-*` / …)
 - Export: JSON (items + nested occurrences with coordinates) + Excel (floor tabs + Master + Summary)
+
+
+## GR-6 — inventory review webapp
+
+```bash
+make seed-hubby
+make up    # UI http://127.0.0.1:8870  API http://127.0.0.1:8871/docs
+# or: make dev-api && make dev-ui
+```
+
+- Package: `apps/inventory_webapp/` (FastAPI + React/Vite)
+- Review state on `$DATA_DIR/getriser.sqlite` (`status`, `amended_qty`, …)
+- Docker Compose + root `Makefile` (dental-jobs observability pattern)
+- Ports default **8870/8871**
 
 ## Gold eval (Hubby)
 
