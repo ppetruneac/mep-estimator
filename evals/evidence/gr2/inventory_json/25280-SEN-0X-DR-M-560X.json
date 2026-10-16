@@ -1,0 +1,1780 @@
+{
+  "title_block": {
+    "project": "Hub by Premier Inn Putney",
+    "client": null,
+    "drawing_number": "25280-SEN-0X-DR-M-560X",
+    "title": null,
+    "floor": "Basement",
+    "floor_tab_name": "Basement",
+    "revision": "P1",
+    "stage": "Stage 4",
+    "date": "20-01-26",
+    "scale": "1:50 @ A1",
+    "scale_ratio": 50,
+    "paper": "A1",
+    "disclaimer": "DO NOT SCALE",
+    "page_width_pt": 2384.0,
+    "page_height_pt": 1684.0,
+    "rotation": 270,
+    "measure_m_per_cm": 0.49949,
+    "m_per_pt": 0.017620897222222223,
+    "source_pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-0X-DR-M-560X -Heating and Cooling - Basement Floor-P1.pdf",
+    "layers": [
+      "0",
+      "00AC Units",
+      "DIM DETAIL",
+      "E600 CIRCUIT WIRING",
+      "E_containment-hatch",
+      "MP-REFRIG",
+      "TRAY",
+      "Title Block",
+      "xref"
+    ],
+    "notes": "scale_source=measure+title; creator=AutoCAD LT 2026 - English 2026 (25.1s (LMS Tech))"
+  },
+  "occurrences": [
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "annotation": "FCU.B.01",
+      "linked_to": "cyan spine/pipe, layer:00AC Units, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1337.16,
+        854.96,
+        1357.2,
+        877.88
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.B.01",
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1347.18,
+        866.42
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "annotation": "FCU.B.02",
+      "linked_to": "cyan spine/pipe, layer:00AC Units, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1217.4,
+        825.68,
+        1240.32,
+        845.72
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "12.0 Team Room FCU.B.02",
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1228.86,
+        835.7
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "annotation": "FCU.B.03",
+      "linked_to": "cyan spine/pipe, layer:00AC Units, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1168.8,
+        1002.32,
+        1191.72,
+        1022.36
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.B.03",
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1180.26,
+        1012.34
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "annotation": "FCU.B.04",
+      "linked_to": "cyan spine/pipe, layer:00AC Units, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1111.32,
+        1198.16,
+        1131.36,
+        1221.08
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.B.04",
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1121.34,
+        1209.62
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "annotation": "FCU.B.05",
+      "linked_to": "cyan spine/pipe, layer:00AC Units, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1111.32,
+        1436.72,
+        1131.36,
+        1459.76
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.B.05",
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1121.34,
+        1448.24
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "annotation": "FCU.B.06",
+      "linked_to": "cyan spine/pipe, layer:00AC Units, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1086.0,
+        1582.16,
+        1109.04,
+        1602.2
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "m\u00b2 & FCU.B.06",
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1097.52,
+        1592.18
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "annotation": "FCU.B.07",
+      "linked_to": "cyan spine/pipe, layer:00AC Units, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        968.88,
+        1582.16,
+        991.8,
+        1602.08
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FFE248 FFE248 FFE248 FCU.B.07",
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        980.34,
+        1592.12
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "annotation": "FCU.B.08",
+      "linked_to": "cyan spine/pipe, layer:00AC Units, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        803.04,
+        1582.16,
+        826.08,
+        1602.08
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.B.08",
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        814.56,
+        1592.12
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "annotation": "FCU.B.09",
+      "linked_to": "cyan spine/pipe, layer:00AC Units, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        648.96,
+        1684.0,
+        669.0,
+        1684.0
+      ],
+      "real_world_coords": null,
+      "layer": "00AC Units",
+      "colour": "#ffff00",
+      "notes": null,
+      "raw_text_nearby": "8.6 m\u00b2 Hotel Office FCU.B.09",
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        658.98,
+        1684.0
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "annotation": "FCU.B.10",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        771.6,
+        796.28,
+        793.8,
+        843.08
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#000000",
+      "notes": null,
+      "raw_text_nearby": "8.8 m\u00b2 Main Comms FCU.B.10",
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        782.7,
+        819.68
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Controllers",
+      "item_id": "MEC-HBC",
+      "legacy_item_id": "HC-HBC",
+      "annotation": "HB:0B:01",
+      "linked_to": "cyan spine/pipe, layer:0, HBC controller",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        893.89,
+        1684.0,
+        941.89,
+        1684.0
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "HBC CONTROLLER HB:0B:01",
+      "symbol_class": "hbc",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        917.89,
+        1684.0
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": null,
+      "item_id": null,
+      "legacy_item_id": null,
+      "annotation": "HBC CONTROLLER",
+      "linked_to": null,
+      "count": 0.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        940.674560546875,
+        1867.0400390625,
+        947.666748046875,
+        1931.5286865234375
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Typical-detail / call-out label \u2014 not an extra unit",
+      "raw_text_nearby": "HBC CONTROLLER HB:0B:01",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": null,
+      "item_id": null,
+      "legacy_item_id": null,
+      "annotation": "WALL MOUNTED FCU",
+      "linked_to": null,
+      "count": 0.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        800.0345458984375,
+        225.920166015625,
+        807.0267333984375,
+        298.562255859375
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Typical-detail / call-out label \u2014 not an extra unit",
+      "raw_text_nearby": "WALL MOUNTED FCU IN COMMS ROOM",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Electric heat",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "annotation": "ELECTRIC PANEL HEATER",
+      "linked_to": "cyan spine/pipe, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        951.71,
+        231.44,
+        991.71,
+        271.44
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "ELECTRIC PANEL HEATER",
+      "symbol_class": "panel_heater",
+      "confidence": 0.55,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        971.71,
+        251.44
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Electric heat",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "annotation": "ELECTRIC PANEL HEATER",
+      "linked_to": "cyan spine/pipe, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        951.71,
+        231.44,
+        991.71,
+        271.44
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "ELECTRIC PANEL HEATER",
+      "symbol_class": "panel_heater",
+      "confidence": 0.55,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        971.71,
+        251.44
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Electric heat",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "annotation": "ELECTRIC PANEL HEATER",
+      "linked_to": "cyan spine/pipe, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        951.71,
+        231.44,
+        991.71,
+        271.44
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "ELECTRIC PANEL HEATER",
+      "symbol_class": "panel_heater",
+      "confidence": 0.55,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        971.71,
+        251.44
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Electric heat",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "annotation": "ELECTRIC PANEL HEATER",
+      "linked_to": "cyan spine/pipe, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        951.71,
+        231.44,
+        991.71,
+        271.44
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "ELECTRIC PANEL HEATER",
+      "symbol_class": "panel_heater",
+      "confidence": 0.55,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        971.71,
+        251.44
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Electric heat",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "annotation": "ELECTRIC PANEL HEATER",
+      "linked_to": "cyan spine/pipe, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        951.71,
+        231.44,
+        991.71,
+        271.44
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "ELECTRIC PANEL HEATER",
+      "symbol_class": "panel_heater",
+      "confidence": 0.55,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        971.71,
+        251.44
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Electric heat",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "annotation": "ELECTRIC PANEL HEATER",
+      "linked_to": "layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        951.71,
+        231.44,
+        991.71,
+        271.44
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "ELECTRIC PANEL HEATER",
+      "symbol_class": "panel_heater",
+      "confidence": 0.55,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        971.71,
+        251.44
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Electric heat",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "annotation": "ELECTRIC PANEL HEATER",
+      "linked_to": "layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        951.71,
+        231.44,
+        991.71,
+        271.44
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "ELECTRIC PANEL HEATER",
+      "symbol_class": "panel_heater",
+      "confidence": 0.55,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        971.71,
+        251.44
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.B.01 to HB:0B:01",
+      "linked_to": "HB:0B:01",
+      "count": 18.89390987379887,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 18.89,
+      "pixel_bbox": [
+        1337.16,
+        854.96,
+        1357.2,
+        877.88
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 23.431,
+          "y_m": 14.084
+        },
+        "to": {
+          "x_m": 16.491,
+          "y_m": -3.489
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1347.18,
+        866.42
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.B.02 to HB:0B:01",
+      "linked_to": "HB:0B:01",
+      "count": 19.217591146488473,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 19.22,
+      "pixel_bbox": [
+        1217.4,
+        825.68,
+        1240.32,
+        845.72
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 21.887,
+          "y_m": 14.955
+        },
+        "to": {
+          "x_m": 16.491,
+          "y_m": -3.489
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1228.86,
+        835.7
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.B.03 to HB:0B:01",
+      "linked_to": "HB:0B:01",
+      "count": 15.863530762293452,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 15.86,
+      "pixel_bbox": [
+        1168.8,
+        1002.32,
+        1191.72,
+        1022.36
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 20.564,
+          "y_m": 11.843
+        },
+        "to": {
+          "x_m": 16.491,
+          "y_m": -3.489
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1180.26,
+        1012.34
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.B.04 to HB:0B:01",
+      "linked_to": "HB:0B:01",
+      "count": 11.757914316207131,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 11.76,
+      "pixel_bbox": [
+        1111.32,
+        1198.16,
+        1131.36,
+        1221.08
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 19.69,
+          "y_m": 7.825
+        },
+        "to": {
+          "x_m": 16.491,
+          "y_m": -3.489
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1121.34,
+        1209.62
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.B.05 to HB:0B:01",
+      "linked_to": "HB:0B:01",
+      "count": 8.108460161192085,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 8.11,
+      "pixel_bbox": [
+        1111.32,
+        1436.72,
+        1131.36,
+        1459.76
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 20.006,
+          "y_m": 3.818
+        },
+        "to": {
+          "x_m": 16.491,
+          "y_m": -3.489
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1121.34,
+        1448.24
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.B.06 to HB:0B:01",
+      "linked_to": "HB:0B:01",
+      "count": 5.760802394130306,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 5.76,
+      "pixel_bbox": [
+        1086.0,
+        1582.16,
+        1109.04,
+        1602.2
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 19.126,
+          "y_m": 1.634
+        },
+        "to": {
+          "x_m": 16.491,
+          "y_m": -3.489
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1097.52,
+        1592.18
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.B.07 to HB:0B:01",
+      "linked_to": "HB:0B:01",
+      "count": 5.19535786977378,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 5.2,
+      "pixel_bbox": [
+        968.88,
+        1582.16,
+        991.8,
+        1602.08
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 17.472,
+          "y_m": 1.613
+        },
+        "to": {
+          "x_m": 16.491,
+          "y_m": -3.489
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        980.34,
+        1592.12
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.B.08 to HB:0B:01",
+      "linked_to": "HB:0B:01",
+      "count": 5.43534605241298,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 5.44,
+      "pixel_bbox": [
+        803.04,
+        1582.16,
+        826.08,
+        1602.08
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 14.588,
+          "y_m": 1.602
+        },
+        "to": {
+          "x_m": 16.491,
+          "y_m": -3.489
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        814.56,
+        1592.12
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.B.09 to HB:0B:01",
+      "linked_to": "HB:0B:01",
+      "count": 6.178270341251683,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 6.18,
+      "pixel_bbox": [
+        648.96,
+        1684.0,
+        669.0,
+        1684.0
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 11.189,
+          "y_m": -0.318
+        },
+        "to": {
+          "x_m": 16.491,
+          "y_m": -3.489
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        658.98,
+        1684.0
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.B.10 to HB:0B:01",
+      "linked_to": "HB:0B:01",
+      "count": 18.93969833044488,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 18.94,
+      "pixel_bbox": [
+        771.6,
+        796.28,
+        793.8,
+        843.08
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 13.659,
+          "y_m": 15.238
+        },
+        "to": {
+          "x_m": 16.491,
+          "y_m": -3.489
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_cass",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        782.7,
+        819.68
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-0X-DR-M-560X",
+      "page": 1,
+      "floor_tab_name": "Basement",
+      "scale": "1:50 @ A1",
+      "category": "Tray / containment",
+      "item_id": "MEC-TRAY-300",
+      "legacy_item_id": "HC-TRAY-300",
+      "annotation": "300 mm TRAY",
+      "linked_to": "tray hatch/spine",
+      "count": 30.66,
+      "unit": "m",
+      "size": "300 mm",
+      "measurement_type": "scaled",
+      "scope": "in",
+      "length_m": 30.66,
+      "pixel_bbox": [
+        1087.61,
+        232.86,
+        1127.61,
+        272.86
+      ],
+      "real_world_coords": null,
+      "layer": "TRAY",
+      "colour": null,
+      "notes": "Scaled via TRAY layer cluster. No flood-fill.",
+      "raw_text_nearby": null,
+      "symbol_class": "tray_note",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1107.61,
+        252.86
+      ]
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_class": "fcu_cass",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1337.16,
+        854.96,
+        1357.2,
+        877.88
+      ],
+      "centroid_px": [
+        1347.18,
+        866.42
+      ],
+      "real_world_coords": {
+        "x_m": 23.739,
+        "y_m": 14.406
+      },
+      "linked_tag": "FCU.B.01",
+      "linked_path_layer": "00AC Units",
+      "colour": "#ffff00",
+      "notes": "tag-anchored compact geom d=26.7pt"
+    },
+    {
+      "symbol_class": "fcu_cass",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1217.4,
+        825.68,
+        1240.32,
+        845.72
+      ],
+      "centroid_px": [
+        1228.86,
+        835.7
+      ],
+      "real_world_coords": {
+        "x_m": 21.654,
+        "y_m": 14.948
+      },
+      "linked_tag": "FCU.B.02",
+      "linked_path_layer": "00AC Units",
+      "colour": "#ffff00",
+      "notes": "tag-anchored compact geom d=15.4pt"
+    },
+    {
+      "symbol_class": "fcu_cass",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1168.8,
+        1002.32,
+        1191.72,
+        1022.36
+      ],
+      "centroid_px": [
+        1180.26,
+        1012.34
+      ],
+      "real_world_coords": {
+        "x_m": 20.797,
+        "y_m": 11.835
+      },
+      "linked_tag": "FCU.B.03",
+      "linked_path_layer": "00AC Units",
+      "colour": "#ffff00",
+      "notes": "tag-anchored compact geom d=15.4pt"
+    },
+    {
+      "symbol_class": "fcu_cass",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1111.32,
+        1198.16,
+        1131.36,
+        1221.08
+      ],
+      "centroid_px": [
+        1121.34,
+        1209.62
+      ],
+      "real_world_coords": {
+        "x_m": 19.759,
+        "y_m": 8.359
+      },
+      "linked_tag": "FCU.B.04",
+      "linked_path_layer": "00AC Units",
+      "colour": "#ffff00",
+      "notes": "tag-anchored compact geom d=32.6pt"
+    },
+    {
+      "symbol_class": "fcu_cass",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1111.32,
+        1436.72,
+        1131.36,
+        1459.76
+      ],
+      "centroid_px": [
+        1121.34,
+        1448.24
+      ],
+      "real_world_coords": {
+        "x_m": 19.759,
+        "y_m": 4.154
+      },
+      "linked_tag": "FCU.B.05",
+      "linked_path_layer": "00AC Units",
+      "colour": "#ffff00",
+      "notes": "tag-anchored compact geom d=25.5pt"
+    },
+    {
+      "symbol_class": "fcu_cass",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1086.0,
+        1582.16,
+        1109.04,
+        1602.2
+      ],
+      "centroid_px": [
+        1097.52,
+        1592.18
+      ],
+      "real_world_coords": {
+        "x_m": 19.339,
+        "y_m": 1.618
+      },
+      "linked_tag": "FCU.B.06",
+      "linked_path_layer": "00AC Units",
+      "colour": "#ffff00",
+      "notes": "tag-anchored compact geom d=14.2pt"
+    },
+    {
+      "symbol_class": "fcu_cass",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        968.88,
+        1582.16,
+        991.8,
+        1602.08
+      ],
+      "centroid_px": [
+        980.34,
+        1592.12
+      ],
+      "real_world_coords": {
+        "x_m": 17.274,
+        "y_m": 1.619
+      },
+      "linked_tag": "FCU.B.07",
+      "linked_path_layer": "00AC Units",
+      "colour": "#ffff00",
+      "notes": "tag-anchored compact geom d=13.4pt"
+    },
+    {
+      "symbol_class": "fcu_cass",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        803.04,
+        1582.16,
+        826.08,
+        1602.08
+      ],
+      "centroid_px": [
+        814.56,
+        1592.12
+      ],
+      "real_world_coords": {
+        "x_m": 14.353,
+        "y_m": 1.619
+      },
+      "linked_tag": "FCU.B.08",
+      "linked_path_layer": "00AC Units",
+      "colour": "#ffff00",
+      "notes": "tag-anchored compact geom d=15.5pt"
+    },
+    {
+      "symbol_class": "fcu_cass",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        648.96,
+        1684.0,
+        669.0,
+        1684.0
+      ],
+      "centroid_px": [
+        658.98,
+        1684.0
+      ],
+      "real_world_coords": {
+        "x_m": 11.612,
+        "y_m": 0.0
+      },
+      "linked_tag": "FCU.B.09",
+      "linked_path_layer": "00AC Units",
+      "colour": "#ffff00",
+      "notes": "tag-anchored compact geom d=31.9pt"
+    },
+    {
+      "symbol_class": "fcu_cass",
+      "item_id": "MEC-FCU-CASS",
+      "legacy_item_id": "HC-FCU-CASS",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        771.6,
+        796.28,
+        793.8,
+        843.08
+      ],
+      "centroid_px": [
+        782.7,
+        819.68
+      ],
+      "real_world_coords": {
+        "x_m": 13.792,
+        "y_m": 15.23
+      },
+      "linked_tag": "FCU.B.10",
+      "linked_path_layer": "0",
+      "colour": "#ffffff",
+      "notes": "tag-anchored compact geom d=8.5pt"
+    },
+    {
+      "symbol_class": "hbc",
+      "item_id": "MEC-HBC",
+      "legacy_item_id": "HC-HBC",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        893.89,
+        1684.0,
+        941.89,
+        1684.0
+      ],
+      "centroid_px": [
+        917.89,
+        1684.0
+      ],
+      "real_world_coords": {
+        "x_m": 16.174,
+        "y_m": 0.0
+      },
+      "linked_tag": "HB:0B:01",
+      "linked_path_layer": null,
+      "colour": null,
+      "notes": "fallback box \u2014 no compact geom near tag"
+    },
+    {
+      "symbol_class": "panel_heater",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "confidence": 0.55,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        213.47,
+        928.52,
+        253.47,
+        968.52
+      ],
+      "centroid_px": [
+        233.47,
+        948.52
+      ],
+      "real_world_coords": {
+        "x_m": 4.114,
+        "y_m": 12.96
+      },
+      "linked_tag": "ELECTRIC PANEL HEATER",
+      "linked_path_layer": null,
+      "colour": null,
+      "notes": "fallback box \u2014 no red bar found"
+    },
+    {
+      "symbol_class": "panel_heater",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "confidence": 0.55,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        213.47,
+        1098.8,
+        253.47,
+        1138.8
+      ],
+      "centroid_px": [
+        233.47,
+        1118.8
+      ],
+      "real_world_coords": {
+        "x_m": 4.114,
+        "y_m": 9.959
+      },
+      "linked_tag": "ELECTRIC PANEL HEATER",
+      "linked_path_layer": null,
+      "colour": null,
+      "notes": "fallback box \u2014 no red bar found"
+    },
+    {
+      "symbol_class": "panel_heater",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "confidence": 0.82,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        613.36,
+        1217.04,
+        633.44,
+        1270.96
+      ],
+      "centroid_px": [
+        623.4,
+        1244.0
+      ],
+      "real_world_coords": {
+        "x_m": 10.985,
+        "y_m": 7.753
+      },
+      "linked_tag": "ELECTRIC PANEL HEATER",
+      "linked_path_layer": "0",
+      "colour": "#ff0000",
+      "notes": "red bar near electric tag d=168.0pt"
+    },
+    {
+      "symbol_class": "panel_heater",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "confidence": 0.82,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        617.36,
+        1221.04,
+        637.44,
+        1274.96
+      ],
+      "centroid_px": [
+        627.4,
+        1248.0
+      ],
+      "real_world_coords": {
+        "x_m": 11.055,
+        "y_m": 7.683
+      },
+      "linked_tag": "ELECTRIC PANEL HEATER",
+      "linked_path_layer": "0",
+      "colour": "#ff0000",
+      "notes": "red bar near electric tag d=196.8pt"
+    },
+    {
+      "symbol_class": "panel_heater",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "confidence": 0.55,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        420.95,
+        1591.4,
+        460.95,
+        1631.4
+      ],
+      "centroid_px": [
+        440.95,
+        1611.4
+      ],
+      "real_world_coords": {
+        "x_m": 7.77,
+        "y_m": 1.279
+      },
+      "linked_tag": "ELECTRIC PANEL HEATER",
+      "linked_path_layer": null,
+      "colour": null,
+      "notes": "fallback box \u2014 no red bar found"
+    },
+    {
+      "symbol_class": "panel_heater",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "confidence": 0.55,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        880.37,
+        232.88,
+        920.37,
+        272.88
+      ],
+      "centroid_px": [
+        900.37,
+        252.88
+      ],
+      "real_world_coords": {
+        "x_m": 15.865,
+        "y_m": 25.218
+      },
+      "linked_tag": "ELECTRIC PANEL HEATER",
+      "linked_path_layer": null,
+      "colour": null,
+      "notes": "fallback box \u2014 no red bar found"
+    },
+    {
+      "symbol_class": "panel_heater",
+      "item_id": "ELEC-PNL",
+      "legacy_item_id": "HC-ELEC-PNL",
+      "confidence": 0.55,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        951.71,
+        231.44,
+        991.71,
+        271.44
+      ],
+      "centroid_px": [
+        971.71,
+        251.44
+      ],
+      "real_world_coords": {
+        "x_m": 17.122,
+        "y_m": 25.243
+      },
+      "linked_tag": "ELECTRIC PANEL HEATER",
+      "linked_path_layer": null,
+      "colour": null,
+      "notes": "fallback box \u2014 no red bar found"
+    },
+    {
+      "symbol_class": "tray_note",
+      "item_id": "MEC-TRAY-300",
+      "legacy_item_id": "HC-TRAY-300",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1087.61,
+        232.86,
+        1127.61,
+        272.86
+      ],
+      "centroid_px": [
+        1107.61,
+        252.86
+      ],
+      "real_world_coords": {
+        "x_m": 19.517,
+        "y_m": 25.218
+      },
+      "linked_tag": "300 mm TRAY",
+      "linked_path_layer": null,
+      "colour": null,
+      "notes": "fallback box \u2014 no compact geom near tag"
+    }
+  ],
+  "summary": {
+    "drawing_number": "25280-SEN-0X-DR-M-560X",
+    "floor_tab_name": "Basement",
+    "scale": "1:50 @ A1",
+    "n_occurrences": 31,
+    "n_symbols": 19,
+    "backend": "pymupdf (planlens installed)",
+    "totals": {
+      "MEC-FCU-CASS": 10.0,
+      "MEC-HBC": 1.0,
+      "HBC CONTROLLER": 0.0,
+      "WALL MOUNTED FCU": 0.0,
+      "ELEC-PNL": 7.0,
+      "MEC-CU-IN": 115.36000000000001,
+      "MEC-TRAY-300": 30.66
+    },
+    "symbols": {
+      "fcu_cass": {
+        "count": 10,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 1,
+        "avg_confidence": 0.6
+      },
+      "panel_heater": {
+        "count": 7,
+        "avg_confidence": 0.627
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    }
+  },
+  "extractor_version": "0.2.0",
+  "backend": "pymupdf (planlens installed)"
+}

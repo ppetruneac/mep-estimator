@@ -1,0 +1,3768 @@
+{
+  "title_block": {
+    "project": "Hub by Premier Inn Putney",
+    "client": null,
+    "drawing_number": "25280-SEN-02-DR-M-5602",
+    "title": null,
+    "floor": "Second Floor",
+    "floor_tab_name": "Second Floor",
+    "revision": "P1",
+    "stage": "Stage 4",
+    "date": "10-12-25",
+    "scale": "1:50 @ A1",
+    "scale_ratio": 50,
+    "paper": "A1",
+    "disclaimer": "DO NOT SCALE",
+    "page_width_pt": 2384.0,
+    "page_height_pt": 1684.0,
+    "rotation": 270,
+    "measure_m_per_cm": 0.49949,
+    "m_per_pt": 0.017620897222222223,
+    "source_pdf": "/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon/25280-SEN-02-DR-M-5602 - Second Floor - Heating and Cooling Layout.pdf",
+    "layers": [
+      "0",
+      "E600 CIRCUIT WIRING",
+      "E_containment-hatch",
+      "MP-REFRIG",
+      "TRAY",
+      "Title Block",
+      "xref"
+    ],
+    "notes": "scale_source=measure+title; creator=AutoCAD LT 2026 - English 2026 (25.1s (LMS Tech))"
+  },
+  "occurrences": [
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.01",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        503.31,
+        617.94,
+        524.95,
+        634.4
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "16.0 m\u00b2 Room Twin FCU.02.01",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        514.13,
+        626.17
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.02",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        503.16,
+        770.48,
+        525.24,
+        820.28
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#000000",
+      "notes": null,
+      "raw_text_nearby": "15.8 m\u00b2 Room Twin FCU.02.02",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        514.2,
+        795.38
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.03",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        620.31,
+        608.34,
+        641.95,
+        624.8
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "10.9 m\u00b2 Standard FCU.02.03",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        631.13,
+        616.57
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.04",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        609.03,
+        800.82,
+        630.67,
+        817.28
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "11.0 m\u00b2 Room Standard FCU.02.04",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        619.85,
+        809.05
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.05",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        701.67,
+        602.34,
+        723.31,
+        618.8
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "11.0 m\u00b2 Standard FCU.02.05",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        712.49,
+        610.57
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.06",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        693.51,
+        800.94,
+        715.15,
+        817.4
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "Room 11.2 m\u00b2 Room Standard FCU.02.06",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        704.33,
+        809.17
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.07",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        816.51,
+        602.46,
+        838.15,
+        618.92
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "11.1 m\u00b2 Standard FCU.02.07",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        827.33,
+        610.69
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.08",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1022.61,
+        586.28,
+        1038.15,
+        601.76
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "Standard FCU.02.08",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1030.38,
+        594.02
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.09",
+      "linked_to": "cyan spine/pipe, green riser/tray box, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1104.75,
+        571.38,
+        1126.39,
+        587.84
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "11.2 m\u00b2 Room Standard 8.92 FCU.02.09",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1115.57,
+        579.61
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.10",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1220.07,
+        395.72,
+        1248.32,
+        440.81
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.10",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1234.19,
+        418.27
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.11",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1201.5,
+        465.29,
+        1247.37,
+        491.84
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.11",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1224.44,
+        478.56
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.12",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1220.07,
+        617.96,
+        1248.32,
+        663.05
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.12",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1234.19,
+        640.51
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.13",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1234.18,
+        732.1,
+        1249.28,
+        747.69
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.13",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1241.73,
+        739.9
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.14",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1088.19,
+        791.22,
+        1109.83,
+        807.68
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "11.1 m\u00b2 Room Standard FCU.02.14",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1099.01,
+        799.45
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.15",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1226.91,
+        867.06,
+        1248.55,
+        883.52
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.15",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1237.73,
+        875.29
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.16",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1201.5,
+        910.97,
+        1247.37,
+        937.52
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.16",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1224.44,
+        924.24
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.17",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1230.63,
+        1114.02,
+        1252.27,
+        1130.48
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.17",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1241.45,
+        1122.25
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.18",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1094.55,
+        1022.94,
+        1116.19,
+        1039.4
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "11.0 m\u00b2 Room Standard FCU.02.18",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1105.37,
+        1031.17
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.19",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        911.44,
+        994.67,
+        939.69,
+        1039.76
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.19",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        925.57,
+        1017.21
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.20",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        911.44,
+        1048.07,
+        939.69,
+        1093.16
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.20",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        925.57,
+        1070.61
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.21",
+      "linked_to": "cyan spine/pipe, green riser/tray box, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1048.44,
+        1182.92,
+        1070.64,
+        1231.88
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#000000",
+      "notes": null,
+      "raw_text_nearby": "16.4 m\u00b2 Room Twin FCU.02.21",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1059.54,
+        1207.4
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.22",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        911.44,
+        1159.31,
+        939.69,
+        1204.4
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.22",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        925.57,
+        1181.85
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.23",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1072.47,
+        1388.1,
+        1094.11,
+        1404.56
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.23",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1083.29,
+        1396.33
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.24",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1062.64,
+        1486.39,
+        1077.74,
+        1501.98
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.24",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1070.19,
+        1494.18
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.25",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1068.15,
+        1641.3,
+        1089.79,
+        1657.76
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "FCU.02.25",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1078.97,
+        1649.53
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.26",
+      "linked_to": "cyan spine/pipe, green riser/tray box, layer:0",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        957.03,
+        1684.0,
+        978.67,
+        1684.0
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "11.2 m\u00b2 Room Standard FCU.02.26",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        967.85,
+        1684.0
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.27",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        877.32,
+        1668.68,
+        899.52,
+        1684.0
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#000000",
+      "notes": null,
+      "raw_text_nearby": "11.2 11.2 m\u00b2 Room Standard FCU.02.27",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        888.42,
+        1676.34
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.28",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        668.19,
+        1684.0,
+        689.83,
+        1684.0
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "17.2 m\u00b2 Room Accessible FCU.02.28",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        679.01,
+        1684.0
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.29",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        600.87,
+        1684.0,
+        622.51,
+        1684.0
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "17.1 m\u00b2 Room Accessible FCU.02.29",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        611.69,
+        1684.0
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.30",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        535.11,
+        1538.46,
+        556.75,
+        1554.92
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "12.7 m\u00b2 Room Standard 7.12 m FCU.02.30",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        545.93,
+        1546.69
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Indoor terminals",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "annotation": "FCU.02.31",
+      "linked_to": "cyan spine/pipe, layer:0, FCU symbol",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        609.27,
+        1430.46,
+        630.91,
+        1446.92
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "17.2 m\u00b2 Room Twin FCU.02.31",
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        620.09,
+        1438.69
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Controllers",
+      "item_id": "MEC-HBC",
+      "legacy_item_id": "HC-HBC",
+      "annotation": "HB:02:01",
+      "linked_to": "cyan spine/pipe, layer:0, HBC controller",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        899.62,
+        1684.0,
+        931.78,
+        1684.0
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "HBC CONTROLLER HB:02:01 SYSTEM NO 1 REFRIGERATION FROM ABOVE",
+      "symbol_class": "hbc",
+      "confidence": 0.75,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        915.7,
+        1684.0
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Controllers",
+      "item_id": "MEC-HBC",
+      "legacy_item_id": "HC-HBC",
+      "annotation": "HB:02:02",
+      "linked_to": "layer:0, HBC controller",
+      "count": 1.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1089.85,
+        176.66,
+        1137.85,
+        224.66
+      ],
+      "real_world_coords": null,
+      "layer": "0",
+      "colour": "#ffffff",
+      "notes": null,
+      "raw_text_nearby": "HBC CONTROLLER HB:02:02 FROM UNIT TO HBC",
+      "symbol_class": "hbc",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1113.85,
+        200.66
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": null,
+      "item_id": null,
+      "legacy_item_id": null,
+      "annotation": "HBC CONTROLLER",
+      "linked_to": null,
+      "count": 0.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        779.0345458984375,
+        1889.85595703125,
+        786.0267333984375,
+        1970.6644287109375
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Typical-detail / call-out label \u2014 not an extra unit",
+      "raw_text_nearby": "SYSTEM NO 1 REFRIGERATION PIPEWORK FROM ABOVE & TO HIGH LEVEL. TO 2ND FLOOR UNITS CONNECTS TO 2NO HBC CONTROLLER REFRIGERANT PIPEWORK ON WIDE TRAY",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": null,
+      "item_id": null,
+      "legacy_item_id": null,
+      "annotation": "HBC CONTROLLER",
+      "linked_to": null,
+      "count": 0.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        857.0345458984375,
+        1876.6400146484375,
+        864.0267333984375,
+        1941.128662109375
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Typical-detail / call-out label \u2014 not an extra unit",
+      "raw_text_nearby": "HBC CONTROLLER HB:02:01 SYSTEM NO 1 REFRIGERATION",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": null,
+      "item_id": null,
+      "legacy_item_id": null,
+      "annotation": "HBC CONTROLLER",
+      "linked_to": null,
+      "count": 0.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1136.7545166015625,
+        186.080078125,
+        1143.7467041015625,
+        250.569091796875
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Typical-detail / call-out label \u2014 not an extra unit",
+      "raw_text_nearby": "HBC CONTROLLER HB:02:02 REFRIGERANT FROM OUTDOOR UNIT TO HBC",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": null,
+      "item_id": null,
+      "legacy_item_id": null,
+      "annotation": "WALL MOUNTED FCU",
+      "linked_to": null,
+      "count": 0.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        640.674560546875,
+        340.4000244140625,
+        647.666748046875,
+        396.7291259765625
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Typical-detail / call-out label \u2014 not an extra unit",
+      "raw_text_nearby": "WALL MOUNTED INTERNAL VRF UNITS",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": null,
+      "item_id": null,
+      "legacy_item_id": null,
+      "annotation": "WALL MOUNTED FCU",
+      "linked_to": null,
+      "count": 0.0,
+      "unit": "no.",
+      "size": null,
+      "measurement_type": "printed",
+      "scope": "in",
+      "length_m": null,
+      "pixel_bbox": [
+        1430.154541015625,
+        591.800048828125,
+        1437.146728515625,
+        648.12890625
+      ],
+      "real_world_coords": null,
+      "layer": null,
+      "colour": null,
+      "notes": "Typical-detail / call-out label \u2014 not an extra unit",
+      "raw_text_nearby": "WALL MOUNTED INTERNAL VRF UNITS",
+      "symbol_class": null,
+      "confidence": null,
+      "source": null,
+      "amber_flag": false,
+      "centroid_px": null
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.01 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 13.052240261598586,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 13.05,
+      "pixel_bbox": [
+        503.31,
+        617.94,
+        524.95,
+        634.4
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 9.052,
+          "y_m": 18.946
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        514.13,
+        626.17
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.02 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 15.31045299020654,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 15.31,
+      "pixel_bbox": [
+        503.16,
+        770.48,
+        525.24,
+        820.28
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 9.087,
+          "y_m": 15.343
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        514.2,
+        795.38
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.03 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 11.282575667340955,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 11.28,
+      "pixel_bbox": [
+        620.31,
+        608.34,
+        641.95,
+        624.8
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 11.114,
+          "y_m": 19.115
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        631.13,
+        616.57
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.04 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 13.783685549020458,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 13.78,
+      "pixel_bbox": [
+        609.03,
+        800.82,
+        630.67,
+        817.28
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 10.915,
+          "y_m": 15.723
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        619.85,
+        809.05
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.05 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 10.127162578732403,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 10.13,
+      "pixel_bbox": [
+        701.67,
+        602.34,
+        723.31,
+        618.8
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 12.548,
+          "y_m": 19.22
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        712.49,
+        610.57
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.06 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 12.859578918459063,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 12.86,
+      "pixel_bbox": [
+        693.51,
+        800.94,
+        715.15,
+        817.4
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 12.404,
+          "y_m": 15.721
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        704.33,
+        809.17
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.07 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 8.760622117398327,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 8.76,
+      "pixel_bbox": [
+        816.51,
+        602.46,
+        838.15,
+        618.92
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 14.571,
+          "y_m": 19.218
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        827.33,
+        610.69
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.08 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 7.4121717601889765,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 7.41,
+      "pixel_bbox": [
+        1022.61,
+        586.28,
+        1038.15,
+        601.76
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 18.014,
+          "y_m": 18.982
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1030.38,
+        594.02
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.09 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 6.376526297707804,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 6.38,
+      "pixel_bbox": [
+        1104.75,
+        571.38,
+        1126.39,
+        587.84
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 19.65,
+          "y_m": 19.768
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1115.57,
+        579.61
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.10 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 3.990829761802085,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 3.99,
+      "pixel_bbox": [
+        1220.07,
+        395.72,
+        1248.32,
+        440.81
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 21.822,
+          "y_m": 22.616
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1234.19,
+        418.27
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.11 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 5.184804965578821,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 5.18,
+      "pixel_bbox": [
+        1201.5,
+        465.29,
+        1247.37,
+        491.84
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 21.828,
+          "y_m": 21.307
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1224.44,
+        478.56
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.12 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 7.880669090366617,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 7.88,
+      "pixel_bbox": [
+        1220.07,
+        617.96,
+        1248.32,
+        663.05
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 21.849,
+          "y_m": 18.491
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1234.19,
+        640.51
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.13 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 9.46032618206715,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 9.46,
+      "pixel_bbox": [
+        1234.18,
+        732.1,
+        1249.28,
+        747.69
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 21.818,
+          "y_m": 16.865
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1241.73,
+        739.9
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.14 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 10.262370260494782,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 10.26,
+      "pixel_bbox": [
+        1088.19,
+        791.22,
+        1109.83,
+        807.68
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 19.359,
+          "y_m": 15.892
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1099.01,
+        799.45
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.15 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 11.730198337736761,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 11.73,
+      "pixel_bbox": [
+        1226.91,
+        867.06,
+        1248.55,
+        883.52
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 21.803,
+          "y_m": 14.556
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1237.73,
+        875.29
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.16 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 12.826018190603431,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 12.83,
+      "pixel_bbox": [
+        1201.5,
+        910.97,
+        1247.37,
+        937.52
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 21.807,
+          "y_m": 13.448
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1224.44,
+        924.24
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.17 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 15.456764775263352,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 15.46,
+      "pixel_bbox": [
+        1230.63,
+        1114.02,
+        1252.27,
+        1130.48
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 21.868,
+          "y_m": 10.204
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1241.45,
+        1122.25
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.18 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 14.336582513248326,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 14.34,
+      "pixel_bbox": [
+        1094.55,
+        1022.94,
+        1116.19,
+        1039.4
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 19.471,
+          "y_m": 11.809
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1105.37,
+        1031.17
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.19 to HB:02:02",
+      "linked_to": "HB:02:02",
+      "count": 14.65594037139371,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 14.66,
+      "pixel_bbox": [
+        911.44,
+        994.67,
+        939.69,
+        1039.76
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 16.147,
+          "y_m": 11.982
+        },
+        "to": {
+          "x_m": 19.944,
+          "y_m": 26.138
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        925.57,
+        1017.21
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.20 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 14.373585251697282,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 14.37,
+      "pixel_bbox": [
+        911.44,
+        1048.07,
+        939.69,
+        1093.16
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 16.147,
+          "y_m": 10.678
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        925.57,
+        1070.61
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.21 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 12.312566721516086,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 12.31,
+      "pixel_bbox": [
+        1048.44,
+        1182.92,
+        1070.64,
+        1231.88
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 18.701,
+          "y_m": 8.097
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1059.54,
+        1207.4
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.22 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 12.479431580256247,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 12.48,
+      "pixel_bbox": [
+        911.44,
+        1159.31,
+        939.69,
+        1204.4
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 16.17,
+          "y_m": 8.775
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        925.57,
+        1181.85
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.23 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 9.900670417150822,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 9.9,
+      "pixel_bbox": [
+        1072.47,
+        1388.1,
+        1094.11,
+        1404.56
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 19.082,
+          "y_m": 5.377
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1083.29,
+        1396.33
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.24 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 7.884497003758406,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 7.88,
+      "pixel_bbox": [
+        1062.64,
+        1486.39,
+        1077.74,
+        1501.98
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 19.041,
+          "y_m": 3.129
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1070.19,
+        1494.18
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.25 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 6.062723225928954,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 6.06,
+      "pixel_bbox": [
+        1068.15,
+        1641.3,
+        1089.79,
+        1657.76
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 19.005,
+          "y_m": 0.915
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        1078.97,
+        1649.53
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.26 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 4.046728173326088,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 4.05,
+      "pixel_bbox": [
+        957.03,
+        1684.0,
+        978.67,
+        1684.0
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 17.047,
+          "y_m": -0.151
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        967.85,
+        1684.0
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.27 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 3.264060830260257,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 3.26,
+      "pixel_bbox": [
+        877.32,
+        1668.68,
+        899.52,
+        1684.0
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 15.708,
+          "y_m": -0.461
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        888.42,
+        1676.34
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.28 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 4.6287609998563495,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 4.63,
+      "pixel_bbox": [
+        668.19,
+        1684.0,
+        689.83,
+        1684.0
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 11.958,
+          "y_m": -0.178
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        679.01,
+        1684.0
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.29 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 5.494677768791519,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 5.49,
+      "pixel_bbox": [
+        600.87,
+        1684.0,
+        622.51,
+        1684.0
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 10.774,
+          "y_m": -0.161
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        611.69,
+        1684.0
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.30 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 8.357484234220472,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 8.36,
+      "pixel_bbox": [
+        535.11,
+        1538.46,
+        556.75,
+        1554.92
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 9.615,
+          "y_m": 2.725
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        545.93,
+        1546.69
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Refrigerant / F+R pipe",
+      "item_id": "MEC-CU-IN",
+      "legacy_item_id": "HC-CU-IN",
+      "annotation": "F+R / pair \u2014 FCU.02.31 to HB:02:01",
+      "linked_to": "HB:02:01",
+      "count": 9.238184046238965,
+      "unit": "m",
+      "size": null,
+      "measurement_type": "geometry",
+      "scope": "in",
+      "length_m": 9.24,
+      "pixel_bbox": [
+        609.27,
+        1430.46,
+        630.91,
+        1446.92
+      ],
+      "real_world_coords": {
+        "from": {
+          "x_m": 10.92,
+          "y_m": 4.628
+        },
+        "to": {
+          "x_m": 15.017,
+          "y_m": -3.651
+        },
+        "method": "tag-to-HBC crow-flies"
+      },
+      "layer": null,
+      "colour": null,
+      "notes": "Geometry estimate (crow-flies). Corridor route will be longer; Phase 4 applies tender conversion.",
+      "raw_text_nearby": null,
+      "symbol_class": "fcu_wall",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        620.09,
+        1438.69
+      ]
+    },
+    {
+      "drawing_number": "25280-SEN-02-DR-M-5602",
+      "page": 1,
+      "floor_tab_name": "Second Floor",
+      "scale": "1:50 @ A1",
+      "category": "Tray / containment",
+      "item_id": "MEC-TRAY-400",
+      "legacy_item_id": "HC-TRAY-400",
+      "annotation": "400 mm TRAY",
+      "linked_to": "tray hatch/spine",
+      "count": 94.24,
+      "unit": "m",
+      "size": "400 mm",
+      "measurement_type": "scaled",
+      "scope": "in",
+      "length_m": 94.24,
+      "pixel_bbox": [
+        698.09,
+        1684.0,
+        738.09,
+        1684.0
+      ],
+      "real_world_coords": null,
+      "layer": "TRAY",
+      "colour": null,
+      "notes": "Scaled via TRAY layer cluster. No flood-fill.",
+      "raw_text_nearby": null,
+      "symbol_class": "tray_note",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "centroid_px": [
+        718.09,
+        1684.0
+      ]
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        503.31,
+        617.94,
+        524.95,
+        634.4
+      ],
+      "centroid_px": [
+        514.13,
+        626.17
+      ],
+      "real_world_coords": {
+        "x_m": 9.059,
+        "y_m": 18.64
+      },
+      "linked_tag": "FCU.02.01",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        503.16,
+        770.48,
+        525.24,
+        820.28
+      ],
+      "centroid_px": [
+        514.2,
+        795.38
+      ],
+      "real_world_coords": {
+        "x_m": 9.061,
+        "y_m": 15.658
+      },
+      "linked_tag": "FCU.02.02",
+      "linked_path_layer": "0",
+      "colour": "#ffffff",
+      "notes": "tag-anchored compact geom d=20.6pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        620.31,
+        608.34,
+        641.95,
+        624.8
+      ],
+      "centroid_px": [
+        631.13,
+        616.57
+      ],
+      "real_world_coords": {
+        "x_m": 11.121,
+        "y_m": 18.809
+      },
+      "linked_tag": "FCU.02.03",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        609.03,
+        800.82,
+        630.67,
+        817.28
+      ],
+      "centroid_px": [
+        619.85,
+        809.05
+      ],
+      "real_world_coords": {
+        "x_m": 10.922,
+        "y_m": 15.417
+      },
+      "linked_tag": "FCU.02.04",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        701.67,
+        602.34,
+        723.31,
+        618.8
+      ],
+      "centroid_px": [
+        712.49,
+        610.57
+      ],
+      "real_world_coords": {
+        "x_m": 12.555,
+        "y_m": 18.915
+      },
+      "linked_tag": "FCU.02.05",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        693.51,
+        800.94,
+        715.15,
+        817.4
+      ],
+      "centroid_px": [
+        704.33,
+        809.17
+      ],
+      "real_world_coords": {
+        "x_m": 12.411,
+        "y_m": 15.415
+      },
+      "linked_tag": "FCU.02.06",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        816.51,
+        602.46,
+        838.15,
+        618.92
+      ],
+      "centroid_px": [
+        827.33,
+        610.69
+      ],
+      "real_world_coords": {
+        "x_m": 14.578,
+        "y_m": 18.913
+      },
+      "linked_tag": "FCU.02.07",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1022.61,
+        586.28,
+        1038.15,
+        601.76
+      ],
+      "centroid_px": [
+        1030.38,
+        594.02
+      ],
+      "real_world_coords": {
+        "x_m": 18.156,
+        "y_m": 19.206
+      },
+      "linked_tag": "FCU.02.08",
+      "linked_path_layer": null,
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=15.1pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1104.75,
+        571.38,
+        1126.39,
+        587.84
+      ],
+      "centroid_px": [
+        1115.57,
+        579.61
+      ],
+      "real_world_coords": {
+        "x_m": 19.657,
+        "y_m": 19.46
+      },
+      "linked_tag": "FCU.02.09",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.3pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1220.07,
+        395.72,
+        1248.32,
+        440.81
+      ],
+      "centroid_px": [
+        1234.19,
+        418.27
+      ],
+      "real_world_coords": {
+        "x_m": 21.748,
+        "y_m": 22.303
+      },
+      "linked_tag": "FCU.02.10",
+      "linked_path_layer": null,
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=17.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1201.5,
+        465.29,
+        1247.37,
+        491.84
+      ],
+      "centroid_px": [
+        1224.44,
+        478.56
+      ],
+      "real_world_coords": {
+        "x_m": 21.576,
+        "y_m": 21.241
+      },
+      "linked_tag": "FCU.02.11",
+      "linked_path_layer": null,
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=15.1pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1220.07,
+        617.96,
+        1248.32,
+        663.05
+      ],
+      "centroid_px": [
+        1234.19,
+        640.51
+      ],
+      "real_world_coords": {
+        "x_m": 21.748,
+        "y_m": 18.387
+      },
+      "linked_tag": "FCU.02.12",
+      "linked_path_layer": null,
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=6.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1234.18,
+        732.1,
+        1249.28,
+        747.69
+      ],
+      "centroid_px": [
+        1241.73,
+        739.9
+      ],
+      "real_world_coords": {
+        "x_m": 21.88,
+        "y_m": 16.636
+      },
+      "linked_tag": "FCU.02.13",
+      "linked_path_layer": null,
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=13.4pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1088.19,
+        791.22,
+        1109.83,
+        807.68
+      ],
+      "centroid_px": [
+        1099.01,
+        799.45
+      ],
+      "real_world_coords": {
+        "x_m": 19.365,
+        "y_m": 15.587
+      },
+      "linked_tag": "FCU.02.14",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1226.91,
+        867.06,
+        1248.55,
+        883.52
+      ],
+      "centroid_px": [
+        1237.73,
+        875.29
+      ],
+      "real_world_coords": {
+        "x_m": 21.81,
+        "y_m": 14.25
+      },
+      "linked_tag": "FCU.02.15",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1201.5,
+        910.97,
+        1247.37,
+        937.52
+      ],
+      "centroid_px": [
+        1224.44,
+        924.24
+      ],
+      "real_world_coords": {
+        "x_m": 21.576,
+        "y_m": 13.388
+      },
+      "linked_tag": "FCU.02.16",
+      "linked_path_layer": null,
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=13.9pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1230.63,
+        1114.02,
+        1252.27,
+        1130.48
+      ],
+      "centroid_px": [
+        1241.45,
+        1122.25
+      ],
+      "real_world_coords": {
+        "x_m": 21.875,
+        "y_m": 9.899
+      },
+      "linked_tag": "FCU.02.17",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1094.55,
+        1022.94,
+        1116.19,
+        1039.4
+      ],
+      "centroid_px": [
+        1105.37,
+        1031.17
+      ],
+      "real_world_coords": {
+        "x_m": 19.478,
+        "y_m": 11.503
+      },
+      "linked_tag": "FCU.02.18",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        911.44,
+        994.67,
+        939.69,
+        1039.76
+      ],
+      "centroid_px": [
+        925.57,
+        1017.21
+      ],
+      "real_world_coords": {
+        "x_m": 16.309,
+        "y_m": 11.749
+      },
+      "linked_tag": "FCU.02.19",
+      "linked_path_layer": null,
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=15.5pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        911.44,
+        1048.07,
+        939.69,
+        1093.16
+      ],
+      "centroid_px": [
+        925.57,
+        1070.61
+      ],
+      "real_world_coords": {
+        "x_m": 16.309,
+        "y_m": 10.808
+      },
+      "linked_tag": "FCU.02.20",
+      "linked_path_layer": null,
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=9.6pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1048.44,
+        1182.92,
+        1070.64,
+        1231.88
+      ],
+      "centroid_px": [
+        1059.54,
+        1207.4
+      ],
+      "real_world_coords": {
+        "x_m": 18.67,
+        "y_m": 8.398
+      },
+      "linked_tag": "FCU.02.21",
+      "linked_path_layer": "0",
+      "colour": "#ffffff",
+      "notes": "tag-anchored compact geom d=19.7pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        911.44,
+        1159.31,
+        939.69,
+        1204.4
+      ],
+      "centroid_px": [
+        925.57,
+        1181.85
+      ],
+      "real_world_coords": {
+        "x_m": 16.309,
+        "y_m": 8.848
+      },
+      "linked_tag": "FCU.02.22",
+      "linked_path_layer": null,
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=6.5pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1072.47,
+        1388.1,
+        1094.11,
+        1404.56
+      ],
+      "centroid_px": [
+        1083.29,
+        1396.33
+      ],
+      "real_world_coords": {
+        "x_m": 19.088,
+        "y_m": 5.069
+      },
+      "linked_tag": "FCU.02.23",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.3pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1062.64,
+        1486.39,
+        1077.74,
+        1501.98
+      ],
+      "centroid_px": [
+        1070.19,
+        1494.18
+      ],
+      "real_world_coords": {
+        "x_m": 18.858,
+        "y_m": 3.345
+      },
+      "linked_tag": "FCU.02.24",
+      "linked_path_layer": null,
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=16.1pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1068.15,
+        1641.3,
+        1089.79,
+        1657.76
+      ],
+      "centroid_px": [
+        1078.97,
+        1649.53
+      ],
+      "real_world_coords": {
+        "x_m": 19.012,
+        "y_m": 0.607
+      },
+      "linked_tag": "FCU.02.25",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.3pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        957.03,
+        1684.0,
+        978.67,
+        1684.0
+      ],
+      "centroid_px": [
+        967.85,
+        1684.0
+      ],
+      "real_world_coords": {
+        "x_m": 17.054,
+        "y_m": 0.0
+      },
+      "linked_tag": "FCU.02.26",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        877.32,
+        1668.68,
+        899.52,
+        1684.0
+      ],
+      "centroid_px": [
+        888.42,
+        1676.34
+      ],
+      "real_world_coords": {
+        "x_m": 15.655,
+        "y_m": 0.135
+      },
+      "linked_tag": "FCU.02.27",
+      "linked_path_layer": "0",
+      "colour": "#ffffff",
+      "notes": "tag-anchored compact geom d=19.4pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        668.19,
+        1684.0,
+        689.83,
+        1684.0
+      ],
+      "centroid_px": [
+        679.01,
+        1684.0
+      ],
+      "real_world_coords": {
+        "x_m": 11.965,
+        "y_m": 0.0
+      },
+      "linked_tag": "FCU.02.28",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.3pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        600.87,
+        1684.0,
+        622.51,
+        1684.0
+      ],
+      "centroid_px": [
+        611.69,
+        1684.0
+      ],
+      "real_world_coords": {
+        "x_m": 10.778,
+        "y_m": 0.0
+      },
+      "linked_tag": "FCU.02.29",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.3pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        535.11,
+        1538.46,
+        556.75,
+        1554.92
+      ],
+      "centroid_px": [
+        545.93,
+        1546.69
+      ],
+      "real_world_coords": {
+        "x_m": 9.62,
+        "y_m": 2.42
+      },
+      "linked_tag": "FCU.02.30",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "fcu_wall",
+      "item_id": "MEC-FCU-WALL",
+      "legacy_item_id": "HC-FCU-WALL",
+      "confidence": 0.9,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        609.27,
+        1430.46,
+        630.91,
+        1446.92
+      ],
+      "centroid_px": [
+        620.09,
+        1438.69
+      ],
+      "real_world_coords": {
+        "x_m": 10.926,
+        "y_m": 4.323
+      },
+      "linked_tag": "FCU.02.31",
+      "linked_path_layer": "0",
+      "colour": "#000000",
+      "notes": "tag-anchored compact geom d=18.2pt"
+    },
+    {
+      "symbol_class": "hbc",
+      "item_id": "MEC-HBC",
+      "legacy_item_id": "HC-HBC",
+      "confidence": 0.75,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        899.62,
+        1684.0,
+        931.78,
+        1684.0
+      ],
+      "centroid_px": [
+        915.7,
+        1684.0
+      ],
+      "real_world_coords": {
+        "x_m": 16.135,
+        "y_m": 0.0
+      },
+      "linked_tag": "HB:02:01",
+      "linked_path_layer": null,
+      "colour": "#808080",
+      "notes": "tag-anchored compact geom d=111.2pt"
+    },
+    {
+      "symbol_class": "hbc",
+      "item_id": "MEC-HBC",
+      "legacy_item_id": "HC-HBC",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        1089.85,
+        176.66,
+        1137.85,
+        224.66
+      ],
+      "centroid_px": [
+        1113.85,
+        200.66
+      ],
+      "real_world_coords": {
+        "x_m": 19.627,
+        "y_m": 26.138
+      },
+      "linked_tag": "HB:02:02",
+      "linked_path_layer": null,
+      "colour": null,
+      "notes": "fallback box \u2014 no compact geom near tag"
+    },
+    {
+      "symbol_class": "tray_note",
+      "item_id": "MEC-TRAY-400",
+      "legacy_item_id": "HC-TRAY-400",
+      "confidence": 0.6,
+      "source": "rule",
+      "amber_flag": false,
+      "pixel_bbox": [
+        698.09,
+        1684.0,
+        738.09,
+        1684.0
+      ],
+      "centroid_px": [
+        718.09,
+        1684.0
+      ],
+      "real_world_coords": {
+        "x_m": 12.653,
+        "y_m": 0.0
+      },
+      "linked_tag": "400 mm TRAY",
+      "linked_path_layer": null,
+      "colour": null,
+      "notes": "fallback box \u2014 no compact geom near tag"
+    }
+  ],
+  "summary": {
+    "drawing_number": "25280-SEN-02-DR-M-5602",
+    "floor_tab_name": "Second Floor",
+    "scale": "1:50 @ A1",
+    "n_occurrences": 70,
+    "n_symbols": 34,
+    "backend": "pymupdf (planlens installed)",
+    "totals": {
+      "MEC-FCU-WALL": 31.0,
+      "MEC-HBC": 2.0,
+      "HBC CONTROLLER": 0.0,
+      "WALL MOUNTED FCU": 0.0,
+      "MEC-CU-IN": 302.78000000000003,
+      "MEC-TRAY-400": 94.24
+    },
+    "symbols": {
+      "fcu_wall": {
+        "count": 31,
+        "avg_confidence": 0.9
+      },
+      "hbc": {
+        "count": 2,
+        "avg_confidence": 0.675
+      },
+      "tray_note": {
+        "count": 1,
+        "avg_confidence": 0.6
+      }
+    }
+  },
+  "extractor_version": "0.2.0",
+  "backend": "pymupdf (planlens installed)"
+}

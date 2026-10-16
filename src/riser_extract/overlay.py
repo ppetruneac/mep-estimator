@@ -57,15 +57,23 @@ def write_overlay(
             overlay=True,
         )
 
-    # Occurrence bboxes that are not tags
-    for occ in result.occurrences:
-        if not occ.pixel_bbox or len(occ.pixel_bbox) != 4:
+    # Phase 2 symbol boxes
+    for sym in result.symbols:
+        if not sym.pixel_bbox or len(sym.pixel_bbox) != 4:
             continue
-        x0, y0, x1, y1 = occ.pixel_bbox
+        x0, y0, x1, y1 = sym.pixel_bbox
+        colour = (0.9, 0.15, 0.15) if sym.amber_flag else (0.1, 0.55, 0.15)
         page.draw_rect(
             fitz.Rect(x0, y0, x1, y1),
-            color=(0.1, 0.5, 0.1),
-            width=0.5,
+            color=colour,
+            width=1.2,
+            overlay=True,
+        )
+        page.insert_text(
+            fitz.Point(x0, max(8, y0 - 2)),
+            f"{sym.symbol_class}:{sym.confidence:.2f}",
+            fontsize=5,
+            color=colour,
             overlay=True,
         )
 
@@ -73,7 +81,7 @@ def write_overlay(
     label = (
         f"{result.title_block.drawing_number or src.stem} | "
         f"{result.title_block.floor_tab_name} | {result.title_block.scale} | "
-        f"tags={len(tags)} occ={len(result.occurrences)}"
+        f"tags={len(tags)} occ={len(result.occurrences)} sym={len(result.symbols)}"
     )
     page.insert_text(fitz.Point(24, 24), label, fontsize=8, color=(0, 0, 0), overlay=True)
 

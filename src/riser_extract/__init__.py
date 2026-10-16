@@ -3,4 +3,4 @@
 from riser_extract.schema import ExtractionResult, Occurrence, TitleBlock
 
 __all__ = ["ExtractionResult", "Occurrence", "TitleBlock", "__version__"]
-__version__ = "0.1.0"
+__version__ = "0.2.0"

@@ -11,6 +11,7 @@ Excel is the handshake. The schema is the company. Do not spend on riser.app yet
 |---|---|
 | [business-plan.md](business-plan.md) | Offer, buyer, V1–V3, pricing, go-to-market |
 | [technical-execution.md](technical-execution.md) | Domain model, pipeline, Excel round-trip, build slices |
+| [shipping.md](shipping.md) | What GR-1 + GR-2 ship (CLIs, JSON schema, evals, evidence) |
 
 The method the app hosts:
 

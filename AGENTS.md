@@ -30,10 +30,17 @@ Override with `RISER_TRAINING_DIR`.
 uv run riser-extract path/to.pdf -o out/
 uv run riser-extract "$RISER_TRAINING_DIR" -o out/
 
+# Phase 2 symbols: annotated PNG/PDF + JSON
+uv run riser-symbols extract "$RISER_TRAINING_DIR" -o evals/evidence/gr2
+
+# YOLO weak-label dataset from rule proposals (optional train)
+uv run riser-symbols dataset -o evals/datasets/hubby-premier-inn-london/yolo
+uv run riser-symbols train evals/datasets/hubby-premier-inn-london/yolo -o evals/models/symbol_yolo --epochs 30
+
 # Unit tests
 uv run pytest
 
-# Gold eval (primary floors gated)
+# Gold eval (primary floors gated; includes Phase 2 symbol counts)
 uv run riser-eval --primary-only
 uv run riser-eval
 ```

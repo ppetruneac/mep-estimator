@@ -122,6 +122,26 @@ def evaluate_floor(gold: dict, result) -> dict:
 
     tray_err = _rel_err(tray_pred, tray_gold_plan) if tray_gold_plan and tray_pred else None
 
+    # Phase 2 symbol counts (exclude amber untagged extras for gated compare)
+    sym_fcu = sum(
+        1
+        for s in result.symbols
+        if s.symbol_class in {"fcu_wall", "fcu_cass"} and s.linked_tag
+    )
+    sym_hbc = sum(1 for s in result.symbols if s.symbol_class == "hbc" and s.linked_tag)
+    sym_panel = sum(1 for s in result.symbols if s.symbol_class == "panel_heater")
+    sym_amber = sum(1 for s in result.symbols if s.amber_flag)
+    sym_by_source = {}
+    for s in result.symbols:
+        sym_by_source[s.source] = sym_by_source.get(s.source, 0) + 1
+
+    panel_gold = None
+    for meta in gold.get("headlines", {}).values():
+        ann = meta["annotation"].lower()
+        if "panel heater" in ann or "electric panel" in ann:
+            panel_gold = int(meta.get("count") or 0)
+            break
+
     tb = result.title_block
     return {
         "floor": gold["floor_tab_name"],
@@ -147,6 +167,14 @@ def evaluate_floor(gold: dict, result) -> dict:
         "tray_gold_plan_m": round(tray_gold_plan, 2) if tray_gold_plan else None,
         "tray_rel_error": round(tray_err, 4) if tray_err is not None else None,
         "n_occurrences": len(result.occurrences),
+        "n_symbols": len(result.symbols),
+        "sym_fcu": sym_fcu,
+        "sym_hbc": sym_hbc,
+        "sym_panel": sym_panel,
+        "sym_panel_gold": panel_gold,
+        "sym_amber": sym_amber,
+        "sym_by_source": sym_by_source,
+        "symbol_summary": result.summary().get("symbols", {}),
     }
 
 
@@ -201,6 +229,19 @@ def run_eval(*, primary_only: bool = False) -> dict:
                 failures.append(
                     f"Basement HBC {rep['hbc_pred']} != {gates['basement_hbc_count']}"
                 )
+            # Phase 2: tagged symbol counts must match inventory
+            if rep.get("sym_fcu") != gates["basement_fcu_count"]:
+                failures.append(
+                    f"Basement symbol FCU {rep.get('sym_fcu')} != {gates['basement_fcu_count']}"
+                )
+            if rep.get("sym_hbc") != gates["basement_hbc_count"]:
+                failures.append(
+                    f"Basement symbol HBC {rep.get('sym_hbc')} != {gates['basement_hbc_count']}"
+                )
+            if rep.get("sym_panel_gold") is not None and rep.get("sym_panel") != rep["sym_panel_gold"]:
+                failures.append(
+                    f"Basement symbol panel {rep.get('sym_panel')} != {rep['sym_panel_gold']}"
+                )
             med = rep.get("plan_m_median_rel_error")
             if med is not None and med > gates["basement_plan_m_median_rel_error"]:
                 failures.append(
@@ -219,6 +260,14 @@ def run_eval(*, primary_only: bool = False) -> dict:
             if rep["hbc_pred"] != gates["second_hbc_count"]:
                 failures.append(
                     f"Second Floor HBC {rep['hbc_pred']} != {gates['second_hbc_count']}"
+                )
+            if rep.get("sym_fcu") != gates["second_fcu_count"]:
+                failures.append(
+                    f"Second Floor symbol FCU {rep.get('sym_fcu')} != {gates['second_fcu_count']}"
+                )
+            if rep.get("sym_hbc") != gates["second_hbc_count"]:
+                failures.append(
+                    f"Second Floor symbol HBC {rep.get('sym_hbc')} != {gates['second_hbc_count']}"
                 )
 
     passed = len(failures) == 0
@@ -254,17 +303,21 @@ def write_report(report: dict) -> tuple[Path, Path]:
     lines.append("## Floors")
     lines.append("")
     lines.append(
-        "| Floor | Dwg | Scale | Recall | FCU p/g | HBC p/g | plan_m med err | tray err |"
+        "| Floor | Dwg | Scale | Recall | FCU p/g | HBC p/g | Sym FCU | Sym HBC | Sym panel | Amber | plan_m med err | tray err |"
     )
-    lines.append("|---|---|---|---|---|---|---|---|")
+    lines.append("|---|---|---|---|---|---|---|---|---|---|---|---|")
     for r in report["floors"]:
         if r.get("error"):
-            lines.append(f"| {r['floor']} | — | — | ERROR: {r['error']} | | | | |")
+            lines.append(f"| {r['floor']} | — | — | ERROR: {r['error']} | | | | | | | | |")
             continue
         lines.append(
             f"| {r['floor']} | {'✓' if r['drawing_number_match'] else '✗'} | "
             f"{'✓' if r['scale_ok'] else '✗'} | {r['tag_recall']:.2f} | "
             f"{r['fcu_pred']}/{r['fcu_gold']} | {r['hbc_pred']}/{r['hbc_gold']} | "
+            f"{r.get('sym_fcu', '—')} | {r.get('sym_hbc', '—')} | "
+            f"{r.get('sym_panel', '—')}"
+            f"{('/' + str(r['sym_panel_gold'])) if r.get('sym_panel_gold') is not None else ''} | "
+            f"{r.get('sym_amber', '—')} | "
             f"{r['plan_m_median_rel_error'] if r['plan_m_median_rel_error'] is not None else '—'} | "
             f"{r['tray_rel_error'] if r['tray_rel_error'] is not None else '—'} |"
         )

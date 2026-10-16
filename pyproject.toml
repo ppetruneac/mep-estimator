@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "riser-extract"
-version = "0.1.0"
-description = "Deterministic geometry and text extraction from MEP PDF drawings (Riser Phase 1)"
+version = "0.2.0"
+description = "Deterministic MEP PDF extraction + rules-first symbol identification (Riser Phase 1–2)"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Proprietary" }
@@ -17,16 +17,23 @@ dependencies = [
   "pandas>=2.0",
   "openpyxl>=3.1",
   "planlens>=0.13.0",
+  "pillow>=10.0",
 ]
 
 [project.optional-dependencies]
 dev = [
   "pytest>=8.0",
 ]
+yolo = [
+  "torch>=2.0",
+  "torchvision>=0.15",
+  "ultralytics>=8.0",
+]
 
 [project.scripts]
 riser-extract = "riser_extract.cli:main"
 riser-eval = "riser_extract.eval_cli:main"
+riser-symbols = "riser_extract.symbols_cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/riser_extract"]
