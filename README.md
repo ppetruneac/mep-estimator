@@ -10,6 +10,7 @@ The method in this repo is also the seed for **Riser** ([getriser.co.uk](https:/
 |---|---|
 | [docs/riser/business-plan.md](docs/riser/business-plan.md) | Offer, buyer, pricing shape, go-to-market |
 | [docs/riser/technical-execution.md](docs/riser/technical-execution.md) | Domain model, pipeline, Excel round-trip, build slices |
+| [docs/inventory-webapp-plan.md](docs/inventory-webapp-plan.md) | Inventory review webapp plan (GR-6) — project picker, approve/exclude, summaries |
 | [AGENTS.md](AGENTS.md) | Extractor setup, eval gate, ID conventions |
 | [src/riser_extract/README.md](src/riser_extract/README.md) | Phase 1 extractor package docs |
 
