@@ -135,6 +135,15 @@ body {
 .tremor-Table-table tbody tr.amber td {
   background: #fffbeb;
 }
+html.dark .tremor-Table-table tbody tr.amber td,
+.dark .tremor-Table-table tbody tr.amber td {
+  background: #1c1917 !important; /* stone-900 — readable in night mode */
+  color: #f5f5f4;
+}
+html.dark .tremor-Table-table tbody tr.amber:hover td,
+.dark .tremor-Table-table tbody tr.amber:hover td {
+  background: #292524 !important;
+}
 
 .obs-table-scroll {
   overflow-x: auto;
@@ -241,9 +250,6 @@ body {
 .dark .tremor-Table-table tbody tr.click-row:hover {
   background: rgba(99, 102, 241, 0.12);
 }
-.dark .tremor-Table-table tbody tr.amber td {
-  background: rgba(245, 158, 11, 0.12);
-}
 .dark .tremor-Table-table th.actions-col,
 .dark .tremor-Table-table td.actions-col,
 .dark .actions-col {
@@ -253,9 +259,21 @@ body {
 .dark .tremor-Table-table thead th.actions-col {
   background: #0b1220;
 }
+html.dark .tremor-Table-table tbody tr.amber td.actions-col,
 .dark .tremor-Table-table tbody tr.amber td.actions-col {
-  background: rgba(245, 158, 11, 0.12);
+  background: #1c1917 !important;
+}
+html.dark .tremor-Table-table tbody tr.amber:hover td.actions-col,
+.dark .tremor-Table-table tbody tr.amber:hover td.actions-col {
+  background: #292524 !important;
 }
 .dark .tremor-Table-table tbody tr.click-row:hover td.actions-col {
   background: rgba(99, 102, 241, 0.12);
+}
+
+/* Keep status badges readable on amber rows in dark mode */
+html.dark .tremor-Table-table tbody tr.amber .tremor-Badge-root,
+.dark .tremor-Table-table tbody tr.amber .tremor-Badge-root {
+  opacity: 1;
+  filter: none;
 }
