@@ -163,12 +163,12 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
   -webkit-overflow-scrolling: touch;
 }
 
-/* Drawing inventory table: a bit wider than page chrome, not full viewport */
+/* Drawing inventory table: modestly wider than page chrome */
 .drawing-table-wide {
-  width: calc(100% + 6rem);
-  max-width: 90rem;
-  margin-left: -3rem;
-  margin-right: -3rem;
+  width: calc(100% + 4rem);
+  max-width: 86rem;
+  margin-left: -2rem;
+  margin-right: -2rem;
   box-sizing: border-box;
 }
 @media (max-width: 1280px) {
@@ -180,50 +180,25 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
   }
 }
 
-/* Sticky cluster from right: Actions | Status | Unit | Qty — always visible */
-.tremor-Table-table th.type-col,
-.tremor-Table-table td.type-col,
-.type-col {
-  min-width: 9rem;
-  white-space: nowrap;
-}
-
-.tremor-Table-table th.qty-col,
-.tremor-Table-table td.qty-col,
-.qty-col {
+/*
+ * Sticky right cluster (widths must sum correctly):
+ * Actions 12.5 | Status 8.5 | Unit 3.5 | Qty 6.5 | Type 9
+ * right offsets: Actions 0, Status 12.5, Unit 21, Qty 24.5, Type 31
+ */
+.tremor-Table-table th.actions-col,
+.tremor-Table-table td.actions-col,
+.actions-col {
   position: sticky;
-  right: 24.5rem; /* unit 3.5 + status 8.5 + actions 12.5 */
-  z-index: 2;
-  min-width: 6.5rem;
-  white-space: nowrap;
-  text-align: right;
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
+  right: 0;
+  z-index: 5;
+  min-width: 12.5rem;
+  width: 12.5rem;
   background: #ffffff;
-  box-shadow: -4px 0 6px -4px rgb(15 23 42 / 10%);
+  box-shadow: -6px 0 8px -6px rgb(15 23 42 / 18%);
 }
-.tremor-Table-table thead th.qty-col {
+.tremor-Table-table thead th.actions-col {
   background: #f8fafc;
-  z-index: 3;
-}
-.tremor-Table-table th.qty-col .obs-th-btn {
-  display: inline-block;
-  min-width: 3rem;
-}
-
-.tremor-Table-table th.unit-col,
-.tremor-Table-table td.unit-col,
-.unit-col {
-  position: sticky;
-  right: 21rem; /* status 8.5 + actions 12.5 */
-  z-index: 2;
-  min-width: 3.5rem;
-  white-space: nowrap;
-  background: #ffffff;
-}
-.tremor-Table-table thead th.unit-col {
-  background: #f8fafc;
-  z-index: 3;
+  z-index: 6;
 }
 
 .tremor-Table-table th.status-col,
@@ -231,31 +206,75 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .status-col {
   position: sticky;
   right: 12.5rem;
-  z-index: 2;
+  z-index: 4;
   min-width: 8.5rem;
+  width: 8.5rem;
   white-space: nowrap;
   padding-right: 1rem !important;
   background: #ffffff;
 }
 .tremor-Table-table thead th.status-col {
   background: #f8fafc;
-  z-index: 3;
+  z-index: 6;
 }
 
-.tremor-Table-table th.actions-col,
-.tremor-Table-table td.actions-col,
-.actions-col {
+.tremor-Table-table th.unit-col,
+.tremor-Table-table td.unit-col,
+.unit-col {
   position: sticky;
-  right: 0;
-  z-index: 2;
-  min-width: 12.5rem;
-  background: #ffffff;
-  box-shadow: -6px 0 8px -6px rgb(15 23 42 / 18%);
-}
-.tremor-Table-table thead th.actions-col {
-  background: #f8fafc;
+  right: 21rem;
   z-index: 3;
+  min-width: 3.5rem;
+  width: 3.5rem;
+  white-space: nowrap;
+  background: #ffffff;
 }
+.tremor-Table-table thead th.unit-col {
+  background: #f8fafc;
+  z-index: 6;
+}
+
+.tremor-Table-table th.qty-col,
+.tremor-Table-table td.qty-col,
+.qty-col {
+  position: sticky;
+  right: 24.5rem;
+  z-index: 3;
+  min-width: 6.5rem;
+  width: 6.5rem;
+  white-space: nowrap;
+  text-align: right;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  background: #ffffff;
+}
+.tremor-Table-table thead th.qty-col {
+  background: #f8fafc;
+  z-index: 6;
+}
+.tremor-Table-table th.qty-col .obs-th-btn {
+  display: inline-block;
+  min-width: 3rem;
+}
+
+.tremor-Table-table th.type-col,
+.tremor-Table-table td.type-col,
+.type-col {
+  position: sticky;
+  right: 31rem;
+  z-index: 2;
+  min-width: 9rem;
+  width: 9rem;
+  white-space: nowrap;
+  background: #ffffff;
+  box-shadow: -4px 0 6px -4px rgb(15 23 42 / 10%);
+}
+.tremor-Table-table thead th.type-col {
+  background: #f8fafc;
+  z-index: 6;
+}
+
+.tremor-Table-table tbody tr.click-row:hover td.type-col,
 .tremor-Table-table tbody tr.click-row:hover td.qty-col,
 .tremor-Table-table tbody tr.click-row:hover td.unit-col,
 .tremor-Table-table tbody tr.click-row:hover td.status-col,
@@ -341,6 +360,9 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .dark .tremor-Table-table tbody tr.click-row:hover {
   background: rgba(99, 102, 241, 0.12);
 }
+.dark .tremor-Table-table th.type-col,
+.dark .tremor-Table-table td.type-col,
+.dark .type-col,
 .dark .tremor-Table-table th.qty-col,
 .dark .tremor-Table-table td.qty-col,
 .dark .qty-col,
@@ -355,6 +377,7 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .dark .actions-col {
   background: #111827;
 }
+.dark .tremor-Table-table thead th.type-col,
 .dark .tremor-Table-table thead th.qty-col,
 .dark .tremor-Table-table thead th.unit-col,
 .dark .tremor-Table-table thead th.status-col,
@@ -366,6 +389,7 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .dark .actions-col {
   box-shadow: -6px 0 8px -6px rgb(0 0 0 / 45%);
 }
+.dark .tremor-Table-table tbody tr.click-row:hover td.type-col,
 .dark .tremor-Table-table tbody tr.click-row:hover td.qty-col,
 .dark .tremor-Table-table tbody tr.click-row:hover td.unit-col,
 .dark .tremor-Table-table tbody tr.click-row:hover td.status-col,
