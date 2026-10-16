@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { UserCircleIcon } from "@heroicons/react/24/outline";
 import { api, Project } from "../api";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -25,125 +26,152 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div className="app-shell">
-      <header className="topnav" ref={navRef}>
-        <div className="topnav-inner">
-          <Link to="/" className="brand" onClick={() => { setProjectsOpen(false); setUserOpen(false); }}>
-            <span className="brand-mark">R</span>
-            <span className="brand-text">Riser</span>
-          </Link>
+    <div className="min-h-screen bg-slate-50">
+      <header
+        ref={navRef}
+        className="border-b border-slate-200 bg-white"
+      >
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3">
+          <NavLink
+            to="/"
+            end
+            className="mr-6 flex flex-col no-underline sm:mr-10"
+            onClick={() => {
+              setProjectsOpen(false);
+              setUserOpen(false);
+            }}
+          >
+            <span className="text-lg font-semibold tracking-tight text-slate-900">
+              Riser
+            </span>
+            <span className="text-xs font-medium text-slate-500">
+              Inventory review
+            </span>
+          </NavLink>
 
-          <nav className="topnav-links">
-            <div className="menu">
+          <nav className="flex flex-wrap items-center gap-1 text-sm">
+            <div className="relative">
               <button
                 type="button"
-                className={`menu-trigger ${projectsOpen ? "open" : ""}`}
+                className={[
+                  "rounded-lg px-3 py-1.5 font-medium",
+                  projectsOpen
+                    ? "bg-slate-900 text-white"
+                    : "text-slate-700 hover:bg-slate-100",
+                ].join(" ")}
                 onClick={(e) => {
                   e.stopPropagation();
                   setProjectsOpen((v) => !v);
                   setUserOpen(false);
                 }}
               >
-                Projects
-                <span className="chevron">▾</span>
+                Projects ▾
               </button>
               {projectsOpen && (
-                <div className="menu-panel projects-panel">
-                  <div className="menu-heading">All projects</div>
+                <div className="absolute left-0 top-[calc(100%+0.4rem)] z-50 w-80 rounded-xl border border-slate-200 bg-white p-2 shadow-lg">
+                  <div className="px-2 py-1 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                    All projects
+                  </div>
                   {projects.length === 0 && (
-                    <div className="menu-empty">No projects yet</div>
+                    <div className="px-2 py-2 text-sm text-slate-500">
+                      No projects yet
+                    </div>
                   )}
                   {projects.map((p) => (
                     <button
                       key={p.uuid}
                       type="button"
-                      className="menu-item"
+                      className="w-full rounded-lg px-2 py-2 text-left hover:bg-slate-50"
                       onClick={() => {
                         setProjectsOpen(false);
                         navigate(`/projects/${p.uuid}`);
                       }}
                     >
-                      <div className="menu-item-title">
+                      <div className="text-sm font-semibold text-slate-900">
                         {p.title_block?.display_name || p.name}
                       </div>
-                      <div className="menu-item-sub">
-                        {[p.client || p.title_block?.client, p.architect || p.title_block?.architect, p.owner]
+                      <div className="mt-0.5 text-xs text-slate-500">
+                        {[
+                          p.client || p.title_block?.client,
+                          p.architect || p.title_block?.architect,
+                          p.owner,
+                        ]
                           .filter(Boolean)
                           .join(" · ")}
                       </div>
                     </button>
                   ))}
-                  <button
-                    type="button"
-                    className="menu-item menu-item-link"
-                    onClick={() => {
-                      setProjectsOpen(false);
-                      navigate("/");
-                    }}
+                  <Link
+                    to="/"
+                    className="mt-1 block rounded-lg px-2 py-2 text-sm font-medium text-blue-600 hover:bg-slate-50"
+                    onClick={() => setProjectsOpen(false)}
                   >
                     View all projects →
-                  </button>
+                  </Link>
                 </div>
               )}
             </div>
           </nav>
 
-          <div className="topnav-right">
-            <div className="menu">
-              <button
-                type="button"
-                className={`user-btn ${userOpen ? "open" : ""}`}
-                aria-label="Account menu"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setUserOpen((v) => !v);
-                  setProjectsOpen(false);
-                }}
-              >
-                <UserAvatar />
-              </button>
-              {userOpen && (
-                <div className="menu-panel user-panel">
-                  <div className="user-card">
-                    <UserAvatar large />
-                    <div>
-                      <div className="user-name">Seneca user</div>
-                      <div className="user-email">reviewer@senecagrp.com</div>
+          <div className="relative ml-auto">
+            <button
+              type="button"
+              aria-label="Account menu"
+              className={[
+                "inline-flex items-center rounded-lg p-1.5",
+                userOpen
+                  ? "bg-slate-900 text-white"
+                  : "text-slate-600 hover:bg-slate-100",
+              ].join(" ")}
+              onClick={(e) => {
+                e.stopPropagation();
+                setUserOpen((v) => !v);
+                setProjectsOpen(false);
+              }}
+            >
+              <UserCircleIcon className="h-7 w-7" />
+            </button>
+            {userOpen && (
+              <div className="absolute right-0 top-[calc(100%+0.4rem)] z-50 w-72 rounded-xl border border-slate-200 bg-white p-2 shadow-lg">
+                <div className="flex items-center gap-3 px-2 py-2">
+                  <UserCircleIcon className="h-10 w-10 text-slate-400" />
+                  <div>
+                    <div className="text-sm font-semibold text-slate-900">
+                      Seneca user
+                    </div>
+                    <div className="text-xs text-slate-500">
+                      reviewer@senecagrp.com
                     </div>
                   </div>
-                  <div className="menu-divider" />
-                  <div className="menu-heading">Organisation</div>
-                  <div className="menu-static">Seneca Group Ltd</div>
-                  <div className="menu-divider" />
-                  <button type="button" className="menu-item" disabled>
-                    Account settings (soon)
-                  </button>
-                  <button type="button" className="menu-item" disabled>
-                    Sign out (soon)
-                  </button>
                 </div>
-              )}
-            </div>
+                <div className="my-1 border-t border-slate-100" />
+                <div className="px-2 py-1 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  Organisation
+                </div>
+                <div className="px-2 py-1 text-sm text-slate-700">
+                  Seneca Group Ltd
+                </div>
+                <div className="my-1 border-t border-slate-100" />
+                <button
+                  type="button"
+                  disabled
+                  className="w-full rounded-lg px-2 py-2 text-left text-sm text-slate-400"
+                >
+                  Account settings (soon)
+                </button>
+                <button
+                  type="button"
+                  disabled
+                  className="w-full rounded-lg px-2 py-2 text-left text-sm text-slate-400"
+                >
+                  Sign out (soon)
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </header>
-      <main className="app-main">{children}</main>
+      <main className="mx-auto max-w-7xl px-4 py-6">{children}</main>
     </div>
-  );
-}
-
-function UserAvatar({ large = false }: { large?: boolean }) {
-  return (
-    <span className={`avatar ${large ? "avatar-lg" : ""}`} aria-hidden>
-      <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none">
-        <circle cx="12" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.75" />
-        <path
-          d="M5 19.5c1.6-3.2 4-4.8 7-4.8s5.4 1.6 7 4.8"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-        />
-      </svg>
-    </span>
   );
 }

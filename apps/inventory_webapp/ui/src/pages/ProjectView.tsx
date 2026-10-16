@@ -1,5 +1,18 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  Badge,
+  Card,
+  Grid,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeaderCell,
+  TableRow,
+  Text,
+  Title,
+} from "@tremor/react";
 import { api, Drawing, Project, SummaryRow } from "../api";
 
 export function ProjectView() {
@@ -48,42 +61,45 @@ export function ProjectView() {
   const tb = project?.title_block;
 
   return (
-    <div className="wrap">
-      <div className="header">
-        <div>
-          <h1>{tb?.display_name || project?.name || "…"}</h1>
-          <div className="muted">
-            {tb?.location ? `${tb.location} · ` : ""}
-            {project?.pending_count ?? 0} pending · {project?.drawing_count ?? 0}{" "}
-            drawings
-          </div>
-        </div>
+    <div className="space-y-6">
+      <div>
+        <Title>{tb?.display_name || project?.name || "…"}</Title>
+        <Text className="mt-1">
+          {tb?.location ? `${tb.location} · ` : ""}
+          {project?.pending_count ?? 0} pending · {project?.drawing_count ?? 0}{" "}
+          drawings
+        </Text>
       </div>
 
-      <div className="party-banner">
-        <div>
-          <div className="party-label">Client</div>
-          <div className="party-value">{project?.client || tb?.client || "—"}</div>
-        </div>
-        <div>
-          <div className="party-label">Architect</div>
-          <div className="party-value">{project?.architect || tb?.architect || "—"}</div>
-        </div>
-        <div>
-          <div className="party-label">Owner</div>
-          <div className="party-value">{project?.owner || tb?.mep || "Seneca Group Ltd"}</div>
-        </div>
-      </div>
+      <Grid numItemsSm={1} numItemsMd={3} className="gap-4">
+        <Card>
+          <Text>Client</Text>
+          <Title className="mt-1 text-base">
+            {project?.client || tb?.client || "—"}
+          </Title>
+        </Card>
+        <Card>
+          <Text>Architect</Text>
+          <Title className="mt-1 text-base">
+            {project?.architect || tb?.architect || "—"}
+          </Title>
+        </Card>
+        <Card>
+          <Text>Owner</Text>
+          <Title className="mt-1 text-base">
+            {project?.owner || tb?.mep || "Seneca Group Ltd"}
+          </Title>
+        </Card>
+      </Grid>
 
       {tb && (
-        <div className="titleblock-card">
-          <div className="titleblock-kicker">Title block (from drawings)</div>
-          <div className="titleblock-grid">
+        <Card>
+          <Text className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+            Title block (from drawings)
+          </Text>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <Meta label="Project" value={tb.display_name} />
             <Meta label="Location" value={tb.location} />
-            <Meta label="Client" value={tb.client || project?.client} />
-            <Meta label="Architect" value={tb.architect || project?.architect} />
-            <Meta label="Owner / MEP" value={project?.owner || tb.mep} />
             <Meta label="MEP address" value={tb.mep_address} />
             <Meta label="MEP web" value={tb.mep_web} />
             <Meta label="Job series" value={tb.job_series?.join(", ")} />
@@ -94,98 +110,87 @@ export function ProjectView() {
             <Meta label="Date" value={tb.latest_date} />
             <Meta label="Disclaimer" value={tb.disclaimer} />
             <Meta label="Project code" value={project?.name} />
-            <Meta label="Premise" value={project?.premise} />
           </div>
-        </div>
+        </Card>
       )}
 
-      {err && <div className="err">{err}</div>}
-      <div className="tabs">
-        <button
-          className={`tab ${tab === "drawings" ? "active" : ""}`}
-          onClick={() => setTab("drawings")}
-        >
-          Drawings
-        </button>
-        <button
-          className={`tab ${tab === "floor" ? "active" : ""}`}
-          onClick={() => setTab("floor")}
-        >
-          Summary by floor
-        </button>
-        <button
-          className={`tab ${tab === "category" ? "active" : ""}`}
-          onClick={() => setTab("category")}
-        >
-          Summary by category
-        </button>
+      {err && (
+        <Card>
+          <Text className="text-red-600">{err}</Text>
+        </Card>
+      )}
+
+      <div className="flex flex-wrap gap-2">
+        {(
+          [
+            ["drawings", "Drawings"],
+            ["floor", "Summary by floor"],
+            ["category", "Summary by category"],
+          ] as const
+        ).map(([key, label]) => (
+          <button
+            key={key}
+            type="button"
+            className={tab === key ? "obs-tab obs-tab-active" : "obs-tab"}
+            onClick={() => setTab(key)}
+          >
+            {label}
+          </button>
+        ))}
       </div>
 
       {tab === "drawings" && (
-        <div className="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Floor</th>
-                <th>Drawing</th>
-                <th>Scale</th>
-                <th>Items</th>
-                <th>Pending</th>
-                <th>Approved</th>
-                <th>Excluded</th>
-              </tr>
-            </thead>
-            <tbody>
-              {drawings.map((d) => (
-                <tr
-                  key={d.id}
-                  className="click-row"
-                  onClick={() => nav(`/projects/${uuid}/drawings/${d.id}`)}
-                >
-                  <td>{d.floor_tab_name}</td>
-                  <td>{d.drawing_number}</td>
-                  <td>{d.scale}</td>
-                  <td>{d.item_count}</td>
-                  <td>
-                    <span className={`badge ${d.pending_count ? "warn" : "ok"}`}>
-                      {d.pending_count}
-                    </span>
-                  </td>
-                  <td>{d.approved_count}</td>
-                  <td>{d.excluded_count}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <Card className="p-0 overflow-hidden">
+          <div className="obs-table-scroll">
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableHeaderCell>Floor</TableHeaderCell>
+                  <TableHeaderCell>Drawing</TableHeaderCell>
+                  <TableHeaderCell>Scale</TableHeaderCell>
+                  <TableHeaderCell>Items</TableHeaderCell>
+                  <TableHeaderCell>Pending</TableHeaderCell>
+                  <TableHeaderCell>Approved</TableHeaderCell>
+                  <TableHeaderCell>Excluded</TableHeaderCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {drawings.map((d) => (
+                  <TableRow
+                    key={d.id}
+                    className="click-row"
+                    onClick={() => nav(`/projects/${uuid}/drawings/${d.id}`)}
+                  >
+                    <TableCell>{d.floor_tab_name}</TableCell>
+                    <TableCell>{d.drawing_number}</TableCell>
+                    <TableCell>{d.scale}</TableCell>
+                    <TableCell>{d.item_count}</TableCell>
+                    <TableCell>
+                      <Badge color={d.pending_count ? "amber" : "emerald"}>
+                        {d.pending_count}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>{d.approved_count}</TableCell>
+                    <TableCell>{d.excluded_count}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </Card>
       )}
 
       {tab === "floor" && (
-        <>
-          <div className="toolbar">
-            <button
-              className="btn"
-              onClick={() => exportCsv(byFloor, "summary-by-floor.csv")}
-            >
-              Export CSV
-            </button>
-            <span className="muted">Approved / amended qty only</span>
-          </div>
-          <SummaryTable rows={byFloor} />
-        </>
+        <SummaryCard
+          rows={byFloor}
+          onExport={() => exportCsv(byFloor, "summary-by-floor.csv")}
+        />
       )}
       {tab === "category" && (
-        <>
-          <div className="toolbar">
-            <button
-              className="btn"
-              onClick={() => exportCsv(byCat, "summary-by-category.csv")}
-            >
-              Export CSV
-            </button>
-          </div>
-          <SummaryTable rows={byCat} />
-        </>
+        <SummaryCard
+          rows={byCat}
+          onExport={() => exportCsv(byCat, "summary-by-category.csv")}
+        />
       )}
     </div>
   );
@@ -194,38 +199,54 @@ export function ProjectView() {
 function Meta({ label, value }: { label: string; value?: string | null }) {
   if (!value) return null;
   return (
-    <div className="meta-cell">
-      <div className="meta-label">{label}</div>
-      <div className="meta-value">{value}</div>
+    <div>
+      <div className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+        {label}
+      </div>
+      <div className="mt-0.5 text-sm font-medium text-slate-900">{value}</div>
     </div>
   );
 }
 
-function SummaryTable({ rows }: { rows: SummaryRow[] }) {
+function SummaryCard({
+  rows,
+  onExport,
+}: {
+  rows: SummaryRow[];
+  onExport: () => void;
+}) {
   return (
-    <div className="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Label</th>
-            <th>Qty</th>
-            <th>Unit</th>
-            <th>Approved lines</th>
-            <th>Excluded</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((r) => (
-            <tr key={r.key}>
-              <td>{r.label}</td>
-              <td>{r.qty}</td>
-              <td>{r.unit}</td>
-              <td>{r.item_count}</td>
-              <td>{r.excluded_count}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <Card>
+      <div className="mb-3 flex items-center gap-3">
+        <button type="button" className="obs-tab" onClick={onExport}>
+          Export CSV
+        </button>
+        <Text>Approved / amended qty only</Text>
+      </div>
+      <div className="obs-table-scroll">
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableHeaderCell>Label</TableHeaderCell>
+              <TableHeaderCell>Qty</TableHeaderCell>
+              <TableHeaderCell>Unit</TableHeaderCell>
+              <TableHeaderCell>Approved lines</TableHeaderCell>
+              <TableHeaderCell>Excluded</TableHeaderCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((r) => (
+              <TableRow key={r.key}>
+                <TableCell>{r.label}</TableCell>
+                <TableCell>{r.qty}</TableCell>
+                <TableCell>{r.unit}</TableCell>
+                <TableCell>{r.item_count}</TableCell>
+                <TableCell>{r.excluded_count}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+    </Card>
   );
 }

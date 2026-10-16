@@ -1,5 +1,19 @@
 import { FormEvent, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import {
+  Badge,
+  Button,
+  Card,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeaderCell,
+  TableRow,
+  Text,
+  Title,
+} from "@tremor/react";
 import { api, Drawing, Item } from "../api";
 
 export function DrawingReview() {
@@ -36,122 +50,142 @@ export function DrawingReview() {
   }
 
   return (
-    <div className="wrap">
-      <div className="header">
+    <div className="space-y-6">
+      <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <Link to={`/projects/${projectUuid}`} className="muted">
+          <Link
+            to={`/projects/${projectUuid}`}
+            className="text-sm text-slate-500 hover:text-slate-800"
+          >
             ← Back to project
           </Link>
-          <h1>{drawing?.floor_tab_name}</h1>
-          <div className="muted">
+          <Title className="mt-1">{drawing?.floor_tab_name}</Title>
+          <Text className="mt-1">
             {drawing?.drawing_number} · {drawing?.scale} · {items.length} rows
-          </div>
+          </Text>
         </div>
-        <div className="header-actions">
+        <div className="flex flex-wrap gap-2">
           <a
-            className="btn primary btn-icon"
             href={api.pdfUrl(did)}
             target="_blank"
             rel="noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-800"
           >
-            <ExternalLinkIcon />
+            <ArrowTopRightOnSquareIcon className="h-4 w-4" />
             Open drawing in new tab
           </a>
           <a
-            className="btn btn-icon"
             href={api.overlayUrl(did)}
             target="_blank"
             rel="noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
           >
-            <ExternalLinkIcon />
+            <ArrowTopRightOnSquareIcon className="h-4 w-4" />
             Open overlay in new tab
           </a>
         </div>
       </div>
-      {err && <div className="err">{err}</div>}
 
-      <div className="toolbar">
-        <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+      {err && (
+        <Card>
+          <Text className="text-red-600">{err}</Text>
+        </Card>
+      )}
+
+      <div className="flex flex-wrap items-center gap-2">
+        <select
+          className="obs-select"
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value)}
+        >
           <option value="">All statuses</option>
           <option value="pending">Pending</option>
           <option value="approved">Approved</option>
           <option value="excluded">Excluded</option>
           <option value="amended">Amended</option>
         </select>
-        <button className="btn primary" onClick={() => bulk("approve")}>
-          Approve all pending
-        </button>
-        <button className="btn danger" onClick={() => bulk("exclude")}>
+        <Button onClick={() => bulk("approve")}>Approve all pending</Button>
+        <Button variant="secondary" color="red" onClick={() => bulk("exclude")}>
           Exclude all pending
-        </button>
+        </Button>
       </div>
 
-      <div className="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Annotation</th>
-              <th>Qty</th>
-              <th>Unit</th>
-              <th>Type</th>
-              <th>Status</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((it) => (
-              <tr
-                key={it.id}
-                className={
-                  it.amber_flag ||
-                  (it.measurement_type && it.measurement_type !== "printed")
-                    ? "amber"
-                    : ""
-                }
-              >
-                <td>
-                  <div>{it.item_id || "—"}</div>
-                  <div className="muted">{it.category}</div>
-                </td>
-                <td>{it.annotation}</td>
-                <td>{it.effective_qty}</td>
-                <td>{it.unit}</td>
-                <td>{it.measurement_type}</td>
-                <td>
-                  <span
-                    className={`badge ${
-                      it.status === "approved" || it.status === "amended"
-                        ? "ok"
-                        : it.status === "excluded"
-                          ? "bad"
-                          : "warn"
-                    }`}
-                  >
-                    {it.status}
-                  </span>
-                </td>
-                <td>
-                  <div className="row-actions">
-                    <button className="btn" onClick={() => setStatus(it.id, "approved")}>
-                      Approve
-                    </button>
-                    <button
-                      className="btn danger"
-                      onClick={() => setStatus(it.id, "excluded")}
+      <Card className="overflow-hidden p-0">
+        <div className="obs-table-scroll">
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableHeaderCell>Item</TableHeaderCell>
+                <TableHeaderCell>Annotation</TableHeaderCell>
+                <TableHeaderCell>Qty</TableHeaderCell>
+                <TableHeaderCell>Unit</TableHeaderCell>
+                <TableHeaderCell>Type</TableHeaderCell>
+                <TableHeaderCell>Status</TableHeaderCell>
+                <TableHeaderCell>Actions</TableHeaderCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {items.map((it) => (
+                <TableRow
+                  key={it.id}
+                  className={
+                    it.amber_flag ||
+                    (it.measurement_type && it.measurement_type !== "printed")
+                      ? "amber"
+                      : undefined
+                  }
+                >
+                  <TableCell>
+                    <div className="font-medium text-slate-900">
+                      {it.item_id || "—"}
+                    </div>
+                    <div className="text-xs text-slate-500">{it.category}</div>
+                  </TableCell>
+                  <TableCell>{it.annotation}</TableCell>
+                  <TableCell>{it.effective_qty}</TableCell>
+                  <TableCell>{it.unit}</TableCell>
+                  <TableCell>{it.measurement_type}</TableCell>
+                  <TableCell>
+                    <Badge
+                      color={
+                        it.status === "approved" || it.status === "amended"
+                          ? "emerald"
+                          : it.status === "excluded"
+                            ? "red"
+                            : "amber"
+                      }
                     >
-                      Exclude
-                    </button>
-                    <button className="btn" onClick={() => setAmend(it)}>
-                      Amend
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+                      {it.status}
+                    </Badge>
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex flex-wrap gap-1.5">
+                      <Button
+                        size="xs"
+                        variant="secondary"
+                        onClick={() => setStatus(it.id, "approved")}
+                      >
+                        Approve
+                      </Button>
+                      <Button
+                        size="xs"
+                        variant="secondary"
+                        color="red"
+                        onClick={() => setStatus(it.id, "excluded")}
+                      >
+                        Exclude
+                      </Button>
+                      <Button size="xs" variant="light" onClick={() => setAmend(it)}>
+                        Amend
+                      </Button>
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </Card>
 
       {amend && (
         <AmendModal
@@ -169,40 +203,6 @@ export function DrawingReview() {
         />
       )}
     </div>
-  );
-}
-
-function ExternalLinkIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden
-      className="btn-svg"
-    >
-      <path
-        d="M14 5h5v5"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M10 14 19 5"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-      <path
-        d="M19 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
 
@@ -230,24 +230,44 @@ function AmendModal({
   }
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
-      <form className="modal" onClick={(e) => e.stopPropagation()} onSubmit={submit}>
-        <h3 style={{ margin: 0 }}>Amend {item.item_id || item.annotation}</h3>
-        <label>
-          Quantity
-          <input value={qty} onChange={(e) => setQty(e.target.value)} required />
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4"
+      onClick={onClose}
+    >
+      <form
+        className="w-full max-w-md space-y-3 rounded-xl border border-slate-200 bg-white p-5 shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+        onSubmit={submit}
+      >
+        <Title className="text-base">
+          Amend {item.item_id || item.annotation}
+        </Title>
+        <label className="block text-sm">
+          <span className="text-slate-600">Quantity</span>
+          <input
+            className="obs-select mt-1 w-full"
+            style={{ backgroundImage: "none" }}
+            value={qty}
+            onChange={(e) => setQty(e.target.value)}
+            required
+          />
         </label>
-        <label>
-          Notes
-          <input value={notes} onChange={(e) => setNotes(e.target.value)} />
+        <label className="block text-sm">
+          <span className="text-slate-600">Notes</span>
+          <input
+            className="obs-select mt-1 w-full"
+            style={{ backgroundImage: "none" }}
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+          />
         </label>
-        <div className="row-actions">
-          <button className="btn primary" disabled={busy} type="submit">
+        <div className="flex gap-2 pt-1">
+          <Button type="submit" loading={busy}>
             Save
-          </button>
-          <button className="btn" type="button" onClick={onClose}>
+          </Button>
+          <Button type="button" variant="secondary" onClick={onClose}>
             Cancel
-          </button>
+          </Button>
         </div>
       </form>
     </div>

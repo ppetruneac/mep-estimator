@@ -5,7 +5,7 @@ import { AppShell } from "./components/AppShell";
 import { ProjectPicker } from "./pages/ProjectPicker";
 import { ProjectView } from "./pages/ProjectView";
 import { DrawingReview } from "./pages/DrawingReview";
-import "./styles.css";
+import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
