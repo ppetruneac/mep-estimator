@@ -55,7 +55,7 @@ def _parties_from_pdf(source_pdf: str | None) -> dict[str, str | None]:
         return {}
     try:
         import pymupdf as fitz
-        from riser_extract.scale import parse_parties
+        from app.parties import parse_parties
 
         doc = fitz.open(path)
         try:
@@ -64,7 +64,7 @@ def _parties_from_pdf(source_pdf: str | None) -> dict[str, str | None]:
             doc.close()
         return parse_parties(text)
     except Exception as exc:  # pragma: no cover
-        log.debug("party parse failed for %s: %s", path, exc)
+        log.warning("party parse failed for %s: %s", path, exc)
         return {}
 
 
