@@ -5,7 +5,10 @@ import { AppShell } from "./components/AppShell";
 import { ProjectPicker } from "./pages/ProjectPicker";
 import { ProjectView } from "./pages/ProjectView";
 import { DrawingReview } from "./pages/DrawingReview";
+import { applyTheme, readStoredTheme } from "./lib/theme";
 import "./index.css";
+
+applyTheme(readStoredTheme());
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

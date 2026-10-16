@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   Badge,
@@ -13,6 +13,7 @@ import {
   Title,
 } from "@tremor/react";
 import { api, Drawing, Project, SummaryRow } from "../api";
+import { nextSort, sortRows, type SortDir } from "../lib/sort";
 
 export function ProjectView() {
   const { projectId } = useParams();
@@ -24,6 +25,8 @@ export function ProjectView() {
   const [byFloor, setByFloor] = useState<SummaryRow[]>([]);
   const [byCat, setByCat] = useState<SummaryRow[]>([]);
   const [err, setErr] = useState<string | null>(null);
+  const [sortKey, setSortKey] = useState("floor_tab_name");
+  const [sortDir, setSortDir] = useState<SortDir>("asc");
 
   useEffect(() => {
     Promise.all([
@@ -58,6 +61,17 @@ export function ProjectView() {
   }
 
   const tb = project?.title_block;
+
+  const sortedDrawings = useMemo(
+    () => sortRows(drawings, sortKey, sortDir),
+    [drawings, sortKey, sortDir]
+  );
+
+  function onSort(key: string) {
+    const next = nextSort(sortKey, sortDir, key);
+    setSortKey(next.key);
+    setSortDir(next.dir);
+  }
 
   return (
     <div className="space-y-6">
@@ -123,17 +137,45 @@ export function ProjectView() {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableHeaderCell>Floor</TableHeaderCell>
-                  <TableHeaderCell>Drawing</TableHeaderCell>
-                  <TableHeaderCell>Scale</TableHeaderCell>
-                  <TableHeaderCell>Items</TableHeaderCell>
-                  <TableHeaderCell>Pending</TableHeaderCell>
-                  <TableHeaderCell>Approved</TableHeaderCell>
-                  <TableHeaderCell>Excluded</TableHeaderCell>
+                  <TableHeaderCell>
+                    <button type="button" className="obs-th-btn" onClick={() => onSort("floor_tab_name")}>
+                      Floor{sortKey === "floor_tab_name" ? (sortDir === "asc" ? " ↑" : " ↓") : ""}
+                    </button>
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    <button type="button" className="obs-th-btn" onClick={() => onSort("drawing_number")}>
+                      Drawing{sortKey === "drawing_number" ? (sortDir === "asc" ? " ↑" : " ↓") : ""}
+                    </button>
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    <button type="button" className="obs-th-btn" onClick={() => onSort("scale")}>
+                      Scale{sortKey === "scale" ? (sortDir === "asc" ? " ↑" : " ↓") : ""}
+                    </button>
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    <button type="button" className="obs-th-btn" onClick={() => onSort("item_count")}>
+                      Items{sortKey === "item_count" ? (sortDir === "asc" ? " ↑" : " ↓") : ""}
+                    </button>
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    <button type="button" className="obs-th-btn" onClick={() => onSort("pending_count")}>
+                      Pending{sortKey === "pending_count" ? (sortDir === "asc" ? " ↑" : " ↓") : ""}
+                    </button>
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    <button type="button" className="obs-th-btn" onClick={() => onSort("approved_count")}>
+                      Approved{sortKey === "approved_count" ? (sortDir === "asc" ? " ↑" : " ↓") : ""}
+                    </button>
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    <button type="button" className="obs-th-btn" onClick={() => onSort("excluded_count")}>
+                      Excluded{sortKey === "excluded_count" ? (sortDir === "asc" ? " ↑" : " ↓") : ""}
+                    </button>
+                  </TableHeaderCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {drawings.map((d) => (
+                {sortedDrawings.map((d) => (
                   <TableRow
                     key={d.id}
                     className="click-row"

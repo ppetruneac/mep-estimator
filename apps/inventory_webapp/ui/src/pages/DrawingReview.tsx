@@ -19,6 +19,7 @@ import {
   Title,
 } from "@tremor/react";
 import { api, Drawing, DrawingFacets, Item } from "../api";
+import { nextSort, sortRows, type SortDir } from "../lib/sort";
 
 export function DrawingReview() {
   const { projectId, drawingKey } = useParams();
@@ -34,6 +35,8 @@ export function DrawingReview() {
   const [qDraft, setQDraft] = useState("");
   const [err, setErr] = useState<string | null>(null);
   const [amend, setAmend] = useState<Item | null>(null);
+  const [sortKey, setSortKey] = useState("category");
+  const [sortDir, setSortDir] = useState<SortDir>("asc");
 
   async function load() {
     const [d, its, f] = await Promise.all([
@@ -78,6 +81,17 @@ export function DrawingReview() {
     if (!measurementType || !facets) return null;
     return facets.measurement_types.find((t) => t.key === measurementType)?.help;
   }, [measurementType, facets]);
+
+  const sortedItems = useMemo(
+    () => sortRows(items, sortKey, sortDir),
+    [items, sortKey, sortDir]
+  );
+
+  function onSort(key: string) {
+    const next = nextSort(sortKey, sortDir, key);
+    setSortKey(next.key);
+    setSortDir(next.dir);
+  }
 
   return (
     <div className="space-y-6">
@@ -255,23 +269,35 @@ export function DrawingReview() {
           <Table className="min-w-[72rem]">
             <TableHead>
               <TableRow>
-                <TableHeaderCell>Category</TableHeaderCell>
-                <TableHeaderCell>Item ID</TableHeaderCell>
-                <TableHeaderCell>Annotation</TableHeaderCell>
-                <TableHeaderCell>Qty</TableHeaderCell>
-                <TableHeaderCell>Unit</TableHeaderCell>
+                <TableHeaderCell>
+                  <SortBtn label="Category" col="category" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
+                </TableHeaderCell>
+                <TableHeaderCell>
+                  <SortBtn label="Item ID" col="item_id" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
+                </TableHeaderCell>
+                <TableHeaderCell>
+                  <SortBtn label="Annotation" col="annotation" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
+                </TableHeaderCell>
+                <TableHeaderCell>
+                  <SortBtn label="Qty" col="effective_qty" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
+                </TableHeaderCell>
+                <TableHeaderCell>
+                  <SortBtn label="Unit" col="unit" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
+                </TableHeaderCell>
                 <TableHeaderCell>
                   <span className="inline-flex items-center gap-1.5">
-                    Type
+                    <SortBtn label="Type" col="measurement_type" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                     <TypeInfoTip types={facets?.measurement_types || []} />
                   </span>
                 </TableHeaderCell>
-                <TableHeaderCell>Status</TableHeaderCell>
+                <TableHeaderCell>
+                  <SortBtn label="Status" col="status" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
+                </TableHeaderCell>
                 <TableHeaderCell className="actions-col">Actions</TableHeaderCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {items.map((it) => (
+              {sortedItems.map((it) => (
                 <TableRow
                   key={it.id}
                   className={
@@ -362,6 +388,27 @@ export function DrawingReview() {
         />
       )}
     </div>
+  );
+}
+
+function SortBtn({
+  label,
+  col,
+  sortKey,
+  sortDir,
+  onSort,
+}: {
+  label: string;
+  col: string;
+  sortKey: string;
+  sortDir: SortDir;
+  onSort: (key: string) => void;
+}) {
+  return (
+    <button type="button" className="obs-th-btn" onClick={() => onSort(col)}>
+      {label}
+      {sortKey === col ? (sortDir === "asc" ? " ↑" : " ↓") : ""}
+    </button>
   );
 }
 
