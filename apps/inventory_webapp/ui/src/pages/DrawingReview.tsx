@@ -9,7 +9,6 @@ export function DrawingReview() {
   const [drawing, setDrawing] = useState<Drawing | null>(null);
   const [items, setItems] = useState<Item[]>([]);
   const [statusFilter, setStatusFilter] = useState("");
-  const [showOverlay, setShowOverlay] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [amend, setAmend] = useState<Item | null>(null);
 
@@ -36,8 +35,6 @@ export function DrawingReview() {
     await load();
   }
 
-  const pdfSrc = showOverlay ? api.overlayUrl(did) : api.pdfUrl(did);
-
   return (
     <div className="wrap">
       <div className="header">
@@ -49,6 +46,26 @@ export function DrawingReview() {
           <div className="muted">
             {drawing?.drawing_number} · {drawing?.scale} · {items.length} rows
           </div>
+        </div>
+        <div className="header-actions">
+          <a
+            className="btn primary btn-icon"
+            href={api.pdfUrl(did)}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <ExternalLinkIcon />
+            Open drawing in new tab
+          </a>
+          <a
+            className="btn btn-icon"
+            href={api.overlayUrl(did)}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <ExternalLinkIcon />
+            Open overlay in new tab
+          </a>
         </div>
       </div>
       {err && <div className="err">{err}</div>}
@@ -67,100 +84,73 @@ export function DrawingReview() {
         <button className="btn danger" onClick={() => bulk("exclude")}>
           Exclude all pending
         </button>
-        <button className="btn" onClick={() => setShowOverlay((v) => !v)}>
-          {showOverlay ? "Show source PDF" : "Show overlay (if any)"}
-        </button>
-        <a
-          className="btn primary"
-          href={api.pdfUrl(did)}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Open drawing in new tab
-        </a>
       </div>
 
-      <div className="split">
-        <div className="table-wrap" style={{ maxHeight: "75vh" }}>
-          <table>
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Annotation</th>
-                <th>Qty</th>
-                <th>Unit</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {items.map((it) => (
-                <tr key={it.id} className={it.amber_flag || (it.measurement_type && it.measurement_type !== "printed") ? "amber" : ""}>
-                  <td>
-                    <div>{it.item_id || "—"}</div>
-                    <div className="muted">{it.category}</div>
-                  </td>
-                  <td>{it.annotation}</td>
-                  <td>{it.effective_qty}</td>
-                  <td>{it.unit}</td>
-                  <td>{it.measurement_type}</td>
-                  <td>
-                    <span className={`badge ${it.status === "approved" || it.status === "amended" ? "ok" : it.status === "excluded" ? "bad" : "warn"}`}>
-                      {it.status}
-                    </span>
-                  </td>
-                  <td>
-                    <div className="row-actions">
-                      <button className="btn" onClick={() => setStatus(it.id, "approved")}>Approve</button>
-                      <button className="btn danger" onClick={() => setStatus(it.id, "excluded")}>Exclude</button>
-                      <button className="btn" onClick={() => setAmend(it)}>Amend</button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div>
-          <div className="pdf-toolbar">
-            <a
-              className="btn primary"
-              href={api.pdfUrl(did)}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open drawing in new tab
-            </a>
-            {showOverlay && (
-              <a
-                className="btn"
-                href={api.overlayUrl(did)}
-                target="_blank"
-                rel="noreferrer"
+      <div className="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Annotation</th>
+              <th>Qty</th>
+              <th>Unit</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.map((it) => (
+              <tr
+                key={it.id}
+                className={
+                  it.amber_flag ||
+                  (it.measurement_type && it.measurement_type !== "printed")
+                    ? "amber"
+                    : ""
+                }
               >
-                Open overlay in new tab
-              </a>
-            )}
-          </div>
-          <object
-            className="pdf-frame"
-            data={`${pdfSrc}#toolbar=1&navpanes=0`}
-            type="application/pdf"
-            aria-label="drawing-pdf"
-          >
-            <p className="muted">
-              PDF preview unavailable in this browser.{" "}
-              <a href={pdfSrc} target="_blank" rel="noreferrer">
-                Open drawing in new tab
-              </a>
-            </p>
-          </object>
-          <div className="muted" style={{ marginTop: "0.35rem" }}>
-            Inline preview on this page, or open the full drawing in a new tab.
-            Overlay toggle 404s if no overlay file is present.
-          </div>
-        </div>
+                <td>
+                  <div>{it.item_id || "—"}</div>
+                  <div className="muted">{it.category}</div>
+                </td>
+                <td>{it.annotation}</td>
+                <td>{it.effective_qty}</td>
+                <td>{it.unit}</td>
+                <td>{it.measurement_type}</td>
+                <td>
+                  <span
+                    className={`badge ${
+                      it.status === "approved" || it.status === "amended"
+                        ? "ok"
+                        : it.status === "excluded"
+                          ? "bad"
+                          : "warn"
+                    }`}
+                  >
+                    {it.status}
+                  </span>
+                </td>
+                <td>
+                  <div className="row-actions">
+                    <button className="btn" onClick={() => setStatus(it.id, "approved")}>
+                      Approve
+                    </button>
+                    <button
+                      className="btn danger"
+                      onClick={() => setStatus(it.id, "excluded")}
+                    >
+                      Exclude
+                    </button>
+                    <button className="btn" onClick={() => setAmend(it)}>
+                      Amend
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
       {amend && (
@@ -179,6 +169,40 @@ export function DrawingReview() {
         />
       )}
     </div>
+  );
+}
+
+function ExternalLinkIcon() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+      className="btn-svg"
+    >
+      <path
+        d="M14 5h5v5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10 14 19 5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M19 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 
@@ -218,8 +242,12 @@ function AmendModal({
           <input value={notes} onChange={(e) => setNotes(e.target.value)} />
         </label>
         <div className="row-actions">
-          <button className="btn primary" disabled={busy} type="submit">Save</button>
-          <button className="btn" type="button" onClick={onClose}>Cancel</button>
+          <button className="btn primary" disabled={busy} type="submit">
+            Save
+          </button>
+          <button className="btn" type="button" onClick={onClose}>
+            Cancel
+          </button>
         </div>
       </form>
     </div>

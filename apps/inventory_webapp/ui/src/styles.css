@@ -145,17 +145,16 @@ tr.click-row:hover td { color: #0c4a6e; }
 .toolbar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; align-items: center; }
 .split { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1rem; }
 @media (max-width: 960px) { .split { grid-template-columns: 1fr; } }
-.pdf-toolbar {
-  display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;
-}
 a.btn {
-  display: inline-flex; align-items: center; text-decoration: none;
-  color: inherit;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  text-decoration: none; color: inherit;
 }
 a.btn.primary { color: white; }
 a.btn:hover { text-decoration: none; }
-.pdf-frame {
-  width: 100%; height: 75vh; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+.btn-icon { gap: 0.45rem; }
+.btn-svg { flex-shrink: 0; }
+.header-actions {
+  display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;
 }
 .tabs { display: flex; gap: 0.35rem; margin-bottom: 0.75rem; }
 .tab {
