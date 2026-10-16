@@ -113,57 +113,64 @@ export function DrawingReview() {
         </Card>
       )}
 
-      {/* Category chips with counts */}
+      {/* Category + status chips with counts */}
       {facets && (
-        <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            className={[
-              "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
-              !category
-                ? "bg-slate-900 text-white"
-                : "bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50",
-            ].join(" ")}
-            onClick={() => setCategory("")}
-          >
-            All
-            <span
-              className={[
-                "rounded-full px-1.5 py-0.5 text-xs tabular-nums",
-                !category ? "bg-white/20" : "bg-slate-100 text-slate-600",
-              ].join(" ")}
-            >
-              {facets.categories.reduce((n, c) => n + c.count, 0)}
-            </span>
-          </button>
-          {facets.categories.map((c) => {
-            const selected = category === c.category;
-            return (
-              <button
-                key={c.category}
-                type="button"
-                className={[
-                  "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
-                  selected
-                    ? "bg-slate-900 text-white"
-                    : "bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-50",
-                ].join(" ")}
-                onClick={() =>
-                  setCategory(selected ? "" : c.category)
-                }
-              >
-                {c.category}
-                <span
-                  className={[
-                    "rounded-full px-1.5 py-0.5 text-xs tabular-nums",
-                    selected ? "bg-white/20" : "bg-slate-100 text-slate-600",
-                  ].join(" ")}
-                >
-                  {c.count}
-                </span>
-              </button>
-            );
-          })}
+        <div className="space-y-3">
+          <div>
+            <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">
+              Category
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Chip
+                label="All"
+                count={facets.categories.reduce((n, c) => n + c.count, 0)}
+                selected={!category}
+                onClick={() => setCategory("")}
+              />
+              {facets.categories.map((c) => (
+                <Chip
+                  key={c.category}
+                  label={c.category}
+                  count={c.count}
+                  selected={category === c.category}
+                  onClick={() =>
+                    setCategory(category === c.category ? "" : c.category)
+                  }
+                />
+              ))}
+            </div>
+          </div>
+          <div>
+            <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">
+              Status
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Chip
+                label="All"
+                count={facets.statuses.reduce((n, s) => n + s.count, 0)}
+                selected={!status}
+                onClick={() => setStatus("")}
+              />
+              {facets.statuses.map((s) => (
+                <Chip
+                  key={s.key}
+                  label={s.key}
+                  count={s.count}
+                  selected={status === s.key}
+                  tone={
+                    s.key === "approved" || s.key === "amended"
+                      ? "ok"
+                      : s.key === "excluded"
+                        ? "bad"
+                        : s.key === "pending"
+                          ? "warn"
+                          : "default"
+                  }
+                  onClick={() => setStatus(status === s.key ? "" : s.key)}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       )}
 
@@ -182,21 +189,6 @@ export function DrawingReview() {
               }}
               onBlur={() => setQ(qDraft.trim())}
             />
-          </label>
-          <label className="flex min-w-[10rem] flex-col gap-1 text-sm">
-            <span className="font-medium text-slate-700">Status</span>
-            <select
-              className="obs-select"
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-            >
-              <option value="">All</option>
-              {(facets?.statuses || []).map((s) => (
-                <option key={s.key} value={s.key}>
-                  {s.key} ({s.count})
-                </option>
-              ))}
-            </select>
           </label>
           <label className="flex min-w-[12rem] flex-col gap-1 text-sm">
             <span className="font-medium text-slate-700">Type</span>
@@ -355,6 +347,51 @@ export function DrawingReview() {
         />
       )}
     </div>
+  );
+}
+
+function Chip({
+  label,
+  count,
+  selected,
+  onClick,
+  tone = "default",
+}: {
+  label: string;
+  count: number;
+  selected: boolean;
+  onClick: () => void;
+  tone?: "default" | "ok" | "warn" | "bad";
+}) {
+  const toneRing =
+    !selected && tone === "ok"
+      ? "ring-emerald-200 text-emerald-800"
+      : !selected && tone === "warn"
+        ? "ring-amber-200 text-amber-900"
+        : !selected && tone === "bad"
+          ? "ring-red-200 text-red-800"
+          : "ring-slate-200 text-slate-700";
+  return (
+    <button
+      type="button"
+      className={[
+        "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
+        selected
+          ? "bg-slate-900 text-white"
+          : `bg-white hover:bg-slate-50 ring-1 ${toneRing}`,
+      ].join(" ")}
+      onClick={onClick}
+    >
+      <span className="capitalize">{label}</span>
+      <span
+        className={[
+          "rounded-full px-1.5 py-0.5 text-xs tabular-nums",
+          selected ? "bg-white/20" : "bg-slate-100 text-slate-600",
+        ].join(" ")}
+      >
+        {count}
+      </span>
+    </button>
   );
 }
 
