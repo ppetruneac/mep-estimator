@@ -3,9 +3,9 @@
 import pytest
 
 from riser_extract.lengths import (
-    COORDINATION_FACTOR,
-    TAIL_M_PER_PIPE,
-    TRAY_WASTE_FACTOR,
+    DEFAULT_COORDINATION_FACTOR,
+    DEFAULT_TAIL_M_PER_PIPE,
+    DEFAULT_TRAY_WASTE_FACTOR,
     aggregate_by_item,
     apply_tender,
     tender_length_two_pipe,
@@ -28,11 +28,15 @@ def test_tender_length_negative_raises():
         tender_length_two_pipe(-1.0)
 
 
-def test_tray_waste():
+def test_tray_waste_default():
     assert tray_length_with_waste(100.0) == pytest.approx(115.0)
 
 
-def test_apply_tender_pipe():
+def test_tray_waste_custom():
+    assert tray_length_with_waste(100.0, waste_factor=0.10) == pytest.approx(110.0)
+
+
+def test_apply_tender_pipe_default():
     occ = Occurrence(
         drawing_number="D1",
         floor_tab_name="Ground",
@@ -49,6 +53,22 @@ def test_apply_tender_pipe():
     assert "tender conversion" in (updated.notes or "")
 
 
+def test_apply_tender_pipe_custom():
+    occ = Occurrence(
+        drawing_number="D1",
+        floor_tab_name="Ground",
+        scale="1:50",
+        annotation="pipe run",
+        item_id="MEC-CU-IN",
+        unit="m",
+        length_m=10.0,
+        measurement_type=MeasurementType.SCALED,
+        scope=Scope.IN,
+    )
+    updated = apply_tender(occ, coordination_factor=1.0, tail_m_per_pipe=0.0)
+    assert getattr(updated, "tender_length_m") == pytest.approx(20.0)
+
+
 def test_apply_tender_tray():
     occ = Occurrence(
         drawing_number="D1",
@@ -63,6 +83,22 @@ def test_apply_tender_tray():
     )
     updated = apply_tender(occ)
     assert getattr(updated, "tender_length_m") == pytest.approx(23.0)
+
+
+def test_apply_tender_tray_custom():
+    occ = Occurrence(
+        drawing_number="D1",
+        floor_tab_name="Ground",
+        scale="1:50",
+        annotation="tray",
+        item_id="MEC-TRAY-400",
+        unit="m",
+        length_m=20.0,
+        measurement_type=MeasurementType.SCALED,
+        scope=Scope.IN,
+    )
+    updated = apply_tender(occ, tray_waste_factor=0.05)
+    assert getattr(updated, "tender_length_m") == pytest.approx(21.0)
 
 
 def test_aggregate_by_item():
