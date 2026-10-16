@@ -215,6 +215,14 @@ body {
   background: #6366f1;
 }
 
+/* Tremor Card — ensure dark surfaces even if utility purge misses */
+.dark .tremor-Card-root,
+.dark [class*="tremor-Card"] {
+  background-color: #111827 !important;
+  --tw-ring-color: #1f2937 !important;
+  color: #f9fafb;
+}
+
 .dark .tremor-Table-root {
   border-color: #1f2937;
   background: #111827;

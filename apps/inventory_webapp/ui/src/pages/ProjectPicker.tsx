@@ -29,7 +29,7 @@ export function ProjectPicker() {
           return (
             <Card
               key={p.uuid}
-              className="cursor-pointer transition hover:border-sky-300 hover:shadow-md"
+              className="cursor-pointer transition hover:border-sky-300 hover:shadow-md dark:hover:border-indigo-400"
               onClick={() => nav(`/projects/${p.uuid}`)}
             >
               <Title className="text-base">
@@ -38,7 +38,7 @@ export function ProjectPicker() {
               {tb?.location && (
                 <Text className="mt-1">Location: {tb.location}</Text>
               )}
-              <div className="mt-3 space-y-1 text-sm text-slate-700">
+              <div className="mt-3 space-y-1 text-sm text-slate-700 dark:text-gray-300">
                 <div>
                   <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
                     Client
@@ -67,18 +67,18 @@ export function ProjectPicker() {
                 </Text>
               )}
               <div className="mt-4 flex flex-wrap gap-2">
-                <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">
+                <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700 dark:bg-gray-800 dark:text-gray-300">
                   {p.drawing_count} drawings
                 </span>
-                <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">
+                <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700 dark:bg-gray-800 dark:text-gray-300">
                   {p.occurrence_count} lines
                 </span>
                 <span
                   className={[
                     "rounded-full px-2.5 py-0.5 text-xs font-medium",
                     p.pending_count
-                      ? "bg-amber-100 text-amber-800"
-                      : "bg-emerald-100 text-emerald-800",
+                      ? "bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-300"
+                      : "bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-300",
                   ].join(" ")}
                 >
                   {p.pending_count} pending

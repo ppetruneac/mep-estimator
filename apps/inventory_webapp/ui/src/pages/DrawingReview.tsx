@@ -122,7 +122,7 @@ export function DrawingReview() {
             href={api.overlayUrl(projectUuid, key)}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
           >
             <ArrowTopRightOnSquareIcon className="h-4 w-4" />
             Open overlay in new tab
@@ -439,8 +439,8 @@ function Chip({
       className={[
         "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
         selected
-          ? "bg-slate-900 text-white"
-          : `bg-white hover:bg-slate-50 ring-1 ${toneRing}`,
+          ? "bg-slate-900 text-white dark:bg-indigo-500"
+          : `bg-white hover:bg-slate-50 ring-1 dark:bg-gray-900 dark:hover:bg-gray-800 ${toneRing} dark:ring-gray-700`,
       ].join(" ")}
       onClick={onClick}
     >
@@ -448,7 +448,9 @@ function Chip({
       <span
         className={[
           "rounded-full px-1.5 py-0.5 text-xs tabular-nums",
-          selected ? "bg-white/20" : "bg-slate-100 text-slate-600",
+          selected
+            ? "bg-white/20"
+            : "bg-slate-100 text-slate-600 dark:bg-gray-800 dark:text-gray-300",
         ].join(" ")}
       >
         {count}
@@ -546,7 +548,7 @@ function TypeInfoTip({
         pos &&
         createPortal(
           <div
-            className="fixed z-[100] w-80 rounded-xl border border-slate-200 bg-white p-3 text-left shadow-xl"
+            className="fixed z-[100] w-80 rounded-xl border border-slate-200 bg-white p-3 text-left shadow-xl dark:border-gray-700 dark:bg-gray-900"
             style={{ top: pos.top, left: pos.left }}
             onMouseEnter={show}
             onMouseLeave={hideSoon}
@@ -554,10 +556,12 @@ function TypeInfoTip({
             <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
               Measurement types
             </div>
-            <ul className="space-y-2 text-xs text-slate-700">
+            <ul className="space-y-2 text-xs text-slate-700 dark:text-gray-300">
               {entries.map((t) => (
                 <li key={t.key}>
-                  <span className="font-semibold text-slate-900">{t.key}</span>
+                  <span className="font-semibold text-slate-900 dark:text-gray-100">
+                    {t.key}
+                  </span>
                   {t.help ? ` — ${t.help}` : ""}
                 </li>
               ))}
@@ -598,7 +602,7 @@ function AmendModal({
       onClick={onClose}
     >
       <form
-        className="w-full max-w-md space-y-3 rounded-xl border border-slate-200 bg-white p-5 shadow-xl"
+        className="w-full max-w-md space-y-3 rounded-xl border border-slate-200 bg-white p-5 shadow-xl dark:border-gray-700 dark:bg-gray-900"
         onClick={(e) => e.stopPropagation()}
         onSubmit={submit}
       >
@@ -606,7 +610,7 @@ function AmendModal({
           Amend {item.item_id || item.annotation}
         </Title>
         <label className="block text-sm">
-          <span className="text-slate-600">Quantity</span>
+          <span className="text-slate-600 dark:text-gray-400">Quantity</span>
           <input
             className="obs-select mt-1 w-full"
             style={{ backgroundImage: "none" }}
@@ -616,7 +620,7 @@ function AmendModal({
           />
         </label>
         <label className="block text-sm">
-          <span className="text-slate-600">Notes</span>
+          <span className="text-slate-600 dark:text-gray-400">Notes</span>
           <input
             className="obs-select mt-1 w-full"
             style={{ backgroundImage: "none" }}
