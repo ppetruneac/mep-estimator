@@ -266,7 +266,7 @@ export function DrawingReview() {
 
       <Card className="overflow-hidden p-0">
         <div className="obs-table-scroll">
-          <Table className="min-w-[72rem]">
+          <Table className="min-w-[80rem]">
             <TableHead>
               <TableRow>
                 <TableHeaderCell>
@@ -284,13 +284,13 @@ export function DrawingReview() {
                 <TableHeaderCell>
                   <SortBtn label="Unit" col="unit" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                 </TableHeaderCell>
-                <TableHeaderCell>
-                  <span className="inline-flex items-center gap-1.5">
+                <TableHeaderCell className="type-col">
+                  <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
                     <SortBtn label="Type" col="measurement_type" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                     <TypeInfoTip types={facets?.measurement_types || []} />
                   </span>
                 </TableHeaderCell>
-                <TableHeaderCell>
+                <TableHeaderCell className="status-col">
                   <SortBtn label="Status" col="status" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                 </TableHeaderCell>
                 <TableHeaderCell className="actions-col">Actions</TableHeaderCell>
@@ -318,8 +318,10 @@ export function DrawingReview() {
                   </TableCell>
                   <TableCell>{it.effective_qty}</TableCell>
                   <TableCell>{it.unit}</TableCell>
-                  <TableCell>{it.measurement_type || "—"}</TableCell>
-                  <TableCell>
+                  <TableCell className="type-col whitespace-nowrap">
+                    {it.measurement_type || "—"}
+                  </TableCell>
+                  <TableCell className="status-col whitespace-nowrap">
                     <Badge
                       color={
                         it.status === "approved" || it.status === "amended"

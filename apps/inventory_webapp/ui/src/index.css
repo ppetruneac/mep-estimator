@@ -150,7 +150,30 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
   -webkit-overflow-scrolling: touch;
 }
 
-/* Keep Actions visible while scrolling horizontally */
+/* Type + Status + Actions stay visible; Status sits left of Actions */
+.tremor-Table-table th.type-col,
+.tremor-Table-table td.type-col,
+.type-col {
+  min-width: 7.5rem;
+  white-space: nowrap;
+}
+
+.tremor-Table-table th.status-col,
+.tremor-Table-table td.status-col,
+.status-col {
+  position: sticky;
+  right: 12.5rem; /* width of actions-col */
+  z-index: 2;
+  min-width: 6.5rem;
+  white-space: nowrap;
+  background: #ffffff;
+  box-shadow: -4px 0 6px -4px rgb(15 23 42 / 12%);
+}
+.tremor-Table-table thead th.status-col {
+  background: #f8fafc;
+  z-index: 3;
+}
+
 .tremor-Table-table th.actions-col,
 .tremor-Table-table td.actions-col,
 .actions-col {
@@ -165,9 +188,7 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
   background: #f8fafc;
   z-index: 3;
 }
-.tremor-Table-table tbody tr.amber td.actions-col {
-  background: #fffbeb;
-}
+.tremor-Table-table tbody tr.click-row:hover td.status-col,
 .tremor-Table-table tbody tr.click-row:hover td.actions-col {
   background: #e0f2fe;
 }
@@ -250,6 +271,15 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .dark .tremor-Table-table tbody tr.click-row:hover {
   background: rgba(99, 102, 241, 0.12);
 }
+.dark .tremor-Table-table th.status-col,
+.dark .tremor-Table-table td.status-col,
+.dark .status-col {
+  background: #111827;
+  box-shadow: -4px 0 6px -4px rgb(0 0 0 / 40%);
+}
+.dark .tremor-Table-table thead th.status-col {
+  background: #0b1220;
+}
 .dark .tremor-Table-table th.actions-col,
 .dark .tremor-Table-table td.actions-col,
 .dark .actions-col {
@@ -259,14 +289,7 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
 .dark .tremor-Table-table thead th.actions-col {
   background: #0b1220;
 }
-html.dark .tremor-Table-table tbody tr.amber td.actions-col,
-.dark .tremor-Table-table tbody tr.amber td.actions-col {
-  background: #1c1917 !important;
-}
-html.dark .tremor-Table-table tbody tr.amber:hover td.actions-col,
-.dark .tremor-Table-table tbody tr.amber:hover td.actions-col {
-  background: #292524 !important;
-}
+.dark .tremor-Table-table tbody tr.click-row:hover td.status-col,
 .dark .tremor-Table-table tbody tr.click-row:hover td.actions-col {
   background: rgba(99, 102, 241, 0.12);
 }
