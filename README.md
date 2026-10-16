@@ -40,8 +40,6 @@ Each occurrence carries:
 - `legacy_item_id` matching the skill inventory model (`HC-FCU-WALL`, …)
 - Coordinates (pixel bbox + metres), scale, layer, colour, measurement type
 
-JSON only in Phase 1–2. Full Excel Master/Summary is GR-3.
-
 ### Phase 2 — symbol identification
 
 Rules-first boxes + confidence on annotated PNGs. Optional YOLO residual:
@@ -52,6 +50,17 @@ uv run riser-eval --primary-only   # includes symbol count gates
 ```
 
 Decision log: [`evals/reports/gr2-decision-log.md`](evals/reports/gr2-decision-log.md).
+
+### Phase 3 — inventory (SQLite)
+
+```bash
+export DATA_DIR=/Users/pico/workspace/data/getriser   # → $DATA_DIR/getriser.sqlite
+uv run riser-inventory ingest --project HubbyPremierInnLondon
+uv run riser-inventory export --project HubbyPremierInnLondon -o out/hubby/
+uv run riser-inventory compare --project HubbyPremierInnLondon
+```
+
+Project premise defaults to `mep`. Re-ingest upserts (WAL + busy timeout for concurrent connections).
 
 ### Evals
 

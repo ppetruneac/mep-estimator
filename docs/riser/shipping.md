@@ -1,4 +1,4 @@
-# What’s shipping — Riser extract (GR-1 + GR-2)
+# What’s shipping — Riser extract (GR-1 + GR-2 + GR-3)
 
 Hosted method package: `riser_extract` in this repo. Skills under `skills/` stay as the human method docs.
 
@@ -8,6 +8,16 @@ Hosted method package: `riser_extract` in this repo. Skills under `skills/` stay
 |---|---|---|
 | [GR-1](https://linear.app/dentaway/issue/GR-1/phase-1-deterministic-geometry-and-text-extraction-core) | [#1](https://github.com/ppetruneac/mep-estimator/pull/1) | Deterministic PDF geometry + text extraction → JSON |
 | [GR-2](https://linear.app/dentaway/issue/GR-2/phase-2-symbol-identification-rules-first-yolo-optional) | [#2](https://github.com/ppetruneac/mep-estimator/pull/2) (stacked on #1) | Rules-first symbol ID, annotated sheets, eval gates, optional YOLO residual |
+| [GR-3](https://linear.app/dentaway/issue/GR-3/phase-3-stable-inventory-model-shared-catalog-lookup) | stacked | SQLite inventory + catalog lookup + Excel/JSON export |
+
+## Data directory
+
+```bash
+export DATA_DIR=/Users/pico/workspace/data/getriser
+# DB file: $DATA_DIR/getriser.sqlite  (WAL mode; busy_timeout for concurrent writers)
+```
+
+See `.env.example`. The SQLite file is **outside git**.
 
 ## Install
 
@@ -27,6 +37,10 @@ uv pip install -e ".[yolo]"
 | `riser-symbols dataset …` | Export YOLO weak-label dataset from rule proposals |
 | `riser-symbols train …` | Optional YOLO11 fine-tune (Apple MPS when available) |
 | `riser-symbols decision-log …` | Write rules-vs-YOLO decision artifact |
+| `riser-inventory seed-catalog` | Upsert shared `catalog_items` |
+| `riser-inventory ingest --project HubbyPremierInnLondon [dir]` | Extract + upsert into `getriser.sqlite` |
+| `riser-inventory export --project … -o out/` | `inventory.json` + gold-shaped `inventory.xlsx` |
+| `riser-inventory compare --project …` | Primary count gates vs Hubby gold |
 
 ## Phase 1 — geometry & text (JSON)
 
@@ -61,6 +75,22 @@ Annotated audit sheets: boxes + class + confidence burned onto PNG (`annotated/`
 - Weak-label dataset labels: `evals/datasets/hubby-premier-inn-london/yolo/`
 - Example weights (short MPS train): `evals/models/symbol_yolo/best.pt`
 
+## Phase 3 — stable inventory (SQLite)
+
+```bash
+export DATA_DIR=/Users/pico/workspace/data/getriser
+uv run riser-inventory ingest --project HubbyPremierInnLondon
+uv run riser-inventory export --project HubbyPremierInnLondon -o out/hubby/
+uv run riser-inventory compare --project HubbyPremierInnLondon
+```
+
+- DB: `$DATA_DIR/getriser.sqlite` (one shared file; rows scoped by **project name**)
+- Premise default: **`mep`**
+- Concurrent safe: **WAL** journal + **30s busy_timeout** (multiple processes may open the DB; writers serialize)
+- Upsert: same project + same drawing refreshes that sheet’s occurrences (content_hash skip when unchanged)
+- Catalog: shared `catalog_items` seeded from trade IDs (`MEC-*` / `ELEC-*` / …)
+- Export: JSON (items + nested occurrences with coordinates) + Excel (floor tabs + Master + Summary)
+
 ## Gold eval (Hubby)
 
 Source of truth workbook:
@@ -85,7 +115,6 @@ Evidence PNGs: [`evals/evidence/gr2/annotated/`](../../evals/evidence/gr2/annota
 
 | Later ticket | Deferred |
 |---|---|
-| GR-3 | Master / Summary Excel + catalog lookup |
 | GR-4 | Tender conversion (×2 ×1.15 + tails), waste, formulas as quantity of record |
 | GR-5 | Docker one-command pipeline + amber review UI |
 

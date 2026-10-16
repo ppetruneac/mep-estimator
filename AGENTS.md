@@ -6,7 +6,7 @@
 |---|---|
 | `skills/drawings-reader/` | Method docs (keep). Inventory model still uses legacy `HC-*` IDs |
 | `skills/mep-estimator/` | Pricing method docs (keep) |
-| `src/riser_extract/` | Phase 1 deterministic PDF extractor |
+| `src/riser_extract/` | Phase 1–3 extract, symbols, SQLite inventory |
 | `evals/` | Gold parse + performance reports vs Hubby inventory |
 | `docs/riser/` | Product / technical docs |
 
@@ -15,13 +15,16 @@
 ```bash
 uv venv .venv
 uv pip install -e ".[dev]"
+export DATA_DIR=/Users/pico/workspace/data/getriser
 ```
 
-Training PDFs + gold xlsx (not in git):
+| Env | Default |
+|---|---|
+| `DATA_DIR` | `/Users/pico/workspace/data/getriser` |
+| `RISER_DB_PATH` | `$DATA_DIR/getriser.sqlite` |
+| `RISER_TRAINING_DIR` | `$DATA_DIR/training-docs/HeatingandCooling/HubbyPremierInnLondon` |
 
-`/Users/pico/workspace/data/getriser/training-docs/HeatingandCooling/HubbyPremierInnLondon`
-
-Override with `RISER_TRAINING_DIR`.
+SQLite uses **WAL + busy_timeout (30s)** so multiple ingest processes can open the same DB; writers serialize safely.
 
 ## Commands
 
@@ -33,9 +36,12 @@ uv run riser-extract "$RISER_TRAINING_DIR" -o out/
 # Phase 2 symbols: annotated PNG/PDF + JSON
 uv run riser-symbols extract "$RISER_TRAINING_DIR" -o evals/evidence/gr2
 
-# YOLO weak-label dataset from rule proposals (optional train)
-uv run riser-symbols dataset -o evals/datasets/hubby-premier-inn-london/yolo
-uv run riser-symbols train evals/datasets/hubby-premier-inn-london/yolo -o evals/models/symbol_yolo --epochs 30
+# Phase 3 inventory (SQLite upsert by project name)
+uv run riser-inventory seed-catalog
+uv run riser-inventory ingest --project HubbyPremierInnLondon
+uv run riser-inventory ingest --project HubbyPremierInnLondon   # second run upserts / skips unchanged
+uv run riser-inventory export --project HubbyPremierInnLondon -o out/hubby/
+uv run riser-inventory compare --project HubbyPremierInnLondon
 
 # Unit tests
 uv run pytest
@@ -45,7 +51,7 @@ uv run riser-eval --primary-only
 uv run riser-eval
 ```
 
-Pre-commit / pre-PR gate for extractor work: `uv run pytest` and `uv run riser-eval --primary-only`.
+Pre-commit / pre-PR gate: `uv run pytest`, and for inventory work also `uv run riser-inventory compare --project HubbyPremierInnLondon` after ingest.
 
 ## Item IDs
 
