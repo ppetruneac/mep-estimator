@@ -13,3 +13,9 @@ out/
 !tests/fixtures/*.pdf
 evals/reports/*-hubby.json
 !evals/reports/latest.md
+
+# Ultralytics / YOLO local artifacts (weights, train runs, rasterized pages)
+*.pt
+runs/
+evals/datasets/**/yolo/
+evals/models/
