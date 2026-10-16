@@ -1,6 +1,9 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowTopRightOnSquareIcon,
+  InformationCircleIcon,
+} from "@heroicons/react/24/outline";
 import {
   Badge,
   Button,
@@ -230,11 +233,6 @@ export function DrawingReview() {
             </div>
           </div>
         )}
-        <Text className="mt-3 text-slate-500">
-          Item ID is the stable catalog key (e.g. <code>MEC-CU-IN</code> = indoor
-          refrigerant pair / FCU→HBC home-run). Annotation is the printed tag
-          from the sheet (e.g. FCU.B.01), matching the Hubby inventory book.
-        </Text>
       </Card>
 
       <div className="flex flex-wrap items-center gap-2">
@@ -246,7 +244,7 @@ export function DrawingReview() {
 
       <Card className="overflow-hidden p-0">
         <div className="obs-table-scroll">
-          <Table>
+          <Table className="min-w-[72rem]">
             <TableHead>
               <TableRow>
                 <TableHeaderCell>Category</TableHeaderCell>
@@ -254,9 +252,14 @@ export function DrawingReview() {
                 <TableHeaderCell>Annotation</TableHeaderCell>
                 <TableHeaderCell>Qty</TableHeaderCell>
                 <TableHeaderCell>Unit</TableHeaderCell>
-                <TableHeaderCell>Type</TableHeaderCell>
+                <TableHeaderCell>
+                  <span className="inline-flex items-center gap-1.5">
+                    Type
+                    <TypeInfoTip types={facets?.measurement_types || []} />
+                  </span>
+                </TableHeaderCell>
                 <TableHeaderCell>Status</TableHeaderCell>
-                <TableHeaderCell>Actions</TableHeaderCell>
+                <TableHeaderCell className="actions-col">Actions</TableHeaderCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -289,14 +292,7 @@ export function DrawingReview() {
                   </TableCell>
                   <TableCell>{it.effective_qty}</TableCell>
                   <TableCell>{it.unit}</TableCell>
-                  <TableCell>
-                    <div>{it.measurement_type}</div>
-                    {it.measurement_type_help && (
-                      <div className="max-w-[14rem] text-xs text-slate-500">
-                        {it.measurement_type_help}
-                      </div>
-                    )}
-                  </TableCell>
+                  <TableCell>{it.measurement_type || "—"}</TableCell>
                   <TableCell>
                     <Badge
                       color={
@@ -310,26 +306,29 @@ export function DrawingReview() {
                       {it.status}
                     </Badge>
                   </TableCell>
-                  <TableCell>
-                    <div className="flex flex-wrap gap-1.5">
-                      <Button
-                        size="xs"
-                        variant="secondary"
+                  <TableCell className="actions-col">
+                    <div className="flex flex-nowrap items-center gap-1">
+                      <button
+                        type="button"
+                        className="rounded-md px-2 py-1 text-xs font-medium text-emerald-700 hover:bg-emerald-50"
                         onClick={() => setItemStatus(it.id, "approved")}
                       >
                         Approve
-                      </Button>
-                      <Button
-                        size="xs"
-                        variant="secondary"
-                        color="red"
+                      </button>
+                      <button
+                        type="button"
+                        className="rounded-md px-2 py-1 text-xs font-medium text-red-700 hover:bg-red-50"
                         onClick={() => setItemStatus(it.id, "excluded")}
                       >
                         Exclude
-                      </Button>
-                      <Button size="xs" variant="light" onClick={() => setAmend(it)}>
+                      </button>
+                      <button
+                        type="button"
+                        className="rounded-md px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-100"
+                        onClick={() => setAmend(it)}
+                      >
                         Amend
-                      </Button>
+                      </button>
                     </div>
                   </TableCell>
                 </TableRow>
@@ -355,6 +354,55 @@ export function DrawingReview() {
         />
       )}
     </div>
+  );
+}
+
+function TypeInfoTip({
+  types,
+}: {
+  types: { key: string; count: number; help?: string | null }[];
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <span className="relative inline-flex">
+      <button
+        type="button"
+        className="inline-flex text-slate-400 hover:text-slate-700"
+        aria-label="Measurement type descriptions"
+        onClick={(e) => {
+          e.stopPropagation();
+          setOpen((v) => !v);
+        }}
+        onBlur={() => setTimeout(() => setOpen(false), 150)}
+      >
+        <InformationCircleIcon className="h-4 w-4" />
+      </button>
+      {open && (
+        <div className="absolute left-0 top-6 z-30 w-80 rounded-xl border border-slate-200 bg-white p-3 text-left shadow-lg">
+          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+            Measurement types
+          </div>
+          <ul className="space-y-2 text-xs text-slate-700">
+            {(types.length
+              ? types
+              : [
+                  { key: "printed", help: "Count or size printed on the drawing." },
+                  { key: "scaled", help: "Length from vector geometry at sheet scale." },
+                  {
+                    key: "geometry",
+                    help: "Estimated from tag-to-core geometry (not a traced spine).",
+                  },
+                ]
+            ).map((t) => (
+              <li key={t.key}>
+                <span className="font-semibold text-slate-900">{t.key}</span>
+                {t.help ? ` — ${t.help}` : ""}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </span>
   );
 }
 

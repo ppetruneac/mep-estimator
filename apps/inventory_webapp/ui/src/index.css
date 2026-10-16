@@ -126,3 +126,25 @@ body {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
+
+/* Keep Actions visible while scrolling horizontally */
+.tremor-Table-table th.actions-col,
+.tremor-Table-table td.actions-col,
+.actions-col {
+  position: sticky;
+  right: 0;
+  z-index: 2;
+  min-width: 12.5rem;
+  background: #ffffff;
+  box-shadow: -6px 0 8px -6px rgb(15 23 42 / 18%);
+}
+.tremor-Table-table thead th.actions-col {
+  background: #f8fafc;
+  z-index: 3;
+}
+.tremor-Table-table tbody tr.amber td.actions-col {
+  background: #fffbeb;
+}
+.tremor-Table-table tbody tr.click-row:hover td.actions-col {
+  background: #e0f2fe;
+}

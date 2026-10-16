@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { UserCircleIcon } from "@heroicons/react/24/outline";
 import { api, Project } from "../api";
+import { RiserMark } from "./RiserMark";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -35,17 +36,20 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <NavLink
             to="/"
             end
-            className="mr-6 flex flex-col no-underline sm:mr-10"
+            className="mr-6 flex shrink-0 items-center gap-2.5 no-underline text-slate-900 sm:mr-10"
             onClick={() => {
               setProjectsOpen(false);
               setUserOpen(false);
             }}
           >
-            <span className="text-lg font-semibold tracking-tight text-slate-900">
-              Riser
-            </span>
-            <span className="text-xs font-medium text-slate-500">
-              Inventory review
+            <RiserMark className="h-7 w-7 sm:h-8 sm:w-8" />
+            <span className="flex flex-col">
+              <span className="text-base font-semibold tracking-tight sm:text-lg">
+                Riser
+              </span>
+              <span className="text-xs font-medium text-slate-500">
+                Inventory review
+              </span>
             </span>
           </NavLink>
 
