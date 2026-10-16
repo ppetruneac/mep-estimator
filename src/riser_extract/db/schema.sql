@@ -3,6 +3,7 @@ PRAGMA foreign_keys = ON;
 
 CREATE TABLE IF NOT EXISTS projects (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    uuid TEXT NOT NULL UNIQUE,
     name TEXT NOT NULL UNIQUE,
     premise TEXT NOT NULL DEFAULT 'mep',
     created_at TEXT NOT NULL DEFAULT (datetime('now')),

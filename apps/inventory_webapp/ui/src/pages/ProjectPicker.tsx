@@ -21,21 +21,47 @@ export function ProjectPicker() {
       </div>
       {err && <div className="err">{err}</div>}
       <div className="cards">
-        {projects.map((p) => (
-          <div key={p.id} className="card" onClick={() => nav(`/projects/${p.id}`)}>
-            <h2>{p.name}</h2>
-            <div className="muted">Premise: {p.premise || "—"}</div>
-            <div style={{ marginTop: "0.6rem", display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
-              <span className="badge">{p.drawing_count} drawings</span>
-              <span className="badge">{p.occurrence_count} lines</span>
-              <span className={`badge ${p.pending_count ? "warn" : "ok"}`}>
-                {p.pending_count} pending
-              </span>
+        {projects.map((p) => {
+          const tb = p.title_block;
+          return (
+            <div
+              key={p.uuid}
+              className="card"
+              onClick={() => nav(`/projects/${p.uuid}`)}
+            >
+              <h2>{tb?.display_name || p.name}</h2>
+              {tb?.location && (
+                <div className="muted">Location: {tb.location}</div>
+              )}
+              <div className="muted">Code: {p.name}</div>
+              {(tb?.job_series?.length || tb?.scale || tb?.stage) && (
+                <div className="muted" style={{ marginTop: "0.25rem" }}>
+                  {[tb?.job_series?.join(", "), tb?.scale, tb?.stage]
+                    .filter(Boolean)
+                    .join(" · ")}
+                </div>
+              )}
+              <div
+                style={{
+                  marginTop: "0.6rem",
+                  display: "flex",
+                  gap: "0.4rem",
+                  flexWrap: "wrap",
+                }}
+              >
+                <span className="badge">{p.drawing_count} drawings</span>
+                <span className="badge">{p.occurrence_count} lines</span>
+                <span className={`badge ${p.pending_count ? "warn" : "ok"}`}>
+                  {p.pending_count} pending
+                </span>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
         {!err && projects.length === 0 && (
-          <div className="muted">No projects. Run <code>make seed-hubby</code>.</div>
+          <div className="muted">
+            No projects. Run <code>make seed-hubby</code>.
+          </div>
         )}
       </div>
     </div>

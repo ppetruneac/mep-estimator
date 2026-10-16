@@ -5,7 +5,7 @@ import { api, Drawing, Item } from "../api";
 export function DrawingReview() {
   const { projectId, drawingId } = useParams();
   const did = Number(drawingId);
-  const pid = Number(projectId);
+  const projectUuid = String(projectId);
   const [drawing, setDrawing] = useState<Drawing | null>(null);
   const [items, setItems] = useState<Item[]>([]);
   const [statusFilter, setStatusFilter] = useState("");
@@ -15,7 +15,7 @@ export function DrawingReview() {
 
   async function load() {
     const [d, its] = await Promise.all([
-      api.drawings(pid).then((ds) => ds.find((x) => x.id === did) || null),
+      api.drawings(projectUuid).then((ds) => ds.find((x) => x.id === did) || null),
       api.items(did, statusFilter ? `?status=${statusFilter}` : ""),
     ]);
     setDrawing(d);
@@ -24,7 +24,7 @@ export function DrawingReview() {
 
   useEffect(() => {
     load().catch((e) => setErr(String(e)));
-  }, [did, pid, statusFilter]);
+  }, [did, projectUuid, statusFilter]);
 
   async function setStatus(id: number, status: string) {
     await api.patchItem(id, { status });
@@ -42,7 +42,7 @@ export function DrawingReview() {
     <div className="wrap">
       <div className="header">
         <div>
-          <Link to={`/projects/${pid}`}>← {drawing?.floor_tab_name || "Project"}</Link>
+          <Link to={`/projects/${projectUuid}`}>← {drawing?.floor_tab_name || "Project"}</Link>
           <h1>{drawing?.floor_tab_name}</h1>
           <div className="muted">
             {drawing?.drawing_number} · {drawing?.scale} · {items.length} rows

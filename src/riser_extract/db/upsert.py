@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import sqlite3
+import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -26,19 +27,46 @@ def _sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+def _ensure_projects_uuid_column(conn: sqlite3.Connection) -> None:
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(projects)").fetchall()}
+    if "uuid" not in cols:
+        conn.execute("ALTER TABLE projects ADD COLUMN uuid TEXT")
+    # Backfill any rows missing uuid
+    for row in conn.execute(
+        "SELECT id FROM projects WHERE uuid IS NULL OR uuid = ''"
+    ).fetchall():
+        conn.execute(
+            "UPDATE projects SET uuid = ? WHERE id = ?",
+            (str(uuid.uuid4()), row[0] if not hasattr(row, "keys") else row["id"]),
+        )
+    # Unique index (ignore if exists)
+    conn.execute(
+        "CREATE UNIQUE INDEX IF NOT EXISTS idx_projects_uuid ON projects(uuid)"
+    )
+
+
 def ensure_project(conn: sqlite3.Connection, name: str, *, premise: str = "mep") -> int:
     conn.execute("BEGIN IMMEDIATE")
-    row = conn.execute("SELECT id FROM projects WHERE name = ?", (name,)).fetchone()
+    _ensure_projects_uuid_column(conn)
+    row = conn.execute("SELECT id, uuid FROM projects WHERE name = ?", (name,)).fetchone()
     if row:
-        conn.execute(
-            "UPDATE projects SET updated_at = ?, premise = COALESCE(?, premise) WHERE id = ?",
-            (_now(), premise, row["id"]),
-        )
+        pid = int(row["id"] if hasattr(row, "keys") else row[0])
+        existing_uuid = row["uuid"] if hasattr(row, "keys") else row[1]
+        if not existing_uuid:
+            conn.execute(
+                "UPDATE projects SET uuid = ?, updated_at = ?, premise = COALESCE(?, premise) WHERE id = ?",
+                (str(uuid.uuid4()), _now(), premise, pid),
+            )
+        else:
+            conn.execute(
+                "UPDATE projects SET updated_at = ?, premise = COALESCE(?, premise) WHERE id = ?",
+                (_now(), premise, pid),
+            )
         conn.commit()
-        return int(row["id"])
+        return pid
     cur = conn.execute(
-        "INSERT INTO projects (name, premise, created_at, updated_at) VALUES (?, ?, ?, ?)",
-        (name, premise, _now(), _now()),
+        "INSERT INTO projects (uuid, name, premise, created_at, updated_at) VALUES (?, ?, ?, ?, ?)",
+        (str(uuid.uuid4()), name, premise, _now(), _now()),
     )
     conn.commit()
     return int(cur.lastrowid)

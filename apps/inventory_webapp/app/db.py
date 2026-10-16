@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import sqlite3
+import uuid
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from typing import Iterator
@@ -56,9 +57,29 @@ def migrate(conn: sqlite3.Connection | None = None) -> None:
     c.execute(
         "UPDATE occurrences SET status = 'pending' WHERE status IS NULL OR status = ''"
     )
+
+    # Project public UUID for URL-safe routes (/projects/{uuid})
+    pcols = _existing_columns(c, "projects")
+    if "uuid" not in pcols:
+        c.execute("ALTER TABLE projects ADD COLUMN uuid TEXT")
+    for row in c.execute(
+        "SELECT id FROM projects WHERE uuid IS NULL OR uuid = ''"
+    ).fetchall():
+        c.execute(
+            "UPDATE projects SET uuid = ? WHERE id = ?",
+            (str(uuid.uuid4()), row["id"]),
+        )
+    c.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_projects_uuid ON projects(uuid)")
+
     c.commit()
     if own:
         c.close()
+
+
+def get_project_by_uuid(conn: sqlite3.Connection, project_uuid: str) -> sqlite3.Row | None:
+    return conn.execute(
+        "SELECT * FROM projects WHERE uuid = ?", (project_uuid,)
+    ).fetchone()
 
 
 def now_iso() -> str:

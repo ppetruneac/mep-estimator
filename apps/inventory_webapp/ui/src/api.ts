@@ -12,18 +12,35 @@ async function req<T>(path: string, init?: RequestInit): Promise<T> {
   return res.json() as Promise<T>;
 }
 
+export type ProjectTitleBlock = {
+  display_name?: string | null;
+  location?: string | null;
+  client?: string | null;
+  stage?: string | null;
+  scale?: string | null;
+  paper?: string | null;
+  disclaimer?: string | null;
+  revision?: string | null;
+  latest_date?: string | null;
+  job_series?: string[];
+  floors?: string[];
+};
+
 export type Project = {
   id: number;
+  uuid: string;
   name: string;
   premise?: string;
   drawing_count: number;
   occurrence_count: number;
   pending_count: number;
+  title_block?: ProjectTitleBlock | null;
 };
 
 export type Drawing = {
   id: number;
   project_id: number;
+  project_uuid?: string;
   drawing_number: string;
   floor_tab_name?: string;
   scale?: string;
@@ -64,9 +81,9 @@ export type SummaryRow = {
 
 export const api = {
   projects: () => req<Project[]>("/api/projects"),
-  project: (id: number) => req<Project>(`/api/projects/${id}`),
-  drawings: (projectId: number) =>
-    req<Drawing[]>(`/api/projects/${projectId}/drawings`),
+  project: (uuid: string) => req<Project>(`/api/projects/${uuid}`),
+  drawings: (projectUuid: string) =>
+    req<Drawing[]>(`/api/projects/${projectUuid}/drawings`),
   items: (drawingId: number, qs = "") =>
     req<Item[]>(`/api/drawings/${drawingId}/items${qs}`),
   patchItem: (id: number, body: Record<string, unknown>) =>
@@ -76,10 +93,10 @@ export const api = {
       method: "POST",
       body: JSON.stringify({ action, only_pending: true }),
     }),
-  summaryByFloor: (projectId: number) =>
-    req<SummaryRow[]>(`/api/projects/${projectId}/summary/by-floor`),
-  summaryByCategory: (projectId: number) =>
-    req<SummaryRow[]>(`/api/projects/${projectId}/summary/by-category`),
+  summaryByFloor: (projectUuid: string) =>
+    req<SummaryRow[]>(`/api/projects/${projectUuid}/summary/by-floor`),
+  summaryByCategory: (projectUuid: string) =>
+    req<SummaryRow[]>(`/api/projects/${projectUuid}/summary/by-category`),
   pdfUrl: (drawingId: number) => `${API_BASE}/api/drawings/${drawingId}/pdf`,
   overlayUrl: (drawingId: number) =>
     `${API_BASE}/api/drawings/${drawingId}/overlay`,

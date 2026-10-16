@@ -4,7 +4,7 @@ import { api, Drawing, Project, SummaryRow } from "../api";
 
 export function ProjectView() {
   const { projectId } = useParams();
-  const id = Number(projectId);
+  const uuid = String(projectId);
   const nav = useNavigate();
   const [project, setProject] = useState<Project | null>(null);
   const [drawings, setDrawings] = useState<Drawing[]>([]);
@@ -15,10 +15,10 @@ export function ProjectView() {
 
   useEffect(() => {
     Promise.all([
-      api.project(id),
-      api.drawings(id),
-      api.summaryByFloor(id),
-      api.summaryByCategory(id),
+      api.project(uuid),
+      api.drawings(uuid),
+      api.summaryByFloor(uuid),
+      api.summaryByCategory(uuid),
     ])
       .then(([p, d, f, c]) => {
         setProject(p);
@@ -27,7 +27,7 @@ export function ProjectView() {
         setByCat(c);
       })
       .catch((e) => setErr(String(e)));
-  }, [id]);
+  }, [uuid]);
 
   function exportCsv(rows: SummaryRow[], name: string) {
     const lines = ["label,qty,unit,item_count,excluded_count"];
@@ -45,26 +45,65 @@ export function ProjectView() {
     a.click();
   }
 
+  const tb = project?.title_block;
+
   return (
     <div className="wrap">
       <div className="header">
         <div>
           <Link to="/">← Projects</Link>
-          <h1>{project?.name ?? "…"}</h1>
+          <h1>{tb?.display_name || project?.name || "…"}</h1>
           <div className="muted">
-            {project?.pending_count ?? 0} pending · {project?.drawing_count ?? 0} drawings
+            {tb?.location ? `${tb.location} · ` : ""}
+            {project?.pending_count ?? 0} pending · {project?.drawing_count ?? 0}{" "}
+            drawings
           </div>
         </div>
       </div>
+
+      {tb && (
+        <div className="titleblock-card">
+          <div className="titleblock-kicker">Title block (from drawings)</div>
+          <div className="titleblock-grid">
+            <Meta label="Project" value={tb.display_name} />
+            <Meta label="Location" value={tb.location} />
+            <Meta label="Client" value={tb.client} />
+            <Meta label="Job series" value={tb.job_series?.join(", ")} />
+            <Meta label="Stage" value={tb.stage} />
+            <Meta label="Scale" value={tb.scale} />
+            <Meta label="Paper" value={tb.paper} />
+            <Meta label="Revision" value={tb.revision} />
+            <Meta label="Date" value={tb.latest_date} />
+            <Meta label="Disclaimer" value={tb.disclaimer} />
+            <Meta label="Project code" value={project?.name} />
+            <Meta label="Premise" value={project?.premise} />
+          </div>
+          {tb.floors && tb.floors.length > 0 && (
+            <div className="muted" style={{ marginTop: "0.75rem" }}>
+              Floors: {tb.floors.join(" · ")}
+            </div>
+          )}
+        </div>
+      )}
+
       {err && <div className="err">{err}</div>}
       <div className="tabs">
-        <button className={`tab ${tab === "drawings" ? "active" : ""}`} onClick={() => setTab("drawings")}>
+        <button
+          className={`tab ${tab === "drawings" ? "active" : ""}`}
+          onClick={() => setTab("drawings")}
+        >
           Drawings
         </button>
-        <button className={`tab ${tab === "floor" ? "active" : ""}`} onClick={() => setTab("floor")}>
+        <button
+          className={`tab ${tab === "floor" ? "active" : ""}`}
+          onClick={() => setTab("floor")}
+        >
           Summary by floor
         </button>
-        <button className={`tab ${tab === "category" ? "active" : ""}`} onClick={() => setTab("category")}>
+        <button
+          className={`tab ${tab === "category" ? "active" : ""}`}
+          onClick={() => setTab("category")}
+        >
           Summary by category
         </button>
       </div>
@@ -85,12 +124,20 @@ export function ProjectView() {
             </thead>
             <tbody>
               {drawings.map((d) => (
-                <tr key={d.id} style={{ cursor: "pointer" }} onClick={() => nav(`/projects/${id}/drawings/${d.id}`)}>
+                <tr
+                  key={d.id}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => nav(`/projects/${uuid}/drawings/${d.id}`)}
+                >
                   <td>{d.floor_tab_name}</td>
                   <td>{d.drawing_number}</td>
                   <td>{d.scale}</td>
                   <td>{d.item_count}</td>
-                  <td><span className={`badge ${d.pending_count ? "warn" : "ok"}`}>{d.pending_count}</span></td>
+                  <td>
+                    <span className={`badge ${d.pending_count ? "warn" : "ok"}`}>
+                      {d.pending_count}
+                    </span>
+                  </td>
                   <td>{d.approved_count}</td>
                   <td>{d.excluded_count}</td>
                 </tr>
@@ -103,7 +150,12 @@ export function ProjectView() {
       {tab === "floor" && (
         <>
           <div className="toolbar">
-            <button className="btn" onClick={() => exportCsv(byFloor, "summary-by-floor.csv")}>Export CSV</button>
+            <button
+              className="btn"
+              onClick={() => exportCsv(byFloor, "summary-by-floor.csv")}
+            >
+              Export CSV
+            </button>
             <span className="muted">Approved / amended qty only</span>
           </div>
           <SummaryTable rows={byFloor} />
@@ -112,11 +164,26 @@ export function ProjectView() {
       {tab === "category" && (
         <>
           <div className="toolbar">
-            <button className="btn" onClick={() => exportCsv(byCat, "summary-by-category.csv")}>Export CSV</button>
+            <button
+              className="btn"
+              onClick={() => exportCsv(byCat, "summary-by-category.csv")}
+            >
+              Export CSV
+            </button>
           </div>
           <SummaryTable rows={byCat} />
         </>
       )}
+    </div>
+  );
+}
+
+function Meta({ label, value }: { label: string; value?: string | null }) {
+  if (!value) return null;
+  return (
+    <div className="meta-cell">
+      <div className="meta-label">{label}</div>
+      <div className="meta-value">{value}</div>
     </div>
   );
 }

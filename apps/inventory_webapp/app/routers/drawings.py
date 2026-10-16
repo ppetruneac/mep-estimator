@@ -2,33 +2,56 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException
 
-from app.db import connect
+from app.db import connect, get_project_by_uuid
 from app.models import DrawingOut
 
 router = APIRouter(prefix="/api", tags=["drawings"])
 
 
-@router.get("/projects/{project_id}/drawings", response_model=list[DrawingOut])
-def list_drawings(project_id: int):
+def _drawing_out(row, project_uuid: str | None = None) -> DrawingOut:
+    puuid = project_uuid
+    if puuid is None and "project_uuid" in row.keys():
+        puuid = row["project_uuid"]
+    return DrawingOut(
+        id=row["id"],
+        project_id=row["project_id"],
+        project_uuid=puuid,
+        drawing_number=row["drawing_number"],
+        floor_tab_name=row["floor_tab_name"],
+        scale=row["scale"],
+        revision=row["revision"],
+        source_pdf=row["source_pdf"],
+        item_count=row["item_count"],
+        pending_count=row["pending_count"],
+        approved_count=row["approved_count"],
+        excluded_count=row["excluded_count"],
+    )
+
+
+_DRAWING_SELECT = """
+SELECT d.id, d.project_id, d.drawing_number, d.floor_tab_name, d.scale, d.revision, d.source_pdf,
+  p.uuid AS project_uuid,
+  (SELECT COUNT(*) FROM occurrences o WHERE o.document_id = d.id) AS item_count,
+  (SELECT COUNT(*) FROM occurrences o WHERE o.document_id = d.id AND COALESCE(o.status,'pending')='pending') AS pending_count,
+  (SELECT COUNT(*) FROM occurrences o WHERE o.document_id = d.id AND o.status='approved') AS approved_count,
+  (SELECT COUNT(*) FROM occurrences o WHERE o.document_id = d.id AND o.status='excluded') AS excluded_count
+FROM documents d
+JOIN projects p ON p.id = d.project_id
+"""
+
+
+@router.get("/projects/{project_uuid}/drawings", response_model=list[DrawingOut])
+def list_drawings(project_uuid: str):
     conn = connect(readonly=True)
     try:
-        proj = conn.execute("SELECT id FROM projects WHERE id = ?", (project_id,)).fetchone()
+        proj = get_project_by_uuid(conn, project_uuid)
         if not proj:
             raise HTTPException(404, "project not found")
         rows = conn.execute(
-            """
-            SELECT d.id, d.project_id, d.drawing_number, d.floor_tab_name, d.scale, d.revision, d.source_pdf,
-              (SELECT COUNT(*) FROM occurrences o WHERE o.document_id = d.id) AS item_count,
-              (SELECT COUNT(*) FROM occurrences o WHERE o.document_id = d.id AND COALESCE(o.status,'pending')='pending') AS pending_count,
-              (SELECT COUNT(*) FROM occurrences o WHERE o.document_id = d.id AND o.status='approved') AS approved_count,
-              (SELECT COUNT(*) FROM occurrences o WHERE o.document_id = d.id AND o.status='excluded') AS excluded_count
-            FROM documents d
-            WHERE d.project_id = ?
-            ORDER BY d.floor_tab_name
-            """,
-            (project_id,),
+            _DRAWING_SELECT + " WHERE d.project_id = ? ORDER BY d.floor_tab_name",
+            (proj["id"],),
         ).fetchall()
-        return [DrawingOut(**dict(r)) for r in rows]
+        return [_drawing_out(r, project_uuid) for r in rows]
     finally:
         conn.close()
 
@@ -38,18 +61,11 @@ def get_drawing(drawing_id: int):
     conn = connect(readonly=True)
     try:
         r = conn.execute(
-            """
-            SELECT d.id, d.project_id, d.drawing_number, d.floor_tab_name, d.scale, d.revision, d.source_pdf,
-              (SELECT COUNT(*) FROM occurrences o WHERE o.document_id = d.id) AS item_count,
-              (SELECT COUNT(*) FROM occurrences o WHERE o.document_id = d.id AND COALESCE(o.status,'pending')='pending') AS pending_count,
-              (SELECT COUNT(*) FROM occurrences o WHERE o.document_id = d.id AND o.status='approved') AS approved_count,
-              (SELECT COUNT(*) FROM occurrences o WHERE o.document_id = d.id AND o.status='excluded') AS excluded_count
-            FROM documents d WHERE d.id = ?
-            """,
+            _DRAWING_SELECT + " WHERE d.id = ?",
             (drawing_id,),
         ).fetchone()
         if not r:
             raise HTTPException(404, "drawing not found")
-        return DrawingOut(**dict(r))
+        return _drawing_out(r)
     finally:
         conn.close()

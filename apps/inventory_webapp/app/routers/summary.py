@@ -2,19 +2,21 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException
 
-from app.db import connect
+from app.db import connect, get_project_by_uuid
 from app.models import SummaryRow
 from app.services import effective_qty
 
 router = APIRouter(prefix="/api", tags=["summary"])
 
 
-@router.get("/projects/{project_id}/summary/by-floor", response_model=list[SummaryRow])
-def summary_by_floor(project_id: int):
+@router.get("/projects/{project_uuid}/summary/by-floor", response_model=list[SummaryRow])
+def summary_by_floor(project_uuid: str):
     conn = connect(readonly=True)
     try:
-        if not conn.execute("SELECT id FROM projects WHERE id = ?", (project_id,)).fetchone():
+        proj = get_project_by_uuid(conn, project_uuid)
+        if not proj:
             raise HTTPException(404, "project not found")
+        project_id = proj["id"]
         docs = conn.execute(
             "SELECT id, floor_tab_name, drawing_number FROM documents WHERE project_id = ? ORDER BY floor_tab_name",
             (project_id,),
@@ -54,12 +56,14 @@ def summary_by_floor(project_id: int):
         conn.close()
 
 
-@router.get("/projects/{project_id}/summary/by-category", response_model=list[SummaryRow])
-def summary_by_category(project_id: int):
+@router.get("/projects/{project_uuid}/summary/by-category", response_model=list[SummaryRow])
+def summary_by_category(project_uuid: str):
     conn = connect(readonly=True)
     try:
-        if not conn.execute("SELECT id FROM projects WHERE id = ?", (project_id,)).fetchone():
+        proj = get_project_by_uuid(conn, project_uuid)
+        if not proj:
             raise HTTPException(404, "project not found")
+        project_id = proj["id"]
         rows = conn.execute(
             """
             SELECT o.*, c.category AS cat
