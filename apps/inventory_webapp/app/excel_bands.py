@@ -65,6 +65,13 @@ def excel_category(
 
 
 def _basement(iid: str, ann: str, sym: str) -> str:
+    # item_id wins over annotation keywords (F+R rows mention FCU tags)
+    if iid.startswith("MEC-CU-IN") or iid == "MEC-CU-IN":
+        return BASEMENT["cu_in"]
+    if iid == "MEC-CU-RISER":
+        return BASEMENT["tray_riser"]
+    if iid in {"MEC-TRAY-300", "MEC-TRAY-400"}:
+        return BASEMENT["tray_riser"]
     if iid in {"MEC-FCU-WALL", "MEC-FCU-CASS", "MEC-HBC"} or sym in {
         "fcu_wall",
         "fcu_cass",
@@ -73,11 +80,11 @@ def _basement(iid: str, ann: str, sym: str) -> str:
         return BASEMENT["fcu_hbc"]
     if iid in {"ELEC-PNL", "ELEC-CUR"} or sym in {"panel_heater", "door_curtain"}:
         return BASEMENT["electric"]
-    if iid in {"MEC-TRAY-300", "MEC-TRAY-400"} or "TRAY" in ann:
+    if "TRAY" in ann:
         return BASEMENT["tray_riser"]
-    if iid == "MEC-CU-RISER" or "RISER" in ann or "PASSING" in ann:
+    if "RISER" in ann or "PASSING" in ann:
         return BASEMENT["tray_riser"]
-    if iid == "MEC-CU-IN" or "F+R" in ann or "PAIR" in ann:
+    if "F+R" in ann or "PAIR" in ann:
         return BASEMENT["cu_in"]
     if iid in {"VENT-AHU", "PLUM-ASHP-DHW"} or "EXCLUS" in ann:
         return BASEMENT["exclusions"]
@@ -113,17 +120,23 @@ def _roof(iid: str, ann: str, sym: str) -> str:
 
 
 def _bedroom(iid: str, ann: str, sym: str) -> str:
+    if iid in {"MEC-CU-IN", "MEC-CU-ROOF"}:
+        return BEDROOM["cu_in"]
+    if iid == "MEC-CU-RISER":
+        return BEDROOM["tray_riser"]
+    if iid in {"MEC-TRAY-300", "MEC-TRAY-400"}:
+        return BEDROOM["tray_riser"]
     if iid in {"MEC-FCU-WALL", "MEC-FCU-CASS", "MEC-HBC"} or sym in {
         "fcu_wall",
         "fcu_cass",
         "hbc",
     }:
         return BEDROOM["fcu_hbc"]
-    if iid in {"MEC-TRAY-300", "MEC-TRAY-400"} or "TRAY" in ann:
+    if "TRAY" in ann:
         return BEDROOM["tray_riser"]
-    if iid == "MEC-CU-RISER" or "RISER" in ann or "PASSING" in ann:
+    if "RISER" in ann or "PASSING" in ann:
         return BEDROOM["tray_riser"]
-    if iid in {"MEC-CU-IN", "MEC-CU-ROOF"} or "F+R" in ann or "REFRIGERANT" in ann:
+    if "F+R" in ann or "REFRIGERANT" in ann or "PAIR" in ann:
         return BEDROOM["cu_in"]
     if iid in {"VENT-AHU", "PLUM-ASHP-DHW"}:
         return BEDROOM["exclusions"]
