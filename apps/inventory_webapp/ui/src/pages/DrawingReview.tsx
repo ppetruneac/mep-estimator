@@ -278,9 +278,10 @@ export function DrawingReview() {
         </Button>
       </div>
 
+      <div className="drawing-table-wide">
       <Card className="overflow-hidden p-0">
         <div className="obs-table-scroll">
-          <Table className="min-w-[96rem]">
+          <Table className="min-w-[90rem] w-full">
             <TableHead>
               <TableRow>
                 <TableHeaderCell>
@@ -377,6 +378,7 @@ export function DrawingReview() {
           </Table>
         </div>
       </Card>
+      </div>
 
       {amend && (
         <AmendModal

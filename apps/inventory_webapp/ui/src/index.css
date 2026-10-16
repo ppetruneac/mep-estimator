@@ -150,6 +150,23 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
   -webkit-overflow-scrolling: touch;
 }
 
+/* Drawing inventory table: wider than page chrome, still scrolls if needed */
+.drawing-table-wide {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+@media (min-width: 1280px) {
+  .drawing-table-wide {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
 /* Type + Status + Actions sticky; wider status so pending/approved fit */
 .tremor-Table-table th.type-col,
 .tremor-Table-table td.type-col,
