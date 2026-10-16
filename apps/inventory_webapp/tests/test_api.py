@@ -60,7 +60,10 @@ def test_drawing_keyed_by_number_not_int(client):
     ).json()
     assert len(items) > 0
     sample = next(i for i in items if i.get("item_id") == "MEC-CU-IN")
-    assert sample["category"] == "Refrigerant / F+R pipe"
+    assert "FLOW AND RETURN" in (sample["category"] or "").upper() or "REFRIGERANT" in (
+        sample["category"] or ""
+    ).upper()
+    assert sample["catalog_category"] == "Refrigerant / F+R pipe"
     assert sample["item_label"] and "refrigerant" in sample["item_label"].lower()
 
 
@@ -72,15 +75,16 @@ def test_facets_and_filters(client):
     key = basement["key"]
 
     facets = client.get(f"/api/projects/{puuid}/drawings/{key}/facets").json()
-    assert any(c["category"] == "Indoor terminals" for c in facets["categories"])
+    assert any("INDOOR UNITS" in c["category"].upper() for c in facets["categories"])
     assert sum(c["count"] for c in facets["categories"]) == basement["item_count"]
 
+    indoor = next(c["category"] for c in facets["categories"] if "INDOOR UNITS" in c["category"].upper())
     filtered = client.get(
         f"/api/projects/{puuid}/drawings/{key}/items",
-        params={"category": "Indoor terminals"},
+        params={"category": indoor},
     ).json()
     assert filtered
-    assert all(i["category"] == "Indoor terminals" for i in filtered)
+    assert all(i["category"] == indoor for i in filtered)
 
     searched = client.get(
         f"/api/projects/{puuid}/drawings/{key}/items",

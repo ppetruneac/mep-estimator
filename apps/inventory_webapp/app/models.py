@@ -83,7 +83,9 @@ class ItemOut(BaseModel):
     amended_notes: str | None = None
     reviewed_at: str | None = None
     effective_qty: float = 0
-    category: str | None = None
+    category: str | None = None  # gold Excel section band (primary)
+    excel_category: str | None = None
+    catalog_category: str | None = None
 
 
 class CategoryFacet(BaseModel):

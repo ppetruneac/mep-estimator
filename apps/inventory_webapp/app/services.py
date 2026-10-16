@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import sqlite3
 
+from app.excel_bands import excel_category
 from app.labels import MEASUREMENT_TYPE_HELP, item_label
 
 
@@ -17,12 +18,17 @@ def effective_qty(row: sqlite3.Row | dict) -> float:
     return float(d.get("qty") or 0)
 
 
-def item_dict(conn: sqlite3.Connection, row: sqlite3.Row) -> dict:
+def item_dict(
+    conn: sqlite3.Connection,
+    row: sqlite3.Row,
+    *,
+    floor_tab_name: str | None = None,
+) -> dict:
     d = dict(row)
     d["amber_flag"] = bool(d.get("amber_flag"))
     d["status"] = d.get("status") or "pending"
     d["effective_qty"] = effective_qty(d)
-    cat = None
+    catalog_cat = None
     catalog_desc = None
     if d.get("item_id"):
         r = conn.execute(
@@ -30,13 +36,20 @@ def item_dict(conn: sqlite3.Connection, row: sqlite3.Row) -> dict:
             (d["item_id"],),
         ).fetchone()
         if r:
-            cat = r["category"]
+            catalog_cat = r["category"]
             catalog_desc = r["description"]
-    d["category"] = cat or "Unclassified"
+    # Prefer gold-Excel section band as the primary "category" in the UI table
+    d["excel_category"] = excel_category(
+        floor_tab_name=floor_tab_name,
+        item_id=d.get("item_id"),
+        annotation=d.get("annotation"),
+        symbol_class=d.get("symbol_class"),
+    )
+    d["category"] = d["excel_category"]
+    d["catalog_category"] = catalog_cat or "Unclassified"
     d["item_label"] = item_label(d.get("item_id")) or catalog_desc
     mt = d.get("measurement_type")
     d["measurement_type_help"] = MEASUREMENT_TYPE_HELP.get(mt or "", None)
-    # drop heavy unused
     for k in ("pixel_bbox_json", "real_world_json", "centroid_json", "occurrence_key"):
         d.pop(k, None)
     return d

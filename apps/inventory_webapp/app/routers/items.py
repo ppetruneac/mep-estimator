@@ -70,12 +70,13 @@ def list_items_by_key(
         doc = resolve_drawing(conn, project_uuid, drawing_key)
         if not doc:
             raise HTTPException(404, "drawing not found")
+        # Category filter is applied in Python against excel_category (gold bands)
         extra, params = _filter_sql(
             status=status,
             measurement_type=measurement_type,
             scope=scope,
             item_id=item_id,
-            category=category,
+            category=None,
             q=q,
         )
         sql = f"""
@@ -84,10 +85,15 @@ def list_items_by_key(
             LEFT JOIN catalog_items c ON c.item_id = o.item_id
             WHERE o.document_id = ?
             {extra}
-            ORDER BY COALESCE(c.category, 'Unclassified'), o.item_id, o.id
+            ORDER BY o.item_id, o.id
         """
         rows = conn.execute(sql, [doc["id"], *params]).fetchall()
-        return [ItemOut(**item_dict(conn, r)) for r in rows]
+        floor = doc["floor_tab_name"] if "floor_tab_name" in doc.keys() else None
+        items = [ItemOut(**item_dict(conn, r, floor_tab_name=floor)) for r in rows]
+        if category:
+            items = [i for i in items if (i.category or "") == category]
+        items.sort(key=lambda i: (i.category or "", i.item_id or "", i.id))
+        return items
     finally:
         conn.close()
 
@@ -103,17 +109,22 @@ def drawing_facets(project_uuid: str, drawing_key: str):
         doc = resolve_drawing(conn, project_uuid, drawing_key)
         if not doc:
             raise HTTPException(404, "drawing not found")
-        cats = conn.execute(
-            """
-            SELECT COALESCE(c.category, 'Unclassified') AS category, COUNT(*) AS count
-            FROM occurrences o
-            LEFT JOIN catalog_items c ON c.item_id = o.item_id
-            WHERE o.document_id = ?
-            GROUP BY 1
-            ORDER BY count DESC, category
-            """,
+        # Facet chips use gold Excel section bands
+        floor = doc["floor_tab_name"] if "floor_tab_name" in doc.keys() else None
+        rows = conn.execute(
+            "SELECT * FROM occurrences WHERE document_id = ?",
             (doc["id"],),
         ).fetchall()
+        from collections import Counter
+
+        cat_counts: Counter[str] = Counter()
+        for r in rows:
+            it = item_dict(conn, r, floor_tab_name=floor)
+            cat_counts[it["category"] or "Unclassified"] += 1
+        cats = [
+            {"category": k, "count": v}
+            for k, v in sorted(cat_counts.items(), key=lambda kv: (-kv[1], kv[0]))
+        ]
         statuses = conn.execute(
             """
             SELECT COALESCE(status, 'pending') AS key, COUNT(*) AS count
@@ -215,7 +226,14 @@ def patch_item(item_id: int, body: ItemPatch):
         )
         conn.commit()
         row = conn.execute("SELECT * FROM occurrences WHERE id = ?", (item_id,)).fetchone()
-        return ItemOut(**item_dict(conn, row))
+        floor = None
+        if row:
+            d = conn.execute(
+                "SELECT floor_tab_name FROM documents WHERE id = ?",
+                (row["document_id"],),
+            ).fetchone()
+            floor = d["floor_tab_name"] if d else None
+        return ItemOut(**item_dict(conn, row, floor_tab_name=floor))
     finally:
         conn.close()
 

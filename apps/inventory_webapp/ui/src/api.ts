@@ -76,6 +76,8 @@ export type Item = {
   amended_notes?: string;
   effective_qty: number;
   category?: string;
+  excel_category?: string;
+  catalog_category?: string;
   amber_flag: boolean;
   notes?: string;
   linked_to?: string;

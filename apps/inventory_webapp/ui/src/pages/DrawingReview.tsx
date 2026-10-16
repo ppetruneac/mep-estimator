@@ -141,7 +141,7 @@ export function DrawingReview() {
         <div className="space-y-3">
           <div>
             <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">
-              Category
+              Category (Excel section)
             </div>
             <div className="flex flex-wrap gap-2">
               <Chip
@@ -307,11 +307,17 @@ export function DrawingReview() {
                       : undefined
                   }
                 >
-                  <TableCell className="text-slate-700">
-                    {it.category || "Unclassified"}
+                  <TableCell className="text-slate-700 dark:text-gray-300">
+                    <div>{it.category || "Unclassified"}</div>
+                    {it.catalog_category &&
+                      it.catalog_category !== it.category && (
+                        <div className="text-xs text-slate-400">
+                          Catalog: {it.catalog_category}
+                        </div>
+                      )}
                   </TableCell>
                   <TableCell>
-                    <div className="font-medium text-slate-900">
+                    <div className="font-medium text-slate-900 dark:text-gray-100">
                       {it.item_id || "—"}
                     </div>
                     {it.item_label && (
