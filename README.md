@@ -11,6 +11,7 @@ The method in this repo is also the seed for **Riser** ([getriser.co.uk](https:/
 | [docs/riser/business-plan.md](docs/riser/business-plan.md) | Offer, buyer, pricing shape, go-to-market |
 | [docs/riser/technical-execution.md](docs/riser/technical-execution.md) | Domain model, pipeline, Excel round-trip, build slices |
 | [AGENTS.md](AGENTS.md) | Extractor setup, eval gate, ID conventions |
+| [src/riser_extract/README.md](src/riser_extract/README.md) | Phase 1 extractor package docs |
 
 ## Skills (method docs — kept)
 
@@ -24,6 +25,8 @@ The method in this repo is also the seed for **Riser** ([getriser.co.uk](https:/
 ## Phase 1 extractor (`riser_extract`)
 
 Deterministic geometry and text extraction from plotted MEP PDFs (no ML/YOLO).
+
+See [src/riser_extract/README.md](src/riser_extract/README.md) for package layout, modules, and schema.
 
 ```bash
 uv venv .venv && uv pip install -e ".[dev]"
