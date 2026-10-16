@@ -191,10 +191,24 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
   position: sticky;
   right: 0;
   z-index: 5;
-  min-width: 12.5rem;
-  width: 12.5rem;
+  min-width: 6.5rem;
+  width: 6.5rem;
   background: #ffffff;
   box-shadow: -6px 0 8px -6px rgb(15 23 42 / 18%);
+}
+.action-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: transparent;
+  cursor: pointer;
+}
+.action-icon-btn:hover {
+  outline: none;
 }
 .tremor-Table-table thead th.actions-col {
   background: #f8fafc;

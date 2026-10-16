@@ -3,7 +3,10 @@ import { createPortal } from "react-dom";
 import { Link, useParams } from "react-router-dom";
 import {
   ArrowTopRightOnSquareIcon,
+  CheckIcon,
   InformationCircleIcon,
+  NoSymbolIcon,
+  PencilSquareIcon,
 } from "@heroicons/react/24/outline";
 import {
   Button,
@@ -354,27 +357,33 @@ export function DrawingReview() {
                     </span>
                   </TableCell>
                   <TableCell className="actions-col">
-                    <div className="flex flex-nowrap items-center gap-1">
+                    <div className="flex flex-nowrap items-center justify-end gap-0.5">
                       <button
                         type="button"
-                        className="rounded-md px-2 py-1 text-xs font-medium text-emerald-700 hover:bg-emerald-50"
+                        title="Approve"
+                        aria-label="Approve"
+                        className="action-icon-btn text-emerald-700 hover:bg-emerald-50 dark:text-emerald-400 dark:hover:bg-emerald-500/10"
                         onClick={() => setItemStatus(it.id, "approved")}
                       >
-                        Approve
+                        <CheckIcon className="h-4 w-4" />
                       </button>
                       <button
                         type="button"
-                        className="rounded-md px-2 py-1 text-xs font-medium text-red-700 hover:bg-red-50"
+                        title="Exclude"
+                        aria-label="Exclude"
+                        className="action-icon-btn text-red-700 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-500/10"
                         onClick={() => setItemStatus(it.id, "excluded")}
                       >
-                        Exclude
+                        <NoSymbolIcon className="h-4 w-4" />
                       </button>
                       <button
                         type="button"
-                        className="rounded-md px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-100"
+                        title="Amend"
+                        aria-label="Amend"
+                        className="action-icon-btn text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10"
                         onClick={() => setAmend(it)}
                       >
-                        Amend
+                        <PencilSquareIcon className="h-4 w-4" />
                       </button>
                     </div>
                   </TableCell>
