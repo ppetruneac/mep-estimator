@@ -366,13 +366,17 @@ function TypeInfoTip({
   const [open, setOpen] = useState(false);
   const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
+  const hideTimer = useRef<number | null>(null);
 
-  function toggle(e: React.MouseEvent) {
-    e.stopPropagation();
-    if (open) {
-      setOpen(false);
-      return;
+  function clearHide() {
+    if (hideTimer.current != null) {
+      window.clearTimeout(hideTimer.current);
+      hideTimer.current = null;
     }
+  }
+
+  function show() {
+    clearHide();
     const rect = btnRef.current?.getBoundingClientRect();
     if (rect) {
       const width = 320;
@@ -380,7 +384,6 @@ function TypeInfoTip({
         Math.max(8, rect.left),
         window.innerWidth - width - 8
       );
-      // Prefer below the icon; flip up if near bottom of viewport
       const below = rect.bottom + 8;
       const approxHeight = 220;
       const top =
@@ -392,23 +395,30 @@ function TypeInfoTip({
     setOpen(true);
   }
 
+  function hideSoon() {
+    clearHide();
+    hideTimer.current = window.setTimeout(() => setOpen(false), 120);
+  }
+
   useEffect(() => {
     if (!open) return;
     function onScroll() {
       setOpen(false);
     }
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpen(false);
-    }
     window.addEventListener("scroll", onScroll, true);
     window.addEventListener("resize", onScroll);
-    window.addEventListener("keydown", onKey);
     return () => {
       window.removeEventListener("scroll", onScroll, true);
       window.removeEventListener("resize", onScroll);
-      window.removeEventListener("keydown", onKey);
     };
   }, [open]);
+
+  useEffect(
+    () => () => {
+      clearHide();
+    },
+    []
+  );
 
   const entries =
     types.length > 0
@@ -423,14 +433,13 @@ function TypeInfoTip({
         ];
 
   return (
-    <span className="inline-flex">
+    <span className="inline-flex" onMouseEnter={show} onMouseLeave={hideSoon}>
       <button
         ref={btnRef}
         type="button"
         className="inline-flex text-slate-400 hover:text-slate-700"
         aria-label="Measurement type descriptions"
         aria-expanded={open}
-        onClick={toggle}
       >
         <InformationCircleIcon className="h-4 w-4" />
       </button>
@@ -440,7 +449,8 @@ function TypeInfoTip({
           <div
             className="fixed z-[100] w-80 rounded-xl border border-slate-200 bg-white p-3 text-left shadow-xl"
             style={{ top: pos.top, left: pos.left }}
-            onMouseDown={(e) => e.stopPropagation()}
+            onMouseEnter={show}
+            onMouseLeave={hideSoon}
           >
             <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
               Measurement types
