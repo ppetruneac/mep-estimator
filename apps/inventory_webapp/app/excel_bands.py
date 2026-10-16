@@ -1,45 +1,26 @@
-"""Map extractor rows → Hubby gold Excel section bands.
+"""Map extractor rows → Hubby gold Excel take-off categories.
 
-The gold workbook uses lettered sections per floor tab, e.g.
-``A — INDOOR UNITS AND CONTROLLERS``. Those are what estimators expect
-to see as "category" in the review table.
+These names match the source inventory workbook section bands
+(without per-floor letter prefixes), so the review table reads like
+the Excel file.
 """
 
 from __future__ import annotations
 
-# Normalised section titles (single em-dash form)
-BEDROOM = {
-    "fcu_hbc": "A — INDOOR UNITS AND CONTROLLERS",
-    "cu_in": "B — REFRIGERANT / F+R PIPEWORK",
-    "tray_riser": "C — TRAY AND RISERS",
-    "associated": "D — ASSOCIATED PIPE NOT DRAWN",
-    "exclusions": "E — EXCLUSIONS",
-}
-
-BASEMENT = {
-    "fcu_hbc": "A — INDOOR UNITS AND CONTROLLERS",
-    "cu_in": "B — FLOW AND RETURN PIPEWORK (FCU TO HBC / RISER)",
-    "refrigerant": "C — REFRIGERANT (BASEMENT ONLY)",
-    "tray_riser": "D — TRAY AND RISERS",
-    "electric": "E — ELECTRIC HEATING",
-    "associated": "F — ASSOCIATED PIPEWORK NOT ANNOTATED ON THE SHEET",
-    "exclusions": "G — EXCLUSIONS / INTERFACES",
-}
-
-GROUND = {
-    "context": "A — DRAWING CONTEXT (ROOMS ON THIS SHEET)",
-    "terminals": "B — HOTEL TERMINALS (ANNOTATED EQUIPMENT)",
-    "riser": "C — RISERS AND REFRIGERANT PIPEWORK",
-    "no_pipe": "D — PIPEWORK NOT PRESENT ON THIS SHEET",
-    "exclusions": "E — EXCLUSIONS",
-}
-
-ROOF = {
-    "plant": "A — NAMED PLANT (ON THE SHEET)",
-    "duct": "B — PRINTED DUCT SIZES (ROOF CONNECTIONS)",
-    "refrigerant": "C — REFRIGERANT AND WATER FROM THE ROOF",
-    "exclusions": "D — EXCLUSIONS / INTERFACES",
-}
+# Canonical categories (same language as the gold Excel)
+INDOOR_UNITS = "INDOOR UNITS AND CONTROLLERS"
+FLOW_RETURN = "FLOW AND RETURN PIPEWORK"
+REFRIGERANT = "REFRIGERANT"
+TRAY_RISERS = "TRAY AND RISERS"
+ELECTRIC_HEATING = "ELECTRIC HEATING"
+PIPE_LAGGING = "PIPE LAGGING"
+CONTAINMENT = "CONTAINMENT (TRAY / PIPE / SUPPORTS / CLIPS)"
+CONSUMABLES = "CONSUMABLES"
+ROOM_STATS = "ROOM THERMOSTATS / CONTROLLERS"
+EXCLUSIONS = "EXCLUSIONS / INTERFACES"
+ASSOCIATED_NOT_DRAWN = "ASSOCIATED PIPE NOT DRAWN"
+NAMED_PLANT = "NAMED PLANT"
+DUCT_SIZES = "PRINTED DUCT SIZES"
 
 
 def excel_category(
@@ -54,90 +35,56 @@ def excel_category(
     ann = (annotation or "").upper()
     sym = (symbol_class or "").lower()
 
-    if floor == "Basement":
-        return _basement(iid, ann, sym)
-    if floor == "Ground Floor":
-        return _ground(iid, ann, sym)
-    if floor == "Roof Plant":
-        return _roof(iid, ann, sym)
-    # Bedroom floors (and First Floor if ever present)
-    return _bedroom(iid, ann, sym)
-
-
-def _basement(iid: str, ann: str, sym: str) -> str:
-    # item_id wins over annotation keywords (F+R rows mention FCU tags)
-    if iid.startswith("MEC-CU-IN") or iid == "MEC-CU-IN":
-        return BASEMENT["cu_in"]
-    if iid == "MEC-CU-RISER":
-        return BASEMENT["tray_riser"]
-    if iid in {"MEC-TRAY-300", "MEC-TRAY-400"}:
-        return BASEMENT["tray_riser"]
+    # --- item_id first (stable) ---
     if iid in {"MEC-FCU-WALL", "MEC-FCU-CASS", "MEC-HBC"} or sym in {
         "fcu_wall",
         "fcu_cass",
         "hbc",
     }:
-        return BASEMENT["fcu_hbc"]
+        return INDOOR_UNITS
+
     if iid in {"ELEC-PNL", "ELEC-CUR"} or sym in {"panel_heater", "door_curtain"}:
-        return BASEMENT["electric"]
-    if "TRAY" in ann:
-        return BASEMENT["tray_riser"]
-    if "RISER" in ann or "PASSING" in ann:
-        return BASEMENT["tray_riser"]
-    if "F+R" in ann or "PAIR" in ann:
-        return BASEMENT["cu_in"]
-    if iid in {"VENT-AHU", "PLUM-ASHP-DHW"} or "EXCLUS" in ann:
-        return BASEMENT["exclusions"]
-    if "REFRIGERANT" in ann and "HBC" not in ann:
-        return BASEMENT["refrigerant"]
-    return BASEMENT["associated"]
+        # Ground-floor annotated electrics sit with hotel terminals in Excel,
+        # but the shared estimator language is electric heating.
+        return ELECTRIC_HEATING
 
+    if iid in {"MEC-TRAY-300", "MEC-TRAY-400"} or "TRAY" in ann:
+        return TRAY_RISERS
 
-def _ground(iid: str, ann: str, sym: str) -> str:
-    if iid in {"ELEC-PNL", "ELEC-CUR", "MEC-FCU-WALL", "MEC-FCU-CASS", "MEC-HBC"} or sym in {
-        "panel_heater",
-        "door_curtain",
-        "fcu_wall",
-        "fcu_cass",
-        "hbc",
-    }:
-        return GROUND["terminals"]
-    if iid in {"MEC-CU-RISER", "MEC-CU-IN"} or "RISER" in ann or "REFRIGERANT" in ann:
-        return GROUND["riser"]
-    if iid in {"VENT-AHU", "PLUM-ASHP-DHW"}:
-        return GROUND["exclusions"]
-    return GROUND["context"]
+    if iid == "MEC-CU-RISER" or "RISER" in ann or "PASSING" in ann:
+        return TRAY_RISERS
 
-
-def _roof(iid: str, ann: str, sym: str) -> str:
-    if iid in {"VENT-AHU", "PLUM-ASHP-DHW", "MEC-ODU"} or sym in {"ahu", "ashp"}:
-        return ROOF["plant"]
-    if iid in {"MEC-CU-ROOF", "MEC-CU-IN", "MEC-CU-RISER"} or "REFRIGERANT" in ann:
-        return ROOF["refrigerant"]
-    if "DUCT" in ann:
-        return ROOF["duct"]
-    return ROOF["exclusions"]
-
-
-def _bedroom(iid: str, ann: str, sym: str) -> str:
     if iid in {"MEC-CU-IN", "MEC-CU-ROOF"}:
-        return BEDROOM["cu_in"]
-    if iid == "MEC-CU-RISER":
-        return BEDROOM["tray_riser"]
-    if iid in {"MEC-TRAY-300", "MEC-TRAY-400"}:
-        return BEDROOM["tray_riser"]
-    if iid in {"MEC-FCU-WALL", "MEC-FCU-CASS", "MEC-HBC"} or sym in {
-        "fcu_wall",
-        "fcu_cass",
-        "hbc",
-    }:
-        return BEDROOM["fcu_hbc"]
-    if "TRAY" in ann:
-        return BEDROOM["tray_riser"]
-    if "RISER" in ann or "PASSING" in ann:
-        return BEDROOM["tray_riser"]
-    if "F+R" in ann or "REFRIGERANT" in ann or "PAIR" in ann:
-        return BEDROOM["cu_in"]
-    if iid in {"VENT-AHU", "PLUM-ASHP-DHW"}:
-        return BEDROOM["exclusions"]
-    return BEDROOM["associated"]
+        # Basement F+R home-runs are "flow and return"; roof laterals are refrigerant.
+        if floor == "Roof Plant" or iid == "MEC-CU-ROOF":
+            return REFRIGERANT
+        if "REFRIGERANT" in ann and "F+R" not in ann and "PAIR" not in ann:
+            return REFRIGERANT
+        return FLOW_RETURN
+
+    if iid in {"MEC-LAG-S", "MEC-LAG-L"} or "LAGGING" in ann or "LAG" in ann:
+        return PIPE_LAGGING
+
+    if iid == "ELEC-STAT" or "THERMOSTAT" in ann or "STAT" in ann:
+        return ROOM_STATS
+
+    if iid in {"VENT-AHU", "PLUM-ASHP-DHW", "MEC-ODU"} or sym in {"ahu", "ashp"}:
+        if floor == "Roof Plant":
+            return NAMED_PLANT
+        return EXCLUSIONS
+
+    # --- annotation fallbacks ---
+    if "F+R" in ann or "PAIR" in ann or "HOME-RUN" in ann or "HOME RUN" in ann:
+        return FLOW_RETURN
+    if "REFRIGERANT" in ann:
+        return REFRIGERANT
+    if "DUCT" in ann:
+        return DUCT_SIZES
+    if "CLIP" in ann or "HANGER" in ann or "COUPLER" in ann or "SUPPORT" in ann:
+        return CONTAINMENT
+    if "OFN" in ann or "NITROGEN" in ann or "CONSUMABLE" in ann:
+        return CONSUMABLES
+    if "CONDENS" in ann:
+        return ASSOCIATED_NOT_DRAWN
+
+    return ASSOCIATED_NOT_DRAWN
