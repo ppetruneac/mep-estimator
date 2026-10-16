@@ -139,7 +139,7 @@ export function DrawingReview() {
       {facets && (
         <div className="space-y-3">
           <div>
-            <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">
+            <div className="mb-1.5 obs-label-upper">
               Category
             </div>
             <div className="flex flex-wrap gap-2">
@@ -163,7 +163,7 @@ export function DrawingReview() {
             </div>
           </div>
           <div>
-            <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">
+            <div className="mb-1.5 obs-label-upper">
               Status
             </div>
             <div className="flex flex-wrap gap-2">
@@ -194,7 +194,7 @@ export function DrawingReview() {
             </div>
           </div>
           <div>
-            <div className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">
+            <div className="mb-1.5 flex items-center gap-1.5 obs-label-upper">
               Type
               <TypeInfoTip types={facets.measurement_types || []} />
             </div>
@@ -570,7 +570,7 @@ function TypeInfoTip({
             onMouseEnter={show}
             onMouseLeave={hideSoon}
           >
-            <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+            <div className="mb-2 obs-label-upper">
               Measurement types
             </div>
             <ul className="space-y-2 text-xs text-slate-700 dark:text-gray-300">

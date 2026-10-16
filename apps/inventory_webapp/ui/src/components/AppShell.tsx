@@ -74,7 +74,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               </button>
               {projectsOpen && (
                 <div className="absolute left-0 top-[calc(100%+0.4rem)] z-50 w-80 rounded-xl border border-slate-200 bg-white p-2 shadow-lg dark:border-gray-700 dark:bg-gray-900">
-                  <div className="px-2 py-1 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  <div className="px-2 py-1 obs-label-upper">
                     All projects
                   </div>
                   {projects.length === 0 && (
@@ -152,14 +152,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                     </div>
                   </div>
                   <div className="my-1 border-t border-slate-100 dark:border-gray-800" />
-                  <div className="px-2 py-1 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  <div className="px-2 py-1 obs-label-upper">
                     Organisation
                   </div>
                   <div className="px-2 py-1 text-sm text-slate-700 dark:text-gray-300">
                     Seneca Group Ltd
                   </div>
                   <div className="my-1 border-t border-slate-100 dark:border-gray-800" />
-                  <div className="px-2 py-1 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  <div className="px-2 py-1 obs-label-upper">
                     Options
                   </div>
                   <div className="px-2 py-2">

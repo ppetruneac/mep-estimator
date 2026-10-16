@@ -86,7 +86,7 @@ export function ProjectView() {
 
       {tb && (
         <Card>
-          <Text className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+          <Text className="obs-label-upper">
             Title block (from drawings)
           </Text>
           <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -226,7 +226,7 @@ function Meta({ label, value }: { label: string; value?: string | null }) {
   if (!value) return null;
   return (
     <div>
-      <div className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+      <div className="obs-label-upper">
         {label}
       </div>
       <div className="mt-0.5 text-sm font-medium text-slate-900">{value}</div>

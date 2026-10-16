@@ -40,19 +40,19 @@ export function ProjectPicker() {
               )}
               <div className="mt-3 space-y-1 text-sm text-slate-700 dark:text-gray-300">
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  <span className="obs-label-upper">
                     Client
                   </span>{" "}
                   {p.client || tb?.client || "—"}
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  <span className="obs-label-upper">
                     Architect
                   </span>{" "}
                   {p.architect || tb?.architect || "—"}
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  <span className="obs-label-upper">
                     Owner
                   </span>{" "}
                   {p.owner || tb?.mep || "Seneca Group Ltd"}
