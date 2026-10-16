@@ -163,13 +163,34 @@ html.dark .tremor-Table-table tbody tr.amber:hover td,
   -webkit-overflow-scrolling: touch;
 }
 
-/* Drawing inventory table: modestly wider than page chrome */
+/* Drawing inventory table: a bit wider than page chrome + denser type */
 .drawing-table-wide {
-  width: calc(100% + 4rem);
-  max-width: 86rem;
-  margin-left: -2rem;
-  margin-right: -2rem;
+  width: calc(100% + 6rem);
+  max-width: 92rem;
+  margin-left: -3rem;
+  margin-right: -3rem;
   box-sizing: border-box;
+}
+.drawing-table-wide .tremor-Table-table {
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.35;
+}
+.drawing-table-wide .tremor-Table-table thead th,
+.drawing-table-wide .tremor-Table-table th {
+  font-size: 0.75rem; /* 12px */
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+.drawing-table-wide .tremor-Table-table tbody td,
+.drawing-table-wide .tremor-Table-table td {
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+.drawing-table-wide .tremor-Table-table .text-xs {
+  font-size: 0.6875rem; /* 11px secondary labels */
+}
+.drawing-table-wide .tremor-Table-table .text-sm {
+  font-size: 0.8125rem;
 }
 @media (max-width: 1280px) {
   .drawing-table-wide {
