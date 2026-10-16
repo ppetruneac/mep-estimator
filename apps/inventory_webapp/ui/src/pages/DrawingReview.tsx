@@ -141,7 +141,7 @@ export function DrawingReview() {
         <div className="space-y-3">
           <div>
             <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">
-              Category
+              Catalogue
             </div>
             <div className="flex flex-wrap gap-2">
               <Chip
@@ -270,7 +270,7 @@ export function DrawingReview() {
             <TableHead>
               <TableRow>
                 <TableHeaderCell>
-                  <SortBtn label="Category" col="category" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
+                  <SortBtn label="Catalogue" col="category" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />
                 </TableHeaderCell>
                 <TableHeaderCell>
                   <SortBtn label="Item ID" col="item_id" sortKey={sortKey} sortDir={sortDir} onSort={onSort} />

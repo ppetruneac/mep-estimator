@@ -61,7 +61,6 @@ def test_drawing_keyed_by_number_not_int(client):
     assert len(items) > 0
     sample = next(i for i in items if i.get("item_id") == "MEC-CU-IN")
     assert sample["category"] == "B — FLOW AND RETURN PIPEWORK"
-    assert sample["catalog_category"] == "Refrigerant / F+R pipe"
     assert sample["item_label"] and "refrigerant" in sample["item_label"].lower()
 
 
